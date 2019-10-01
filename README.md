@@ -8,7 +8,7 @@
 | Steven Luu  |   | to be replaced | 000    |
 | Nelson Zeng |   | to be replaced | 000    |
 | Mehdi Ammar | 260XXXXXX | to be replaced | 000    |
-| Mert Gurkan | 260XXXXXX | to be replaced | 000    |
+| Mert Gurkan |   | to be replaced | 000    |
 | Tian Ci Liu | 260XXXXXX | to be replaced | 000    |
 
 Project Description:
