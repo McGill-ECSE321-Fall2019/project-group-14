@@ -1,13 +1,15 @@
 # project-group-14
 
-Welcome to Group 14's project!
+## Welcome to ECSE 321 Group 14's project!
 
-Members:<br/>			
-Steven Luu	260866167<br/>
-Nelson Zeng	260XXXXXX<br/>
-Mehdi Ammar	260XXXXXX<br/>
-Mert Gurkan	260XXXXXX<br/>
-Tian Ci Liu	260XXXXXX<br/>
+### *Deliverable 1*
+| Members:    | ID:       | Role:          | Hours: |
+|-------------|-----------|----------------|--------|
+| Steven Luu  | 260866167 | to be replaced | 000    |
+| Nelson Zeng | 260XXXXXX | to be replaced | 000    |
+| Mehdi Ammar | 260XXXXXX | to be replaced | 000    |
+| Mert Gurkan | 260XXXXXX | to be replaced | 000    |
+| Tian Ci Liu | 260XXXXXX | to be replaced | 000    |
 
 Project Description:
 	
