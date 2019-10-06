@@ -1,4 +1,4 @@
-# project-group-14
+﻿# project-group-14
 
 ## Welcome to ECSE 321 Group 14's project!
 
@@ -21,35 +21,7 @@ The tutoring  company will accomplish the needs of students at the high school, 
 3. UML Diagram (Domain Model)
 4. Persistence Layer
 
-Tools that were used in this deliverable include: Eclipse, SpringBoot, Gradle, UML Lab, Heroku, Draw.Io
-
-## Sprint Planning
-
-For sprint 1, we decided to complete most parts of the deliverable together as a team, since none of us were extremely familiar with the technologies used. 
-
-## Meeting 1 (120 minutes)
-
-- Project discussion
-- Detailed look at tutor point of view
-- Discussing functional and nonfunctional requirements
-- First draft of functional and nonfunctional requirements
-
-## Meeting 2 (120 minutes)
-
-- Finalized requirements
-- Discussion and distribution of the User Case Diagrams
-- First draft of Domain Model
-
-## Meeting 3 (120 minutes)
-
-- Finalized domain model
-- 
-
-## Technical Issues
-
-- Installation of UML Lab
-- 
-
+Tools that were used in this deliverable include: Eclipse, SpringBoot, Gradle, UML Lab, Heroku, Draw.io
 ## Teamwork Report:
 
 | Members:    | ID:       | Responsibility:| Hours: |
@@ -60,5 +32,4 @@ For sprint 1, we decided to complete most parts of the deliverable together as a
 | Mert Gurkan | 260716883 | to be replaced | 000    |
 | Tian Ci Liu | 260866005 | to be replaced | 000    |
 
-## File Location
 
