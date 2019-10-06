@@ -7,7 +7,7 @@
 ## Table of Contents
 
 * [About](#about)
-* [Sprint Planning] (#sprint-planning)
+* [Sprint Planning](#sprint-planning)
 * [Technical Issues](#technical-issues)
 * [Teamwork Report](#teamwork-report)
 * [File Location](#file-location)
