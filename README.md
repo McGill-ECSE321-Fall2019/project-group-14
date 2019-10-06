@@ -52,7 +52,7 @@ For sprint 1, we decided to complete most parts of the deliverable together as a
 
 ## Teamwork Report:
 
-| Members:    | ID:       | Role:          | Hours: |
+| Members:    | ID:       | Responsibility:| Hours: |
 |-------------|-----------|----------------|--------|
 | Steven Luu  | 260866167 | to be replaced | 000    |
 | Nelson Zeng | 260866043 | to be replaced | 000    |
