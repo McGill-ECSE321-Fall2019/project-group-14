@@ -1,4 +1,5 @@
 language: java
-jdk: open jdk11
+script:
+- gradle build
 
 
