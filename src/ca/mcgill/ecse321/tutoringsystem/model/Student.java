@@ -31,12 +31,12 @@ public class Student extends User{
    }
    
    private int studentId;
-
-public void setStudentId(int value) {
+   
+   public void setStudentId(int value) {
     this.studentId = value;
-}
+    }
 @Id
 public int getStudentId() {
     return this.studentId;
-}
-}
+       }
+   }

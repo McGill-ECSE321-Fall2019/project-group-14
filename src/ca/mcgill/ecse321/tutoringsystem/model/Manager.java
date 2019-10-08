@@ -41,12 +41,12 @@ public class Manager extends User{
    }
    
    private int managerId;
-
-public void setManagerId(int value) {
+   
+   public void setManagerId(int value) {
     this.managerId = value;
-}
+    }
 @Id
 public int getManagerId() {
     return this.managerId;
-}
-}
+       }
+   }

@@ -28,36 +28,36 @@ public class Application{
    }
    
    private String name;
-
-public void setName(String value) {
+   
+   public void setName(String value) {
     this.name = value;
-}
+    }
 public String getName() {
     return this.name;
-}
+    }
 private String email;
 
 public void setEmail(String value) {
     this.email = value;
-}
+    }
 public String getEmail() {
     return this.email;
-}
+    }
 private String courses;
 
 public void setCourses(String value) {
     this.courses = value;
-}
+    }
 public String getCourses() {
     return this.courses;
-}
+    }
 private int applicationId;
 
 public void setApplicationId(int value) {
     this.applicationId = value;
-}
+    }
 @Id
 public int getApplicationId() {
     return this.applicationId;
-}
-}
+       }
+   }

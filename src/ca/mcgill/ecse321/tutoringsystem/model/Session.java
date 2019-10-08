@@ -30,12 +30,12 @@ public class Session{
    }
    
    private int sessionId;
-
-public void setSessionId(int value) {
+   
+   public void setSessionId(int value) {
     this.sessionId = value;
-}
+    }
 @Id
 public int getSessionId() {
     return this.sessionId;
-}
-}
+       }
+   }

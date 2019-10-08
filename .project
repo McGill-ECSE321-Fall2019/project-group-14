@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src-gen</name>
-			<type>2</type>
-			<location>C:/Users/TianCi/Desktop/ecse321-project-workspace-master/TutoringSystem-Backend/src/main/java</location>
-		</link>
-	</linkedResources>
 </projectDescription>
