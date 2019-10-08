@@ -64,12 +64,12 @@ public class Tutor extends User{
    }
    
    private int tutorId;
-
-public void setTutorId(int value) {
+   
+   public void setTutorId(int value) {
     this.tutorId = value;
-}
+    }
 @Id
 public int getTutorId() {
     return this.tutorId;
-}
-}
+       }
+   }
