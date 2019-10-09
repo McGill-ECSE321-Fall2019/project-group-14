@@ -49,28 +49,28 @@ public class Review{
    }
    
    private User from;
-   
-   public void setFrom(User value) {
+
+public void setFrom(User value) {
     this.from = value;
-    }
+}
 public User getFrom() {
     return this.from;
-    }
+}
 private User to;
 
 public void setTo(User value) {
     this.to = value;
-    }
+}
 public User getTo() {
     return this.to;
-    }
+}
 private int reviewId;
 
 public void setReviewId(int value) {
     this.reviewId = value;
-    }
+}
 @Id
 public int getReviewId() {
     return this.reviewId;
-       }
-   }
+}
+}

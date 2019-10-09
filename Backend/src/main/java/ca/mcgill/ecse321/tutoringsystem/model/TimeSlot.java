@@ -20,28 +20,28 @@ public class TimeSlot{
    }
    
    private Date date;
-   
-   public void setDate(Date value) {
+
+public void setDate(Date value) {
     this.date = value;
-    }
+}
 public Date getDate() {
     return this.date;
-    }
+}
 private Time time;
 
 public void setTime(Time value) {
     this.time = value;
-    }
+}
 public Time getTime() {
     return this.time;
-    }
+}
 private int timeSlotId;
 
 public void setTimeSlotId(int value) {
     this.timeSlotId = value;
-    }
+}
 @Id
 public int getTimeSlotId() {
     return this.timeSlotId;
-       }
-   }
+}
+}
