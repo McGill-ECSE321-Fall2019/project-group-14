@@ -22,14 +22,14 @@ public class Request{
    }
    
    private int requestId;
-   
-   public void setRequestId(int value) {
+
+public void setRequestId(int value) {
     this.requestId = value;
-    }
+}
 @Id
 public int getRequestId() {
     return this.requestId;
-    }
+}
 private Student student;
 
 @ManyToOne(optional=false)
@@ -56,18 +56,18 @@ private Time time;
 
 public void setTime(Time value) {
     this.time = value;
-    }
+}
 public Time getTime() {
     return this.time;
-    }
+}
 private Date date;
 
 public void setDate(Date value) {
     this.date = value;
-    }
+}
 public Date getDate() {
     return this.date;
-       }
+}
    private Notification notification;
    
    @OneToOne(mappedBy="request" , cascade={CascadeType.ALL}, optional=false)

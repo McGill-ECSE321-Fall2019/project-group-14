@@ -29,20 +29,20 @@ public class Wage{
    }
    
    private double wage;
-   
-   public void setWage(double value) {
+
+public void setWage(double value) {
     this.wage = value;
-    }
+}
 public double getWage() {
     return this.wage;
-    }
+}
 private int wageId;
 
 public void setWageId(int value) {
     this.wageId = value;
-    }
+}
 @Id
 public int getWageId() {
     return this.wageId;
-       }
-   }
+}
+}

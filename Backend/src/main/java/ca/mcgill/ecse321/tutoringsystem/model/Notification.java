@@ -30,12 +30,12 @@ public class Notification{
    }
    
    private int notificationId;
-   
-   public void setNotificationId(int value) {
+
+public void setNotificationId(int value) {
     this.notificationId = value;
-    }
+}
 @Id
 public int getNotificationId() {
     return this.notificationId;
-       }
-   }
+}
+}
