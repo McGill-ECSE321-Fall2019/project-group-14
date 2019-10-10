@@ -17,13 +17,13 @@ public class Application{
       this.manager = manager;
    }
    
-   private boolean isExistingUser;
+   private Boolean isExistingUser;
    
-   public void setIsExistingUser(boolean value) {
+   public void setIsExistingUser(Boolean value) {
       this.isExistingUser = value;
    }
    
-   public boolean isIsExistingUser() {
+   public Boolean getIsExistingUser() {
       return this.isExistingUser;
    }
    
@@ -51,13 +51,13 @@ public void setCourses(String value) {
 public String getCourses() {
     return this.courses;
 }
-private int applicationId;
+private Integer applicationId;
 
-public void setApplicationId(int value) {
+public void setApplicationId(Integer value) {
     this.applicationId = value;
 }
 @Id
-public int getApplicationId() {
+public Integer getApplicationId() {
     return this.applicationId;
 }
 }

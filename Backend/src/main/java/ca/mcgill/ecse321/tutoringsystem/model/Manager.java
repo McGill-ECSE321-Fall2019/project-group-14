@@ -40,13 +40,13 @@ public class Manager extends User{
       this.request = requests;
    }
    
-   private int managerId;
+   private Integer managerId;
 
-public void setManagerId(int value) {
+public void setManagerId(Integer value) {
     this.managerId = value;
 }
 @Id
-public int getManagerId() {
+public Integer getManagerId() {
     return this.managerId;
 }
 }

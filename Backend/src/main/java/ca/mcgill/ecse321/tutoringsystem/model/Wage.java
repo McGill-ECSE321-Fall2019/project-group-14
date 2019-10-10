@@ -28,21 +28,21 @@ public class Wage{
       this.course = course;
    }
    
-   private double wage;
+   private Integer wage;
 
-public void setWage(double value) {
+public void setWage(Integer value) {
     this.wage = value;
 }
-public double getWage() {
+public Integer getWage() {
     return this.wage;
 }
-private int wageId;
+private Integer wageId;
 
-public void setWageId(int value) {
+public void setWageId(Integer value) {
     this.wageId = value;
 }
 @Id
-public int getWageId() {
+public Integer getWageId() {
     return this.wageId;
 }
 }

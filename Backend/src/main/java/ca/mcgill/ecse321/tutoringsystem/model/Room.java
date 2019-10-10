@@ -6,23 +6,23 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Room{
-   private int roomNumber;
+   private Integer roomNumber;
    
-   public void setRoomNumber(int value) {
+   public void setRoomNumber(Integer value) {
       this.roomNumber = value;
    }
    
-   public int getRoomNumber() {
+   public Integer getRoomNumber() {
       return this.roomNumber;
    }
    
-   private int capacity;
+   private Integer capacity;
    
-   public void setCapacity(int value) {
+   public void setCapacity(Integer value) {
       this.capacity = value;
    }
    
-   public int getCapacity() {
+   public Integer getCapacity() {
       return this.capacity;
    }
    

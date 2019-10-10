@@ -28,13 +28,13 @@ public class Review{
       this.student = student;
    }
    
-   private int rating;
+   private Integer rating;
    
-   public void setRating(int value) {
+   public void setRating(Integer value) {
       this.rating = value;
    }
    
-   public int getRating() {
+   public Integer getRating() {
       return this.rating;
    }
    
@@ -64,13 +64,13 @@ public void setTo(User value) {
 public User getTo() {
     return this.to;
 }
-private int reviewId;
+private Integer reviewId;
 
-public void setReviewId(int value) {
+public void setReviewId(Integer value) {
     this.reviewId = value;
 }
 @Id
-public int getReviewId() {
+public Integer getReviewId() {
     return this.reviewId;
 }
 }

@@ -29,13 +29,13 @@ public class Session{
       this.request = request;
    }
    
-   private int sessionId;
+   private Integer sessionId;
 
-public void setSessionId(int value) {
+public void setSessionId(Integer value) {
     this.sessionId = value;
 }
 @Id
-public int getSessionId() {
+public Integer getSessionId() {
     return this.sessionId;
 }
 }
