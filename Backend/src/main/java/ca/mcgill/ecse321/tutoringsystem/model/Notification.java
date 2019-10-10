@@ -29,13 +29,13 @@ public class Notification{
       this.tutor = tutor;
    }
    
-   private int notificationId;
+   private Integer notificationId;
 
-public void setNotificationId(int value) {
+public void setNotificationId(Integer value) {
     this.notificationId = value;
 }
 @Id
-public int getNotificationId() {
+public Integer getNotificationId() {
     return this.notificationId;
 }
 }

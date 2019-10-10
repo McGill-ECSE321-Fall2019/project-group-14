@@ -3,7 +3,7 @@
   <uml:Model xmi:id="_xxyFAOeREemToPnOLeEJLQ" name="ca_mcgill_ecse321_tutoringsystem_model">
     <eAnnotations xmi:id="_x2fl4OeREemToPnOLeEJLQ" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_x2fl4eeREemToPnOLeEJLQ" source="codegen">
-        <details xmi:id="_nAAo0OhzEemUkc9FMtfjqQ" key="AssociatedSourceCode" value="/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/User.java;1058518654/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Manager.java;3069278676/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Student.java;3698737068/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Course.java;1615774281/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/SchoolLevel.java;1279337377/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Application.java;2315769203/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Request.java;3120978809/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Institution.java;3730884624/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Room.java;3173668867/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Tutor.java;3981687849/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Session.java;2476286615/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Review.java;3063813042/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Wage.java;3420408047/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Notification.java;3398075137/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/TimeSlot.java;1005332369/1;"/>
+        <details xmi:id="_nAAo0OhzEemUkc9FMtfjqQ" key="AssociatedSourceCode" value="/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/User.java;1058518654/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Manager.java;3061655767/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Student.java;2713167383/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Course.java;1615774281/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/SchoolLevel.java;1279337377/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Application.java;613740447/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Request.java;3486779307/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Institution.java;3730884624/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Room.java;881410953/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Tutor.java;38891155/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Session.java;2396740400/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Review.java;2798283612/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Wage.java;737065645/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Notification.java;1314067998/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/TimeSlot.java;2059299876/1;"/>
         <details xmi:id="_BOxjIOriEemkXbLyCovKqA" key="codegenDirectory" value="/ca.mcgill.ecse321.tutoringsystem.model/src-gen"/>
       </contents>
       <contents xmi:type="ecore:EAnnotation" xmi:id="_jkykYOedEemToPnOLeEJLQ" source="dangling-refs">
@@ -148,7 +148,7 @@
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dMsY1OhsEem-kuBNwFGEnQ" value="*"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_Zgf0EOiREemvTunkX6iuLg" name="tutorId" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_vKu4UOeTEemToPnOLeEJLQ" name="Session">
@@ -160,14 +160,14 @@
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XAF4QOeeEemToPnOLeEJLQ" value="1"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_holVgOiREemvTunkX6iuLg" name="sessionId" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_4UHMwOeVEemToPnOLeEJLQ" name="Review">
                 <ownedAttribute xmi:id="_-N8G4eeVEemToPnOLeEJLQ" name="tutor" type="_R4NZcOeTEemToPnOLeEJLQ" association="_-N8G4OeVEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_-ch8geeVEemToPnOLeEJLQ" name="student" type="_WgrZYOeTEemToPnOLeEJLQ" association="_-ch8gOeVEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_HgKqwOeXEemToPnOLeEJLQ" name="rating" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_KGd-oOeXEemToPnOLeEJLQ" name="comment" visibility="public">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -175,7 +175,7 @@
                 <ownedAttribute xmi:id="_y8egEOedEemToPnOLeEJLQ" name="from" visibility="public" type="_js4KYOeSEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_zR59gOedEemToPnOLeEJLQ" name="to" visibility="public" type="_js4KYOeSEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_VQPf0OiREemvTunkX6iuLg" name="reviewId" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_Hmo2YOhsEem-kuBNwFGEnQ" name="Wage">
@@ -188,10 +188,10 @@
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kenuUehsEem-kuBNwFGEnQ" value="1"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_mqkMAOhtEem-kuBNwFGEnQ" name="wage" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_LSp1UOiREemvTunkX6iuLg" name="wageId" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_ZgyZsOhqEem-kuBNwFGEnQ" name="Notification">
@@ -204,7 +204,7 @@
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dMsY0ehsEem-kuBNwFGEnQ" value="1"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_eNMzwOiREemvTunkX6iuLg" name="notificationId" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Association" xmi:id="_4aHMkOiREemz8reodOmmoQ" name="" memberEnd="_4aHzoOiREemz8reodOmmoQ _4aHzo-iREemz8reodOmmoQ">
@@ -228,7 +228,7 @@
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Af7c8OhtEem-kuBNwFGEnQ" value="*"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_jvCrsOiREemvTunkX6iuLg" name="managerId" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_48A6QOeVEemToPnOLeEJLQ" name="TimeSlot">
@@ -236,7 +236,7 @@
                 <ownedAttribute xmi:id="_oIbSMOeeEemToPnOLeEJLQ" name="date" visibility="public" type="_ytaxYOeSEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_oclkUOeeEemToPnOLeEJLQ" name="time" visibility="public" type="_yNnP8OeSEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_OqAysOiREemvTunkX6iuLg" name="timeSlotId" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_js4KYOeSEemToPnOLeEJLQ" name="User">
@@ -250,7 +250,7 @@
               <packagedElement xmi:type="uml:Class" xmi:id="_1vnPsOeVEemToPnOLeEJLQ" name="Application">
                 <ownedAttribute xmi:id="_9MQAYueVEemToPnOLeEJLQ" name="manager" type="_VErVcOeTEemToPnOLeEJLQ" association="_9MPZUOeVEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_NEWsEOeXEemToPnOLeEJLQ" name="isExistingUser" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_ugEIoOhtEem-kuBNwFGEnQ" name="name" visibility="public">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -262,7 +262,7 @@
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_T2xgYOhuEem-kuBNwFGEnQ" name="applicationId" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_WgrZYOeTEemToPnOLeEJLQ" name="Student" visibility="public">
@@ -276,13 +276,13 @@
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bQbo5ueaEemToPnOLeEJLQ" value="*"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_SFMgIOiREemvTunkX6iuLg" name="studentId" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_ua-PUOeTEemToPnOLeEJLQ" name="Request">
                 <ownedAttribute xmi:id="_s2ddseeVEemToPnOLeEJLQ" name="tutor" type="_R4NZcOeTEemToPnOLeEJLQ" association="_s2ddsOeVEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_snwBYOeXEemToPnOLeEJLQ" name="requestId" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_bQbo4eeaEemToPnOLeEJLQ" name="student" type="_WgrZYOeTEemToPnOLeEJLQ" association="_bQbo4OeaEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_b9Jk9OeaEemToPnOLeEJLQ" name="session" type="_vKu4UOeTEemToPnOLeEJLQ" aggregation="composite" association="_b9Jk8OeaEemToPnOLeEJLQ">
@@ -302,10 +302,10 @@
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_wDWiYOeTEemToPnOLeEJLQ" name="Room">
                 <ownedAttribute xmi:id="_jYLI4OeWEemToPnOLeEJLQ" name="roomNumber" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_loDg0OeWEemToPnOLeEJLQ" name="capacity" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="__naedOeZEemToPnOLeEJLQ" name="session" type="_vKu4UOeTEemToPnOLeEJLQ" aggregation="shared" association="__naecOeZEemToPnOLeEJLQ">
                   <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fY4IIOeeEemToPnOLeEJLQ"/>

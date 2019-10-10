@@ -63,13 +63,13 @@ public class Tutor extends User{
       this.notification = notifications;
    }
    
-   private int tutorId;
+   private Integer tutorId;
 
-public void setTutorId(int value) {
+public void setTutorId(Integer value) {
     this.tutorId = value;
 }
 @Id
-public int getTutorId() {
+public Integer getTutorId() {
     return this.tutorId;
 }
 }

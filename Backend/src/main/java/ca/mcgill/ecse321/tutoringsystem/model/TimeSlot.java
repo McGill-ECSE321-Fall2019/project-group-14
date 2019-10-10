@@ -35,13 +35,13 @@ public void setTime(Time value) {
 public Time getTime() {
     return this.time;
 }
-private int timeSlotId;
+private Integer timeSlotId;
 
-public void setTimeSlotId(int value) {
+public void setTimeSlotId(Integer value) {
     this.timeSlotId = value;
 }
 @Id
-public int getTimeSlotId() {
+public Integer getTimeSlotId() {
     return this.timeSlotId;
 }
 }

@@ -422,8 +422,8 @@
       <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_mqkMAOhtEem-kuBNwFGEnQ"/>
       <visibility xmi:id="_mqlaIehtEem-kuBNwFGEnQ" label="+"/>
       <cardinality xmi:id="_mqlaIuhtEem-kuBNwFGEnQ" label="1" max="1" min="1"/>
-      <type xmi:id="_npboAOhtEem-kuBNwFGEnQ" name="double">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+      <type xmi:id="_UapFkOunEem5oIUavlJRSw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
     <attributes xmi:id="_LSs4oOiREemvTunkX6iuLg" name="wageId">
@@ -433,8 +433,8 @@
       </stereotypes>
       <visibility xmi:id="_LSs4oeiREemvTunkX6iuLg" label="+"/>
       <cardinality xmi:id="_LSs4ouiREemvTunkX6iuLg" label="1" max="1" min="1"/>
-      <type xmi:id="_L3x7oOiREemvTunkX6iuLg" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <type xmi:id="_wO_ywOumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
   </nodes>
@@ -469,8 +469,8 @@
       </stereotypes>
       <visibility xmi:id="_HgLR0eeXEemToPnOLeEJLQ" label="+"/>
       <cardinality xmi:id="_HgLR0ueXEemToPnOLeEJLQ" label="1" max="1" min="1"/>
-      <type xmi:id="_I8Vt0OeXEemToPnOLeEJLQ" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <type xmi:id="_TiiOUOumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
     <attributes xmi:id="_KGelsOeXEemToPnOLeEJLQ" name="comment">
@@ -507,8 +507,8 @@
       </stereotypes>
       <visibility xmi:id="_VQQG4eiREemvTunkX6iuLg" label="+"/>
       <cardinality xmi:id="_VQQG4uiREemvTunkX6iuLg" label="1" max="1" min="1"/>
-      <type xmi:id="_V14jgOiREemvTunkX6iuLg" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <type xmi:id="_UtN4wOumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
   </nodes>
@@ -587,8 +587,8 @@
       </stereotypes>
       <visibility xmi:id="_Zgf0EuiREemvTunkX6iuLg" label="+"/>
       <cardinality xmi:id="_Zgf0E-iREemvTunkX6iuLg" label="1" max="1" min="1"/>
-      <type xmi:id="_aDLqYOiREemvTunkX6iuLg" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <type xmi:id="_2RmOYOumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
   </nodes>
@@ -611,8 +611,8 @@
       </stereotypes>
       <visibility xmi:id="_NEWsEueXEemToPnOLeEJLQ" label="+"/>
       <cardinality xmi:id="_NEWsE-eXEemToPnOLeEJLQ" label="1" max="1" min="1"/>
-      <type xmi:id="_PQ74YOeXEemToPnOLeEJLQ" name="boolean">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      <type xmi:id="_QL_JQOumEemp-8X3V7kGdw" name="Boolean">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </type>
     </attributes>
     <attributes xmi:id="_ugFWwOhtEem-kuBNwFGEnQ" name="name">
@@ -646,8 +646,8 @@
       </stereotypes>
       <visibility xmi:id="_T2yugehuEem-kuBNwFGEnQ" label="+"/>
       <cardinality xmi:id="_T2yuguhuEem-kuBNwFGEnQ" label="1" max="1" min="1"/>
-      <type xmi:id="_U1kq8OhuEem-kuBNwFGEnQ" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <type xmi:id="_5NWN0OumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
   </nodes>
@@ -750,8 +750,8 @@
       </stereotypes>
       <visibility xmi:id="_eNNa0eiREemvTunkX6iuLg" label="+"/>
       <cardinality xmi:id="_eNNa0uiREemvTunkX6iuLg" label="1" max="1" min="1"/>
-      <type xmi:id="_fPsykOiREemvTunkX6iuLg" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <type xmi:id="_WFNmcOumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
   </nodes>
@@ -782,8 +782,8 @@
       </stereotypes>
       <visibility xmi:id="_holVguiREemvTunkX6iuLg" label="+"/>
       <cardinality xmi:id="_holVg-iREemvTunkX6iuLg" label="1" max="1" min="1"/>
-      <type xmi:id="_iJr3cOiREemvTunkX6iuLg" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <type xmi:id="_z0vKYOumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
   </nodes>
@@ -801,8 +801,8 @@
       </stereotypes>
       <visibility xmi:id="_jYLv8eeWEemToPnOLeEJLQ" label="+"/>
       <cardinality xmi:id="_jYLv8ueWEemToPnOLeEJLQ" label="1" max="1" min="1"/>
-      <type xmi:id="_8bG9sOedEemToPnOLeEJLQ" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <type xmi:id="_x1X6sOumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
     <attributes xmi:id="_loDg0eeWEemToPnOLeEJLQ" name="capacity">
@@ -812,8 +812,8 @@
       </stereotypes>
       <visibility xmi:id="_loDg0ueWEemToPnOLeEJLQ" label="+"/>
       <cardinality xmi:id="_loDg0-eWEemToPnOLeEJLQ" label="1" max="1" min="1"/>
-      <type xmi:id="_9WgO8OedEemToPnOLeEJLQ" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <type xmi:id="_yoxtkOumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
     <attributes xmi:id="__ncTpOeZEemToPnOLeEJLQ" name="session">
@@ -874,8 +874,8 @@
       </stereotypes>
       <visibility xmi:id="_OqBZweiREemvTunkX6iuLg" label="+"/>
       <cardinality xmi:id="_OqBZwuiREemvTunkX6iuLg" label="1" max="1" min="1"/>
-      <type xmi:id="_PPFOoOiREemvTunkX6iuLg" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <type xmi:id="_NnSX4OumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
   </nodes>
@@ -898,8 +898,8 @@
       </stereotypes>
       <visibility xmi:id="_snwBYueXEemToPnOLeEJLQ" label="+"/>
       <cardinality xmi:id="_snwBY-eXEemToPnOLeEJLQ" label="1" max="1" min="1"/>
-      <type xmi:id="_tybr0OeXEemToPnOLeEJLQ" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <type xmi:id="_XhjooOumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
     <attributes xmi:id="_bQc3CeeaEemToPnOLeEJLQ" name="student">
@@ -948,46 +948,6 @@
       <cardinality xmi:id="_4aK28uiREemz8reodOmmoQ" label="1" max="1" min="1"/>
       <type xmi:id="_4aK28-iREemz8reodOmmoQ" name="Course">
         <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_hp2GMOeTEemToPnOLeEJLQ"/>
-      </type>
-    </attributes>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_VE6mAOeTEemToPnOLeEJLQ" containment="_anzEEOh1EemUkc9FMtfjqQ" name="Manager" package="_e9ylEeeSEemToPnOLeEJLQ" associationsIn="_9MROgOeVEemToPnOLeEJLQ" associationsOut="_OJ-ScOhqEem-kuBNwFGEnQ _Af_HUOhtEem-kuBNwFGEnQ" generalizations="_Z1n78OeTEemToPnOLeEJLQ">
-    <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_VErVcOeTEemToPnOLeEJLQ"/>
-    <visualProperties xmi:id="_VE6mAeeTEemToPnOLeEJLQ" position="3520.0,437.0" size="152.0,113.0"/>
-    <visibility xmi:id="_VE6mAueTEemToPnOLeEJLQ" label="+"/>
-    <attributes xmi:id="_9MROieeVEemToPnOLeEJLQ" name="application">
-      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_9MPZUeeVEemToPnOLeEJLQ"/>
-      <visibility xmi:id="_9MROiueVEemToPnOLeEJLQ" label="+"/>
-      <cardinality xmi:id="_9MROi-eVEemToPnOLeEJLQ" label="*" max="-1"/>
-      <type xmi:id="_9MROjOeVEemToPnOLeEJLQ" name="Application">
-        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_1vnPsOeVEemToPnOLeEJLQ"/>
-      </type>
-    </attributes>
-    <attributes xmi:id="_OJ_gkOhqEem-kuBNwFGEnQ" name="room">
-      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_OJ5Z8ehqEem-kuBNwFGEnQ"/>
-      <visibility xmi:id="_OJ_gkehqEem-kuBNwFGEnQ" label="+"/>
-      <cardinality xmi:id="_OJ_gkuhqEem-kuBNwFGEnQ" label="*" max="-1"/>
-      <type xmi:id="_OKAHoOhqEem-kuBNwFGEnQ" name="Room">
-        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_wDWiYOeTEemToPnOLeEJLQ"/>
-      </type>
-    </attributes>
-    <attributes xmi:id="_AgBjkOhtEem-kuBNwFGEnQ" name="request">
-      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_Af614ehtEem-kuBNwFGEnQ"/>
-      <visibility xmi:id="_AgCKoOhtEem-kuBNwFGEnQ" label="+"/>
-      <cardinality xmi:id="_AgCKoehtEem-kuBNwFGEnQ" label="*" max="-1"/>
-      <type xmi:id="_AgCKouhtEem-kuBNwFGEnQ" name="Request">
-        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_ua-PUOeTEemToPnOLeEJLQ"/>
-      </type>
-    </attributes>
-    <attributes xmi:id="_jvDSwOiREemvTunkX6iuLg" name="managerId">
-      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_jvCrsOiREemvTunkX6iuLg"/>
-      <stereotypes xmi:id="_kdhiUOiREemvTunkX6iuLg" name="PrimaryKey">
-        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_kdg7QOiREemvTunkX6iuLg"/>
-      </stereotypes>
-      <visibility xmi:id="_jvDSweiREemvTunkX6iuLg" label="+"/>
-      <cardinality xmi:id="_jvDSwuiREemvTunkX6iuLg" label="1" max="1" min="1"/>
-      <type xmi:id="_kOlucOiREemvTunkX6iuLg" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
       </type>
     </attributes>
   </nodes>
@@ -1044,8 +1004,48 @@
       </stereotypes>
       <visibility xmi:id="_SFNHMeiREemvTunkX6iuLg" label="+"/>
       <cardinality xmi:id="_SFNHMuiREemvTunkX6iuLg" label="1" max="1" min="1"/>
-      <type xmi:id="_TCyw0OiREemvTunkX6iuLg" name="int">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <type xmi:id="_32jaAOumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </type>
+    </attributes>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_VE6mAOeTEemToPnOLeEJLQ" containment="_anzEEOh1EemUkc9FMtfjqQ" name="Manager" package="_e9ylEeeSEemToPnOLeEJLQ" associationsIn="_9MROgOeVEemToPnOLeEJLQ" associationsOut="_OJ-ScOhqEem-kuBNwFGEnQ _Af_HUOhtEem-kuBNwFGEnQ" generalizations="_Z1n78OeTEemToPnOLeEJLQ">
+    <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_VErVcOeTEemToPnOLeEJLQ"/>
+    <visualProperties xmi:id="_VE6mAeeTEemToPnOLeEJLQ" position="3520.0,437.0" size="152.0,113.0"/>
+    <visibility xmi:id="_VE6mAueTEemToPnOLeEJLQ" label="+"/>
+    <attributes xmi:id="_9MROieeVEemToPnOLeEJLQ" name="application">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_9MPZUeeVEemToPnOLeEJLQ"/>
+      <visibility xmi:id="_9MROiueVEemToPnOLeEJLQ" label="+"/>
+      <cardinality xmi:id="_9MROi-eVEemToPnOLeEJLQ" label="*" max="-1"/>
+      <type xmi:id="_9MROjOeVEemToPnOLeEJLQ" name="Application">
+        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_1vnPsOeVEemToPnOLeEJLQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_OJ_gkOhqEem-kuBNwFGEnQ" name="room">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_OJ5Z8ehqEem-kuBNwFGEnQ"/>
+      <visibility xmi:id="_OJ_gkehqEem-kuBNwFGEnQ" label="+"/>
+      <cardinality xmi:id="_OJ_gkuhqEem-kuBNwFGEnQ" label="*" max="-1"/>
+      <type xmi:id="_OKAHoOhqEem-kuBNwFGEnQ" name="Room">
+        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_wDWiYOeTEemToPnOLeEJLQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_AgBjkOhtEem-kuBNwFGEnQ" name="request">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_Af614ehtEem-kuBNwFGEnQ"/>
+      <visibility xmi:id="_AgCKoOhtEem-kuBNwFGEnQ" label="+"/>
+      <cardinality xmi:id="_AgCKoehtEem-kuBNwFGEnQ" label="*" max="-1"/>
+      <type xmi:id="_AgCKouhtEem-kuBNwFGEnQ" name="Request">
+        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_ua-PUOeTEemToPnOLeEJLQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_jvDSwOiREemvTunkX6iuLg" name="managerId">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_jvCrsOiREemvTunkX6iuLg"/>
+      <stereotypes xmi:id="_kdhiUOiREemvTunkX6iuLg" name="PrimaryKey">
+        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_kdg7QOiREemvTunkX6iuLg"/>
+      </stereotypes>
+      <visibility xmi:id="_jvDSweiREemvTunkX6iuLg" label="+"/>
+      <cardinality xmi:id="_jvDSwuiREemvTunkX6iuLg" label="1" max="1" min="1"/>
+      <type xmi:id="_SA2ZIOumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
   </nodes>

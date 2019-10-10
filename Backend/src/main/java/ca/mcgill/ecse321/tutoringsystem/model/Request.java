@@ -21,13 +21,13 @@ public class Request{
       this.tutor = tutor;
    }
    
-   private int requestId;
+   private Integer requestId;
 
-public void setRequestId(int value) {
+public void setRequestId(Integer value) {
     this.requestId = value;
 }
 @Id
-public int getRequestId() {
+public Integer getRequestId() {
     return this.requestId;
 }
 private Student student;
