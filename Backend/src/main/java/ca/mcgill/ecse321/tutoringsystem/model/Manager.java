@@ -40,6 +40,7 @@ public class Manager extends User{
       this.request = requests;
    }
    
+   public static int nextId = 1;
    private Integer managerId;
 
 public void setManagerId(Integer value) {

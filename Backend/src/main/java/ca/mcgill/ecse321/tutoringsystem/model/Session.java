@@ -6,36 +6,38 @@ import javax.persistence.OneToOne;
 import javax.persistence.Id;
 
 @Entity
-public class Session{
-   private Room room;
-   
-   @ManyToOne(optional=false)
-   public Room getRoom() {
-      return this.room;
-   }
-   
-   public void setRoom(Room room) {
-      this.room = room;
-   }
-   
-   private Request request;
-   
-   @OneToOne(optional=false)
-   public Request getRequest() {
-      return this.request;
-   }
-   
-   public void setRequest(Request request) {
-      this.request = request;
-   }
-   
-   private Integer sessionId;
+public class Session {
+  private Room room;
 
-public void setSessionId(Integer value) {
+  @ManyToOne(optional = false)
+  public Room getRoom() {
+    return this.room;
+  }
+
+  public void setRoom(Room room) {
+    this.room = room;
+  }
+
+  private Request request;
+
+  @OneToOne(optional = false)
+  public Request getRequest() {
+    return this.request;
+  }
+
+  public void setRequest(Request request) {
+    this.request = request;
+  }
+
+  public static int nextId = 1;
+  private Integer sessionId;
+
+  public void setSessionId(Integer value) {
     this.sessionId = value;
-}
-@Id
-public Integer getSessionId() {
+  }
+
+  @Id
+  public Integer getSessionId() {
     return this.sessionId;
-}
+  }
 }

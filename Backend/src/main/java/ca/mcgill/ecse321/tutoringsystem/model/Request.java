@@ -9,85 +9,92 @@ import java.sql.Time;
 import java.sql.Date;
 
 @Entity
-public class Request{
-   private Tutor tutor;
-   
-   @ManyToOne(optional=false)
-   public Tutor getTutor() {
-      return this.tutor;
-   }
-   
-   public void setTutor(Tutor tutor) {
-      this.tutor = tutor;
-   }
-   
-   private Integer requestId;
+public class Request {
+  private Tutor tutor;
 
-public void setRequestId(Integer value) {
+  @ManyToOne(optional = false)
+  public Tutor getTutor() {
+    return this.tutor;
+  }
+
+  public void setTutor(Tutor tutor) {
+    this.tutor = tutor;
+  }
+
+  private Integer requestId;
+
+  public void setRequestId(Integer value) {
     this.requestId = value;
-}
-@Id
-public Integer getRequestId() {
+  }
+
+  @Id
+  public Integer getRequestId() {
     return this.requestId;
-}
-private Student student;
+  }
 
-@ManyToOne(optional=false)
-public Student getStudent() {
-   return this.student;
-}
+  private Student student;
 
-public void setStudent(Student student) {
-   this.student = student;
-}
+  @ManyToOne(optional = false)
+  public Student getStudent() {
+    return this.student;
+  }
 
-private Session session;
+  public void setStudent(Student student) {
+    this.student = student;
+  }
 
-@OneToOne(mappedBy="request" , cascade={CascadeType.ALL})
-public Session getSession() {
-   return this.session;
-}
+  public static int nextId = 1;
+  private Session session;
 
-public void setSession(Session session) {
-   this.session = session;
-}
+  @OneToOne(mappedBy = "request", cascade = {CascadeType.ALL})
+  public Session getSession() {
+    return this.session;
+  }
 
-private Time time;
+  public void setSession(Session session) {
+    this.session = session;
+  }
 
-public void setTime(Time value) {
+  private Time time;
+
+  public void setTime(Time value) {
     this.time = value;
-}
-public Time getTime() {
-    return this.time;
-}
-private Date date;
+  }
 
-public void setDate(Date value) {
+  public Time getTime() {
+    return this.time;
+  }
+
+  private Date date;
+
+  public void setDate(Date value) {
     this.date = value;
-}
-public Date getDate() {
+  }
+
+  public Date getDate() {
     return this.date;
+  }
+
+  private Notification notification;
+
+  @OneToOne(mappedBy = "request", cascade = {CascadeType.ALL}, optional = false)
+  public Notification getNotification() {
+    return this.notification;
+  }
+
+  public void setNotification(Notification notification) {
+    this.notification = notification;
+  }
+
+  private Course course;
+
+  @ManyToOne(optional = false)
+  public Course getCourse() {
+    return this.course;
+  }
+
+  public void setCourse(Course course) {
+    this.course = course;
+  }
+
 }
-   private Notification notification;
-   
-   @OneToOne(mappedBy="request" , cascade={CascadeType.ALL}, optional=false)
-   public Notification getNotification() {
-      return this.notification;
-   }
-   
-   public void setNotification(Notification notification) {
-      this.notification = notification;
-   }
-   
-   private Course course;
-   
-   @ManyToOne(optional=false)
-   public Course getCourse() {
-      return this.course;
-   }
-   
-   public void setCourse(Course course) {
-      this.course = course;
-   }
-   
-   }

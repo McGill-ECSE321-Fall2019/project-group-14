@@ -29,7 +29,7 @@ public class Student extends User{
    public void setRequest(Set<Request> requests) {
       this.request = requests;
    }
-   
+   public static int nextId = 1;
    private Integer studentId;
 
 public void setStudentId(Integer value) {
