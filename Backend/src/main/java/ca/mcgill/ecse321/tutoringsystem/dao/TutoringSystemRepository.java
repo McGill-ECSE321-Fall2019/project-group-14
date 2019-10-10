@@ -35,7 +35,8 @@ public class TutoringSystemRepository {
     entityManager.persist(p);
     return p;
   }
-
+  
+  @Transactional
   public Tutor getTutor(Integer Id) {
     if (Id == null) {
       throw new IllegalArgumentException("Tutor Id cannot be empty!");
@@ -44,6 +45,7 @@ public class TutoringSystemRepository {
     return p;
   }
 
+  @Transactional
   public Tutor getTutor(String email) {
     if (email == null) {
       throw new IllegalArgumentException("Tutor email cannot be empty!");
@@ -51,7 +53,6 @@ public class TutoringSystemRepository {
     Tutor p = entityManager.find(Tutor.class, email);
     return p;
   }
-
 
   @Transactional
   public Student createStudent(String name, String email) {
@@ -65,6 +66,7 @@ public class TutoringSystemRepository {
     return p;
   }
 
+  @Transactional
   public Student getStudent(Integer Id) {
     if (Id == null) {
       throw new IllegalArgumentException("Student Id cannot be empty!");
@@ -73,6 +75,7 @@ public class TutoringSystemRepository {
     return p;
   }
 
+  @Transactional
   public Student getStudent(String email) {
     if (email == null || email.trim().length() == 0) {
       throw new IllegalArgumentException("Student email cannot be empty!");
@@ -102,6 +105,7 @@ public class TutoringSystemRepository {
     return p;
   }
 
+  @Transactional
   public Manager getManager(String email) {
     if (email == null || email.trim().length() == 0) {
       throw new IllegalArgumentException("Manager email cannot be empty!");
