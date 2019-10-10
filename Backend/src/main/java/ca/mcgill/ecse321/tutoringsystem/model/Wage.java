@@ -36,6 +36,8 @@ public void setWage(Integer value) {
 public Integer getWage() {
     return this.wage;
 }
+
+public static int nextId = 1;
 private Integer wageId;
 
 public void setWageId(Integer value) {
