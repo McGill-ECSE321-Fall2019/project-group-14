@@ -54,6 +54,7 @@ public class Review {
     this.from = value;
   }
 
+  @ManyToOne
   public User getFrom() {
     return this.from;
   }
@@ -64,6 +65,7 @@ public class Review {
     this.to = value;
   }
 
+  @ManyToOne
   public User getTo() {
     return this.to;
   }

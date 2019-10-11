@@ -70,7 +70,7 @@ public class Tutor extends User {
     this.tutorId = value;
   }
 
-  @Id
+  
   public Integer getTutorId() {
     return this.tutorId;
   }
