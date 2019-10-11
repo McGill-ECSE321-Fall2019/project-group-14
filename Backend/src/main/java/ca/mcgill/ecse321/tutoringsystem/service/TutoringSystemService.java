@@ -223,29 +223,17 @@ public class TutoringSystemService {
   }
 
   @Transactional
-  public Course getCourse(Integer id) {
-    if (id == null) {
-      throw new IllegalArgumentException("Course id cannot be empty!");
+  public Course getCourse(String name) {
+    if (name == null) {
+      throw new IllegalArgumentException("Course name cannot be empty!");
     }
-    Course p = courseRepository.findCourseById(id);
+    Course p = courseRepository.findCourseByCourseName(name);
     return p;
   }
 
   @Transactional
   public List<Course> getAllCourses() {
     return toList(courseRepository.findAll());
-  }
-
-  @Transactional
-  public List<Course> getAllCoursesWithName(String name) {
-    if (name == null) {
-      throw new IllegalArgumentException("Course name cannot be null!");
-    }
-    List<Course> coursesWithName = new ArrayList<>();
-    for (Course c : courseRepository.findCourseByCourseName(name)) {
-      coursesWithName.add(c);
-    }
-    return coursesWithName;
   }
 
   @Transactional
