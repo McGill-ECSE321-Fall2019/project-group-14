@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import java.util.Set;
 import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
-import javax.persistence.Id;
 
 @Entity
 public class Student extends User{
@@ -29,14 +28,5 @@ public class Student extends User{
    public void setRequest(Set<Request> requests) {
       this.request = requests;
    }
-   public static int nextId = 1;
-   private Integer studentId;
-
-public void setStudentId(Integer value) {
-    this.studentId = value;
-}
-
-public Integer getStudentId() {
-    return this.studentId;
-}
-}
+   
+   }

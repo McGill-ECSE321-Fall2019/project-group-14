@@ -3,7 +3,6 @@ package ca.mcgill.ecse321.tutoringsystem.model;
 import javax.persistence.Entity;
 import java.util.Set;
 import javax.persistence.OneToMany;
-import javax.persistence.Id;
 
 @Entity
 public class Manager extends User{
@@ -40,14 +39,4 @@ public class Manager extends User{
       this.request = requests;
    }
    
-   public static int nextId = 1;
-   private Integer managerId;
-
-public void setManagerId(Integer value) {
-    this.managerId = value;
-}
-
-public Integer getManagerId() {
-    return this.managerId;
-}
-}
+   }

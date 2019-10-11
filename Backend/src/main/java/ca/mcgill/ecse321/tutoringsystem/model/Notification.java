@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.ManyToOne;
 import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
 
 @Entity
 public class Notification{
@@ -29,14 +30,13 @@ public class Notification{
       this.tutor = tutor;
    }
    
-   public static int nextId = 1;
    private Integer notificationId;
 
 public void setNotificationId(Integer value) {
     this.notificationId = value;
 }
 @Id
-public Integer getNotificationId() {
+@GeneratedValue()public Integer getNotificationId() {
     return this.notificationId;
 }
 }
