@@ -718,20 +718,6 @@
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_wDWiYOeTEemToPnOLeEJLQ"/>
     <visualProperties xmi:id="_wDWiYueTEemToPnOLeEJLQ" position="2573.0,1127.0" size="204.0,100.0"/>
     <visibility xmi:id="_wDWiY-eTEemToPnOLeEJLQ" label="+"/>
-    <attributes xmi:id="_jYLv8OeWEemToPnOLeEJLQ" name="roomNumber">
-      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_jYLI4OeWEemToPnOLeEJLQ"/>
-      <stereotypes xmi:id="_KLeywOedEemToPnOLeEJLQ" name="StyledElement">
-        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_ChxPYeedEemToPnOLeEJLQ"/>
-      </stereotypes>
-      <stereotypes xmi:id="_RtHFMOhuEem-kuBNwFGEnQ" name="PrimaryKey">
-        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_RtEB4OhuEem-kuBNwFGEnQ"/>
-      </stereotypes>
-      <visibility xmi:id="_jYLv8eeWEemToPnOLeEJLQ" label="+"/>
-      <cardinality xmi:id="_jYLv8ueWEemToPnOLeEJLQ" label="1" max="1" min="1"/>
-      <type xmi:id="_x1X6sOumEemp-8X3V7kGdw" name="Integer">
-        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </type>
-    </attributes>
     <attributes xmi:id="_loDg0eeWEemToPnOLeEJLQ" name="capacity">
       <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_loDg0OeWEemToPnOLeEJLQ"/>
       <stereotypes xmi:id="_KLeyweedEemToPnOLeEJLQ" name="StyledElement">
@@ -749,6 +735,17 @@
       <cardinality xmi:id="__ncTpueZEemToPnOLeEJLQ" label="*" max="-1"/>
       <type xmi:id="__ncTp-eZEemToPnOLeEJLQ" name="Session">
         <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_vKu4UOeTEemToPnOLeEJLQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_7S1fIOxgEemiMMmzAOiy_g" name="roomNumber">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_7SwmoOxgEemiMMmzAOiy_g"/>
+      <stereotypes xmi:id="_8oVScexgEemiMMmzAOiy_g" name="PrimaryKey">
+        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_8oVScOxgEemiMMmzAOiy_g"/>
+      </stereotypes>
+      <visibility xmi:id="_7S1fIexgEemiMMmzAOiy_g" label="+"/>
+      <cardinality xmi:id="_7S1fIuxgEemiMMmzAOiy_g" label="1" max="1" min="1"/>
+      <type xmi:id="_8UyrYOxgEemiMMmzAOiy_g" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
   </nodes>
@@ -1050,7 +1047,7 @@
         <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_ua-PUOeTEemToPnOLeEJLQ"/>
       </type>
     </attributes>
-    <attributes xmi:id="_holVgeiREemvTunkX6iuLg" derived="true" name="sessionId">
+    <attributes xmi:id="_holVgeiREemvTunkX6iuLg" name="sessionId">
       <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_holVgOiREemvTunkX6iuLg"/>
       <stereotypes xmi:id="_iaxAYeiREemvTunkX6iuLg" name="PrimaryKey">
         <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_iaxAYOiREemvTunkX6iuLg"/>
