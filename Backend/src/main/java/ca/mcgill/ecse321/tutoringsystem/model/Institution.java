@@ -1,13 +1,12 @@
 package ca.mcgill.ecse321.tutoringsystem.model;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import java.util.Set;
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.OneToMany;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 @Entity
 public class Institution {
@@ -33,13 +32,13 @@ public class Institution {
     this.courses = coursess;
   }
 
-  @Enumerated(EnumType.STRING)
   private SchoolLevel institutionLevel;
 
   public void setInstitutionLevel(SchoolLevel value) {
     this.institutionLevel = value;
   }
 
+  @Enumerated(EnumType.STRING)
   public SchoolLevel getInstitutionLevel() {
     return this.institutionLevel;
   }

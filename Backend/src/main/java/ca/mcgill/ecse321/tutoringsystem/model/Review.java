@@ -3,6 +3,7 @@ package ca.mcgill.ecse321.tutoringsystem.model;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
 
 @Entity
 public class Review {
@@ -48,25 +49,25 @@ public class Review {
     return this.comment;
   }
 
-  private User from;
+  private Person from;
 
-  public void setFrom(User value) {
+  public void setFrom(Person value) {
     this.from = value;
   }
 
-  @ManyToOne
-  public User getFrom() {
+  @ManyToOne(optional = false)
+  public Person getFrom() {
     return this.from;
   }
 
-  private User to;
+  private Person to;
 
-  public void setTo(User value) {
+  public void setTo(Person value) {
     this.to = value;
   }
 
-  @ManyToOne
-  public User getTo() {
+  @ManyToOne(optional = false)
+  public Person getTo() {
     return this.to;
   }
 
@@ -78,6 +79,7 @@ public class Review {
   }
 
   @Id
+  @GeneratedValue()
   public Integer getReviewId() {
     return this.reviewId;
   }

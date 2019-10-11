@@ -3,6 +3,7 @@ package ca.mcgill.ecse321.tutoringsystem.model;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
 
 @Entity
 public class Application {
@@ -54,17 +55,19 @@ public class Application {
   }
 
   public String getCourses() {
-    return this.courses;
-  }
+    return this.courses;}
 
   public static int nextId = 1;
   private Integer applicationId;
+
+
 
   public void setApplicationId(Integer value) {
     this.applicationId = value;
   }
 
   @Id
+  @GeneratedValue()
   public Integer getApplicationId() {
     return this.applicationId;
   }

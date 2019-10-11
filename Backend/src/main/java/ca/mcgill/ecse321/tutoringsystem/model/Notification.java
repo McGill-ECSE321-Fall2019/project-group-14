@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.ManyToOne;
 import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
 
 @Entity
 public class Notification {
@@ -37,6 +38,7 @@ public class Notification {
   }
 
   @Id
+  @GeneratedValue()
   public Integer getNotificationId() {
     return this.notificationId;
   }

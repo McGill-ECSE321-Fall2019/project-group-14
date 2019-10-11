@@ -2,9 +2,10 @@ package ca.mcgill.ecse321.tutoringsystem.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
 
 @Entity
-public class User {
+public class Person {
   private String name;
 
   public void setName(String value) {
@@ -21,8 +22,19 @@ public class User {
     this.email = value;
   }
 
-  @Id
   public String getEmail() {
     return this.email;
+  }
+
+  private Integer userId;
+
+  public void setUserId(Integer value) {
+    this.userId = value;
+  }
+
+  @Id
+  @GeneratedValue()
+  public Integer getUserId() {
+    return this.userId;
   }
 }
