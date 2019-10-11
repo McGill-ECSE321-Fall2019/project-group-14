@@ -69,7 +69,7 @@ public class Review {
   public User getTo() {
     return this.to;
   }
-  
+
   public static int nextId = 1;
   private Integer reviewId;
 

@@ -7,36 +7,37 @@ import javax.persistence.CascadeType;
 import javax.persistence.Id;
 
 @Entity
-public class Student extends User{
-   private Set<Review> review;
-   
-   @OneToMany(mappedBy="student" )
-   public Set<Review> getReview() {
-      return this.review;
-   }
-   
-   public void setReview(Set<Review> reviews) {
-      this.review = reviews;
-   }
-   
-   private Set<Request> request;
-   
-   @OneToMany(mappedBy="student" , cascade={CascadeType.ALL})
-   public Set<Request> getRequest() {
-      return this.request;
-   }
-   
-   public void setRequest(Set<Request> requests) {
-      this.request = requests;
-   }
-   public static int nextId = 1;
-   private Integer studentId;
+public class Student extends User {
+  private Set<Review> review;
 
-public void setStudentId(Integer value) {
+  @OneToMany(mappedBy = "student")
+  public Set<Review> getReview() {
+    return this.review;
+  }
+
+  public void setReview(Set<Review> reviews) {
+    this.review = reviews;
+  }
+
+  private Set<Request> request;
+
+  @OneToMany(mappedBy = "student", cascade = {CascadeType.ALL})
+  public Set<Request> getRequest() {
+    return this.request;
+  }
+
+  public void setRequest(Set<Request> requests) {
+    this.request = requests;
+  }
+
+  public static int nextId = 1;
+  private Integer studentId;
+
+  public void setStudentId(Integer value) {
     this.studentId = value;
-}
+  }
 
-public Integer getStudentId() {
+  public Integer getStudentId() {
     return this.studentId;
-}
+  }
 }
