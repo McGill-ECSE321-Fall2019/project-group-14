@@ -46,7 +46,7 @@ public class Manager extends User{
 public void setManagerId(Integer value) {
     this.managerId = value;
 }
-@Id
+
 public Integer getManagerId() {
     return this.managerId;
 }

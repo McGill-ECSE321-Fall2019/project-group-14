@@ -35,7 +35,7 @@ public class Student extends User{
 public void setStudentId(Integer value) {
     this.studentId = value;
 }
-@Id
+
 public Integer getStudentId() {
     return this.studentId;
 }
