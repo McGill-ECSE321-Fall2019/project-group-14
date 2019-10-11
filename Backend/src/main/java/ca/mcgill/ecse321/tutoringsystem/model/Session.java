@@ -2,6 +2,7 @@ package ca.mcgill.ecse321.tutoringsystem.model;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Id;
 
@@ -21,6 +22,7 @@ public class Session{
    private Request request;
    
    @OneToOne(optional=false)
+   @MapsId
    public Request getRequest() {
       return this.request;
    }
