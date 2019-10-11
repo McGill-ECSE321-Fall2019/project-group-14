@@ -5,7 +5,7 @@ import java.util.Set;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Manager extends User{
+public class Manager extends Person{
    private Set<Application> application;
    
    @OneToMany(mappedBy="manager" )

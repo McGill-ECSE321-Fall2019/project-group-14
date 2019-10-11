@@ -49,20 +49,20 @@ public class Review{
       return this.comment;
    }
    
-   private User from;
+   private Person from;
 
-public void setFrom(User value) {
+public void setFrom(Person value) {
     this.from = value;
 }
-public User getFrom() {
+public Person getFrom() {
     return this.from;
 }
-private User to;
+private Person to;
 
-public void setTo(User value) {
+public void setTo(Person value) {
     this.to = value;
 }
-public User getTo() {
+public Person getTo() {
     return this.to;
 }
 private Integer reviewId;

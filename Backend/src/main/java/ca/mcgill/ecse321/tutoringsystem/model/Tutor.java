@@ -6,7 +6,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 
 @Entity
-public class Tutor extends User{
+public class Tutor extends Person{
    private Set<Request> request;
    
    @OneToMany(mappedBy="tutor" )

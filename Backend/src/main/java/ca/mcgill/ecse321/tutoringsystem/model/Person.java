@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 
 @Entity
-public class User{
+public class Person{
    private String name;
 
 public void setName(String value) {
