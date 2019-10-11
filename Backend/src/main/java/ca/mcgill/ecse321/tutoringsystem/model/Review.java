@@ -54,6 +54,7 @@ public class Review{
 public void setFrom(Person value) {
     this.from = value;
 }
+@ManyToOne(optional=false)
 public Person getFrom() {
     return this.from;
 }
@@ -62,6 +63,7 @@ private Person to;
 public void setTo(Person value) {
     this.to = value;
 }
+@ManyToOne(optional=false)
 public Person getTo() {
     return this.to;
 }
