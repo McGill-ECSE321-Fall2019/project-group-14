@@ -3,7 +3,7 @@
   <uml:Model xmi:id="_xxyFAOeREemToPnOLeEJLQ" name="ca_mcgill_ecse321_tutoringsystem_model">
     <eAnnotations xmi:id="_x2fl4OeREemToPnOLeEJLQ" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_x2fl4eeREemToPnOLeEJLQ" source="codegen">
-        <details xmi:id="_nAAo0OhzEemUkc9FMtfjqQ" key="AssociatedSourceCode" value="/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/User.java;1058518654/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Manager.java;3061655767/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Student.java;2713167383/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Course.java;1615774281/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/SchoolLevel.java;1279337377/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Application.java;613740447/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Request.java;3486779307/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Institution.java;3730884624/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Room.java;881410953/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Tutor.java;38891155/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Session.java;2396740400/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Review.java;2798283612/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Wage.java;737065645/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Notification.java;1314067998/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/TimeSlot.java;2059299876/1;"/>
+        <details xmi:id="_nAAo0OhzEemUkc9FMtfjqQ" key="AssociatedSourceCode" value="/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/User.java;1058518654/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Manager.java;3061655767/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Student.java;2713167383/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Course.java;1615774281/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/SchoolLevel.java;1279337377/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Application.java;613740447/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Request.java;3486779307/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Institution.java;3730884624/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Room.java;2498341541/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Tutor.java;38891155/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Session.java;2396740400/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Review.java;2798283612/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Wage.java;737065645/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Notification.java;1314067998/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/TimeSlot.java;2059299876/1;"/>
         <details xmi:id="_BOxjIOriEemkXbLyCovKqA" key="codegenDirectory" value="/ca.mcgill.ecse321.tutoringsystem.model/src-gen"/>
       </contents>
       <contents xmi:type="ecore:EAnnotation" xmi:id="_jkykYOedEemToPnOLeEJLQ" source="dangling-refs">
@@ -156,7 +156,7 @@
                   <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XAFRMOeeEemToPnOLeEJLQ" value="1"/>
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XAF4QOeeEemToPnOLeEJLQ" value="1"/>
                 </ownedAttribute>
-                <ownedAttribute xmi:id="_holVgOiREemvTunkX6iuLg" name="sessionId" visibility="public" isDerived="true">
+                <ownedAttribute xmi:id="_holVgOiREemvTunkX6iuLg" name="sessionId" visibility="public">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
               </packagedElement>
@@ -295,15 +295,15 @@
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_wDWiYOeTEemToPnOLeEJLQ" name="Room">
-                <ownedAttribute xmi:id="_jYLI4OeWEemToPnOLeEJLQ" name="roomNumber" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-                </ownedAttribute>
                 <ownedAttribute xmi:id="_loDg0OeWEemToPnOLeEJLQ" name="capacity" visibility="public">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="__naedOeZEemToPnOLeEJLQ" name="session" type="_vKu4UOeTEemToPnOLeEJLQ" aggregation="shared" association="__naecOeZEemToPnOLeEJLQ">
                   <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fY4IIOeeEemToPnOLeEJLQ"/>
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__nbFgOeZEemToPnOLeEJLQ" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_7SwmoOxgEemiMMmzAOiy_g" name="roomNumber" visibility="public">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
               </packagedElement>
             </packagedElement>
@@ -334,7 +334,6 @@
   <UMLLabProfile:StyledElement xmi:id="_ChuMEOedEemToPnOLeEJLQ" base_Element="_NEWsEOeXEemToPnOLeEJLQ"/>
   <UMLLabProfile:StyledElement xmi:id="_ChwoUOedEemToPnOLeEJLQ" base_Element="_HgKqwOeXEemToPnOLeEJLQ"/>
   <UMLLabProfile:StyledElement xmi:id="_ChwoUeedEemToPnOLeEJLQ" base_Element="_KGd-oOeXEemToPnOLeEJLQ"/>
-  <UMLLabProfile:StyledElement xmi:id="_ChxPYeedEemToPnOLeEJLQ" base_Element="_jYLI4OeWEemToPnOLeEJLQ"/>
   <UMLLabProfile:StyledElement xmi:id="_ChxPYuedEemToPnOLeEJLQ" base_Element="_loDg0OeWEemToPnOLeEJLQ"/>
   <UMLLabProfile:Reference xmi:id="_Ch_44OedEemToPnOLeEJLQ" base_Element="_Ch81kOedEemToPnOLeEJLQ"/>
   <UMLLabProfile:Reference xmi:id="_CiDjQOedEemToPnOLeEJLQ" base_Element="_CiAf8OedEemToPnOLeEJLQ"/>
@@ -343,7 +342,6 @@
   <UMLLabProfile:Reference xmi:id="_CiN7UOedEemToPnOLeEJLQ" base_Element="_CiK4AeedEemToPnOLeEJLQ"/>
   <UMLLabProfile:Reference xmi:id="_CiQ-oOedEemToPnOLeEJLQ" base_Element="_CiN7UeedEemToPnOLeEJLQ"/>
   <UMLLabProfile:Reference xmi:id="_CiWeMOedEemToPnOLeEJLQ" base_Element="_CiTa4OedEemToPnOLeEJLQ"/>
-  <Persistency:PrimaryKey xmi:id="_RtEB4OhuEem-kuBNwFGEnQ" base_Property="_jYLI4OeWEemToPnOLeEJLQ"/>
   <Persistency:PrimaryKey xmi:id="_VNbxUOhuEem-kuBNwFGEnQ" base_Property="_T2xgYOhuEem-kuBNwFGEnQ"/>
   <Persistency:PrimaryKey xmi:id="_MwynQOiREemvTunkX6iuLg" base_Property="_LSp1UOiREemvTunkX6iuLg"/>
   <Persistency:PrimaryKey xmi:id="_Pg0e4OiREemvTunkX6iuLg" base_Property="_OqAysOiREemvTunkX6iuLg"/>
@@ -359,4 +357,5 @@
   <Persistency:GeneratedValueMapping xmi:id="_ZhL4oOxXEemSOujT7s8EfQ" base_Property="_VQPf0OiREemvTunkX6iuLg"/>
   <Persistency:GeneratedValueMapping xmi:id="_bECygOxXEemSOujT7s8EfQ" base_Property="_eNMzwOiREemvTunkX6iuLg"/>
   <Persistency:EnumerationStyleMapping xmi:id="_j7_1MOxYEemSOujT7s8EfQ" base_Property="_uQDNMOedEemToPnOLeEJLQ" style="STRING"/>
+  <Persistency:PrimaryKey xmi:id="_8oVScOxgEemiMMmzAOiy_g" base_Property="_7SwmoOxgEemiMMmzAOiy_g"/>
 </xmi:XMI>
