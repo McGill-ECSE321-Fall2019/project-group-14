@@ -341,7 +341,7 @@ public class TutoringSystemService {
    * REVIEW
    */
   @Transactional
-  public Review createReview(Integer rating, String comment, User from, User to) {
+  public Review createReview(Integer rating, String comment, Person from, Person to) {
     if (rating == null) {
       throw new IllegalArgumentException("Rating cannot be null!");
     }

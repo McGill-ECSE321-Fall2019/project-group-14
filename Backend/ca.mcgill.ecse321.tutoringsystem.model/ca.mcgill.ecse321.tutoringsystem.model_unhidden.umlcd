@@ -6,7 +6,6 @@
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_iQtHUOeSEemToPnOLeEJLQ" sourceAnchor="63.0,16.0" targetAnchor="47.0,56.0" enclosingItem="_ZiyU8OeSEemToPnOLeEJLQ" containedItem="_dQFtIeeSEemToPnOLeEJLQ"/>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_iaFFwOeSEemToPnOLeEJLQ" sourceAnchor="43.0,16.0" targetAnchor="59.0,56.0" enclosingItem="_dQFtIeeSEemToPnOLeEJLQ" containedItem="_e9ylEeeSEemToPnOLeEJLQ"/>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_ldLqYOeSEemToPnOLeEJLQ" sourceAnchor="36.0,0.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_js4xcOeSEemToPnOLeEJLQ">
-    <visualProperties xmi:id="_Pb8KIOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9mE4-rnEemkXbLyCovKqA" sourceX="-1" sourceY="-22" targetX="711" targetY="-560"/>
     <bendpoints xmi:id="_U9mE5OrnEemkXbLyCovKqA" sourceX="-651" sourceY="-25" targetX="61" targetY="-563"/>
     <bendpoints xmi:id="_U9mE5ernEemkXbLyCovKqA" sourceX="-652" sourceY="538" targetX="60"/>
@@ -318,77 +317,64 @@
     </targetRole>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_anzEEOh1EemUkc9FMtfjqQ" sourceAnchor="144.0,113.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_VE6mAOeTEemToPnOLeEJLQ">
-    <visualProperties xmi:id="_Ou0lcOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9q9YOrnEemkXbLyCovKqA" sourceX="2" sourceY="761" targetX="1347" targetY="595"/>
     <bendpoints xmi:id="_U9q9YernEemkXbLyCovKqA" sourceX="-1288" sourceY="760" targetX="57" targetY="594"/>
     <bendpoints xmi:id="_U9q9YurnEemkXbLyCovKqA" sourceX="-1285" sourceY="166" targetX="60"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_an2ucOh1EemUkc9FMtfjqQ" sourceAnchor="133.0,0.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_Wg7RAOeTEemToPnOLeEJLQ">
-    <visualProperties xmi:id="_O9mBQOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9mr8OrnEemkXbLyCovKqA" sourceX="3" sourceY="-284" targetX="901" targetY="-558"/>
     <bendpoints xmi:id="_U9mr8ernEemkXbLyCovKqA" sourceX="-837" sourceY="-289" targetX="61" targetY="-563"/>
     <bendpoints xmi:id="_U9mr8urnEemkXbLyCovKqA" sourceX="-838" sourceY="256" targetX="60"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_an5KsOh1EemUkc9FMtfjqQ" sourceAnchor="0.0,36.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_hp2tQOeTEemToPnOLeEJLQ">
-    <visualProperties xmi:id="_OeqCgOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9n6FOrnEemkXbLyCovKqA" sourceX="-30" targetX="60" targetY="82"/>
     <bendpoints xmi:id="_U9n6FernEemkXbLyCovKqA" sourceX="-30" sourceY="-82" targetX="60"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_an81EOh1EemUkc9FMtfjqQ" sourceAnchor="81.0,0.0" targetAnchor="47.0,56.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_ypT4AOeTEemToPnOLeEJLQ"/>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_an_4YOh1EemUkc9FMtfjqQ" sourceAnchor="5.0,0.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_1vn2wOeVEemToPnOLeEJLQ">
-    <visualProperties xmi:id="_NJtBwOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9n6EernEemkXbLyCovKqA" sourceY="-38" targetX="1206" targetY="-557"/>
     <bendpoints xmi:id="_U9n6EurnEemkXbLyCovKqA" sourceX="-1145" sourceY="-43" targetX="61" targetY="-562"/>
     <bendpoints xmi:id="_U9n6E-rnEemkXbLyCovKqA" sourceX="-1146" sourceY="519" targetX="60"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_aoBtkOh1EemUkc9FMtfjqQ" sourceAnchor="0.0,146.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_ua-2YOeTEemToPnOLeEJLQ">
-    <visualProperties xmi:id="_ORHVwOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9pvQurnEemkXbLyCovKqA" sourceX="-37" targetX="455" targetY="48"/>
     <bendpoints xmi:id="_U9pvQ-rnEemkXbLyCovKqA" sourceX="-36" sourceY="254" targetX="456" targetY="302"/>
     <bendpoints xmi:id="_U9pvROrnEemkXbLyCovKqA" sourceX="-433" sourceY="253" targetX="59" targetY="301"/>
     <bendpoints xmi:id="_U9qWUOrnEemkXbLyCovKqA" sourceX="-432" sourceY="-48" targetX="60"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_aoEw4Oh1EemUkc9FMtfjqQ" sourceAnchor="0.0,43.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_jHiMMeeTEemToPnOLeEJLQ">
-    <visualProperties xmi:id="_N_XecOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9ohIOrnEemkXbLyCovKqA" sourceX="-31" targetX="60" targetY="246"/>
     <bendpoints xmi:id="_U9ohIernEemkXbLyCovKqA" sourceX="-31" sourceY="-246" targetX="60"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_aoHNIOh1EemUkc9FMtfjqQ" sourceAnchor="16.0,100.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_wDWiYeeTEemToPnOLeEJLQ">
-    <visualProperties xmi:id="_NvM7gOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9pIMurnEemkXbLyCovKqA" sourceX="-2" sourceY="82" targetX="268" targetY="593"/>
     <bendpoints xmi:id="_U9pIM-rnEemkXbLyCovKqA" sourceX="-211" sourceY="84" targetX="59" targetY="595"/>
     <bendpoints xmi:id="_U9pINOrnEemkXbLyCovKqA" sourceX="-210" sourceY="-511" targetX="60"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_aoKQcOh1EemUkc9FMtfjqQ" sourceAnchor="0.0,46.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_R4OAgOeTEemToPnOLeEJLQ">
-    <visualProperties xmi:id="_Mz6_AOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9nTA-rnEemkXbLyCovKqA" sourceX="-379" targetX="60" targetY="-223"/>
     <bendpoints xmi:id="_U9n6EOrnEemkXbLyCovKqA" sourceX="-379" sourceY="223" targetX="60"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_aoNTwOh1EemUkc9FMtfjqQ" sourceAnchor="79.0,91.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_vKvfYOeTEemToPnOLeEJLQ">
-    <visualProperties xmi:id="_NdzCcOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9ohJernEemkXbLyCovKqA" sourceX="2" sourceY="207" targetX="627" targetY="597"/>
     <bendpoints xmi:id="_U9ohJurnEemkXbLyCovKqA" sourceX="-567" sourceY="204" targetX="58" targetY="594"/>
     <bendpoints xmi:id="_U9pIMOrnEemkXbLyCovKqA" sourceX="-565" sourceY="-390" targetX="60"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_aoQXEOh1EemUkc9FMtfjqQ" sourceAnchor="87.0,157.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_4UHz0OeVEemToPnOLeEJLQ">
-    <visualProperties xmi:id="_MmlGkOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9mE4OrnEemkXbLyCovKqA" sourceY="450" targetX="1102" targetY="594"/>
     <bendpoints xmi:id="_U9mE4ernEemkXbLyCovKqA" sourceX="-1044" sourceY="453" targetX="58" targetY="597"/>
     <bendpoints xmi:id="_U9mE4urnEemkXbLyCovKqA" sourceX="-1042" sourceY="-144" targetX="60"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_aoTaYOh1EemUkc9FMtfjqQ" sourceAnchor="0.0,44.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_HmqEgOhsEem-kuBNwFGEnQ">
-    <visualProperties xmi:id="_PMYEIOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9ld0OrnEemkXbLyCovKqA" sourceX="-73" targetX="60" targetY="-93"/>
     <bendpoints xmi:id="_U9ld0ernEemkXbLyCovKqA" sourceX="-73" sourceY="93" targetX="60"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_aoV2oOh1EemUkc9FMtfjqQ" sourceAnchor="85.0,120.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_Zg0O4OhqEem-kuBNwFGEnQ">
-    <visualProperties xmi:id="_MZJHgOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9ohIurnEemkXbLyCovKqA" sourceY="294" targetX="880" targetY="597"/>
     <bendpoints xmi:id="_U9ohI-rnEemkXbLyCovKqA" sourceX="-821" sourceY="293" targetX="59" targetY="596"/>
     <bendpoints xmi:id="_U9ohJOrnEemkXbLyCovKqA" sourceX="-820" sourceY="-303" targetX="60"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_aoY58Oh1EemUkc9FMtfjqQ" sourceAnchor="74.0,0.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_48BhUOeVEemToPnOLeEJLQ">
-    <visualProperties xmi:id="_L7gJQOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9pINernEemkXbLyCovKqA" sourceX="1" sourceY="-70" targetX="415" targetY="-562"/>
     <bendpoints xmi:id="_U9pvQOrnEemkXbLyCovKqA" sourceX="-352" sourceY="-70" targetX="62" targetY="-562"/>
     <bendpoints xmi:id="_U9pvQernEemkXbLyCovKqA" sourceX="-354" sourceY="492" targetX="60"/>
@@ -505,7 +491,7 @@
       <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_y8egEOedEemToPnOLeEJLQ"/>
       <visibility xmi:id="_y8fHIeedEemToPnOLeEJLQ" label="+"/>
       <cardinality xmi:id="_y8fHIuedEemToPnOLeEJLQ" label="1" max="1" min="1"/>
-      <type xmi:id="_z-gk0OedEemToPnOLeEJLQ" name="Person">
+      <type xmi:id="_z-gk0OedEemToPnOLeEJLQ" name="User">
         <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_js4KYOeSEemToPnOLeEJLQ"/>
       </type>
     </attributes>
@@ -513,7 +499,7 @@
       <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_zR59gOedEemToPnOLeEJLQ"/>
       <visibility xmi:id="_zR59guedEemToPnOLeEJLQ" label="+"/>
       <cardinality xmi:id="_zR59g-edEemToPnOLeEJLQ" label="1" max="1" min="1"/>
-      <type xmi:id="_0wtd0OedEemToPnOLeEJLQ" name="Person">
+      <type xmi:id="_0wtd0OedEemToPnOLeEJLQ" name="User">
         <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_js4KYOeSEemToPnOLeEJLQ"/>
       </type>
     </attributes>
@@ -718,6 +704,20 @@
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_wDWiYOeTEemToPnOLeEJLQ"/>
     <visualProperties xmi:id="_wDWiYueTEemToPnOLeEJLQ" position="2573.0,1127.0" size="204.0,100.0"/>
     <visibility xmi:id="_wDWiY-eTEemToPnOLeEJLQ" label="+"/>
+    <attributes xmi:id="_jYLv8OeWEemToPnOLeEJLQ" name="roomNumber">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_jYLI4OeWEemToPnOLeEJLQ"/>
+      <stereotypes xmi:id="_KLeywOedEemToPnOLeEJLQ" name="StyledElement">
+        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_ChxPYeedEemToPnOLeEJLQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_RtHFMOhuEem-kuBNwFGEnQ" name="PrimaryKey">
+        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_RtEB4OhuEem-kuBNwFGEnQ"/>
+      </stereotypes>
+      <visibility xmi:id="_jYLv8eeWEemToPnOLeEJLQ" label="+"/>
+      <cardinality xmi:id="_jYLv8ueWEemToPnOLeEJLQ" label="1" max="1" min="1"/>
+      <type xmi:id="_x1X6sOumEemp-8X3V7kGdw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </type>
+    </attributes>
     <attributes xmi:id="_loDg0eeWEemToPnOLeEJLQ" name="capacity">
       <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_loDg0OeWEemToPnOLeEJLQ"/>
       <stereotypes xmi:id="_KLeyweedEemToPnOLeEJLQ" name="StyledElement">
@@ -735,17 +735,6 @@
       <cardinality xmi:id="__ncTpueZEemToPnOLeEJLQ" label="*" max="-1"/>
       <type xmi:id="__ncTp-eZEemToPnOLeEJLQ" name="Session">
         <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_vKu4UOeTEemToPnOLeEJLQ"/>
-      </type>
-    </attributes>
-    <attributes xmi:id="_7S1fIOxgEemiMMmzAOiy_g" name="roomNumber">
-      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_7SwmoOxgEemiMMmzAOiy_g"/>
-      <stereotypes xmi:id="_8oVScexgEemiMMmzAOiy_g" name="PrimaryKey">
-        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_8oVScOxgEemiMMmzAOiy_g"/>
-      </stereotypes>
-      <visibility xmi:id="_7S1fIexgEemiMMmzAOiy_g" label="+"/>
-      <cardinality xmi:id="_7S1fIuxgEemiMMmzAOiy_g" label="1" max="1" min="1"/>
-      <type xmi:id="_8UyrYOxgEemiMMmzAOiy_g" name="Integer">
-        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>
   </nodes>
@@ -943,6 +932,41 @@
       </type>
     </attributes>
   </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_js4xcOeSEemToPnOLeEJLQ" containment="_ldLqYOeSEemToPnOLeEJLQ" name="User" package="_e9ylEeeSEemToPnOLeEJLQ" subclassedBy="_Zi-swOeTEemToPnOLeEJLQ _Z1n78OeTEemToPnOLeEJLQ _aAr8cOeTEemToPnOLeEJLQ">
+    <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_js4KYOeSEemToPnOLeEJLQ"/>
+    <visualProperties xmi:id="_js4xceeSEemToPnOLeEJLQ" position="2995.0,178.0" size="176.0,105.0"/>
+    <visibility xmi:id="_js4xcueSEemToPnOLeEJLQ" label="+"/>
+    <attributes xmi:id="_WKGvoeeXEemToPnOLeEJLQ" name="name">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_WKGvoOeXEemToPnOLeEJLQ"/>
+      <visibility xmi:id="_WKGvoueXEemToPnOLeEJLQ" label="+"/>
+      <cardinality xmi:id="_WKGvo-eXEemToPnOLeEJLQ" label="1" max="1" min="1"/>
+      <type xmi:id="_YiF6sOeXEemToPnOLeEJLQ" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_hy8bAOeXEemToPnOLeEJLQ" name="email">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_hy7z8OeXEemToPnOLeEJLQ"/>
+      <visibility xmi:id="_hy8bAeeXEemToPnOLeEJLQ" label="+"/>
+      <cardinality xmi:id="_hy8bAueXEemToPnOLeEJLQ" label="1" max="1" min="1"/>
+      <type xmi:id="_kVQmwOeXEemToPnOLeEJLQ" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_0p1y4OxVEemSOujT7s8EfQ" name="userId">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_0p0kwOxVEemSOujT7s8EfQ"/>
+      <stereotypes xmi:id="_2ZXPwOxVEemSOujT7s8EfQ" name="PrimaryKey">
+        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_2ZWosOxVEemSOujT7s8EfQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_51lfAOxVEemSOujT7s8EfQ" name="GeneratedValueMapping">
+        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_51k38OxVEemSOujT7s8EfQ"/>
+      </stereotypes>
+      <visibility xmi:id="_0p1y4exVEemSOujT7s8EfQ" label="+"/>
+      <cardinality xmi:id="_0p1y4uxVEemSOujT7s8EfQ" label="1" max="1" min="1"/>
+      <type xmi:id="_1euzgOxVEemSOujT7s8EfQ" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </type>
+    </attributes>
+  </nodes>
   <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:EnumerationVisual" xmi:id="_ypT4AOeTEemToPnOLeEJLQ" containment="_an81EOh1EemUkc9FMtfjqQ" name="SchoolLevel" package="_e9ylEeeSEemToPnOLeEJLQ">
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_ypSp4OeTEemToPnOLeEJLQ"/>
     <visualProperties xmi:id="_ypT4AeeTEemToPnOLeEJLQ" position="2193.0,841.0" size="127.0,-1.0"/>
@@ -1012,7 +1036,7 @@
         <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_ua-PUOeTEemToPnOLeEJLQ"/>
       </type>
     </attributes>
-    <attributes xmi:id="_holVgeiREemvTunkX6iuLg" name="sessionId">
+    <attributes xmi:id="_holVgeiREemvTunkX6iuLg" derived="true" name="sessionId">
       <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_holVgOiREemvTunkX6iuLg"/>
       <stereotypes xmi:id="_iaxAYeiREemvTunkX6iuLg" name="PrimaryKey">
         <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_iaxAYOiREemvTunkX6iuLg"/>
@@ -1020,41 +1044,6 @@
       <visibility xmi:id="_holVguiREemvTunkX6iuLg" label="+"/>
       <cardinality xmi:id="_holVg-iREemvTunkX6iuLg" label="1" max="1" min="1"/>
       <type xmi:id="_z0vKYOumEemp-8X3V7kGdw" name="Integer">
-        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </type>
-    </attributes>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_js4xcOeSEemToPnOLeEJLQ" containment="_ldLqYOeSEemToPnOLeEJLQ" name="Person" package="_e9ylEeeSEemToPnOLeEJLQ" subclassedBy="_Zi-swOeTEemToPnOLeEJLQ _Z1n78OeTEemToPnOLeEJLQ _aAr8cOeTEemToPnOLeEJLQ">
-    <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_js4KYOeSEemToPnOLeEJLQ"/>
-    <visualProperties xmi:id="_js4xceeSEemToPnOLeEJLQ" position="2995.0,178.0" size="176.0,105.0"/>
-    <visibility xmi:id="_js4xcueSEemToPnOLeEJLQ" label="+"/>
-    <attributes xmi:id="_WKGvoeeXEemToPnOLeEJLQ" name="name">
-      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_WKGvoOeXEemToPnOLeEJLQ"/>
-      <visibility xmi:id="_WKGvoueXEemToPnOLeEJLQ" label="+"/>
-      <cardinality xmi:id="_WKGvo-eXEemToPnOLeEJLQ" label="1" max="1" min="1"/>
-      <type xmi:id="_YiF6sOeXEemToPnOLeEJLQ" name="String">
-        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </type>
-    </attributes>
-    <attributes xmi:id="_hy8bAOeXEemToPnOLeEJLQ" name="email">
-      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_hy7z8OeXEemToPnOLeEJLQ"/>
-      <visibility xmi:id="_hy8bAeeXEemToPnOLeEJLQ" label="+"/>
-      <cardinality xmi:id="_hy8bAueXEemToPnOLeEJLQ" label="1" max="1" min="1"/>
-      <type xmi:id="_kVQmwOeXEemToPnOLeEJLQ" name="String">
-        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </type>
-    </attributes>
-    <attributes xmi:id="_0p1y4OxVEemSOujT7s8EfQ" name="userId">
-      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_0p0kwOxVEemSOujT7s8EfQ"/>
-      <stereotypes xmi:id="_2ZXPwOxVEemSOujT7s8EfQ" name="PrimaryKey">
-        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_2ZWosOxVEemSOujT7s8EfQ"/>
-      </stereotypes>
-      <stereotypes xmi:id="_51lfAOxVEemSOujT7s8EfQ" name="GeneratedValueMapping">
-        <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_51k38OxVEemSOujT7s8EfQ"/>
-      </stereotypes>
-      <visibility xmi:id="_0p1y4exVEemSOujT7s8EfQ" label="+"/>
-      <cardinality xmi:id="_0p1y4uxVEemSOujT7s8EfQ" label="1" max="1" min="1"/>
-      <type xmi:id="_1euzgOxVEemSOujT7s8EfQ" name="Integer">
         <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </type>
     </attributes>

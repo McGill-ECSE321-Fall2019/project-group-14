@@ -16,11 +16,11 @@ public class TutoringSystemRepository {
   EntityManager entityManager;
 
   @Transactional
-  public User getUser(String email) {
+  public Person getPerson(String email) {
     if (email == null || email.trim().length() == 0) {
       throw new IllegalArgumentException("Tutor Id cannot be empty!");
     }
-    User p = entityManager.find(User.class, email);
+    Person p = entityManager.find(Person.class, email);
     return p;
   }
 
@@ -115,11 +115,11 @@ public class TutoringSystemRepository {
   }
 
   @Transactional
-  public Application createApplication(Boolean isExistingUser, String name, String email,
+  public Application createApplication(Boolean isExistingPerson, String name, String email,
       String course) {
     String error = "";
-    if (isExistingUser == null) {
-      error = error + "User cannot be empty! ";
+    if (isExistingPerson == null) {
+      error = error + "Person cannot be empty! ";
     }
     if (name == null || name.trim().length() == 0) {
       error = error + "Application name cannot be empty! ";
@@ -135,7 +135,7 @@ public class TutoringSystemRepository {
       throw new IllegalArgumentException(error);
     }
     Application p = new Application();
-    p.setIsExistingUser(isExistingUser);
+    p.setIsExistingUser(isExistingPerson);
     p.setName(name);
     p.setEmail(email);
     p.setCourses(course);
@@ -345,12 +345,12 @@ public class TutoringSystemRepository {
 
 
   @Transactional
-  public Review createReview(Integer rating, String comment, User from, User to) {
+  public Review createReview(Integer rating, String comment, Person from, Person to) {
     if (rating == null) {
       throw new IllegalArgumentException("Rating cannot be null!");
     }
     if (from == null || to == null) {
-      throw new IllegalArgumentException("Review needs to be from a user and to another user.");
+      throw new IllegalArgumentException("Review needs to be from a Person and to another Person.");
     }
     if (comment == null) {
       comment = "";
