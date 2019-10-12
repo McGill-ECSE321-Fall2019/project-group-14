@@ -45,12 +45,12 @@ public class TutoringSystemService {
    */
   @Transactional
   public Tutor createTutor(String name, String email) {
-	  System.out.println("inside create tutor 1");
     if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0) {
       throw new IllegalArgumentException("Tutor name and email cannot be empty!");
     }
     Tutor t = new Tutor();
     t.setName(name);
+    t.setEmail(email);
     tutorRepository.save(t);
     return t;
   }
@@ -88,6 +88,7 @@ public class TutoringSystemService {
     }
     Student s = new Student();
     s.setName(name);
+    s.setEmail(email);
     studentRepository.save(s);
     return s;
   }
@@ -125,6 +126,7 @@ public class TutoringSystemService {
     }
     Manager m = new Manager();
     m.setName(name);
+    m.setEmail(email);
     managerRepository.save(m);
     return m;
   }

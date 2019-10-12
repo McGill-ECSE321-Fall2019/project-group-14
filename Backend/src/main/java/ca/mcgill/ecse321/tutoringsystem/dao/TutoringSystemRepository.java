@@ -255,6 +255,12 @@ public class TutoringSystemRepository {
 
   @Transactional
   public Wage createWage(Tutor tutor, Course course, Integer wage) {
+	if (tutor == null) {
+	        throw new IllegalArgumentException("A tutor needs to be specified!");
+	}
+	if (course == null) {
+	        throw new IllegalArgumentException("Course cannot be empty!");
+	}
     if (wage == null || wage <= 0) {
       throw new IllegalArgumentException("Wage cannot be negative or zero!");
     }
