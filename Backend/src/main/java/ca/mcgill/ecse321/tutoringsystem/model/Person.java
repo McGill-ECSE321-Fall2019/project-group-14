@@ -8,7 +8,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.GeneratedValue;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @DiscriminatorColumn(name = "person_type")
 public class Person {
   private String name;
