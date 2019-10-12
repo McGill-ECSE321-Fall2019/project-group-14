@@ -1,9 +1,14 @@
 package ca.mcgill.ecse321.tutoringsystem.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.Id;
 
 @Entity
@@ -21,7 +26,8 @@ public class Session{
    
    private Request request;
    
-   @OneToOne(optional=false)
+   @OneToOne
+   @NotFound(action=NotFoundAction.IGNORE)
    @MapsId
    public Request getRequest() {
       return this.request;

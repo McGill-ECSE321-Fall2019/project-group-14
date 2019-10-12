@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -256,13 +258,38 @@ public class TutoringSystemService {
    */
   @Transactional
   public Session createSession(Request request) {
-    if (request == null) {
-      throw new IllegalArgumentException("Request cannot be null!");
+	  if (request == null) {
+	      throw new IllegalArgumentException("Request cannot be null!");
+	    }
+	Session s = new Session();
+	sessionRepository.save(s);
+	request.setSession(s);
+	requestRepository.save(request);
+	System.out.println(request.getSession());
+    if (getAllRooms().size() == 0) {
+    	throw new RuntimeException("There are no rooms created.");
     }
-    Session s = new Session();
-    s.setRequest(request);
-    sessionRepository.save(s);
-    return s;
+    List<Room> rooms = getAllRooms();
+    for (Room room : rooms) {
+    	if (room.getSession().size() == 0) {
+    		s.setRequest(request);
+    		s.setRoom(room);
+    		
+    		System.out.println(s.getSessionId() + " " + s.getRoom().getRoomNumber() + " " + s.getRequest());
+    		
+			return s;
+    	}
+    	/*Set<Session> sessions = room.getSession();
+    	for (Session checkSession : sessions) {
+    		if (checkSession.getRequest().getDate() != s.getRequest().getDate() && 
+    				checkSession.getRequest().getTime() != s.getRequest().getTime()) {
+    			s.setRoom(room);
+    			sessionRepository.save(s);
+    			return s;
+    		}
+    	}*/
+    }
+    throw new RuntimeException("There are no rooms available for that time and date.");
   }
 
   @Transactional
@@ -357,6 +384,14 @@ public class TutoringSystemService {
     Review r = new Review();
     r.setRating(rating);
     r.setComment(comment);
+    if (from instanceof Tutor) {
+    	r.setTutor((Tutor) from);
+    	r.setStudent((Student) to);
+    }
+    else {
+    	r.setTutor((Tutor) to);
+    	r.setStudent((Student) from);
+    }
     r.setFrom(from);
     r.setTo(to);
     reviewRepository.save(r);
@@ -462,6 +497,7 @@ public class TutoringSystemService {
     Wage w = new Wage();
     w.setTutor(tutor);
     w.setWage(wage);
+    w.setCourse(course);
     wageRepository.save(w);
     return w;
   }

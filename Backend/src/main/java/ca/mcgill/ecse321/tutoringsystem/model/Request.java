@@ -6,10 +6,14 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.CascadeType;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.DynamicUpdate;
+
 import java.sql.Time;
 import java.sql.Date;
 
 @Entity
+@DynamicUpdate
 public class Request{
    private Tutor tutor;
    
@@ -28,7 +32,8 @@ public void setRequestId(Integer value) {
     this.requestId = value;
 }
 @Id
-@GeneratedValue()public Integer getRequestId() {
+@GeneratedValue()
+public Integer getRequestId() {
     return this.requestId;
 }
 private Student student;
