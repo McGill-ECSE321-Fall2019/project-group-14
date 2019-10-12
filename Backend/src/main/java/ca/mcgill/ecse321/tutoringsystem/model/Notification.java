@@ -30,7 +30,6 @@ public class Notification {
     this.tutor = tutor;
   }
 
-  public static int nextId = 1;
   private Integer notificationId;
 
   public void setNotificationId(Integer value) {

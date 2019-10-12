@@ -71,7 +71,6 @@ public class Review {
     return this.to;
   }
 
-  public static int nextId = 1;
   private Integer reviewId;
 
   public void setReviewId(Integer value) {
