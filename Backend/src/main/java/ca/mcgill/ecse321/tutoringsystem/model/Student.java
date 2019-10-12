@@ -7,7 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 
 @Entity
-@DiscriminatorValue("STUDENT")
+@DiscriminatorValue("S")
 public class Student extends Person{
    private Set<Review> review;
    

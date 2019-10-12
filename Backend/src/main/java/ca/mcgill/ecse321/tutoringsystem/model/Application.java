@@ -1,71 +1,53 @@
 package ca.mcgill.ecse321.tutoringsystem.model;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 
 @Entity
-public class Application {
-  private Manager manager;
+public class Application{
+   private Boolean isExistingUser;
+   
+   public void setIsExistingUser(Boolean value) {
+      this.isExistingUser = value;
+   }
+   
+   public Boolean getIsExistingUser() {
+      return this.isExistingUser;
+   }
+   
+   private String name;
 
-  @ManyToOne(optional = false)
-  public Manager getManager() {
-    return this.manager;
-  }
-
-  public void setManager(Manager manager) {
-    this.manager = manager;
-  }
-
-  private Boolean isExistingUser;
-
-  public void setIsExistingUser(Boolean value) {
-    this.isExistingUser = value;
-  }
-
-  public Boolean getIsExistingUser() {
-    return this.isExistingUser;
-  }
-
-  private String name;
-
-  public void setName(String value) {
+public void setName(String value) {
     this.name = value;
-  }
-
-  public String getName() {
+}
+public String getName() {
     return this.name;
-  }
+}
+private String email;
 
-  private String email;
-
-  public void setEmail(String value) {
+public void setEmail(String value) {
     this.email = value;
-  }
-
-  public String getEmail() {
+}
+public String getEmail() {
     return this.email;
-  }
+}
+private String courses;
 
-  private String courses;
-
-  public void setCourses(String value) {
+public void setCourses(String value) {
     this.courses = value;
-  }
+}
+public String getCourses() {
+    return this.courses;
+}
+private Integer applicationId;
 
-  public String getCourses() {
-    return this.courses;}
-
-  private Integer applicationId;
-
-  public void setApplicationId(Integer value) {
+public void setApplicationId(Integer value) {
     this.applicationId = value;
-  }
-
-  @Id
-  @GeneratedValue()
-  public Integer getApplicationId() {
+}
+@Id
+@GeneratedValue()
+public Integer getApplicationId() {
     return this.applicationId;
-  }
+}
 }

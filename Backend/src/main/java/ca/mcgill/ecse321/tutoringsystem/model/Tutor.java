@@ -7,7 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 
 @Entity
-@DiscriminatorValue("TUTOR")
+@DiscriminatorValue("T")
 public class Tutor extends Person{
    private Set<Request> request;
    
