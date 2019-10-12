@@ -45,6 +45,7 @@ public class TutoringSystemService {
    */
   @Transactional
   public Tutor createTutor(String name, String email) {
+	  System.out.println("inside create tutor 1");
     if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0) {
       throw new IllegalArgumentException("Tutor name and email cannot be empty!");
     }
@@ -83,7 +84,7 @@ public class TutoringSystemService {
   @Transactional
   public Student createStudent(String name, String email) {
     if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0) {
-      throw new IllegalArgumentException("Tutor name and email cannot be empty!");
+      throw new IllegalArgumentException("Student name and email cannot be empty!");
     }
     Student s = new Student();
     s.setName(name);
@@ -120,7 +121,7 @@ public class TutoringSystemService {
   @Transactional
   public Manager createManager(String name, String email) {
     if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0) {
-      throw new IllegalArgumentException("Tutor name and email cannot be empty!");
+      throw new IllegalArgumentException("Manager name and email cannot be empty!");
     }
     Manager m = new Manager();
     m.setName(name);
@@ -447,6 +448,12 @@ public class TutoringSystemService {
    */
   @Transactional
   public Wage createWage(Tutor tutor, Course course, Integer wage) {
+	if (tutor == null) {
+	        throw new IllegalArgumentException("A tutor needs to be specified!");
+	}
+	if (course == null) {
+	        throw new IllegalArgumentException("Course cannot be empty!");
+	}
     if (wage == null || wage <= 0) {
       throw new IllegalArgumentException("Wage cannot be negative or zero!");
     }
