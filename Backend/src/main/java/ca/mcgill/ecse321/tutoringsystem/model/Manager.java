@@ -1,10 +1,12 @@
 package ca.mcgill.ecse321.tutoringsystem.model;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import java.util.Set;
 import javax.persistence.OneToMany;
 
 @Entity
+@DiscriminatorValue("MANAGER")
 public class Manager extends Person{
    private Set<Application> application;
    
