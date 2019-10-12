@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import java.util.Set;
 import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 
 @Entity
+@DiscriminatorValue("TUTOR")
 public class Tutor extends Person{
    private Set<Request> request;
    
