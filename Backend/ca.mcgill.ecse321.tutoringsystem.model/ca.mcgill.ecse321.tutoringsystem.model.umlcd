@@ -1026,7 +1026,7 @@
   </nodes>
   <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_js4xcOeSEemToPnOLeEJLQ" containment="_ldLqYOeSEemToPnOLeEJLQ" name="Person" package="_e9ylEeeSEemToPnOLeEJLQ" subclassedBy="_Zi-swOeTEemToPnOLeEJLQ _Z1n78OeTEemToPnOLeEJLQ _aAr8cOeTEemToPnOLeEJLQ">
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_js4KYOeSEemToPnOLeEJLQ"/>
-    <visualProperties xmi:id="_js4xceeSEemToPnOLeEJLQ" position="2995.0,178.0" size="176.0,105.0"/>
+    <visualProperties xmi:id="_js4xceeSEemToPnOLeEJLQ" position="2995.0,178.0" size="176.0,-1.0"/>
     <visibility xmi:id="_js4xcueSEemToPnOLeEJLQ" label="+"/>
     <attributes xmi:id="_WKGvoeeXEemToPnOLeEJLQ" name="name">
       <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_WKGvoOeXEemToPnOLeEJLQ"/>
@@ -1056,6 +1056,14 @@
       <cardinality xmi:id="_0p1y4uxVEemSOujT7s8EfQ" label="1" max="1" min="1"/>
       <type xmi:id="_1euzgOxVEemSOujT7s8EfQ" name="Integer">
         <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_o0dLIO0XEemnRYbQlYc8Gw" name="password">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_o0Y5sO0XEemnRYbQlYc8Gw"/>
+      <visibility xmi:id="_o0dLIe0XEemnRYbQlYc8Gw" label="+"/>
+      <cardinality xmi:id="_o0dLIu0XEemnRYbQlYc8Gw" label="1" max="1" min="1"/>
+      <type xmi:id="_qENi0O0XEemnRYbQlYc8Gw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </type>
     </attributes>
   </nodes>
