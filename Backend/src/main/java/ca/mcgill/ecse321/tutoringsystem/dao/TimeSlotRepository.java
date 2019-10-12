@@ -8,6 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 import ca.mcgill.ecse321.tutoringsystem.model.TimeSlot;
 
 public interface TimeSlotRepository extends CrudRepository<TimeSlot, Integer>{
-  TimeSlot findTimeSlotById(int timeSlotId);
+  TimeSlot findTimeSlotByTimeSlotId(int timeSlotId);
   List<TimeSlot> findTimeSlotByDateAndTime(Date date, Time time);
 }

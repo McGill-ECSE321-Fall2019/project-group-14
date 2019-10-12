@@ -57,10 +57,7 @@ public class Application {
   public String getCourses() {
     return this.courses;}
 
-  public static int nextId = 1;
   private Integer applicationId;
-
-
 
   public void setApplicationId(Integer value) {
     this.applicationId = value;

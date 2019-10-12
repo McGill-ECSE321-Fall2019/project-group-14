@@ -59,7 +59,7 @@ public class TutoringSystemService {
     if (id == null) {
       throw new IllegalArgumentException("Tutor Id cannot be empty!");
     }
-    Tutor t = tutorRepository.findTutorById(id);
+    Tutor t = tutorRepository.findTutorByUserId(id);
     return t;
   }
 
@@ -96,7 +96,7 @@ public class TutoringSystemService {
     if (id == null) {
       throw new IllegalArgumentException("Tutor Id cannot be empty!");
     }
-    Student s = studentRepository.findStudentById(id);
+    Student s = studentRepository.findStudentByUserId(id);
     return s;
   }
 
@@ -133,7 +133,7 @@ public class TutoringSystemService {
     if (id == null) {
       throw new IllegalArgumentException("Tutor Id cannot be empty!");
     }
-    Manager m = managerRepository.findManagerById(id);
+    Manager m = managerRepository.findManagerByUserId(id);
     return m;
   }
 
@@ -186,7 +186,7 @@ public class TutoringSystemService {
     if (id == null) {
       throw new IllegalArgumentException("Request id cannot be empty!");
     }
-    Request r = requestRepository.findRequestById(id);
+    Request r = requestRepository.findRequestByRequestId(id);
     return r;
   }
 
@@ -264,7 +264,7 @@ public class TutoringSystemService {
 
   @Transactional
   public Session getSession(Integer sessionId) {
-    Session s = sessionRepository.findSessionById(sessionId);
+    Session s = sessionRepository.findSessionBySessionId(sessionId);
     return s;
   }
 
@@ -328,7 +328,7 @@ public class TutoringSystemService {
 
   @Transactional
   public Notification getNotification(Integer notificationId) {
-    Notification w = notificationRepository.findNotificationById(notificationId);
+    Notification w = notificationRepository.findNotificationByNotificationId(notificationId);
     return w;
   }
 
@@ -362,7 +362,7 @@ public class TutoringSystemService {
 
   @Transactional
   public Review getReview(Integer reviewId) {
-    Review r = reviewRepository.findReviewById(reviewId);
+    Review r = reviewRepository.findReviewByReviewId(reviewId);
     return r;
   }
 
@@ -403,7 +403,7 @@ public class TutoringSystemService {
     if (id == null) {
       throw new IllegalArgumentException("Application id cannot be empty!");
     }
-    Application p = applicationRepository.findApplicationById(id);
+    Application p = applicationRepository.findApplicationByApplicationId(id);
     return p;
   }
 
@@ -433,7 +433,7 @@ public class TutoringSystemService {
 
   @Transactional
   public Institution getInstitution(String institutionName) {
-    Institution i = institutionRepository.findInstitutionByName(institutionName);
+    Institution i = institutionRepository.findInstitutionByInstitutionName(institutionName);
     return i;
   }
 
@@ -459,7 +459,7 @@ public class TutoringSystemService {
 
   @Transactional
   public Wage getWage(Integer wageId) {
-    Wage w = wageRepository.findWageById(wageId);
+    Wage w = wageRepository.findWageByWageId(wageId);
     return w;
   }
 
@@ -487,7 +487,7 @@ public class TutoringSystemService {
 
   @Transactional
   public TimeSlot getTimeSlot(Integer timeSlotId) {
-    TimeSlot t = timeslotRepository.findTimeSlotById(timeSlotId);
+    TimeSlot t = timeslotRepository.findTimeSlotByTimeSlotId(timeSlotId);
     return t;
   }
 

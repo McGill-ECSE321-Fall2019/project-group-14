@@ -7,6 +7,6 @@ import ca.mcgill.ecse321.tutoringsystem.model.Wage;
 import ca.mcgill.ecse321.tutoringsystem.model.Tutor;
 
 public interface WageRepository extends CrudRepository<Wage, Integer> {
-  Wage findWageById(int wageId);
+  Wage findWageByWageId(int wageId);
   List<Wage> findWageByTutor(Tutor tutor);
 }
