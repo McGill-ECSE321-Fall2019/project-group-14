@@ -1,6 +1,8 @@
 package ca.mcgill.ecse321.tutoringsystem.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+
 import java.util.Set;
 import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
@@ -11,7 +13,7 @@ import javax.persistence.DiscriminatorValue;
 public class Tutor extends Person {
 	private Set<Request> request;
 
-	@OneToMany(mappedBy = "tutor")
+	@OneToMany(mappedBy = "tutor", fetch = FetchType.EAGER)
 	public Set<Request> getRequest() {
 		return this.request;
 	}
