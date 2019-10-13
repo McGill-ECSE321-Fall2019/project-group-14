@@ -13,7 +13,7 @@ import javax.persistence.DiscriminatorValue;
 public class Tutor extends Person {
 	private Set<Request> request;
 
-	@OneToMany(mappedBy = "tutor", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "tutor")
 	public Set<Request> getRequest() {
 		return this.request;
 	}

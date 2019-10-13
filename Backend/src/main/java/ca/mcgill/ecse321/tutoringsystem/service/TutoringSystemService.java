@@ -199,6 +199,16 @@ public class TutoringSystemService {
 	public List<Request> getAllRequests() {
 		return toList(requestRepository.findAll());
 	}
+	
+	@Transactional
+	public List<Request> getTutorRequests(Tutor tutor) {
+		return requestRepository.findRequestByTutor(tutor);
+	}
+	
+	@Transactional
+	public List<Request> getAcceptedTutorRequests(Tutor tutor) {
+		return requestRepository.findRequestByTutorAndRoomIsNotNull(tutor);	
+	}
 
 	@Transactional
 	public void acceptRequest(int requestId) {

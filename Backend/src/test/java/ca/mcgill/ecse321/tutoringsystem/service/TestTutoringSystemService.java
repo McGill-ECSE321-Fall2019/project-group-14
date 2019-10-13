@@ -149,32 +149,51 @@ public class TestTutoringSystemService {
 	@Test
 	public void testGetTutorRequests() {
 		assertEquals(0, service.getAllTutors().size());
-		String name = "Martin";
-		String email = "martin@mail.mcgill.ca";
-		String password = "password";
-		Time time = Time.valueOf("08:00:01");
-		Date date = Date.valueOf("2019-09-22");
-		Tutor tutor = service.createTutor("name", "email", "password");
-		Student student = service.createStudent("name", "email", "password");
+		String tutorName = "Martin";
+		String tutorEmail = "martin@mail.mcgill.ca";
+		String tutorPassword = "password";
+		Tutor tutor = service.createTutor(tutorName, tutorEmail, tutorPassword);
+		Student student = service.createStudent("name1", "email11", "password11");
+		Student student1 = service.createStudent("student1", "email1", "password1");
 		Course course = service.createCourse("test",
 				service.createInstitution("institutionName", SchoolLevel.University), "subject");
-		Request request1 = service.createRequest(time, date, tutor, student, course);
-		Request request2 = service.createRequest(time, date, tutor, student, course);
-		HashSet<Request> requests = new HashSet<Request>();
-		requests.add(request1);
-		requests.add(request2);
+		Request request1 = service.createRequest(Time.valueOf("12:12:12"), Date.valueOf("2019-02-22"), tutor, student, course);
+		Request request2 = service.createRequest(Time.valueOf("10:21:21"), Date.valueOf("2019-01-22"), tutor, student1, course);
+		List<Request> tutorRequests = null;
 		try {
-			Tutor t = service.createTutor(name, email, password);
-			t.setRequest(requests);
-			tutorRepository.save(t);
+			tutorRequests = service.getTutorRequests(tutor);
+		} catch (IllegalArgumentException e) {
+			fail();
+		}
+		
+		assertEquals(request1.getRequestId(), tutorRequests.get(0).getRequestId());
+		assertEquals(request2.getRequestId(), tutorRequests.get(1).getRequestId());
+	}
+	
+	@Test
+	public void testGetAcceptedTutorRequests() {
+		assertEquals(0, service.getAllTutors().size());
+		String tutorName = "Martin";
+		String tutorEmail = "martin@mail.mcgill.ca";
+		String tutorPassword = "password";
+		Tutor tutor = service.createTutor(tutorName, tutorEmail, tutorPassword);
+		Student student = service.createStudent("name1", "email11", "password11");
+		Student student1 = service.createStudent("student1", "email1", "password1");
+		Course course = service.createCourse("test",
+				service.createInstitution("institutionName", SchoolLevel.University), "subject");
+		service.createRoom(1, 2);
+		Request request1 = service.createRequest(Time.valueOf("12:12:12"), Date.valueOf("2019-02-22"), tutor, student, course);
+		service.createRequest(Time.valueOf("10:21:21"), Date.valueOf("2019-01-22"), tutor, student1, course);
+		service.acceptRequest(request1.getRequestId());
+		List<Request> tutorRequests = null;
+		try {
+			tutorRequests = service.getAcceptedTutorRequests(tutor);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
 
-		List<Tutor> allTutors = service.getAllTutors();
-		assertEquals(true, allTutors.get(0).getRequest().contains(request1));
-		assertEquals(true, allTutors.get(0).getRequest().contains(request2));
-
+		assertEquals(1, tutorRequests.size());
+		assertEquals(request1.getRequestId(), tutorRequests.get(0).getRequestId());
 	}
 
 	// Student class tests
@@ -334,28 +353,6 @@ public class TestTutoringSystemService {
 		assertEquals("Time cannot be empty!", error);
 		assertEquals(0, service.getAllRequests().size());
 
-	}
-
-	@Test
-	public void testSetRequestNewStudent() {
-		assertEquals(0, service.getAllRequests().size());
-		Time time = Time.valueOf("08:00:01");
-		Date date = Date.valueOf("2019-09-22");
-		Tutor tutor = service.createTutor("name", "email", "password");
-		Student student = service.createStudent("name1", "email1", "password1");
-		Student newStudent = service.createStudent("name2", "email2", "password2");
-		Course course = service.createCourse("test",
-				service.createInstitution("institutionName", SchoolLevel.University), "subject");
-		try {
-			Request r = service.createRequest(time, date, tutor, student, course);
-			r.setStudent(newStudent);
-			requestRepository.save(r);
-		} catch (IllegalArgumentException e) {
-			fail();
-		}
-
-		List<Request> allRequests = service.getAllRequests();
-		assertEquals(newStudent.getUserId(), allRequests.get(0).getStudent().getUserId());
 	}
 
 	// Course class tests
@@ -531,30 +528,6 @@ public class TestTutoringSystemService {
 		assertEquals(0, service.getAllNotifications().size());
 	}
 
-	@Test
-	public void testSetNotificationNewRequest() {
-		assertEquals(0, service.getAllNotifications().size());
-		Time time = new Time(0);
-		Date date = new Date(0);
-		Tutor tutor = service.createTutor("name", "email", "password");
-		Student student1 = service.createStudent("name1", "email1", "password1");
-		Student student2 = service.createStudent("name2", "email2", "password2");
-		Course course = service.createCourse("test",
-				service.createInstitution("institutionName", SchoolLevel.University), "subject");
-		Request request = service.createRequest(time, date, tutor, student1, course);
-		Request newRequest = service.createRequest(time, date, tutor, student2, course);
-		try {
-			Notification n = service.createNotification(request);
-			n.setRequest(newRequest);
-			notificationRepository.save(n);
-		} catch (IllegalArgumentException e) {
-			fail();
-		}
-
-		List<Notification> allNotifications = service.getAllNotifications();
-		assertEquals(newRequest.getRequestId(), allNotifications.get(0).getRequest().getRequestId());
-	}
-
 	// Review class tests
 
 	@Test
@@ -650,25 +623,6 @@ public class TestTutoringSystemService {
 		}
 
 		assertEquals("Application name cannot be empty!", error);
-	}
-
-	@Test
-	public void testSetApplicationNewEmail() {
-		Boolean isExistingUser = true;
-		String name = null;
-		String email = "martin@mail.mcgill.ca";
-		String newEmail = "george@mail.mcgill.ca";
-		String course = "ECSE 321";
-		try {
-			Application a = service.createApplication(isExistingUser, name, email, course);
-			a.setEmail(newEmail);
-			applicationRepository.save(a);
-		} catch (IllegalArgumentException e) {
-			fail();
-		}
-
-		Application application = service.getApplication(newEmail);
-		assertEquals(newEmail, application.getEmail());
 	}
 
 	// Institution class tests
