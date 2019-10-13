@@ -8,47 +8,47 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Course {
-  private String courseName;
+	private String courseName;
 
-  public void setCourseName(String value) {
-    this.courseName = value;
-  }
+	public void setCourseName(String value) {
+		this.courseName = value;
+	}
 
-  @Id
-  public String getCourseName() {
-    return this.courseName;
-  }
+	@Id
+	public String getCourseName() {
+		return this.courseName;
+	}
 
-  private Institution institution;
+	private Institution institution;
 
-  @ManyToOne(optional = false)
-  public Institution getInstitution() {
-    return this.institution;
-  }
+	@ManyToOne(optional = false)
+	public Institution getInstitution() {
+		return this.institution;
+	}
 
-  public void setInstitution(Institution institution) {
-    this.institution = institution;
-  }
+	public void setInstitution(Institution institution) {
+		this.institution = institution;
+	}
 
-  private String subjectName;
+	private String subjectName;
 
-  public void setSubjectName(String value) {
-    this.subjectName = value;
-  }
+	public void setSubjectName(String value) {
+		this.subjectName = value;
+	}
 
-  public String getSubjectName() {
-    return this.subjectName;
-  }
+	public String getSubjectName() {
+		return this.subjectName;
+	}
 
-  private Set<Wage> wage;
+	private Set<Wage> wage;
 
-  @OneToMany(mappedBy = "course")
-  public Set<Wage> getWage() {
-    return this.wage;
-  }
+	@OneToMany(mappedBy = "course")
+	public Set<Wage> getWage() {
+		return this.wage;
+	}
 
-  public void setWage(Set<Wage> wages) {
-    this.wage = wages;
-  }
+	public void setWage(Set<Wage> wages) {
+		this.wage = wages;
+	}
 
 }

@@ -10,36 +10,36 @@ import javax.persistence.Enumerated;
 
 @Entity
 public class Institution {
-  private String institutionName;
+	private String institutionName;
 
-  public void setInstitutionName(String value) {
-    this.institutionName = value;
-  }
+	public void setInstitutionName(String value) {
+		this.institutionName = value;
+	}
 
-  @Id
-  public String getInstitutionName() {
-    return this.institutionName;
-  }
+	@Id
+	public String getInstitutionName() {
+		return this.institutionName;
+	}
 
-  private Set<Course> courses;
+	private Set<Course> courses;
 
-  @OneToMany(mappedBy = "institution", cascade = {CascadeType.ALL})
-  public Set<Course> getCourses() {
-    return this.courses;
-  }
+	@OneToMany(mappedBy = "institution", cascade = { CascadeType.ALL })
+	public Set<Course> getCourses() {
+		return this.courses;
+	}
 
-  public void setCourses(Set<Course> coursess) {
-    this.courses = coursess;
-  }
+	public void setCourses(Set<Course> coursess) {
+		this.courses = coursess;
+	}
 
-  private SchoolLevel institutionLevel;
+	private SchoolLevel institutionLevel;
 
-  public void setInstitutionLevel(SchoolLevel value) {
-    this.institutionLevel = value;
-  }
+	public void setInstitutionLevel(SchoolLevel value) {
+		this.institutionLevel = value;
+	}
 
-  @Enumerated(EnumType.STRING)
-  public SchoolLevel getInstitutionLevel() {
-    return this.institutionLevel;
-  }
+	@Enumerated(EnumType.STRING)
+	public SchoolLevel getInstitutionLevel() {
+		return this.institutionLevel;
+	}
 }

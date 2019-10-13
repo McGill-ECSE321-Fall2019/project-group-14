@@ -313,24 +313,6 @@ public class TutoringSystemRepository {
   }
 
   @Transactional
-  public Session createSession(Request request) {
-    if (request == null) {
-      throw new IllegalArgumentException("Request cannot be null!");
-    }
-    Session p = new Session();
-    p.setRequest(request);
-    entityManager.persist(p);
-    return p;
-  }
-
-
-  @Transactional
-  public Session getSession(Integer sessionId) {
-    Session p = entityManager.find(Session.class, sessionId);
-    return p;
-  }
-
-  @Transactional
   public Notification createNotification(Request request) {
     if (request == null) {
       throw new IllegalArgumentException("Notification ID cannot be null!");

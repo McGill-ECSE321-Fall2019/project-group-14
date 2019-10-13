@@ -3,7 +3,7 @@
   <uml:Model xmi:id="_xxyFAOeREemToPnOLeEJLQ" name="ca_mcgill_ecse321_tutoringsystem_model">
     <eAnnotations xmi:id="_x2fl4OeREemToPnOLeEJLQ" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_x2fl4eeREemToPnOLeEJLQ" source="codegen">
-        <details xmi:id="_nAAo0OhzEemUkc9FMtfjqQ" key="AssociatedSourceCode" value="/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Manager.java;1573541408/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Student.java;3748908789/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Course.java;1615774281/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/SchoolLevel.java;1279337377/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Application.java;613740447/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Request.java;3486779307/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Institution.java;3730884624/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Room.java;2498341541/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Tutor.java;1924845241/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Session.java;2396740400/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Review.java;1812371144/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Wage.java;737065645/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Notification.java;1314067998/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/TimeSlot.java;2059299876/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Person.java;3789249194/1;"/>
+        <details xmi:id="_nAAo0OhzEemUkc9FMtfjqQ" key="AssociatedSourceCode" value="/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Manager.java;4238430489/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Student.java;3748908789/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Course.java;1615774281/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/SchoolLevel.java;1279337377/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Application.java;2376782421/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Institution.java;3730884624/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Room.java;882829460/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Tutor.java;959333684/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Review.java;1812371144/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Wage.java;3381403101/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Notification.java;2584591343/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/TimeSlot.java;2059299876/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Person.java;3789249194/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Request.java;1934699749/1;"/>
         <details xmi:id="_BOxjIOriEemkXbLyCovKqA" key="codegenDirectory" value="/ca.mcgill.ecse321.tutoringsystem.model/src-gen"/>
       </contents>
       <contents xmi:type="ecore:EAnnotation" xmi:id="_jkykYOedEemToPnOLeEJLQ" source="dangling-refs">
@@ -68,14 +68,11 @@
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_s2ddsOeVEemToPnOLeEJLQ" name="" memberEnd="_s2ddseeVEemToPnOLeEJLQ _s2ddtOeVEemToPnOLeEJLQ"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_9MPZUOeVEemToPnOLeEJLQ" name="" memberEnd="_9MPZUeeVEemToPnOLeEJLQ _9MQAYueVEemToPnOLeEJLQ"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_-N8G4OeVEemToPnOLeEJLQ" name="" memberEnd="_-N8G4eeVEemToPnOLeEJLQ _-N8G5OeVEemToPnOLeEJLQ"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_-ch8gOeVEemToPnOLeEJLQ" name="" memberEnd="_-ch8geeVEemToPnOLeEJLQ _-ch8hOeVEemToPnOLeEJLQ"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="__naecOeZEemToPnOLeEJLQ" name="" memberEnd="__naeceeZEemToPnOLeEJLQ __naedOeZEemToPnOLeEJLQ"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_XFkK8OeaEemToPnOLeEJLQ" name="" memberEnd="_XFkK8eeaEemToPnOLeEJLQ _XFkyAueaEemToPnOLeEJLQ"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_ZltzgOeaEemToPnOLeEJLQ" name="" memberEnd="_ZltzgeeaEemToPnOLeEJLQ _ZltzhOeaEemToPnOLeEJLQ"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_bQbo4OeaEemToPnOLeEJLQ" name="" memberEnd="_bQbo4eeaEemToPnOLeEJLQ _bQbo5OeaEemToPnOLeEJLQ"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_b9Jk8OeaEemToPnOLeEJLQ" name="" memberEnd="_b9Jk8eeaEemToPnOLeEJLQ _b9Jk9OeaEemToPnOLeEJLQ"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_OJ3kwOhqEem-kuBNwFGEnQ" name="" memberEnd="_OJ4L0OhqEem-kuBNwFGEnQ _OJ5Z8ehqEem-kuBNwFGEnQ">
       <ownedEnd xmi:id="_OJ4L0OhqEem-kuBNwFGEnQ" name="manager" type="_VErVcOeTEemToPnOLeEJLQ" association="_OJ3kwOhqEem-kuBNwFGEnQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OJ4y4OhqEem-kuBNwFGEnQ" value="1"/>
@@ -83,7 +80,6 @@
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_fOKMMOhqEem-kuBNwFGEnQ" name="" memberEnd="_fOKMMehqEem-kuBNwFGEnQ _fOKzQuhqEem-kuBNwFGEnQ"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_TxcmYOhsEem-kuBNwFGEnQ" name="" memberEnd="_TxdNcOhsEem-kuBNwFGEnQ _Txd0guhsEem-kuBNwFGEnQ"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_dMrxwOhsEem-kuBNwFGEnQ" name="" memberEnd="_dMrxwehsEem-kuBNwFGEnQ _dMsY0uhsEem-kuBNwFGEnQ"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_kemgMOhsEem-kuBNwFGEnQ" name="" memberEnd="_kenHQOhsEem-kuBNwFGEnQ _keoVYOhsEem-kuBNwFGEnQ"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_Af5nwOhtEem-kuBNwFGEnQ" name="" memberEnd="_Af6O0OhtEem-kuBNwFGEnQ _Af614ehtEem-kuBNwFGEnQ">
@@ -139,25 +135,13 @@
                   <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mzvXMOeeEemToPnOLeEJLQ"/>
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XFkyBOeaEemToPnOLeEJLQ" value="*"/>
                 </ownedAttribute>
-                <ownedAttribute xmi:id="_Txd0guhsEem-kuBNwFGEnQ" name="wage" type="_Hmo2YOhsEem-kuBNwFGEnQ" aggregation="composite" association="_TxcmYOhsEem-kuBNwFGEnQ">
-                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TxebkOhsEem-kuBNwFGEnQ"/>
-                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TxebkehsEem-kuBNwFGEnQ" value="*"/>
-                </ownedAttribute>
                 <ownedAttribute xmi:id="_dMsY0uhsEem-kuBNwFGEnQ" name="notification" type="_ZgyZsOhqEem-kuBNwFGEnQ" association="_dMrxwOhsEem-kuBNwFGEnQ">
                   <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dMsY0-hsEem-kuBNwFGEnQ"/>
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dMsY1OhsEem-kuBNwFGEnQ" value="*"/>
                 </ownedAttribute>
-              </packagedElement>
-              <packagedElement xmi:type="uml:Class" xmi:id="_vKu4UOeTEemToPnOLeEJLQ" name="Session">
-                <ownedAttribute xmi:id="__naeceeZEemToPnOLeEJLQ" name="room" type="_wDWiYOeTEemToPnOLeEJLQ" association="__naecOeZEemToPnOLeEJLQ">
-                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__naec-eZEemToPnOLeEJLQ" value="1"/>
-                </ownedAttribute>
-                <ownedAttribute xmi:id="_b9Jk8eeaEemToPnOLeEJLQ" name="request" type="_ua-PUOeTEemToPnOLeEJLQ" association="_b9Jk8OeaEemToPnOLeEJLQ">
-                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XAFRMOeeEemToPnOLeEJLQ" value="1"/>
-                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XAF4QOeeEemToPnOLeEJLQ" value="1"/>
-                </ownedAttribute>
-                <ownedAttribute xmi:id="_holVgOiREemvTunkX6iuLg" name="sessionId" visibility="public">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                <ownedAttribute xmi:id="_BZGyk-1NEemKd4zVFf9rqQ" name="wage" type="_Hmo2YOhsEem-kuBNwFGEnQ" aggregation="composite" association="_BZGLgO1NEemKd4zVFf9rqQ">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BZGylO1NEemKd4zVFf9rqQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BZGyle1NEemKd4zVFf9rqQ" value="*"/>
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_4UHMwOeVEemToPnOLeEJLQ" name="Review">
@@ -176,10 +160,6 @@
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_Hmo2YOhsEem-kuBNwFGEnQ" name="Wage">
-                <ownedAttribute xmi:id="_TxdNcOhsEem-kuBNwFGEnQ" name="tutor" type="_R4NZcOeTEemToPnOLeEJLQ" association="_TxcmYOhsEem-kuBNwFGEnQ">
-                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Txd0gOhsEem-kuBNwFGEnQ" value="1"/>
-                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Txd0gehsEem-kuBNwFGEnQ" value="1"/>
-                </ownedAttribute>
                 <ownedAttribute xmi:id="_kenHQOhsEem-kuBNwFGEnQ" name="course" type="_hp2GMOeTEemToPnOLeEJLQ" association="_kemgMOhsEem-kuBNwFGEnQ">
                   <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kenuUOhsEem-kuBNwFGEnQ" value="1"/>
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kenuUehsEem-kuBNwFGEnQ" value="1"/>
@@ -189,6 +169,10 @@
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_LSp1UOiREemvTunkX6iuLg" name="wageId" visibility="public">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_BZGykO1NEemKd4zVFf9rqQ" name="tutor" type="_R4NZcOeTEemToPnOLeEJLQ" association="_BZGLgO1NEemKd4zVFf9rqQ">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BZGyke1NEemKd4zVFf9rqQ" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BZGyku1NEemKd4zVFf9rqQ" value="1"/>
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_ZgyZsOhqEem-kuBNwFGEnQ" name="Notification">
@@ -212,10 +196,6 @@
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_VErVcOeTEemToPnOLeEJLQ" name="Manager" visibility="public">
                 <generalization xmi:id="_Z1mt0OeTEemToPnOLeEJLQ" general="_js4KYOeSEemToPnOLeEJLQ"/>
-                <ownedAttribute xmi:id="_9MPZUeeVEemToPnOLeEJLQ" name="application" type="_1vnPsOeVEemToPnOLeEJLQ" association="_9MPZUOeVEemToPnOLeEJLQ">
-                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QZ8CkOhtEem-kuBNwFGEnQ"/>
-                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9MQAYeeVEemToPnOLeEJLQ" value="*"/>
-                </ownedAttribute>
                 <ownedAttribute xmi:id="_OJ5Z8ehqEem-kuBNwFGEnQ" name="room" type="_wDWiYOeTEemToPnOLeEJLQ" association="_OJ3kwOhqEem-kuBNwFGEnQ">
                   <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OJ6BAOhqEem-kuBNwFGEnQ"/>
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OJ6BAehqEem-kuBNwFGEnQ" value="*"/>
@@ -223,6 +203,10 @@
                 <ownedAttribute xmi:id="_Af614ehtEem-kuBNwFGEnQ" name="request" type="_ua-PUOeTEemToPnOLeEJLQ" association="_Af5nwOhtEem-kuBNwFGEnQ">
                   <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Af614uhtEem-kuBNwFGEnQ"/>
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Af7c8OhtEem-kuBNwFGEnQ" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_L3TJMu0gEemTGPS0PT8M-g" name="application" type="_1vnPsOeVEemToPnOLeEJLQ" association="_L3R7EO0gEemTGPS0PT8M-g">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L3UXUO0gEemTGPS0PT8M-g"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L3UXUe0gEemTGPS0PT8M-g" value="*"/>
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_48A6QOeVEemToPnOLeEJLQ" name="TimeSlot">
@@ -248,7 +232,6 @@
                 </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_1vnPsOeVEemToPnOLeEJLQ" name="Application">
-                <ownedAttribute xmi:id="_9MQAYueVEemToPnOLeEJLQ" name="manager" type="_VErVcOeTEemToPnOLeEJLQ" association="_9MPZUOeVEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_NEWsEOeXEemToPnOLeEJLQ" name="isExistingUser" visibility="public">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
                 </ownedAttribute>
@@ -282,10 +265,6 @@
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_bQbo4eeaEemToPnOLeEJLQ" name="student" type="_WgrZYOeTEemToPnOLeEJLQ" association="_bQbo4OeaEemToPnOLeEJLQ"/>
-                <ownedAttribute xmi:id="_b9Jk9OeaEemToPnOLeEJLQ" name="session" type="_vKu4UOeTEemToPnOLeEJLQ" aggregation="composite" association="_b9Jk8OeaEemToPnOLeEJLQ">
-                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WSSXEOeeEemToPnOLeEJLQ"/>
-                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_b9KMAOeaEemToPnOLeEJLQ" value="1"/>
-                </ownedAttribute>
                 <ownedAttribute xmi:id="_3WNgcOedEemToPnOLeEJLQ" name="time" visibility="public" type="_yNnP8OeSEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_3pu5YOedEemToPnOLeEJLQ" name="date" visibility="public" type="_ytaxYOeSEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_fOKzQuhqEem-kuBNwFGEnQ" name="notification" type="_ZgyZsOhqEem-kuBNwFGEnQ" aggregation="composite" association="_fOKMMOhqEem-kuBNwFGEnQ">
@@ -296,19 +275,31 @@
                   <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4aIasOiREemz8reodOmmoQ" value="1"/>
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4aIaseiREemz8reodOmmoQ" value="1"/>
                 </ownedAttribute>
+                <ownedAttribute xmi:id="_siJO8e1FEemKd4zVFf9rqQ" name="room" type="_wDWiYOeTEemToPnOLeEJLQ" association="_siJO8O1FEemKd4zVFf9rqQ">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_siJ2AO1FEemKd4zVFf9rqQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_siJ2Ae1FEemKd4zVFf9rqQ" value="1"/>
+                </ownedAttribute>
               </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_wDWiYOeTEemToPnOLeEJLQ" name="Room">
                 <ownedAttribute xmi:id="_loDg0OeWEemToPnOLeEJLQ" name="capacity" visibility="public">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
-                <ownedAttribute xmi:id="__naedOeZEemToPnOLeEJLQ" name="session" type="_vKu4UOeTEemToPnOLeEJLQ" aggregation="shared" association="__naecOeZEemToPnOLeEJLQ">
-                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fY4IIOeeEemToPnOLeEJLQ"/>
-                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__nbFgOeZEemToPnOLeEJLQ" value="*"/>
-                </ownedAttribute>
                 <ownedAttribute xmi:id="_7SwmoOxgEemiMMmzAOiy_g" name="roomNumber" visibility="public">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedAttribute>
+                <ownedAttribute xmi:id="_siJ2Au1FEemKd4zVFf9rqQ" name="request" type="_ua-PUOeTEemToPnOLeEJLQ" aggregation="shared" association="_siJO8O1FEemKd4zVFf9rqQ">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_siJ2A-1FEemKd4zVFf9rqQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_siJ2BO1FEemKd4zVFf9rqQ" value="*"/>
+                </ownedAttribute>
               </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_L3R7EO0gEemTGPS0PT8M-g" name="" memberEnd="_L3SiIO0gEemTGPS0PT8M-g _L3TJMu0gEemTGPS0PT8M-g">
+                <ownedEnd xmi:id="_L3SiIO0gEemTGPS0PT8M-g" name="manager" type="_VErVcOeTEemToPnOLeEJLQ" association="_L3R7EO0gEemTGPS0PT8M-g">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L3TJMO0gEemTGPS0PT8M-g" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L3TJMe0gEemTGPS0PT8M-g" value="1"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_siJO8O1FEemKd4zVFf9rqQ" name="" memberEnd="_siJO8e1FEemKd4zVFf9rqQ _siJ2Au1FEemKd4zVFf9rqQ"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_BZGLgO1NEemKd4zVFf9rqQ" name="" memberEnd="_BZGykO1NEemKd4zVFf9rqQ _BZGyk-1NEemKd4zVFf9rqQ"/>
             </packagedElement>
           </packagedElement>
         </packagedElement>
@@ -350,7 +341,6 @@
   <Persistency:PrimaryKey xmi:id="_Pg0e4OiREemvTunkX6iuLg" base_Property="_OqAysOiREemvTunkX6iuLg"/>
   <Persistency:PrimaryKey xmi:id="_WIyRYOiREemvTunkX6iuLg" base_Property="_VQPf0OiREemvTunkX6iuLg"/>
   <Persistency:PrimaryKey xmi:id="_ff6_4OiREemvTunkX6iuLg" base_Property="_eNMzwOiREemvTunkX6iuLg"/>
-  <Persistency:PrimaryKey xmi:id="_iaxAYOiREemvTunkX6iuLg" base_Property="_holVgOiREemvTunkX6iuLg" idClassifier=""/>
   <Persistency:PrimaryKey xmi:id="_2ZWosOxVEemSOujT7s8EfQ" base_Property="_0p0kwOxVEemSOujT7s8EfQ" idClassifier=""/>
   <Persistency:GeneratedValueMapping xmi:id="_51k38OxVEemSOujT7s8EfQ" base_Property="_0p0kwOxVEemSOujT7s8EfQ" strategy="AUTO" refGeneratorName=""/>
   <Persistency:GeneratedValueMapping xmi:id="_V25YMOxXEemSOujT7s8EfQ" base_Property="_OqAysOiREemvTunkX6iuLg"/>

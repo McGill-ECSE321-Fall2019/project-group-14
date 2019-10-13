@@ -39,8 +39,6 @@ public class TestTutoringSystemService {
 	@Autowired
 	private CourseRepository courseRepository;
 	@Autowired
-	private SessionRepository sessionRepository;
-	@Autowired
 	private RoomRepository roomRepository;
 	@Autowired
 	private NotificationRepository notificationRepository;
@@ -68,12 +66,11 @@ public class TestTutoringSystemService {
 		reviewRepository.deleteAll();
 		notificationRepository.deleteAll();
 		roomRepository.deleteAll();
-		sessionRepository.deleteAll();
 		courseRepository.deleteAll();
 	}
 
 	// Tutor class tests
-/*
+
 	@Test
 	public void testCreateTutor() {
 		assertEquals(0, service.getAllTutors().size());
@@ -235,7 +232,6 @@ public class TestTutoringSystemService {
 		assertEquals(name, allCourses.get(0).getCourseName());
 		assertEquals(institution.getInstitutionName(), allCourses.get(0).getInstitution().getInstitutionName());
 		assertEquals(subjectName, allCourses.get(0).getSubjectName());
-
 	}
 
 	@Test
@@ -255,44 +251,32 @@ public class TestTutoringSystemService {
 		assertEquals(0, service.getAllCourses().size());
 
 	}
-*/
+
 	// Session class tests
 
 	@Test
-	public void testCreateSession() {
-		assertEquals(0, service.getAllSessions().size());
+	public void testCreateAndAcceptSession() {
+		assertEquals(0, service.getAllRequests().size());
+		Time time = Time.valueOf("08:00:01");
+		Date date = Date.valueOf("2019-09-22");
 		Tutor tutor = service.createTutor("name", "email");
 		Student student = service.createStudent("name", "email");
 		Course course = service.createCourse("test",
 				service.createInstitution("institutionName", SchoolLevel.University), "subject");
-		Request request = service.createRequest(Time.valueOf("11:00:01"), Date.valueOf("2019-12-18"), tutor, student, course);
+		Request request = service.createRequest(time, date, tutor, student, course);
 		Room room = service.createRoom(1, 2);
 		try {
-			service.createSession(request);
+			service.acceptRequest(request.getRequestId());
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
-		System.out.println(service.getAllSessions().size() );
-			System.out.println(service.getAllSessions().get(0).getRequest());
-			
-		List<Session> allSessions = service.getAllSessions();
-		assertEquals(request.getRequestId(), allSessions.get(0).getRequest().getRequestId());
-		assertEquals(room.getRoomNumber(), allSessions.get(0).getRoom().getRoomNumber());
-	}
-/*
-	@Test
-	public void testCreateNullSession() {
-		assertEquals(0, service.getAllSessions().size());
-		String error = null;
-		Request request = null;
-		try {
-			service.createSession(request);
-		} catch (IllegalArgumentException e) {
-			error = e.getMessage();
-		}
-
-		assertEquals("Request cannot be null!", error);
-		assertEquals(0, service.getAllSessions().size());
+		List<Request> allRequests = service.getAllRequests();
+		assertEquals(time, allRequests.get(0).getTime());
+		assertEquals(date, allRequests.get(0).getDate());
+		assertEquals(tutor.getUserId(), allRequests.get(0).getTutor().getUserId());
+		assertEquals(student.getUserId(), allRequests.get(0).getStudent().getUserId());
+		assertEquals(course.getCourseName(), allRequests.get(0).getCourse().getCourseName());
+		assertEquals(room.getRoomNumber(), allRequests.get(0).getRoom().getRoomNumber());
 	}
 
 	// Room class tests
@@ -525,5 +509,4 @@ public class TestTutoringSystemService {
 			fail();
 		}
 	}
-	*/
 }

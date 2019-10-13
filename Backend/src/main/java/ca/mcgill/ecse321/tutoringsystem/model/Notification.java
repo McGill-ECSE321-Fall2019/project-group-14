@@ -8,37 +8,37 @@ import javax.persistence.GeneratedValue;
 
 @Entity
 public class Notification {
-  private Request request;
+	private Request request;
 
-  @OneToOne(optional = false)
-  public Request getRequest() {
-    return this.request;
-  }
+	@OneToOne(optional = false)
+	public Request getRequest() {
+		return this.request;
+	}
 
-  public void setRequest(Request request) {
-    this.request = request;
-  }
+	public void setRequest(Request request) {
+		this.request = request;
+	}
 
-  private Tutor tutor;
+	private Tutor tutor;
 
-  @ManyToOne(optional = false)
-  public Tutor getTutor() {
-    return this.tutor;
-  }
+	@ManyToOne(optional = false)
+	public Tutor getTutor() {
+		return this.tutor;
+	}
 
-  public void setTutor(Tutor tutor) {
-    this.tutor = tutor;
-  }
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
+	}
 
-  private Integer notificationId;
+	private Integer notificationId;
 
-  public void setNotificationId(Integer value) {
-    this.notificationId = value;
-  }
+	public void setNotificationId(Integer value) {
+		this.notificationId = value;
+	}
 
-  @Id
-  @GeneratedValue()
-  public Integer getNotificationId() {
-    return this.notificationId;
-  }
+	@Id
+	@GeneratedValue()
+	public Integer getNotificationId() {
+		return this.notificationId;
+	}
 }

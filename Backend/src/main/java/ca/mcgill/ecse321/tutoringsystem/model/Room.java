@@ -1,41 +1,42 @@
 package ca.mcgill.ecse321.tutoringsystem.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Set;
 import javax.persistence.OneToMany;
-import javax.persistence.Id;
 
 @Entity
 public class Room {
-  private Integer capacity;
+	private Integer capacity;
 
-  public void setCapacity(Integer value) {
-    this.capacity = value;
-  }
+	public void setCapacity(Integer value) {
+		this.capacity = value;
+	}
 
-  public Integer getCapacity() {
-    return this.capacity;
-  }
+	public Integer getCapacity() {
+		return this.capacity;
+	}
 
-  private Set<Session> session;
+	private Integer roomNumber;
 
-  @OneToMany(mappedBy = "room")
-  public Set<Session> getSession() {
-    return this.session;
-  }
+	public void setRoomNumber(Integer value) {
+		this.roomNumber = value;
+	}
 
-  public void setSession(Set<Session> sessions) {
-    this.session = sessions;
-  }
+	@Id
+	public Integer getRoomNumber() {
+		return this.roomNumber;
+	}
 
-  private Integer roomNumber;
+	private Set<Request> request;
 
-  public void setRoomNumber(Integer value) {
-    this.roomNumber = value;
-  }
+	@OneToMany(mappedBy = "room")
+	public Set<Request> getRequest() {
+		return this.request;
+	}
 
-  @Id
-  public Integer getRoomNumber() {
-    return this.roomNumber;
-  }
+	public void setRequest(Set<Request> requests) {
+		this.request = requests;
+	}
+
 }
