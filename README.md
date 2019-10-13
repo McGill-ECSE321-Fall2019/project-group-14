@@ -2,14 +2,6 @@
 
 ## Welcome to ECSE 321 Group 14's project!
 
-## Table of Contents
-
-* [About](#about)
-* [Sprint Planning](#sprint-planning)
-* [Technical Issues](#technical-issues)
-* [Teamwork Report](#teamwork-report)
-* [File Location](#file-location)
-
 ## About
 
 The tutoring  company will accomplish the needs of students at the high school, CÉGEP, and university levels. Any student looking for a tutor in any subject taught at those levels can approach the company and ask its help to find an appropriate tutor. 
