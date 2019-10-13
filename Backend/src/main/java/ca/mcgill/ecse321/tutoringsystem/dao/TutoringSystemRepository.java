@@ -24,13 +24,14 @@ public class TutoringSystemRepository {
   }
 
   @Transactional
-  public Tutor createTutor(String name, String email) {
-    if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0) {
-      throw new IllegalArgumentException("Tutor name and email cannot be empty!");
+  public Tutor createTutor(String name, String email, String password) {
+    if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0 || password.trim().length() == 0) {
+      throw new IllegalArgumentException("Tutor name, email or password cannot be empty!");
     }
     Tutor p = new Tutor();
     p.setName(name);
     p.setEmail(email);
+    p.setPassword(password);
     entityManager.persist(p);
     return p;
   }
@@ -54,13 +55,14 @@ public class TutoringSystemRepository {
   }
 
   @Transactional
-  public Student createStudent(String name, String email) {
-    if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0) {
-      throw new IllegalArgumentException("Student name and email cannot be empty!");
+  public Student createStudent(String name, String email, String password) {
+    if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0 || password.trim().length() == 0) {
+      throw new IllegalArgumentException("Student name, email or password cannot be empty!");
     }
     Student p = new Student();
     p.setName(name);
     p.setEmail(email);
+    p.setPassword(password);
     entityManager.persist(p);
     return p;
   }
@@ -84,13 +86,14 @@ public class TutoringSystemRepository {
   }
 
   @Transactional
-  public Manager createManager(String name, String email) {
-    if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0) {
-      throw new IllegalArgumentException("Manager name and email cannot be empty!");
+  public Manager createManager(String name, String email, String password) {
+    if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0 || password.trim().length() == 0) {
+      throw new IllegalArgumentException("Manager name, email or password cannot be empty!");
     }
     Manager p = new Manager();
     p.setName(name);
     p.setEmail(email);
+    p.setPassword(password);
     entityManager.persist(p);
     return p;
   }

@@ -43,13 +43,14 @@ public class TutoringSystemService {
 	 * TUTOR
 	 */
 	@Transactional
-	public Tutor createTutor(String name, String email) {
-		if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0) {
-			throw new IllegalArgumentException("Tutor name and email cannot be empty!");
+	public Tutor createTutor(String name, String email, String password) {
+		if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0 || password.trim().length() == 0) {
+			throw new IllegalArgumentException("Tutor name, email or password cannot be empty!");
 		}
 		Tutor t = new Tutor();
 		t.setName(name);
 		t.setEmail(email);
+		t.setPassword(password);
 		tutorRepository.save(t);
 		return t;
 	}
@@ -81,13 +82,14 @@ public class TutoringSystemService {
 	 * STUDENT
 	 */
 	@Transactional
-	public Student createStudent(String name, String email) {
-		if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0) {
-			throw new IllegalArgumentException("Student name and email cannot be empty!");
+	public Student createStudent(String name, String email, String password) {
+		if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0 || password.trim().length() == 0) {
+			throw new IllegalArgumentException("Student name, email or password cannot be empty!");
 		}
 		Student s = new Student();
 		s.setName(name);
 		s.setEmail(email);
+		s.setPassword(password);
 		studentRepository.save(s);
 		return s;
 	}
@@ -119,13 +121,14 @@ public class TutoringSystemService {
 	 * MANAGER
 	 */
 	@Transactional
-	public Manager createManager(String name, String email) {
-		if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0) {
-			throw new IllegalArgumentException("Manager name and email cannot be empty!");
+	public Manager createManager(String name, String email, String password) {
+		if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0 || password.trim().length() == 0) {
+			throw new IllegalArgumentException("Manager name, email or password cannot be empty!");
 		}
 		Manager m = new Manager();
 		m.setName(name);
 		m.setEmail(email);
+		m.setPassword(password);
 		managerRepository.save(m);
 		return m;
 	}
@@ -384,8 +387,12 @@ public class TutoringSystemService {
 		Review r = reviewRepository.findReviewByReviewId(reviewId);
 		return r;
 	}
+	
+	@Transactional
+	public List<Review> getAllReviews() {
+		return toList(reviewRepository.findAll());
+	}
 
-	// TODO Review Get all Reviews from Senders and receivers
 	/*
 	 * APPLICATION
 	 */
@@ -502,7 +509,12 @@ public class TutoringSystemService {
 
 	@Transactional
 	public TimeSlot createTimeSlot(Tutor tutor, Date date, Time time) {
-		// error checks for time slot
+		if (tutor == null) {
+			throw new IllegalArgumentException("A tutor needs to be specified!");
+		}
+		if (date == null | time == null) {
+			throw new IllegalArgumentException("Date and time cannot be empty!");
+		}
 		TimeSlot t = new TimeSlot();
 		t.setTutor(tutor);
 		t.setDate(date);
