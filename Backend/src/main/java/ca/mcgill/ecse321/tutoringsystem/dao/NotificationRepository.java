@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import ca.mcgill.ecse321.tutoringsystem.model.Notification;
 
-public interface NotificationRepository extends CrudRepository<Notification, Integer>{
-  Notification findNotificationByNotificationId(int notificationId);
+public interface NotificationRepository extends CrudRepository<Notification, Integer> {
+	Notification findNotificationByNotificationId(int notificationId);
 }
