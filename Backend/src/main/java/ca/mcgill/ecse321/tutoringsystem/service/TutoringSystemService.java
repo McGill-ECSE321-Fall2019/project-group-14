@@ -44,7 +44,8 @@ public class TutoringSystemService {
 	 */
 	@Transactional
 	public Tutor createTutor(String name, String email, String password) {
-		if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0 || password.trim().length() == 0) {
+		if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0
+				|| password.trim().length() == 0) {
 			throw new IllegalArgumentException("Tutor name, email or password cannot be empty!");
 		}
 		Tutor t = new Tutor();
@@ -83,7 +84,8 @@ public class TutoringSystemService {
 	 */
 	@Transactional
 	public Student createStudent(String name, String email, String password) {
-		if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0 || password.trim().length() == 0) {
+		if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0
+				|| password.trim().length() == 0) {
 			throw new IllegalArgumentException("Student name, email or password cannot be empty!");
 		}
 		Student s = new Student();
@@ -122,7 +124,8 @@ public class TutoringSystemService {
 	 */
 	@Transactional
 	public Manager createManager(String name, String email, String password) {
-		if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0 || password.trim().length() == 0) {
+		if (name == null || name.trim().length() == 0 || email == null || email.trim().length() == 0
+				|| password.trim().length() == 0) {
 			throw new IllegalArgumentException("Manager name, email or password cannot be empty!");
 		}
 		Manager m = new Manager();
@@ -199,15 +202,15 @@ public class TutoringSystemService {
 	public List<Request> getAllRequests() {
 		return toList(requestRepository.findAll());
 	}
-	
+
 	@Transactional
 	public List<Request> getTutorRequests(Tutor tutor) {
 		return requestRepository.findRequestByTutor(tutor);
 	}
-	
+
 	@Transactional
 	public List<Request> getAcceptedTutorRequests(Tutor tutor) {
-		return requestRepository.findRequestByTutorAndRoomIsNotNull(tutor);	
+		return requestRepository.findRequestByTutorAndRoomIsNotNull(tutor);
 	}
 
 	@Transactional
@@ -397,7 +400,7 @@ public class TutoringSystemService {
 		Review r = reviewRepository.findReviewByReviewId(reviewId);
 		return r;
 	}
-	
+
 	@Transactional
 	public List<Review> getAllReviews() {
 		return toList(reviewRepository.findAll());

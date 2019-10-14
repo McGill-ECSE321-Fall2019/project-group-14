@@ -5,18 +5,11 @@ import static org.junit.Assert.fail;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.HashSet;
 import java.util.List;
 
-import org.hibernate.Hibernate;
-import org.hibernate.mapping.Set;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.omg.CORBA.portable.ValueOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -75,7 +68,7 @@ public class TestTutoringSystemService {
 	// Tutor class tests
 
 	@Test
-	public void testCreateTutor() {
+	public void testCreateTutor() { // Test create and getters
 		assertEquals(0, service.getAllTutors().size());
 		String name = "Martin";
 		String email = "martin@mail.mcgill.ca";
@@ -92,7 +85,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testCreateNullTutor() {
+	public void testCreateNullTutor() { // Test condition checks
 		assertEquals(0, service.getAllTutors().size());
 		String error = null;
 		String name = null;
@@ -109,7 +102,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testSetTutorNewName() {
+	public void testSetTutorNewName() { // Test setters
 		assertEquals(0, service.getAllTutors().size());
 		String name = "Martin";
 		String email = "martin@mail.mcgill.ca";
@@ -131,7 +124,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testGetTutorName() {
+	public void testGetTutor() { // Test getters
 		assertEquals(0, service.getAllTutors().size());
 		Tutor t = null;
 		String name = "Martin";
@@ -147,7 +140,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testGetTutorRequests() {
+	public void testGetTutorRequests() { // Test getters
 		assertEquals(0, service.getAllTutors().size());
 		String tutorName = "Martin";
 		String tutorEmail = "martin@mail.mcgill.ca";
@@ -157,21 +150,23 @@ public class TestTutoringSystemService {
 		Student student1 = service.createStudent("student1", "email1", "password1");
 		Course course = service.createCourse("test",
 				service.createInstitution("institutionName", SchoolLevel.University), "subject");
-		Request request1 = service.createRequest(Time.valueOf("12:12:12"), Date.valueOf("2019-02-22"), tutor, student, course);
-		Request request2 = service.createRequest(Time.valueOf("10:21:21"), Date.valueOf("2019-01-22"), tutor, student1, course);
+		Request request1 = service.createRequest(Time.valueOf("12:12:12"), Date.valueOf("2019-02-22"), tutor, student,
+				course);
+		Request request2 = service.createRequest(Time.valueOf("10:21:21"), Date.valueOf("2019-01-22"), tutor, student1,
+				course);
 		List<Request> tutorRequests = null;
 		try {
 			tutorRequests = service.getTutorRequests(tutor);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
-		
+
 		assertEquals(request1.getRequestId(), tutorRequests.get(0).getRequestId());
 		assertEquals(request2.getRequestId(), tutorRequests.get(1).getRequestId());
 	}
-	
+
 	@Test
-	public void testGetAcceptedTutorRequests() {
+	public void testGetAcceptedTutorRequests() { // Test getters
 		assertEquals(0, service.getAllTutors().size());
 		String tutorName = "Martin";
 		String tutorEmail = "martin@mail.mcgill.ca";
@@ -182,7 +177,8 @@ public class TestTutoringSystemService {
 		Course course = service.createCourse("test",
 				service.createInstitution("institutionName", SchoolLevel.University), "subject");
 		service.createRoom(1, 2);
-		Request request1 = service.createRequest(Time.valueOf("12:12:12"), Date.valueOf("2019-02-22"), tutor, student, course);
+		Request request1 = service.createRequest(Time.valueOf("12:12:12"), Date.valueOf("2019-02-22"), tutor, student,
+				course);
 		service.createRequest(Time.valueOf("10:21:21"), Date.valueOf("2019-01-22"), tutor, student1, course);
 		service.acceptRequest(request1.getRequestId());
 		List<Request> tutorRequests = null;
@@ -199,7 +195,7 @@ public class TestTutoringSystemService {
 	// Student class tests
 
 	@Test
-	public void testCreateStudent() {
+	public void testCreateStudent() { // Test create and getters
 		assertEquals(0, service.getAllStudents().size());
 		String name = "Jason";
 		String email = "jason@mail.mcgill.ca";
@@ -216,7 +212,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testCreateNullStudent() {
+	public void testCreateNullStudent() { // Test condition checks
 		assertEquals(0, service.getAllStudents().size());
 		String error = null;
 		String name = null;
@@ -233,7 +229,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testSetStudentNewName() {
+	public void testSetStudentNewName() { // Test setters
 		assertEquals(0, service.getAllTutors().size());
 		String name = "Jason";
 		String email = "jason@mail.mcgill.ca";
@@ -257,7 +253,7 @@ public class TestTutoringSystemService {
 	// Manager class tests
 
 	@Test
-	public void testCreateManager() {
+	public void testCreateManager() { // Test create and getters
 		String name = "Marwan";
 		String email = "Marwan@mail.mcgill.ca";
 		String password = "password";
@@ -273,7 +269,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testCreateNullManager() {
+	public void testCreateNullManager() { // Test condition checks
 		String error = null;
 		String name = null;
 		String email = null;
@@ -288,7 +284,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testSetManagerNewName() {
+	public void testSetManagerNewName() { // Test setters
 		assertEquals(0, service.getAllTutors().size());
 		String name = "Marwan";
 		String email = "Marwan@mail.mcgill.ca";
@@ -312,7 +308,7 @@ public class TestTutoringSystemService {
 	// Request class tests
 
 	@Test
-	public void testCreateRequest() {
+	public void testCreateRequest() { // Test create and getters
 		assertEquals(0, service.getAllRequests().size());
 		Time time = Time.valueOf("08:00:01");
 		Date date = Date.valueOf("2019-09-22");
@@ -335,7 +331,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testCreateRequestWithNullTime() {
+	public void testCreateRequestWithNullTime() { // Test condition checks
 		assertEquals(0, service.getAllRequests().size());
 		String error = null;
 		Time time = null;
@@ -358,7 +354,7 @@ public class TestTutoringSystemService {
 	// Course class tests
 
 	@Test
-	public void testCreateCourse() {
+	public void testCreateCourse() { // Test create and getters
 		assertEquals(0, service.getAllCourses().size());
 		String name = "MATH 263";
 		Institution institution = service.createInstitution("McGill University", SchoolLevel.University);
@@ -376,7 +372,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testCreateCourseWithNullName() {
+	public void testCreateCourseWithNullName() { // Test condition checks
 		assertEquals(0, service.getAllCourses().size());
 		String error = null;
 		String name = null;
@@ -394,7 +390,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testSetCourseNewInstitution() {
+	public void testSetCourseNewInstitution() { // Test setters
 		assertEquals(0, service.getAllCourses().size());
 		String name = "MATH 263";
 		Institution institution = service.createInstitution("McGill University", SchoolLevel.University);
@@ -412,10 +408,10 @@ public class TestTutoringSystemService {
 		assertEquals(newInstitution.getInstitutionName(), allCourses.get(0).getInstitution().getInstitutionName());
 	}
 
-	// Session class tests
+	// Session test
 
 	@Test
-	public void testCreateAndAcceptSession() {
+	public void testCreateAndAcceptSession() { // Test create and getters
 		assertEquals(0, service.getAllRequests().size());
 		Time time = Time.valueOf("08:00:01");
 		Date date = Date.valueOf("2019-09-22");
@@ -442,7 +438,7 @@ public class TestTutoringSystemService {
 	// Room class tests
 
 	@Test
-	public void testCreateRoom() {
+	public void testCreateRoom() { // Test create and getters
 		assertEquals(0, service.getAllRooms().size());
 		Integer roomNumber = 12;
 		Integer capacity = 30;
@@ -458,7 +454,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testCreateNullRoom() {
+	public void testCreateNullRoom() { // Test condition checks
 		assertEquals(0, service.getAllRooms().size());
 		String error = null;
 		Integer roomNumber = null;
@@ -474,7 +470,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testSetRoomNewCapacity() {
+	public void testSetRoomNewCapacity() { // Test setters
 		Integer roomNumber = 12;
 		Integer capacity = 30;
 		Integer newCapacity = 60;
@@ -488,16 +484,15 @@ public class TestTutoringSystemService {
 
 		List<Room> allRooms = service.getAllRooms();
 		assertEquals(newCapacity, allRooms.get(0).getCapacity());
-
 	}
 
 	// Notification class tests
 
 	@Test
-	public void testCreateNotification() {
+	public void testCreateNotification() { // Test create and getters
 		assertEquals(0, service.getAllNotifications().size());
-		Time time = new Time(0);
-		Date date = new Date(0);
+		Time time = Time.valueOf("08:00:01");
+		Date date = Date.valueOf("2019-09-22");
 		Tutor tutor = service.createTutor("name", "email", "password");
 		Student student = service.createStudent("name", "email", "password");
 		Course course = service.createCourse("test",
@@ -514,7 +509,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testCreateNullNotification() {
+	public void testCreateNullNotification() { // Test condition checks
 		assertEquals(0, service.getAllNotifications().size());
 		String error = null;
 		Request request = null;
@@ -531,8 +526,8 @@ public class TestTutoringSystemService {
 	// Review class tests
 
 	@Test
-	public void testCreateReview() {
-		// TODO getAllReviews() needs to be implemented to use this test
+	public void testCreateReview() { // Test create and getters
+		assertEquals(0, service.getAllReviews().size());
 		Integer rating = 5;
 		String comment = "This is a comment.";
 		Person from = service.createTutor("name", "email", "password");
@@ -551,8 +546,8 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testCreateNullReview() {
-		// TODO getAllReviews() needs to be implemented to use this test
+	public void testCreateNullReview() { // Test condition checks
+		assertEquals(0, service.getAllReviews().size());
 		String error = null;
 		Integer rating = null;
 		String comment = null;
@@ -570,7 +565,8 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testSetReviewNewComment() {
+	public void testSetReviewNewComment() { // Test setters
+		assertEquals(0, service.getAllReviews().size());
 		Integer rating = 5;
 		String comment = "This is a comment.";
 		String newComment = "This is a new comment";
@@ -591,7 +587,7 @@ public class TestTutoringSystemService {
 	// Application class tests
 
 	@Test
-	public void testCreateApplication() {
+	public void testCreateApplication() { // Test create and getters
 		Boolean isExistingUser = true;
 		String name = "Martin";
 		String email = "martin@mail.mcgill.ca";
@@ -610,7 +606,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testCreateApplicationWithNullName() {
+	public void testCreateApplicationWithNullName() { // Test condition checks
 		String error = null;
 		Boolean isExistingUser = true;
 		String name = null;
@@ -625,10 +621,30 @@ public class TestTutoringSystemService {
 		assertEquals("Application name cannot be empty!", error);
 	}
 
+	@Test
+	public void testSetApplicationNewName() { // Test setters
+		Application a = null;
+		Boolean isExistingUser = true;
+		String name = "Martin";
+		String newName = "George";
+		String email = "martin@mail.mcgill.ca";
+		String course = "ECSE 321";
+		try {
+			a = service.createApplication(isExistingUser, name, email, course);
+			a.setName(newName);
+			applicationRepository.save(a);
+		} catch (IllegalArgumentException e) {
+			fail();
+		}
+
+		Application application = service.getApplication(email);
+		assertEquals(newName, application.getName());
+	}
+
 	// Institution class tests
 
 	@Test
-	public void testCreateInstitution() {
+	public void testCreateInstitution() { // Test create and getters
 		assertEquals(0, service.getAllInstitutions().size());
 		String institutionName = "McGill University";
 		SchoolLevel institutionLevel = SchoolLevel.University;
@@ -644,7 +660,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testCreateNullInstitution() {
+	public void testCreateNullInstitution() { // Test condition checks
 		assertEquals(0, service.getAllInstitutions().size());
 		String error = null;
 		String institutionName = null;
@@ -661,7 +677,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testSetInstitutionNewName() {
+	public void testSetInstitutionNewName() { // Test setters
 		assertEquals(0, service.getAllInstitutions().size());
 		boolean pass = false;
 		String institutionName = "McGill University";
@@ -686,7 +702,7 @@ public class TestTutoringSystemService {
 	// Wage class tests
 
 	@Test
-	public void testCreateWage() {
+	public void testCreateWage() { // Test create and getters
 		assertEquals(0, service.getAllWages().size());
 		Tutor tutor = service.createTutor("name", "email", "password");
 		Course course = service.createCourse("test",
@@ -705,7 +721,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testCreateNullWage() {
+	public void testCreateNullWage() { // Test condition checks
 		assertEquals(0, service.getAllWages().size());
 		String error = null;
 		Tutor tutor = null;
@@ -722,7 +738,7 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testSetWageNewTutor() {
+	public void testSetWageNewTutor() { // Test setters
 		assertEquals(0, service.getAllWages().size());
 		Tutor tutor = service.createTutor("name1", "email1", "password1");
 		Tutor newTutor = service.createTutor("name2", "email2", "password2");
@@ -744,9 +760,9 @@ public class TestTutoringSystemService {
 	// TimeSlot class tests
 
 	@Test
-	public void testCreateTimeSlot() {
-		Time time = new Time(0);
-		Date date = new Date(0);
+	public void testCreateTimeSlot() { // Test create and getters
+		Time time = Time.valueOf("08:00:01");
+		Date date = Date.valueOf("2019-09-22");
 		Tutor tutor = service.createTutor("name", "email", "password");
 		try {
 			service.createTimeSlot(tutor, date, time);
@@ -759,10 +775,10 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void testCreateNullTimeSlot() {
+	public void testCreateNullTimeSlot() { // Test condition checks
 		String error = null;
-		Time time = new Time(0);
-		Date date = new Date(0);
+		Time time = Time.valueOf("08:00:01");
+		Date date = Date.valueOf("2019-09-22");
 		Tutor tutor = null;
 		try {
 			service.createTimeSlot(tutor, date, time);
@@ -775,9 +791,9 @@ public class TestTutoringSystemService {
 	}
 
 	@Test
-	public void setTimeSlotNewTutor() {
-		Time time = new Time(0);
-		Date date = new Date(0);
+	public void testSetTimeSlotNewTutor() { // Test setters
+		Time time = Time.valueOf("08:00:01");
+		Date date = Date.valueOf("2019-09-22");
 		Tutor tutor = service.createTutor("name1", "email1", "password1");
 		Tutor newTutor = service.createTutor("name2", "email2", "password2");
 		try {
@@ -787,5 +803,8 @@ public class TestTutoringSystemService {
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
+
+		List<TimeSlot> t = service.getTimeSlot(date, time);
+		assertEquals(newTutor.getUserId(), t.get(0).getTutor().getUserId());
 	}
 }

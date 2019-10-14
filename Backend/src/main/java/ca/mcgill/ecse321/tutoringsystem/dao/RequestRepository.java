@@ -7,9 +7,12 @@ import org.springframework.data.repository.CrudRepository;
 import ca.mcgill.ecse321.tutoringsystem.model.Request;
 import ca.mcgill.ecse321.tutoringsystem.model.Tutor;
 
-public interface RequestRepository extends CrudRepository<Request, Integer>{
-  Request findRequestByRequestId(int requestId);
-  List<Request> findRequestByDate(Date date);
-  List<Request> findRequestByTutor(Tutor tutor);
-  List<Request> findRequestByTutorAndRoomIsNotNull(Tutor tutor);
+public interface RequestRepository extends CrudRepository<Request, Integer> {
+	Request findRequestByRequestId(int requestId);
+
+	List<Request> findRequestByDate(Date date);
+
+	List<Request> findRequestByTutor(Tutor tutor);
+
+	List<Request> findRequestByTutorAndRoomIsNotNull(Tutor tutor);
 }
