@@ -2,138 +2,67 @@ package ca.mcgill.ecse321.tutoringsystem.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.stubbing.Answer;
-
 import ca.mcgill.ecse321.tutoringsystem.dao.*;
 import ca.mcgill.ecse321.tutoringsystem.model.*;
 
-@RunWith(MockitoJUnitRunner.class)
-public class TestTutoringSystemService {
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class TestTutoringSystemCRUD {
 
-	@InjectMocks
+	@Autowired
 	TutoringSystemService service;
 
-	@Mock
-	private TutorRepository tutorDao;
-	private Tutor tutor;
-	
-	@Mock
-	private StudentRepository studentDao;
-	private Student student;
-	private Student student1;
-	
-	@Mock
-	private ManagerRepository managerDao;
-	private Manager manager;
-	
-	@Mock
-	private RequestRepository requestDao;
-	private Request request;
-	private Request request1;
-	
-	@Mock
-	private CourseRepository courseDao;
-	private Course course;
-	
-	@Mock
-	private RoomRepository roomDao;
-	private Room room;
-	
-	@Mock
-	private NotificationRepository notificationDao;
-	private Notification notification;
-	
-	@Mock
-	private ReviewRepository reviewDao;
-	private Review review;
-	
-	@Mock
-	private ApplicationRepository applicationDao;
-	private Application application;
-	
-	@Mock
-	private InstitutionRepository institutionDao;
-	private Institution institution;
-	private Institution institution1;
-	
-	@Mock
-	private WageRepository wageDao;
-	private Wage wage;
-	
-	@Mock
-	private TimeSlotRepository timeslotDao;
-	private TimeSlot timeslot;
+	@Autowired
+	private TutorRepository tutorRepository;
+	@Autowired
+	private StudentRepository studentRepository;
+	@Autowired
+	private ManagerRepository managerRepository;
+	@Autowired
+	private RequestRepository requestRepository;
+	@Autowired
+	private CourseRepository courseRepository;
+	@Autowired
+	private RoomRepository roomRepository;
+	@Autowired
+	private NotificationRepository notificationRepository;
+	@Autowired
+	private ReviewRepository reviewRepository;
+	@Autowired
+	private ApplicationRepository applicationRepository;
+	@Autowired
+	private InstitutionRepository institutionRepository;
+	@Autowired
+	private WageRepository wageRepository;
+	@Autowired
+	private TimeSlotRepository timeslotRepository;
 
-	private static final String EXISTING = "ExistingThing";
-	private static final String NONEXISTING = "NotExistingThing";
-	@Before
-	public void setMockOutput() {
-		when(tutorDao.findTutorByUserId((anyInt()))).thenAnswer((InvocationOnMock invocation) -> {
-			if (invocation.getArgument(0).equals(EXISTING)) {
-				Tutor tutor = new Tutor();
-				tutor.setName(EXISTING);
-				return tutor;
-			} else {
-				return null;
-			}
-		});
-		// Whenever anything is saved, just return the parameter object
-		Answer<?> returnParameterAsAnswer = (InvocationOnMock invocation) -> {
-			return invocation.getArgument(0);
-		};
-		when(tutorDao.save(any(Tutor.class))).thenAnswer(returnParameterAsAnswer);
-		when(studentDao.save(any(Student.class))).thenAnswer(returnParameterAsAnswer);
-		when(managerDao.save(any(Manager.class))).thenAnswer(returnParameterAsAnswer);
-		when(requestDao.save(any(Request.class))).thenAnswer(returnParameterAsAnswer);
-		when(courseDao.save(any(Course.class))).thenAnswer(returnParameterAsAnswer);
-		when(roomDao.save(any(Room.class))).thenAnswer(returnParameterAsAnswer);
-		when(notificationDao.save(any(Notification.class))).thenAnswer(returnParameterAsAnswer);
-		when(reviewDao.save(any(Review.class))).thenAnswer(returnParameterAsAnswer);
-		when(applicationDao.save(any(Application.class))).thenAnswer(returnParameterAsAnswer);
-		when(institutionDao.save(any(Institution.class))).thenAnswer(returnParameterAsAnswer);
-		when(wageDao.save(any(Wage.class))).thenAnswer(returnParameterAsAnswer);
-		when(timeslotDao.save(any(TimeSlot.class))).thenAnswer(returnParameterAsAnswer);
-	}
-	
 	@After
 	public void clearDatabase() {
-		requestDao.deleteAll();
-		tutorDao.deleteAll();
-		managerDao.deleteAll();
-		studentDao.deleteAll();
-		timeslotDao.deleteAll();
-		wageDao.deleteAll();
-		institutionDao.deleteAll();
-		applicationDao.deleteAll();
-		reviewDao.deleteAll();
-		notificationDao.deleteAll();
-		roomDao.deleteAll();
-		courseDao.deleteAll();
+		requestRepository.deleteAll();
+		tutorRepository.deleteAll();
+		managerRepository.deleteAll();
+		studentRepository.deleteAll();
+		timeslotRepository.deleteAll();
+		wageRepository.deleteAll();
+		institutionRepository.deleteAll();
+		applicationRepository.deleteAll();
+		reviewRepository.deleteAll();
+		notificationRepository.deleteAll();
+		roomRepository.deleteAll();
+		courseRepository.deleteAll();
 	}
 
 	// Tutor class tests
@@ -145,13 +74,14 @@ public class TestTutoringSystemService {
 		String email = "martin@mail.mcgill.ca";
 		String password = "password";
 		try {
-			tutor = service.createTutor(name, email, password);
+			service.createTutor(name, email, password);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
 
-		assertEquals(name, tutor.getName());
-		assertEquals(email, tutor.getEmail());
+		List<Tutor> allTutors = service.getAllTutors();
+		assertEquals(name, allTutors.get(0).getName());
+		assertEquals(email, allTutors.get(0).getEmail());
 	}
 
 	@Test
@@ -162,13 +92,13 @@ public class TestTutoringSystemService {
 		String email = null;
 		String password = "password";
 		try {
-			tutor = service.createTutor(name, email, password);
+			service.createTutor(name, email, password);
 		} catch (IllegalArgumentException e) {
 			error = e.getMessage();
 		}
 
 		assertEquals("Tutor name, email or password cannot be empty!", error);
-		assertNull(tutor);
+		assertEquals(0, service.getAllTutors().size());
 	}
 
 	@Test
@@ -180,15 +110,86 @@ public class TestTutoringSystemService {
 		String newName = "George";
 		String newEmail = "george@mail.mcgill.ca";
 		try {
-			tutor = service.createTutor(name, email, password);
-			tutor.setName(newName);
-			tutor.setEmail(newEmail);
+			Tutor t = service.createTutor(name, email, password);
+			t.setName(newName);
+			t.setEmail(newEmail);
+			tutorRepository.save(t);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
 
-		assertEquals(newName, tutor.getName());
-		assertEquals(newEmail, tutor.getEmail());
+		List<Tutor> allTutors = service.getAllTutors();
+		assertEquals(newName, allTutors.get(0).getName());
+		assertEquals(newEmail, allTutors.get(0).getEmail());
+	}
+
+	@Test
+	public void testGetTutor() { // Test getters
+		assertEquals(0, service.getAllTutors().size());
+		Tutor t = null;
+		String name = "Martin";
+		String email = "martin@mail.mcgill.ca";
+		String password = "password";
+		try {
+			t = service.createTutor(name, email, password);
+		} catch (IllegalArgumentException e) {
+			fail();
+		}
+
+		assertEquals(t.getUserId(), service.getTutor(email).getUserId());
+	}
+
+	@Test
+	public void testGetTutorRequests() { // Test getters
+		assertEquals(0, service.getAllTutors().size());
+		String tutorName = "Martin";
+		String tutorEmail = "martin@mail.mcgill.ca";
+		String tutorPassword = "password";
+		Tutor tutor = service.createTutor(tutorName, tutorEmail, tutorPassword);
+		Student student = service.createStudent("name1", "email11", "password11");
+		Student student1 = service.createStudent("student1", "email1", "password1");
+		Course course = service.createCourse("test",
+				service.createInstitution("institutionName", SchoolLevel.University), "subject");
+		Request request1 = service.createRequest(Time.valueOf("12:12:12"), Date.valueOf("2019-02-22"), tutor, student,
+				course);
+		Request request2 = service.createRequest(Time.valueOf("10:21:21"), Date.valueOf("2019-01-22"), tutor, student1,
+				course);
+		List<Request> tutorRequests = null;
+		try {
+			tutorRequests = service.getTutorRequests(tutor);
+		} catch (IllegalArgumentException e) {
+			fail();
+		}
+
+		assertEquals(request1.getRequestId(), tutorRequests.get(0).getRequestId());
+		assertEquals(request2.getRequestId(), tutorRequests.get(1).getRequestId());
+	}
+
+	@Test
+	public void testGetAcceptedTutorRequests() { // Test getters
+		assertEquals(0, service.getAllTutors().size());
+		String tutorName = "Martin";
+		String tutorEmail = "martin@mail.mcgill.ca";
+		String tutorPassword = "password";
+		Tutor tutor = service.createTutor(tutorName, tutorEmail, tutorPassword);
+		Student student = service.createStudent("name1", "email11", "password11");
+		Student student1 = service.createStudent("student1", "email1", "password1");
+		Course course = service.createCourse("test",
+				service.createInstitution("institutionName", SchoolLevel.University), "subject");
+		service.createRoom(1, 2);
+		Request request1 = service.createRequest(Time.valueOf("12:12:12"), Date.valueOf("2019-02-22"), tutor, student,
+				course);
+		service.createRequest(Time.valueOf("10:21:21"), Date.valueOf("2019-01-22"), tutor, student1, course);
+		service.acceptRequest(request1.getRequestId());
+		List<Request> tutorRequests = null;
+		try {
+			tutorRequests = service.getAcceptedTutorRequests(tutor);
+		} catch (IllegalArgumentException e) {
+			fail();
+		}
+
+		assertEquals(1, tutorRequests.size());
+		assertEquals(request1.getRequestId(), tutorRequests.get(0).getRequestId());
 	}
 
 	// Student class tests
@@ -200,13 +201,14 @@ public class TestTutoringSystemService {
 		String email = "jason@mail.mcgill.ca";
 		String password = "password";
 		try {
-			student = service.createStudent(name, email, password);
+			service.createStudent(name, email, password);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
 
-		assertEquals(name, student.getName());
-		assertEquals(email, student.getEmail());
+		List<Student> allStudents = service.getAllStudents();
+		assertEquals(name, allStudents.get(0).getName());
+		assertEquals(email, allStudents.get(0).getEmail());
 	}
 
 	@Test
@@ -217,35 +219,37 @@ public class TestTutoringSystemService {
 		String email = null;
 		String password = "password";
 		try {
-			student = service.createStudent(name, email, password);
+			service.createStudent(name, email, password);
 		} catch (IllegalArgumentException e) {
 			error = e.getMessage();
 		}
 
 		assertEquals("Student name, email or password cannot be empty!", error);
-		assertNull(student);
+		assertEquals(0, service.getAllStudents().size());
 	}
 
 	@Test
 	public void testSetStudentNewName() { // Test setters
-		assertEquals(0, service.getAllStudents().size());
+		assertEquals(0, service.getAllTutors().size());
 		String name = "Jason";
 		String email = "jason@mail.mcgill.ca";
 		String password = "password";
 		String newName = "George";
 		String newEmail = "george@mail.mcgill.ca";
 		try {
-			student = service.createStudent(name, email, password);
-			student.setName(newName);
-			student.setEmail(newEmail);
-		} catch (IllegalArgumentException e) { 
-			fail(); 
+			Student s = service.createStudent(name, email, password);
+			s.setName(newName);
+			s.setEmail(newEmail);
+			studentRepository.save(s);
+		} catch (IllegalArgumentException e) {
+			fail();
 		}
-		
-		assertEquals(newName, student.getName()); 
-		assertEquals(newEmail, student.getEmail());
+
+		List<Student> allStudents = service.getAllStudents();
+		assertEquals(newName, allStudents.get(0).getName());
+		assertEquals(newEmail, allStudents.get(0).getEmail());
 	}
-	
+
 	// Manager class tests
 
 	@Test
@@ -254,11 +258,12 @@ public class TestTutoringSystemService {
 		String email = "Marwan@mail.mcgill.ca";
 		String password = "password";
 		try {
-			manager = service.createManager(name, email, password);
+			service.createManager(name, email, password);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
 
+		Manager manager = service.getManager(email);
 		assertEquals(name, manager.getName());
 		assertEquals(email, manager.getEmail());
 	}
@@ -270,30 +275,32 @@ public class TestTutoringSystemService {
 		String email = null;
 		String password = "password";
 		try {
-			manager = service.createManager(name, email, password);
+			service.createManager(name, email, password);
 		} catch (IllegalArgumentException e) {
 			error = e.getMessage();
 		}
 
 		assertEquals("Manager name, email or password cannot be empty!", error);
-		assertNull(manager);
 	}
 
 	@Test
 	public void testSetManagerNewName() { // Test setters
+		assertEquals(0, service.getAllTutors().size());
 		String name = "Marwan";
 		String email = "Marwan@mail.mcgill.ca";
 		String password = "password";
 		String newName = "Daniel";
 		String newEmail = "daniel@mail.mcgill.ca";
 		try {
-			manager = service.createManager(name, email, password);
-			manager.setName(newName);
-			manager.setEmail(newEmail);
+			Manager m = service.createManager(name, email, password);
+			m.setName(newName);
+			m.setEmail(newEmail);
+			managerRepository.save(m);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
 
+		Manager manager = service.getManager(newEmail);
 		assertEquals(newName, manager.getName());
 		assertEquals(newEmail, manager.getEmail());
 	}
@@ -305,20 +312,22 @@ public class TestTutoringSystemService {
 		assertEquals(0, service.getAllRequests().size());
 		Time time = Time.valueOf("08:00:01");
 		Date date = Date.valueOf("2019-09-22");
-		tutor = service.createTutor("name", "email", "password");
-		student = service.createStudent("name", "email", "password");
-		course = service.createCourse("test", service.createInstitution("institutionName", SchoolLevel.University), "subject");
+		Tutor tutor = service.createTutor("name", "email", "password");
+		Student student = service.createStudent("name", "email", "password");
+		Course course = service.createCourse("test",
+				service.createInstitution("institutionName", SchoolLevel.University), "subject");
 		try {
-			request = service.createRequest(time, date, tutor, student, course);
+			service.createRequest(time, date, tutor, student, course);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
 
-		assertEquals(time, request.getTime());
-		assertEquals(date, request.getDate());
-		assertEquals(tutor.getUserId(), request.getTutor().getUserId());
-		assertEquals(student.getUserId(), request.getStudent().getUserId());
-		assertEquals(course.getCourseName(), request.getCourse().getCourseName());
+		List<Request> allRequests = service.getAllRequests();
+		assertEquals(time, allRequests.get(0).getTime());
+		assertEquals(date, allRequests.get(0).getDate());
+		assertEquals(tutor.getUserId(), allRequests.get(0).getTutor().getUserId());
+		assertEquals(student.getUserId(), allRequests.get(0).getStudent().getUserId());
+		assertEquals(course.getCourseName(), allRequests.get(0).getCourse().getCourseName());
 	}
 
 	@Test
@@ -327,37 +336,39 @@ public class TestTutoringSystemService {
 		String error = null;
 		Time time = null;
 		Date date = new Date(0);
-		tutor = service.createTutor("name", "email", "password");
-		student = service.createStudent("name", "email", "password");
-		course = service.createCourse("test", service.createInstitution("institutionName", SchoolLevel.University), "subject");
+		Tutor tutor = service.createTutor("name", "email", "password");
+		Student student = service.createStudent("name", "email", "password");
+		Course course = service.createCourse("test",
+				service.createInstitution("institutionName", SchoolLevel.University), "subject");
 		try {
-			request = service.createRequest(time, date, tutor, student, course);
+			service.createRequest(time, date, tutor, student, course);
 		} catch (IllegalArgumentException e) {
 			error = e.getMessage();
 		}
 
 		assertEquals("Time cannot be empty!", error);
-		assertNull(request);
+		assertEquals(0, service.getAllRequests().size());
 
 	}
-	
+
 	// Course class tests
 
 	@Test
 	public void testCreateCourse() { // Test create and getters
 		assertEquals(0, service.getAllCourses().size());
 		String name = "MATH 263";
-		institution = service.createInstitution("McGill University", SchoolLevel.University);
+		Institution institution = service.createInstitution("McGill University", SchoolLevel.University);
 		String subjectName = "Mathematics";
 		try {
-			course = service.createCourse(name, institution, subjectName);
+			service.createCourse(name, institution, subjectName);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
 
-		assertEquals(name, course.getCourseName());
-		assertEquals(institution.getInstitutionName(), course.getInstitution().getInstitutionName());
-		assertEquals(subjectName, course.getSubjectName());
+		List<Course> allCourses = service.getAllCourses();
+		assertEquals(name, allCourses.get(0).getCourseName());
+		assertEquals(institution.getInstitutionName(), allCourses.get(0).getInstitution().getInstitutionName());
+		assertEquals(subjectName, allCourses.get(0).getSubjectName());
 	}
 
 	@Test
@@ -365,33 +376,63 @@ public class TestTutoringSystemService {
 		assertEquals(0, service.getAllCourses().size());
 		String error = null;
 		String name = null;
-		institution = service.createInstitution("McGill University", SchoolLevel.University);
+		Institution institution = service.createInstitution("McGill University", SchoolLevel.University);
 		String subjectName = "Mathematics";
 		try {
-			course = service.createCourse(name, institution, subjectName);
+			service.createCourse(name, institution, subjectName);
 		} catch (IllegalArgumentException e) {
 			error = e.getMessage();
 		}
 
 		assertEquals("Course name cannot be empty!", error);
-		assertNull(course);
+		assertEquals(0, service.getAllCourses().size());
+
 	}
 
 	@Test
 	public void testSetCourseNewInstitution() { // Test setters
 		assertEquals(0, service.getAllCourses().size());
 		String name = "MATH 263";
-		institution = service.createInstitution("McGill University", SchoolLevel.University);
-		institution1 = service.createInstitution("CEGEP Bois-de-Boulogne", SchoolLevel.CEGEP);
+		Institution institution = service.createInstitution("McGill University", SchoolLevel.University);
+		Institution newInstitution = service.createInstitution("CEGEP Bois-de-Boulogne", SchoolLevel.CEGEP);
 		String subjectName = "Mathematics";
 		try {
-			course = service.createCourse(name, institution, subjectName);
-			course.setInstitution(institution1);
+			Course c = service.createCourse(name, institution, subjectName);
+			c.setInstitution(newInstitution);
+			courseRepository.save(c);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
-		
-		assertEquals(institution1.getInstitutionName(), course.getInstitution().getInstitutionName());
+
+		List<Course> allCourses = service.getAllCourses();
+		assertEquals(newInstitution.getInstitutionName(), allCourses.get(0).getInstitution().getInstitutionName());
+	}
+
+	// Session test
+
+	@Test
+	public void testCreateAndAcceptSession() { // Test create and getters
+		assertEquals(0, service.getAllRequests().size());
+		Time time = Time.valueOf("08:00:01");
+		Date date = Date.valueOf("2019-09-22");
+		Tutor tutor = service.createTutor("name", "email", "password");
+		Student student = service.createStudent("name", "email", "password");
+		Course course = service.createCourse("test",
+				service.createInstitution("institutionName", SchoolLevel.University), "subject");
+		Request request = service.createRequest(time, date, tutor, student, course);
+		Room room = service.createRoom(1, 2);
+		try {
+			service.acceptRequest(request.getRequestId());
+		} catch (IllegalArgumentException e) {
+			fail();
+		}
+		List<Request> allRequests = service.getAllRequests();
+		assertEquals(time, allRequests.get(0).getTime());
+		assertEquals(date, allRequests.get(0).getDate());
+		assertEquals(tutor.getUserId(), allRequests.get(0).getTutor().getUserId());
+		assertEquals(student.getUserId(), allRequests.get(0).getStudent().getUserId());
+		assertEquals(course.getCourseName(), allRequests.get(0).getCourse().getCourseName());
+		assertEquals(room.getRoomNumber(), allRequests.get(0).getRoom().getRoomNumber());
 	}
 
 	// Room class tests
@@ -402,13 +443,14 @@ public class TestTutoringSystemService {
 		Integer roomNumber = 12;
 		Integer capacity = 30;
 		try {
-			room = service.createRoom(roomNumber, capacity);
+			service.createRoom(roomNumber, capacity);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
 
-		assertEquals(roomNumber, room.getRoomNumber());
-		assertEquals(capacity, room.getCapacity());
+		List<Room> allRooms = service.getAllRooms();
+		assertEquals(roomNumber, allRooms.get(0).getRoomNumber());
+		assertEquals(capacity, allRooms.get(0).getCapacity());
 	}
 
 	@Test
@@ -418,13 +460,13 @@ public class TestTutoringSystemService {
 		Integer roomNumber = null;
 		Integer capacity = 30;
 		try {
-			room = service.createRoom(roomNumber, capacity);
+			service.createRoom(roomNumber, capacity);
 		} catch (IllegalArgumentException e) {
 			error = e.getMessage();
 		}
 
 		assertEquals("Room number cannot be empty!", error);
-		assertNull(room);
+		assertEquals(0, service.getAllRooms().size());
 	}
 
 	@Test
@@ -433,13 +475,15 @@ public class TestTutoringSystemService {
 		Integer capacity = 30;
 		Integer newCapacity = 60;
 		try {
-			room = service.createRoom(roomNumber, capacity);
-			room.setCapacity(newCapacity);
+			Room r = service.createRoom(roomNumber, capacity);
+			r.setCapacity(newCapacity);
+			roomRepository.save(r);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
 
-		assertEquals(newCapacity, room.getCapacity());
+		List<Room> allRooms = service.getAllRooms();
+		assertEquals(newCapacity, allRooms.get(0).getCapacity());
 	}
 
 	// Notification class tests
@@ -531,6 +575,7 @@ public class TestTutoringSystemService {
 		try {
 			Review r = service.createReview(rating, comment, from, to);
 			r.setComment(newComment);
+			reviewRepository.save(r);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
@@ -587,6 +632,7 @@ public class TestTutoringSystemService {
 		try {
 			a = service.createApplication(isExistingUser, name, email, course);
 			a.setName(newName);
+			applicationRepository.save(a);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
@@ -640,6 +686,7 @@ public class TestTutoringSystemService {
 		try {
 			Institution i = service.createInstitution(institutionName, institutionLevel);
 			i.setInstitutionName(newInstitutionName);
+			institutionRepository.save(i);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
@@ -701,6 +748,7 @@ public class TestTutoringSystemService {
 		try {
 			Wage w = service.createWage(tutor, course, wage);
 			w.setTutor(newTutor);
+			wageRepository.save(w);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
@@ -751,6 +799,7 @@ public class TestTutoringSystemService {
 		try {
 			TimeSlot t = service.createTimeSlot(tutor, date, time);
 			t.setTutor(newTutor);
+			timeslotRepository.save(t);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
@@ -758,5 +807,4 @@ public class TestTutoringSystemService {
 		List<TimeSlot> t = service.getTimeSlot(date, time);
 		assertEquals(newTutor.getUserId(), t.get(0).getTutor().getUserId());
 	}
-	
 }
