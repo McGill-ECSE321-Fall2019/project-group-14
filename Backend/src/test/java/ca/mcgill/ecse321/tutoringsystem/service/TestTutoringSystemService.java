@@ -2,6 +2,10 @@ package ca.mcgill.ecse321.tutoringsystem.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -14,41 +18,59 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.junit.MockitoJUnitRunner;
+
 import ca.mcgill.ecse321.tutoringsystem.dao.*;
 import ca.mcgill.ecse321.tutoringsystem.model.*;
 
-@RunWith(SpringRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
 public class TestTutoringSystemService {
 
 	@Autowired
+	@InjectMocks
 	TutoringSystemService service;
 
 	@Autowired
+	@Mock
 	private TutorRepository tutorRepository;
 	@Autowired
+	@Mock
 	private StudentRepository studentRepository;
 	@Autowired
+	@Mock
 	private ManagerRepository managerRepository;
 	@Autowired
+	@Mock
 	private RequestRepository requestRepository;
 	@Autowired
+	@Mock
 	private CourseRepository courseRepository;
 	@Autowired
+	@Mock
 	private RoomRepository roomRepository;
 	@Autowired
+	@Mock
 	private NotificationRepository notificationRepository;
 	@Autowired
+	@Mock
 	private ReviewRepository reviewRepository;
 	@Autowired
+	@Mock
 	private ApplicationRepository applicationRepository;
 	@Autowired
+	@Mock
 	private InstitutionRepository institutionRepository;
 	@Autowired
+	@Mock
 	private WageRepository wageRepository;
 	@Autowired
+	@Mock
 	private TimeSlotRepository timeslotRepository;
-
+	
 	@After
 	public void clearDatabase() {
 		requestRepository.deleteAll();
@@ -807,4 +829,10 @@ public class TestTutoringSystemService {
 		List<TimeSlot> t = service.getTimeSlot(date, time);
 		assertEquals(newTutor.getUserId(), t.get(0).getTutor().getUserId());
 	}
+	
+	/* 
+	 * DAO Mock
+	 */
+	
+	
 }
