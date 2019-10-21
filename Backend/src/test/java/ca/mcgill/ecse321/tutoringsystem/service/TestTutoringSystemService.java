@@ -2,26 +2,17 @@ package ca.mcgill.ecse321.tutoringsystem.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -41,11 +32,11 @@ public class TestTutoringSystemService {
 	@Mock
 	private TutorRepository tutorDao;
 	private Tutor tutor;
+	private Tutor tutor1;
 	
 	@Mock
 	private StudentRepository studentDao;
 	private Student student;
-	private Student student1;
 	
 	@Mock
 	private ManagerRepository managerDao;
@@ -54,7 +45,6 @@ public class TestTutoringSystemService {
 	@Mock
 	private RequestRepository requestDao;
 	private Request request;
-	private Request request1;
 	
 	@Mock
 	private CourseRepository courseDao;
@@ -88,20 +78,127 @@ public class TestTutoringSystemService {
 	@Mock
 	private TimeSlotRepository timeslotDao;
 	private TimeSlot timeslot;
-
+	
+	/*
+	 * Use EXISTING and NONEXISTING if the class you're testing for has String as its @Id,
+	 * Otherwise use EXISTING_INT and NONEXISTING_INT (e.g. for Tutor, @Id is Integer: use INTs)
+	 */
 	private static final String EXISTING = "ExistingThing";
+	private static final Integer EXISTING_INT = 1;
 	private static final String NONEXISTING = "NotExistingThing";
+	private static final Integer NONEXISTING_INT = 2;
+	
 	@Before
 	public void setMockOutput() {
 		when(tutorDao.findTutorByUserId((anyInt()))).thenAnswer((InvocationOnMock invocation) -> {
-			if (invocation.getArgument(0).equals(EXISTING)) {
-				Tutor tutor = new Tutor();
-				tutor.setName(EXISTING);
-				return tutor;
+			if (invocation.getArgument(0).equals(EXISTING_INT)) {
+				Tutor ro = new Tutor();
+				ro.setName(EXISTING);
+				return ro;
 			} else {
 				return null;
 			}
 		});
+		when(studentDao.findStudentByUserId((anyInt()))).thenAnswer((InvocationOnMock invocation) -> {
+			if (invocation.getArgument(0).equals(EXISTING_INT)) {
+				Student ro = new Student();
+				ro.setName(EXISTING);
+				return ro;
+			} else {
+				return null;
+			}
+		});
+		when(managerDao.findManagerByUserId((anyInt()))).thenAnswer((InvocationOnMock invocation) -> {
+			if (invocation.getArgument(0).equals(EXISTING_INT)) {
+				Manager ro = new Manager();
+				ro.setName(EXISTING);
+				return ro;
+			} else {
+				return null;
+			}
+		});
+		when(requestDao.findRequestByRequestId((anyInt()))).thenAnswer((InvocationOnMock invocation) -> {
+			if (invocation.getArgument(0).equals(EXISTING_INT)) {
+				Request ro = new Request();
+				ro.setRequestId(EXISTING_INT);
+				return ro;
+			} else {
+				return null;
+			}
+		});
+		when(courseDao.findCourseByCourseName((anyString()))).thenAnswer((InvocationOnMock invocation) -> {
+			if (invocation.getArgument(0).equals(EXISTING)) {
+				Course ro = new Course();
+				ro.setCourseName(EXISTING);
+				return ro;
+			} else {
+				return null;
+			}
+		});
+		when(roomDao.findRoomByRoomNumber((anyInt()))).thenAnswer((InvocationOnMock invocation) -> {
+			if (invocation.getArgument(0).equals(EXISTING_INT)) {
+				Room ro = new Room();
+				ro.setRoomNumber(EXISTING_INT);
+				return ro;
+			} else {
+				return null;
+			}
+		});
+		when(notificationDao.findNotificationByNotificationId((anyInt()))).thenAnswer((InvocationOnMock invocation) -> {
+			if (invocation.getArgument(0).equals(EXISTING_INT)) {
+				Notification ro = new Notification();
+				ro.setNotificationId(EXISTING_INT);
+				return ro;
+			} else {
+				return null;
+			}
+		});
+		when(reviewDao.findReviewByReviewId((anyInt()))).thenAnswer((InvocationOnMock invocation) -> {
+			if (invocation.getArgument(0).equals(EXISTING_INT)) {
+				Review ro = new Review();
+				ro.setReviewId(EXISTING_INT);
+				return ro;
+			} else {
+				return null;
+			}
+		});
+		when(applicationDao.findApplicationByApplicationId((anyInt()))).thenAnswer((InvocationOnMock invocation) -> {
+			if (invocation.getArgument(0).equals(EXISTING_INT)) {
+				Application ro = new Application();
+				ro.setApplicationId(EXISTING_INT);
+				return ro;
+			} else {
+				return null;
+			}
+		});
+		when(institutionDao.findInstitutionByInstitutionName((anyString()))).thenAnswer((InvocationOnMock invocation) -> {
+			if (invocation.getArgument(0).equals(EXISTING)) {
+				Institution ro = new Institution();
+				ro.setInstitutionName(EXISTING);
+				return ro;
+			} else {
+				return null;
+			}
+		});
+		when(wageDao.findWageByWageId((anyInt()))).thenAnswer((InvocationOnMock invocation) -> {
+			if (invocation.getArgument(0).equals(EXISTING_INT)) {
+				Wage ro = new Wage();
+				ro.setWageId(EXISTING_INT);
+				return ro;
+			} else {
+				return null;
+			}
+		});
+		when(timeslotDao.findTimeSlotByTimeSlotId((anyInt()))).thenAnswer((InvocationOnMock invocation) -> {
+			if (invocation.getArgument(0).equals(EXISTING_INT)) {
+				TimeSlot ro = new TimeSlot();
+				ro.setTimeSlotId(EXISTING_INT);
+				return ro;
+			} else {
+				return null;
+			}
+		});
+		
 		// Whenever anything is saved, just return the parameter object
 		Answer<?> returnParameterAsAnswer = (InvocationOnMock invocation) -> {
 			return invocation.getArgument(0);
@@ -191,6 +288,16 @@ public class TestTutoringSystemService {
 		assertEquals(newEmail, tutor.getEmail());
 	}
 
+	@Test
+	public void testGetExistingTutor() {
+		assertEquals(EXISTING, service.getTutor(EXISTING_INT).getName());
+	}
+
+	@Test
+	public void testGetNonExistingTutor() {
+		assertNull(service.getTutor(NONEXISTING_INT));
+	}
+	
 	// Student class tests
 
 	@Test
@@ -246,6 +353,16 @@ public class TestTutoringSystemService {
 		assertEquals(newEmail, student.getEmail());
 	}
 	
+	@Test
+	public void testGetExistingStudent() {
+		assertEquals(EXISTING, service.getStudent(EXISTING_INT).getName());
+	}
+
+	@Test
+	public void testGetNonExistingStudent() {
+		assertNull(service.getStudent(NONEXISTING_INT));
+	}
+	
 	// Manager class tests
 
 	@Test
@@ -296,6 +413,16 @@ public class TestTutoringSystemService {
 		assertEquals(newEmail, manager.getEmail());
 	}
 
+	@Test
+	public void testGetExistingManager() {
+		assertEquals(EXISTING, service.getManager(EXISTING_INT).getName());
+	}
+
+	@Test
+	public void testGetNonExistingManager() {
+		assertNull(service.getManager(NONEXISTING_INT));
+	}
+	
 	// Request class tests
 
 	@Test
@@ -337,6 +464,16 @@ public class TestTutoringSystemService {
 		assertEquals("Time cannot be empty!", error);
 		assertNull(request);
 
+	}
+	
+	@Test
+	public void testGetExistingRequest() {
+		assertEquals(EXISTING_INT, service.getRequest(EXISTING_INT).getRequestId());
+	}
+
+	@Test
+	public void testGetNonExistingRequest() {
+		assertNull(service.getRequest(NONEXISTING_INT));
 	}
 	
 	// Course class tests
@@ -391,6 +528,16 @@ public class TestTutoringSystemService {
 		
 		assertEquals(institution1.getInstitutionName(), course.getInstitution().getInstitutionName());
 	}
+	
+	@Test
+	public void testGetExistingCourse() {
+		assertEquals(EXISTING, service.getCourse(EXISTING).getCourseName());
+	}
+
+	@Test
+	public void testGetNonExistingCourse() {
+		assertNull(service.getCourse(NONEXISTING));
+	}
 
 	// Room class tests
 
@@ -439,7 +586,17 @@ public class TestTutoringSystemService {
 
 		assertEquals(newCapacity, room.getCapacity());
 	}
+	
+	@Test
+	public void testGetExistingRoom() {
+		assertEquals(EXISTING_INT, service.getRoom(EXISTING_INT).getRoomNumber());
+	}
 
+	@Test
+	public void testGetNonExistingRoom() {
+		assertNull(service.getRoom(NONEXISTING_INT));
+	}
+	
 	// Notification class tests
 
 	@Test
@@ -447,11 +604,11 @@ public class TestTutoringSystemService {
 		assertEquals(0, service.getAllNotifications().size());
 		Time time = Time.valueOf("08:00:01");
 		Date date = Date.valueOf("2019-09-22");
-		Tutor tutor = service.createTutor("name", "email", "password");
-		Student student = service.createStudent("name", "email", "password");
-		Course course = service.createCourse("test",
+		tutor = service.createTutor("name", "email", "password");
+		student = service.createStudent("name", "email", "password");
+		course = service.createCourse("test",
 				service.createInstitution("institutionName", SchoolLevel.University), "subject");
-		Request request = service.createRequest(time, date, tutor, student, course);
+		request = service.createRequest(time, date, tutor, student, course);
 		try {
 			notification = service.createNotification(request);
 		} catch (IllegalArgumentException e) {
@@ -465,7 +622,7 @@ public class TestTutoringSystemService {
 	public void testCreateNullNotification() { // Test condition checks
 		assertEquals(0, service.getAllNotifications().size());
 		String error = null;
-		Request request = null;
+		request = null;
 		try {
 			notification = service.createNotification(request);
 		} catch (IllegalArgumentException e) {
@@ -473,6 +630,16 @@ public class TestTutoringSystemService {
 		}
 
 		assertEquals("Notification ID cannot be null!", error);
+	}
+	
+	@Test
+	public void testGetExistingNotification() {
+		assertEquals(EXISTING_INT, service.getNotification(EXISTING_INT).getNotificationId());
+	}
+
+	@Test
+	public void testGetNonExistingNotification() {
+		assertNull(service.getNotification(NONEXISTING_INT));
 	}
 
 	// Review class tests
@@ -490,7 +657,6 @@ public class TestTutoringSystemService {
 			fail();
 		}
 
-		//List<Review> allReviews = service.getAllReviews();
 		assertEquals(rating, review.getRating());
 		assertEquals(comment, review.getComment());
 		assertEquals(from.getUserId(), review.getFrom().getUserId());
@@ -528,8 +694,17 @@ public class TestTutoringSystemService {
 			fail();
 		}
 
-		//List<Review> allReviews = service.getAllReviews();
 		assertEquals(newComment, review.getComment());
+	}
+	
+	@Test
+	public void testGetExistingReview() {
+		assertEquals(EXISTING_INT, service.getReview(EXISTING_INT).getReviewId());
+	}
+
+	@Test
+	public void testGetNonExistingReview() {
+		assertNull(service.getReview(NONEXISTING_INT));
 	}
 
 	// Application class tests
@@ -583,6 +758,16 @@ public class TestTutoringSystemService {
 		assertEquals(newName, application.getName());
 	}
 
+	@Test
+	public void testGetExistingApplication() {
+		assertEquals(EXISTING_INT, service.getApplication(EXISTING_INT).getApplicationId());
+	}
+
+	@Test
+	public void testGetNonExistingApplication() {
+		assertNull(service.getApplication(NONEXISTING_INT));
+	}
+	
 	// Institution class tests
 
 	@Test
@@ -612,7 +797,6 @@ public class TestTutoringSystemService {
 		}
 
 		assertEquals("Institution name cannot be null!", error);
-
 	}
 
 	@Test
@@ -630,14 +814,24 @@ public class TestTutoringSystemService {
 
 		assertEquals(newInstitutionName, institution.getInstitutionName());
 	}
+	
+	@Test
+	public void testGetExistingInstitution() {
+		assertEquals(EXISTING, service.getInstitution(EXISTING).getInstitutionName());
+	}
 
+	@Test
+	public void testGetNonExistingInstitution() {
+		assertNull(service.getInstitution(NONEXISTING));
+	}
+	
 	// Wage class tests
 
 	@Test
 	public void testCreateWage() { // Test create and getters
 		assertEquals(0, service.getAllWages().size());
-		Tutor tutor = service.createTutor("name", "email", "password");
-		Course course = service.createCourse("test",
+		tutor = service.createTutor("name", "email", "password");
+		course = service.createCourse("test",
 				service.createInstitution("institutionName", SchoolLevel.University), "subject");
 		Integer wage_price = 20;
 		try {
@@ -669,18 +863,28 @@ public class TestTutoringSystemService {
 	@Test
 	public void testSetWageNewTutor() { // Test setters
 		assertEquals(0, service.getAllWages().size());
-		Tutor tutor = service.createTutor("name1", "email1", "password1");
-		Tutor newTutor = service.createTutor("name2", "email2", "password2");
-		Course course = service.createCourse("test",
+		tutor = service.createTutor("name1", "email1", "password1");
+		tutor1 = service.createTutor("name2", "email2", "password2");
+		course = service.createCourse("test",
 				service.createInstitution("institutionName", SchoolLevel.University), "subject");
 		Integer wage_price = 20;
 		try {
 			wage = service.createWage(tutor, course, wage_price);
-			wage.setTutor(newTutor);
+			wage.setTutor(tutor1);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
-		assertEquals(newTutor.getUserId(), wage.getTutor().getUserId());
+		assertEquals(tutor1.getUserId(), wage.getTutor().getUserId());
+	}
+	
+	@Test
+	public void testGetExistingWage() {
+		assertEquals(EXISTING_INT, service.getWage(EXISTING_INT).getWageId());
+	}
+
+	@Test
+	public void testGetNonExistingWage() {
+		assertNull(service.getWage(NONEXISTING_INT));
 	}
 
 	// TimeSlot class tests
@@ -689,7 +893,7 @@ public class TestTutoringSystemService {
 	public void testCreateTimeSlot() { // Test create and getters
 		Time time = Time.valueOf("08:00:01");
 		Date date = Date.valueOf("2019-09-22");
-		Tutor tutor = service.createTutor("name", "email", "password");
+		tutor = service.createTutor("name", "email", "password");
 		try {
 			timeslot = service.createTimeSlot(tutor, date, time);
 		} catch (IllegalArgumentException e) {
@@ -718,16 +922,25 @@ public class TestTutoringSystemService {
 	public void testSetTimeSlotNewTutor() { // Test setters
 		Time time = Time.valueOf("08:00:01");
 		Date date = Date.valueOf("2019-09-22");
-		Tutor tutor = service.createTutor("name1", "email1", "password1");
-		Tutor newTutor = service.createTutor("name2", "email2", "password2");
+		tutor = service.createTutor("name1", "email1", "password1");
+		tutor1 = service.createTutor("name2", "email2", "password2");
 		try {
 			timeslot = service.createTimeSlot(tutor, date, time);
-			timeslot.setTutor(newTutor);
+			timeslot.setTutor(tutor1);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
 
-		assertEquals(newTutor.getUserId(), timeslot.getTutor().getUserId());
+		assertEquals(tutor1.getUserId(), timeslot.getTutor().getUserId());
 	}
 	
+	@Test
+	public void testGetExistingTimeSlot() {
+		assertEquals(EXISTING_INT, service.getTimeSlot(EXISTING_INT).getTimeSlotId());
+	}
+
+	@Test
+	public void testGetNonExistingTimeSlot() {
+		assertNull(service.getTimeSlot(NONEXISTING_INT));
+	}
 }
