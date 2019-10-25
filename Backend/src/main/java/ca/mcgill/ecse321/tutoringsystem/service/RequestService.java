@@ -20,6 +20,7 @@ import ca.mcgill.ecse321.tutoringsystem.model.Tutor;
 public class RequestService {
   @Autowired
   RequestRepository requestRepository;
+  @Autowired
   RoomRepository roomRepository;
 
   @Transactional
