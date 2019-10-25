@@ -6,8 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import ca.mcgill.ecse321.tutoringsystem.model.Request;
 import ca.mcgill.ecse321.tutoringsystem.model.Tutor;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-@RepositoryRestResource(collectionResourceRel = "requests", path = "requests")
+
 public interface RequestRepository extends CrudRepository<Request, Integer> {
 	Request findRequestByRequestId(int requestId);
 
