@@ -14,13 +14,13 @@ public class RoomDto {
   
   @SuppressWarnings("unchecked")
   public RoomDto(Integer roomNumber) {
-    this(null, roomNumber, (Set<RequestDto>) Collections.EMPTY_LIST);
+    this(null, roomNumber, Collections.EMPTY_SET);
   }
   
-  public RoomDto(Integer capacity, Integer roomNumber, Set<RequestDto> set) {
+  public RoomDto(Integer capacity, Integer roomNumber, Set<RequestDto> requests) {
     this.capacity = capacity;
     this.roomNumber = roomNumber;
-    this.requests = set;
+    this.requests = requests;
   }
 
   public Integer getCapacity() {
