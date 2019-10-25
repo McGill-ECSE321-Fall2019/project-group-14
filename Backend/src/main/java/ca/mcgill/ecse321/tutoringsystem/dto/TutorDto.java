@@ -1,25 +1,24 @@
 package ca.mcgill.ecse321.tutoringsystem.dto;
 
 import java.util.Collections;
-import java.util.List;
+import java.util.Set;
 
 public class TutorDto extends PersonDto {
-  private List<TimeSlotDto> timeSlots;
-  private List<WageDto> wages;
-  private List<RequestDto> requests;
-  private List<NotificationDto> notifications;
-  private List<ReviewDto> reviews;
+  private Set<TimeSlotDto> timeSlots;
+  private Set<WageDto> wages;
+  private Set<RequestDto> requests;
+  private Set<NotificationDto> notifications;
+  private Set<ReviewDto> reviews;
   
   public TutorDto() {
-    
   }
   
   @SuppressWarnings("unchecked")
   public TutorDto(String email) {
-      this(null, email, null, null, Collections.EMPTY_LIST, Collections.EMPTY_LIST, Collections.EMPTY_LIST, Collections.EMPTY_LIST, Collections.EMPTY_LIST);
+      this(null, email, null, null, Collections.EMPTY_SET, Collections.EMPTY_SET, Collections.EMPTY_SET, Collections.EMPTY_SET, Collections.EMPTY_SET);
   }
   
-  public TutorDto(String name, String email, Integer userId, String password, List<TimeSlotDto> timeSlots, List<WageDto> wages, List<RequestDto> requests, List<NotificationDto> notifications, List<ReviewDto> reviews) {
+  public TutorDto(String name, String email, Integer userId, String password, Set<TimeSlotDto> timeSlots, Set<WageDto> wages, Set<RequestDto> requests, Set<NotificationDto> notifications, Set<ReviewDto> reviews) {
     super(name, email, userId, password);
     this.timeSlots = timeSlots;
     this.wages = wages;
@@ -28,43 +27,43 @@ public class TutorDto extends PersonDto {
     this.reviews = reviews;
   }
   
-  public List<TimeSlotDto> getTimeSlots() {
+  public Set<TimeSlotDto> getTimeSlots() {
     return timeSlots;
   }
   
-  public void setTimeSlots(List<TimeSlotDto> timeSlots) {
+  public void setTimeSlots(Set<TimeSlotDto> timeSlots) {
     this.timeSlots = timeSlots;
   }
 
-  public List<WageDto> getWages() {
+  public Set<WageDto> getWages() {
     return wages;
   }
 
-  public void setWages(List<WageDto> wages) {
+  public void setWages(Set<WageDto> wages) {
     this.wages = wages;
   }
 
-  public List<RequestDto> getRequests() {
+  public Set<RequestDto> getRequests() {
     return requests;
   }
 
-  public void setRequests(List<RequestDto> requests) {
+  public void setRequests(Set<RequestDto> requests) {
     this.requests = requests;
   }
 
-  public List<NotificationDto> getNotifications() {
+  public Set<NotificationDto> getNotifications() {
     return notifications;
   }
 
-  public void setNotifications(List<NotificationDto> notifications) {
+  public void setNotifications(Set<NotificationDto> notifications) {
     this.notifications = notifications;
   }
 
-  public List<ReviewDto> getReviews() {
+  public Set<ReviewDto> getReviews() {
     return reviews;
   }
 
-  public void setReviews(List<ReviewDto> reviews) {
+  public void setReviews(Set<ReviewDto> reviews) {
     this.reviews = reviews;
   }
 
