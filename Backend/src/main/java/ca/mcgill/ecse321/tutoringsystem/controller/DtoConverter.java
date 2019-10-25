@@ -48,16 +48,37 @@ public class DtoConverter {
     }
     return timeSlots;
   }
-
+  public static Set<RequestDto> requestSetToDto(Set<Request> r) {
+    if (r == null) {
+      throw new IllegalArgumentException("There is no such Request");
+    }
+    Set<RequestDto> requests = new HashSet<>();
+    for (Request request : r) {
+      requests.add(toDto(request));
+    }
+    return requests;
+  }
+  
+  public static Set<ReviewDto> reviewSetToDto(Set<Review> r) {
+    if (r == null) {
+      throw new IllegalArgumentException("There is no such Review");
+    }
+    Set<ReviewDto> reviews = new HashSet<>();
+    for (Review review : r) {
+      reviews.add(toDto(review));
+    }
+    return reviews;
+  }
+  
   public static TutorDto toDto(Tutor t) {
     if (t == null) {
       throw new IllegalArgumentException("There is no such Tutor!");
     }
     Set<TimeSlotDto> timeSlotDto = timeSlotSetToDto(t.getTimeslot());
     Set<WageDto> wageDto = wageSetToDto(t.getWage());
-    Set<RequestDto> requestDto = toDto(t.getRequest());
-    Set<NotificationDto> notificationDto = toDto(t.getNotification());
-    Set<ReviewDto> reviewDTo = toDto(t.getReview());
+    Set<RequestDto> requestDto = requestSetToDto(t.getRequest());
+    Set<NotificationDto> notificationDto = notificationSetToDto(t.getNotification());
+    Set<ReviewDto> reviewDTo = reviewSetToDto(t.getReview());
 
     TutorDto tutorDto = new TutorDto(t.getName(), t.getEmail(), t.getUserId(), t.getPassword(), timeSlotDto, wageDto,
         requestDto, notificationDto, reviewDto);
