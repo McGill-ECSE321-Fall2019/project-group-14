@@ -139,7 +139,7 @@ public class DtoConverter {
 		return requests;
 	}
 
-	private static TimeSlotDto toDto(TimeSlot t) {
+	public static TimeSlotDto toDto(TimeSlot t) {
 		if (t == null) {
 			throw new IllegalArgumentException("There is no such TimeSlot!");
 		}
@@ -182,6 +182,17 @@ public class DtoConverter {
 		TutorDto tutorDto = new TutorDto(t.getName(), t.getEmail(), t.getUserId(), t.getPassword(), timeSlotDto,
 				wageDto, requestDto, notificationDto, reviewDto);
 		return tutorDto;
+	}
+	
+	public static Set<TutorDto> tutorSetToDto(Set<Tutor> t) {
+	  if (t == null) {
+	    throw new IllegalArgumentException("There is no such Tutor");
+	  }
+	  Set<TutorDto> tutors = new HashSet<>();
+	  for (Tutor tutor: t) {
+	    tutors.add(toDto(tutor));
+	  }
+	  return tutors;
 	}
 
 	public static Set<WageDto> wageSetToDto(Set<Wage> w) {
