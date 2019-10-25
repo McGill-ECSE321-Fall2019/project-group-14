@@ -12,7 +12,7 @@ import ca.mcgill.ecse321.tutoringsystem.model.TimeSlot;
 import ca.mcgill.ecse321.tutoringsystem.model.Tutor;
 
 @Service
-public class TimeslotService {
+public class TimeSlotService {
   @Autowired
   TimeSlotRepository timeslotRepository;
 
