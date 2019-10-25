@@ -58,12 +58,11 @@ public class DtoConverter {
 		if (n == null) {
 			throw new IllegalArgumentException("There is no such Notification!");
 		}
-		NotificationDto notificationDto = new NotificationDto();
-		notificationDto.setRequest(createRequestDtoForNotification(n));
+		NotificationDto notificationDto = new NotificationDto(toDto(n.getRequest(), toDto(n.getTutor()), n.getNotificationId()));
 		return notificationDto;
 	}
 	
-	public static Set<NotificationDto> toDto(Set<Notification> n) {
+	public static Set<NotificationDto> notificationSetToDto(Set<Notification> n) {
 		if (n == null) {
 			throw new IllegalArgumentException("There is no such Notification!");
 		}
@@ -71,7 +70,7 @@ public class DtoConverter {
 		for (Notification notification : n) {
 			notifications.add(toDto(notification));
 		}
-		return null;
+		return notifications;
 		
 	}
 	
@@ -79,7 +78,7 @@ public class DtoConverter {
 		if (r == null) {
 			throw new IllegalArgumentException("There is no such Request!");
 		}
-		RequestDto requestDto = new RequestDto();
+		RequestDto requestDto = new RequestDto(toDto(r.getTutor(), toDto(r.getStudent(), r.getTime(), r.getDate(), toDto(r.getNotification(), toDto(r.getCourse(), toDto(r.getCourse(), toDto(r.getRoom(), r.getRequestId())))))));
 		return requestDto;
 	}
 }

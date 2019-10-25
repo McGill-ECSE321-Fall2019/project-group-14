@@ -32,8 +32,8 @@ public class ManagerController {
 	}
 
 	@GetMapping(value = { "/manager/{name}" })
-	public ManagerDto getManagerById(@PathVariable("name") String name) throws IllegalArgumentException {
-		return DtoConverter.toDto(managerService.getManager(name));
+	public ManagerDto getManagerById(@PathVariable("email") String email) throws IllegalArgumentException {
+		return DtoConverter.toDto(managerService.getManager(email));
 	}
 
 }
