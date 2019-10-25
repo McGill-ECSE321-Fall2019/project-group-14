@@ -22,13 +22,8 @@ public class NotificationController {
 	RequestController controller;
 	
 	@PostMapping(value = { "/notifications", "/notification/"})
-	public ManagerDto createPerson(@PathVariable("requestId") Integer requestId) throws IllegalArgumentException {
-		Notification manager = notificationService.createNotification(request);
-		return convertToDto(manager);
-	}
-
-	private NotificationDto convertToDto(Manager manager) {
-		// TODO Auto-generated method stub
-		return null;
+	public NotificationDto createNotification(@PathVariable("requestId") Integer requestId) throws IllegalArgumentException {
+		Notification notification = notificationService.createNotification(request);
+		return DtoConverter.toDto(notification);
 	}
 }

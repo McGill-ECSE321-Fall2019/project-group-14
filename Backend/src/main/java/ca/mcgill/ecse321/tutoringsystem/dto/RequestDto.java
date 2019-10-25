@@ -11,10 +11,10 @@ public class RequestDto {
 	private NotificationDto notification;
 	private CourseDto course;
 	private RoomDto room;
-	private Integer reviewId;
+	private Integer requestId;
 
 	public RequestDto(TutorDto tutor, StudentDto student, Time time, Date date, NotificationDto notification,
-			CourseDto course, RoomDto room, Integer reviewId) {
+			CourseDto course, RoomDto room, Integer requestId) {
 		super();
 		this.tutor = tutor;
 		this.student = student;
@@ -23,7 +23,7 @@ public class RequestDto {
 		this.notification = notification;
 		this.course = course;
 		this.room = room;
-		this.reviewId = reviewId;
+		this.requestId = requestId;
 	}
 	
 	public RequestDto() {
@@ -86,12 +86,12 @@ public class RequestDto {
 		this.room = room;
 	}
 	
-	public Integer getReviewId() {
-		return reviewId;
+	public Integer getRequestId() {
+		return requestId;
 	}
 
-	public void setReviewId(Integer reviewId) {
-		this.reviewId = reviewId;
+	public void setRequestId(Integer requestId) {
+		this.requestId = requestId;
 	}
 	
 }
