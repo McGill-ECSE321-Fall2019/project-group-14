@@ -1,5 +1,6 @@
 package ca.mcgill.ecse321.tutoringsystem.dto;
 
+import java.util.Collections;
 import java.util.Set;
 
 public class ManagerDto {
@@ -20,6 +21,10 @@ public class ManagerDto {
 		this.name = name;
 		this.email = email;
 		this.password = password;
+	}
+	
+	public ManagerDto(String name, String email, String password) {
+		this(Collections.emptySet(), Collections.emptySet(), Collections.emptySet(), name, email, password);
 	}
 	
 	public ManagerDto() {
