@@ -23,17 +23,17 @@ public class ManagerController {
 			@PathVariable("password") String password) throws IllegalArgumentException {
 		// @formatter:on
 		Manager manager = managerService.createManager(name, email, password);
-		return DtoConverter.convertToDto(manager);
+		return DtoConverter.toDto(manager);
 	}
 
 	@GetMapping(value = { "/manager/{id}" })
 	public ManagerDto getManagerById(@PathVariable("id") Integer id) throws IllegalArgumentException {
-		return DtoConverter.convertToDto(managerService.getManager(id));
+		return DtoConverter.toDto(managerService.getManager(id));
 	}
 
 	@GetMapping(value = { "/manager/{name}" })
 	public ManagerDto getManagerById(@PathVariable("name") String name) throws IllegalArgumentException {
-		return DtoConverter.convertToDto(managerService.getManager(name));
+		return DtoConverter.toDto(managerService.getManager(name));
 	}
 
 }
