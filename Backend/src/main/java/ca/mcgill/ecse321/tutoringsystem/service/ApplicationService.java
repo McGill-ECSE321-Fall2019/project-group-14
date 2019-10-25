@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ca.mcgill.ecse321.tutoringsystem.dao.ApplicationRepository;
 import ca.mcgill.ecse321.tutoringsystem.model.Application;
-import ca.mcgill.ecse321.tutoringsystem.model.Room;
 
 @Service
 public class ApplicationService {
