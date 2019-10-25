@@ -17,29 +17,29 @@ import ca.mcgill.ecse321.tutoringsystem.model.*;
 @Service
 public class TutoringSystemService {
 	@Autowired
-	TutorRepository tutorRepository;
+	TutorRepository tutorRepository; //
 	@Autowired
-	StudentRepository studentRepository;
+	StudentRepository studentRepository; //
 	@Autowired
-	ManagerRepository managerRepository;
+	ManagerRepository managerRepository; //
 	@Autowired
-	RequestRepository requestRepository;
+	RequestRepository requestRepository; //
 	@Autowired
-	CourseRepository courseRepository;
+	CourseRepository courseRepository; //
 	@Autowired
-	RoomRepository roomRepository;
+	RoomRepository roomRepository; //
 	@Autowired
-	NotificationRepository notificationRepository;
+	NotificationRepository notificationRepository; //
 	@Autowired
-	ReviewRepository reviewRepository;
+	ReviewRepository reviewRepository; //
 	@Autowired
-	ApplicationRepository applicationRepository;
+	ApplicationRepository applicationRepository; //
 	@Autowired
-	InstitutionRepository institutionRepository;
+	InstitutionRepository institutionRepository; //
 	@Autowired
 	WageRepository wageRepository;
 	@Autowired
-	TimeSlotRepository timeslotRepository;
+	TimeSlotRepository timeslotRepository; //
 
 	/**
 	 * TUTOR
