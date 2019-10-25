@@ -25,7 +25,7 @@ public class ApplicationController {
 	public List<ApplicationDto> getAllApplications() {
 		List<ApplicationDto> applicationDtos = new ArrayList<>();
 		for (Application application : applicationService.getAllApplications()) {
-			applicationDtos.add(convertToDto(application));
+			applicationDtos.add(DtoConverter.toDto(application));
 		}
 		return applicationDtos;
 	}
@@ -36,11 +36,11 @@ public class ApplicationController {
 		if (input.chars().allMatch(Character::isDigit)) {
 			// input is a number, get application by id
 			Application application = applicationService.getApplication(Integer.parseInt(input));
-			applicationDtos.add(convertToDto(application));
+			applicationDtos.add(DtoConverter.toDto(application));
 			return applicationDtos;
 		} else {
 			for (Application application : applicationService.getApplication(input)) {
-				applicationDtos.add(convertToDto(application));
+				applicationDtos.add(DtoConverter.toDto(application));
 			}
 			return applicationDtos;
 		}
@@ -52,9 +52,6 @@ public class ApplicationController {
 		@RequestParam(name = "courses") String courses) throws IllegalArgumentException {
 
 		Application a = applicationService.createApplication(isExistingUser, name, email, courses);
-		return convertToDto(a);
+		return DtoConverter.toDto(a);
 	}
-
-	
-
 }
