@@ -19,29 +19,29 @@ import ca.mcgill.ecse321.tutoringsystem.model.*;
 @SpringBootTest
 public class TestTutoringSystemCRUD {
 
-  @InjectMocks
+  @Autowired
   ApplicationService applicationService;
-  @InjectMocks
+  @Autowired
   CourseService courseService;
-  @InjectMocks
+  @Autowired
   InstitutionService institutionService;
-  @InjectMocks
+  @Autowired
   ManagerService managerService;
-  @InjectMocks
+  @Autowired
   NotificationService notificationService;
-  @InjectMocks
+  @Autowired
   RequestService requestService;
-  @InjectMocks
+  @Autowired
   ReviewService reviewService;
-  @InjectMocks
+  @Autowired
   RoomService roomService;
-  @InjectMocks
+  @Autowired
   StudentService studentService;
-  @InjectMocks
+  @Autowired
   TimeSlotService timeSlotService;
-  @InjectMocks
+  @Autowired
   TutorService tutorService;
-  @InjectMocks
+  @Autowired
   WageService wageService;
 
   @Autowired
