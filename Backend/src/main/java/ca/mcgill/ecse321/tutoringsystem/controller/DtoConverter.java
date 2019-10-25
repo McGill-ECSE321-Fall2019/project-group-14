@@ -115,4 +115,70 @@ public class DtoConverter {
     }
     return requests;
   }
+
+  private static TimeSlotDto toDto(TimeSlot t) {
+    if (t == null) {
+      throw new IllegalArgumentException("There is no such TimeSlot!");
+    }
+    TimeSlotDto timeSlotDto = new TimeSlotDto(t.getDate(), t.getTime(), t.getTimeSlotId());
+    return timeSlotDto;
+  }
+
+  public static Set<TimeSlotDto> timeSlotSetToDto(Set<TimeSlot> t) {
+    if (t == null) {
+      throw new IllegalArgumentException("There is no such TimeSlot");
+    }
+    Set<TimeSlotDto> timeSlots = new HashSet<>();
+    for (TimeSlot timeSlot : t) {
+      timeSlots.add(toDto(timeSlot));
+    }
+    return timeSlots;
+  }
+
+  public static Set<ReviewDto> reviewSetToDto(Set<Review> r) {
+    if (r == null) {
+      throw new IllegalArgumentException("There is no such Review");
+    }
+    Set<ReviewDto> reviews = new HashSet<>();
+    for (Review review : r) {
+      reviews.add(toDto(review));
+    }
+    return reviews;
+  }
+
+  public static TutorDto toDto(Tutor t) {
+    if (t == null) {
+      throw new IllegalArgumentException("There is no such Tutor!");
+    }
+    Set<TimeSlotDto> timeSlotDto = timeSlotSetToDto(t.getTimeslot());
+    Set<WageDto> wageDto = wageSetToDto(t.getWage());
+    Set<RequestDto> requestDto = requestSetToDto(t.getRequest());
+    Set<NotificationDto> notificationDto = notificationSetToDto(t.getNotification());
+    Set<ReviewDto> reviewDto = reviewSetToDto(t.getReview());
+
+    TutorDto tutorDto = new TutorDto(t.getName(), t.getEmail(), t.getUserId(), t.getPassword(), timeSlotDto, wageDto,
+        requestDto, notificationDto, reviewDto);
+    return tutorDto;
+  }
+
+  public static Set<WageDto> wageSetToDto(Set<Wage> w) {
+    if (w == null) {
+      throw new IllegalArgumentException("There is no such Wage");
+    }
+    Set<WageDto> wages = new HashSet<>();
+    for (Wage wage : w) {
+      wages.add(toDto(wage));
+    }
+    return wages;
+  }
+
+
+  public static WageDto toDto(Wage w) {
+    if (w == null) {
+      throw new IllegalArgumentException("There is no such Wage!");
+    }
+    WageDto wageDto = new WageDto(w.getWage(), w.getWageId());
+    return wageDto;
+  }
+
 }

@@ -1,11 +1,11 @@
 package ca.mcgill.ecse321.tutoringsystem.dto;
 
 import java.util.Collections;
-import java.util.List;
+import java.util.Set;
 
 public class StudentDto extends PersonDto {
-  private List<ReviewDto> reviews;
-  private List<RequestDto> requests;
+  private Set<ReviewDto> reviews;
+  private Set<RequestDto> requests;
 
   public StudentDto() {
     
@@ -13,28 +13,28 @@ public class StudentDto extends PersonDto {
   
   @SuppressWarnings("unchecked")
   public StudentDto(String email) {
-    this(null, email, null, null, Collections.EMPTY_LIST, Collections.EMPTY_LIST);
+    this(null, email, null, null, Collections.EMPTY_SET, Collections.EMPTY_SET);
   }
   
-  public StudentDto(String name, String email, Integer Id, String password, List<ReviewDto> reviews, List<RequestDto> requests) {
+  public StudentDto(String name, String email, Integer Id, String password, Set<ReviewDto> reviews, Set<RequestDto> requests) {
     super(name, email, Id, password);
     this.reviews = reviews;
     this.requests = requests;
   }
   
-  public List<ReviewDto> getReviews() {
+  public Set<ReviewDto> getReviews() {
     return reviews;
   }
 
-  public void setReviews(List<ReviewDto> reviews) {
+  public void setReviews(Set<ReviewDto> reviews) {
     this.reviews = reviews;
   }
 
-  public List<RequestDto> getRequests() {
+  public Set<RequestDto> getRequests() {
     return requests;
   }
 
-  public void setRequests(List<RequestDto> requests) {
+  public void setRequests(Set<RequestDto> requests) {
     this.requests = requests;
   }
 }
