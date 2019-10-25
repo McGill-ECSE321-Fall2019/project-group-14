@@ -1,10 +1,14 @@
 package ca.mcgill.ecse321.tutoringsystem.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ca.mcgill.ecse321.tutoringsystem.dao.ApplicationRepository;
 import ca.mcgill.ecse321.tutoringsystem.model.Application;
+import ca.mcgill.ecse321.tutoringsystem.model.Room;
 
 @Service
 public class ApplicationService {
@@ -49,12 +53,23 @@ public class ApplicationService {
   }
 
   @Transactional
-  public Application getApplication(String email) {
+  public List<Application> getApplication(String email) {
     if (email == null) {
       throw new IllegalArgumentException("Application email cannot be empty!");
     }
-    Application p = applicationRepository.findApplicationByEmail(email);
-    return p;
+    return toList(applicationRepository.findApplicationByEmail(email));
+  }
+  
+  @Transactional
+  public List<Application> getAllApplications() {
+    return toList(applicationRepository.findAll());
   }
 
+  private <T> List<T> toList(Iterable<T> iterable) {
+	List<T> resultList = new ArrayList<T>();
+	for (T t : iterable) {
+		resultList.add(t);
+	}
+	return resultList;
+  }
 }
