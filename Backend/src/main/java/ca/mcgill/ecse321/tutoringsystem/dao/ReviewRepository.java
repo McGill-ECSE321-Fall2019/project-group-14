@@ -5,8 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import ca.mcgill.ecse321.tutoringsystem.model.Review;
 import ca.mcgill.ecse321.tutoringsystem.model.Person;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-@RepositoryRestResource(collectionResourceRel = "reviews", path = "reviews")
+
 public interface ReviewRepository extends CrudRepository<Review, Integer> {
 	Review findReviewByReviewId(int reviewId);
 

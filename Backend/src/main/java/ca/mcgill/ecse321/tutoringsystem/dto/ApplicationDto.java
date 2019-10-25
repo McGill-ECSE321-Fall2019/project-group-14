@@ -7,13 +7,15 @@ public class ApplicationDto {
 	private String name;
 	private String email;
 	private String courses;
+	private Integer applicationId;
 
-	public ApplicationDto(Boolean isExistingUser, String name, String email, String courses) {
+	public ApplicationDto(Boolean isExistingUser, String name, String email, String courses, Integer applicationId) {
 		super();
 		this.isExistingUser = isExistingUser;
 		this.name = name;
 		this.email = email;
 		this.courses = courses;
+		this.applicationId = applicationId;
 	}
 	
 	public ApplicationDto() {
@@ -50,6 +52,14 @@ public class ApplicationDto {
 
 	public void setCourses(String courses) {
 		this.courses = courses;
+	}
+	
+	public Integer getApplicationId() {
+		return applicationId;
+	}
+
+	public void setApplicationId(Integer applicationId) {
+		this.applicationId = applicationId;
 	}
 
 }
