@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ca.mcgill.ecse321.tutoringsystem.dao.WageRepository;
 import ca.mcgill.ecse321.tutoringsystem.model.Course;
-import ca.mcgill.ecse321.tutoringsystem.model.Student;
 import ca.mcgill.ecse321.tutoringsystem.model.Tutor;
 import ca.mcgill.ecse321.tutoringsystem.model.Wage;
 
@@ -47,6 +46,33 @@ public class WageService {
   }
 
   // TODO Get all wages from Tutor and courses
+  @Transactional
+  public List<Wage> getTutorWages(Tutor tutor) {
+    if (tutor == null) {
+      throw new IllegalArgumentException("A tutor needs to be specified!");
+    }
+    List<Wage> tutorWages = new ArrayList<Wage>();
+    for (Wage wage : getAllWages()) {
+      if (wage.getTutor().equals(tutor)) {
+        tutorWages.add(wage);
+      }
+    }
+    return tutorWages;
+  }
+  
+  @Transactional
+  public List<Wage> getCourseWages(Course course) {
+    if (course == null) {
+      throw new IllegalArgumentException("Course cannot be empty!");
+    }
+    List<Wage> courseWages = new ArrayList<Wage>();
+    for (Wage wage : getAllWages()) {
+      if (wage.getCourse().equals(course)) {
+        courseWages.add(wage);
+      }
+    }
+    return courseWages;
+  }
   
   private <T> List<T> toList(Iterable<T> iterable) {
     List<T> resultList = new ArrayList<T>();
