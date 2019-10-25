@@ -6,8 +6,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 import ca.mcgill.ecse321.tutoringsystem.model.TimeSlot;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-@RepositoryRestResource(collectionResourceRel = "timeslots", path = "timeslots")
+
 public interface TimeSlotRepository extends CrudRepository<TimeSlot, Integer> {
 	TimeSlot findTimeSlotByTimeSlotId(int timeSlotId);
 
