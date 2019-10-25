@@ -12,13 +12,13 @@ Tools that were used include: Eclipse, Spring Boot, Gradle, UML Lab, Heroku, Dra
 
 ## Teamwork Report:
 
-| Members    | ID       | Responsibility| Hours (Sprint 1) |
-|-------------|-----------|----------------|--------|
-| Steven Luu  |   | Product Manager | 14    |
-| Nelson Zeng |   | Software Lead | 15    |
-| Mehdi Ammar |   | Testing Lead | 14    |
-| Mert Gurkan |   | Documentation Lead | 12    |
-| Tian Ci Liu |   | Design Lead | 17    |
+| Members    | ID       | Responsibility| Hours (Sprint 1) | Hours (Sprint 2) |
+|-------------|-----------|----------------|--------|--------|
+| Steven Luu  |   | Product Manager | 14    | XX    |
+| Nelson Zeng |   | Software Lead | 15    | XX    |
+| Mehdi Ammar |   | Testing Lead | 14    | XX    |
+| Mert Gurkan |   | Documentation Lead | 12    | XX    |
+| Tian Ci Liu |   | Design Lead | 17    | XX    |
 
 ## Sprint 1
 You can access sprint 1 [here](https://github.com/McGill-ECSE321-Fall2019/project-group-14/wiki/Sprint-1).
