@@ -23,11 +23,11 @@ public class DtoConverter {
 		if (c == null) {
 			throw new IllegalArgumentException("There is no such Course!");
 		}
-		CourseDto courseDto = new CourseDto(c.getCourseName(), toDto(c.getInstitution()), c.getSubjectName(), toDto(c.getWage())); 
+		CourseDto courseDto = new CourseDto(c.getCourseName(), toDto(c.getInstitution()), c.getSubjectName(), toDto(c.getWage()));
 		return courseDto;
 	}
-	
-	public static Set<CourseDto> toDto(Set<Course> c) {
+
+	public static Set<CourseDto> courseSetToDto(Set<Course> c) {
 		if (c == null) {
 			throw new IllegalArgumentException("There is no such Course!");
 		}
@@ -37,7 +37,7 @@ public class DtoConverter {
 		}
 		return courses;
 	}
-	
+
 	public static InstitutionDto toDto(Institution i) {
 		if (i == null) {
 			throw new IllegalArgumentException("There is no such Institution!");
@@ -45,7 +45,7 @@ public class DtoConverter {
 		InstitutionDto institutionDto = new InstitutionDto(i.getInstitutionName(), toDto(i.getCourses()), toDto(i.getInstitutionLevel()));
 		return institutionDto;
 	}
-	
+
 	public static ManagerDto toDto(Manager m) {
 		if (m == null) {
 			throw new IllegalArgumentException("There is no such Manager!");
@@ -59,11 +59,10 @@ public class DtoConverter {
 			throw new IllegalArgumentException("There is no such Notification!");
 		}
 		NotificationDto notificationDto = new NotificationDto();
-		notificationDto.setRequest(createRequestDtoForNotification(n));
 		return notificationDto;
 	}
-	
-	public static Set<NotificationDto> toDto(Set<Notification> n) {
+
+	public static Set<NotificationDto> notificationSetToDto(Set<Notification> n) {
 		if (n == null) {
 			throw new IllegalArgumentException("There is no such Notification!");
 		}
@@ -72,14 +71,48 @@ public class DtoConverter {
 			notifications.add(toDto(notification));
 		}
 		return null;
-		
+
 	}
-	
-	public static RequestDto toDto(Request r) {
-		if (r == null) {
-			throw new IllegalArgumentException("There is no such Request!");
-		}
-		RequestDto requestDto = new RequestDto();
-		return requestDto;
-	}
+
+  public static ReviewDto toDto(Review r) {
+    if (r == null) {
+      throw new IllegalArgumentException("There is no such Review!");
+    }
+    ReviewDto reviewDto = new ReviewDto(r.getRating(), r.getComment(),
+        toDto(r.getFrom()), toDto(r.getTo()), r.getReviewId());
+    return reviewDto;
+  }
+
+  public static PersonDto toDto(Person p) {
+    if (p == null) {
+      throw new IllegalArgumentException("There is no such Person!");
+    }
+    PersonDto personDto = new PersonDto(p.getName(), p.getEmail(), p.getUserId(), p.getPassword());
+    return personDto;
+  }
+
+  public static RoomDto toDto(Room r) {
+    if (r == null) {
+      throw new IllegalArgumentException("There is no such Room!");
+    }
+    RoomDto roomDto = new RoomDto(r.getCapacity(), r.getRoomNumber(), requestSetToDto(r.getRequest()));
+    return roomDto;
+  }
+
+  public static RequestDto toDto(Request r) {
+    if (r == null) {
+      throw new IllegalArgumentException("There is no such Request");
+    }
+    RequestDto request = new RequestDto(toDto(r.getTutor()), toDto(r.getStudent()), r.getTime(), r.getDate(), toDto(r.getNotification()), toDto(r.getCourse()), toDto(r.getRoom()), r.getRequestId());
+  }
+  public static Set<RequestDto> requestSetToDto(Set<Request> r) {
+    if (r == null) {
+      throw new IllegalArgumentException("There is no such Request");
+    }
+    Set<RequestDto> requests = new HashSet<>();
+    for (Request request : r) {
+      requests.add(toDto(request));
+    }
+    return requests;
+  }
 }
