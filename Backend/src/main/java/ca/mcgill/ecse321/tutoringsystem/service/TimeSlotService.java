@@ -38,7 +38,7 @@ public class TimeSlotService {
   }
 
   @Transactional
-  public List<TimeSlot> getTimeSlot(Date date, Time time) {
+  public TimeSlot getTimeSlot(Date date, Time time) {
     if (date == null || time == null) {
       throw new IllegalArgumentException("Date and time cannot be null!");
     }

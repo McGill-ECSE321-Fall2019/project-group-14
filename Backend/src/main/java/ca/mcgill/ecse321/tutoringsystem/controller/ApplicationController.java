@@ -31,7 +31,7 @@ public class ApplicationController {
 	}
 	
 	@GetMapping(value = { "/applications/{input}", "/applications/{input}/" })
-	public List<ApplicationDto> getApplicationBy(@RequestParam(name = "input") String input) {
+	public List<ApplicationDto> getApplicationBy(@RequestParam(name = "input") String input) throws IllegalArgumentException {
 		List<ApplicationDto> applicationDtos = new ArrayList<>();
 		if (input.chars().allMatch(Character::isDigit)) {
 			// input is a number, get application by id
@@ -46,8 +46,8 @@ public class ApplicationController {
 		}
 	}
 	
-	@PostMapping(value = { "/applications/apply", "/applications/apply/" })
-	public ApplicationDto registerPersonForEvent(@RequestParam(name = "existing") Boolean isExistingUser,
+	@PostMapping(value = { "/applications/create", "/applications/create/" })
+	public ApplicationDto createApplication(@RequestParam(name = "existing") Boolean isExistingUser,
 		@RequestParam(name = "name") String name, @RequestParam(name = "email") String email,
 		@RequestParam(name = "courses") String courses) throws IllegalArgumentException {
 
