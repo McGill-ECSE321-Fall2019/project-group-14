@@ -45,14 +45,14 @@ public class WageService {
       return toList(wageRepository.findAll());
   }
 
-  // TODO Get all wages from Tutor and courses
   @Transactional
   public List<Wage> getTutorWages(Tutor tutor) {
     if (tutor == null) {
       throw new IllegalArgumentException("A tutor needs to be specified!");
     }
     List<Wage> tutorWages = new ArrayList<Wage>();
-    for (Wage wage : getAllWages()) {
+    List<Wage> allWages = getAllWages();
+    for (Wage wage : allWages) {
       if (wage.getTutor().equals(tutor)) {
         tutorWages.add(wage);
       }
@@ -66,7 +66,8 @@ public class WageService {
       throw new IllegalArgumentException("Course cannot be empty!");
     }
     List<Wage> courseWages = new ArrayList<Wage>();
-    for (Wage wage : getAllWages()) {
+    List<Wage> allWages = getAllWages();
+    for (Wage wage : allWages) {
       if (wage.getCourse().equals(course)) {
         courseWages.add(wage);
       }

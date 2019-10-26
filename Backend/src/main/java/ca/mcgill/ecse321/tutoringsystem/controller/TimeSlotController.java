@@ -2,18 +2,14 @@ package ca.mcgill.ecse321.tutoringsystem.controller;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.HashSet;
-import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ca.mcgill.ecse321.tutoringsystem.dto.TimeSlotDto;
-import ca.mcgill.ecse321.tutoringsystem.dto.WageDto;
 import ca.mcgill.ecse321.tutoringsystem.model.TimeSlot;
 import ca.mcgill.ecse321.tutoringsystem.model.Tutor;
-import ca.mcgill.ecse321.tutoringsystem.model.Wage;
 import ca.mcgill.ecse321.tutoringsystem.service.TimeSlotService;
 
 @CrossOrigin(origins = "*")
@@ -41,6 +37,5 @@ public class TimeSlotController {
       throws IllegalArgumentException {
     TimeSlot timeSlot = timeSlotService.getTimeSlot(date, time);
     return DtoConverter.toDto(timeSlot);
-
   }
 }
