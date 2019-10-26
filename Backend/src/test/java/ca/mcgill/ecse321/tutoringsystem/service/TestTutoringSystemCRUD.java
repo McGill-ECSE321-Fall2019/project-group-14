@@ -618,11 +618,11 @@ public class TestTutoringSystemCRUD {
       fail();
     }
 
-    Application application = applicationService.getApplication(email);
-    assertEquals(true, application.getIsExistingUser());
-    assertEquals(name, application.getName());
-    assertEquals(email, application.getEmail());
-    assertEquals(course, application.getCourses());
+    List<Application> application = applicationService.getApplication(email);
+    assertEquals(true, application.get(0).getIsExistingUser());
+    assertEquals(name, application.get(0).getName());
+    assertEquals(email, application.get(0).getEmail());
+    assertEquals(course, application.get(0).getCourses());
   }
 
   @Test
@@ -657,8 +657,8 @@ public class TestTutoringSystemCRUD {
       fail();
     }
 
-    Application application = applicationService.getApplication(email);
-    assertEquals(newName, application.getName());
+    List<Application> application = applicationService.getApplication(email);
+    assertEquals(newName, application.get(0).getName());
   }
 
   // Institution class tests
@@ -790,8 +790,8 @@ public class TestTutoringSystemCRUD {
       fail();
     }
 
-    List<TimeSlot> t = timeSlotService.getTimeSlot(date, time);
-    assertEquals(tutor.getUserId(), t.get(0).getTutor().getUserId());
+    TimeSlot t = timeSlotService.getTimeSlot(date, time);
+    assertEquals(tutor.getUserId(), t.getTutor().getUserId());
   }
 
   @Test
@@ -824,7 +824,7 @@ public class TestTutoringSystemCRUD {
       fail();
     }
 
-    List<TimeSlot> t = timeSlotService.getTimeSlot(date, time);
-    assertEquals(newTutor.getUserId(), t.get(0).getTutor().getUserId());
+    TimeSlot t = timeSlotService.getTimeSlot(date, time);
+    assertEquals(newTutor.getUserId(), t.getTutor().getUserId());
   }
 }
