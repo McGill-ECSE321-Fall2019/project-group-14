@@ -1,10 +1,9 @@
 package ca.mcgill.ecse321.tutoringsystem.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,20 +17,29 @@ public class TutorController {
   @Autowired
   TutorService tutorService;
 
-  @PostMapping(value = {"/tutors", "/tutors"})
+  @PostMapping(value = {"/tutor/create", "/tutor/create/"})
   public TutorDto createTutor(@PathVariable("name") String name, @PathVariable("email") String email,
       @PathVariable("password") String password) throws IllegalArgumentException {
     Tutor tutor = tutorService.createTutor(name, email, password);
-    return convertToDto(tutor);
+    return DtoConverter.toDto(tutor);
   }
-
-  @GetMapping(value = {"/events", "/events/"})
-  public List<TutorDto> getAllTutors() {
-    List<TutorDto> tutorDtos = new ArrayList<>();
-    for (Tutor tutor : tutorService.getAllEvents()) {
-      tutorDtos.add(convertToDto(tutor));
-    }
-    return tutorDtos;
+  
+  @PostMapping(value = {"/tutor", "/tutor/"})
+  public TutorDto getTutorById(@PathVariable("id") Integer id) throws IllegalArgumentException {
+      Tutor tutor = tutorService.getTutor(id);
+      return DtoConverter.toDto(tutor);
+  }
+  
+  @PostMapping(value = {"/tutor", "/tutor/"})
+  public TutorDto getTutorByEmail(@PathVariable("email") String email) throws IllegalArgumentException {
+      Tutor tutor = tutorService.getTutor(email);
+      return DtoConverter.toDto(tutor);
+  }
+  
+  @PostMapping(value = {"/alltutors", "/alltutors/"})
+  public Set<TutorDto> getAllTutors() throws IllegalArgumentException {
+      Set<Tutor> tutorSet= new HashSet<Tutor>(tutorService.getAllTutors());
+      return DtoConverter.tutorSetToDto(tutorSet);
   }
 
 }
