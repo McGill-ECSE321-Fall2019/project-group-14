@@ -112,6 +112,12 @@ public class RequestService {
     }
     throw new RuntimeException("There are no rooms available for that time and date.");
   }
+  
+  @Transactional
+  public void rejectRequest(int requestId) {
+	  requestRepository.deleteById(requestId);
+	  return;
+  }
 
   private <T> List<T> toList(Iterable<T> iterable) {
     List<T> resultList = new ArrayList<T>();
