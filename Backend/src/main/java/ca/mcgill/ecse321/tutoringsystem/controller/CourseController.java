@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ca.mcgill.ecse321.tutoringsystem.dto.ApplicationDto;
 import ca.mcgill.ecse321.tutoringsystem.dto.CourseDto;
-import ca.mcgill.ecse321.tutoringsystem.model.Application;
 import ca.mcgill.ecse321.tutoringsystem.model.Course;
-import ca.mcgill.ecse321.tutoringsystem.service.ApplicationService;
 import ca.mcgill.ecse321.tutoringsystem.service.CourseService;
+import ca.mcgill.ecse321.tutoringsystem.service.InstitutionService;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -23,6 +21,8 @@ public class CourseController {
 	
 	@Autowired
 	CourseService courseService;
+	@Autowired
+	InstitutionService institutionService;
 	
 	@GetMapping(value = { "/courses", "/courses/" })
 	public List<CourseDto> getAllCourses() {
@@ -33,28 +33,24 @@ public class CourseController {
 		return courseDtos;
 	}
 	
-	@GetMapping(value = { "/applications/{input}", "/applications/{input}/" })
-	public List<ApplicationDto> getApplicationBy(@RequestParam(name = "input") String input) {
-		List<ApplicationDto> applicationDtos = new ArrayList<>();
-		if (input.chars().allMatch(Character::isDigit)) {
-			// input is a number, get application by id
-			Application application = applicationService.getApplication(Integer.parseInt(input));
-			applicationDtos.add(DtoConverter.toDto(application));
-			return applicationDtos;
-		} else {
-			for (Application application : applicationService.getApplication(input)) {
-				applicationDtos.add(DtoConverter.toDto(application));
-			}
-			return applicationDtos;
+	@GetMapping(value = { "/courses", "/courses/" })
+	public List<CourseDto> getCourseBySubject(@RequestParam(name = "subject") String subject) throws IllegalArgumentException {
+		List<CourseDto> courseDtos = new ArrayList<>();
+		for (Course course : courseService.getAllCoursesWithSubject(subject)) {
+			courseDtos.add(DtoConverter.toDto(course));
 		}
+		return courseDtos;
 	}
 	
-	@PostMapping(value = { "/applications/apply", "/applications/apply/" })
-	public ApplicationDto registerPersonForEvent(@RequestParam(name = "existing") Boolean isExistingUser,
-		@RequestParam(name = "name") String name, @RequestParam(name = "email") String email,
-		@RequestParam(name = "courses") String courses) throws IllegalArgumentException {
-
-		Application a = applicationService.createApplication(isExistingUser, name, email, courses);
-		return DtoConverter.toDto(a);
+	@GetMapping(value = { "/courses/{course}", "/courses/{course}/" })
+	public CourseDto getCourseByName(@RequestParam(name = "course") String course) throws IllegalArgumentException {
+		return DtoConverter.toDto(courseService.getCourse(course));
+	}
+	
+	@PostMapping(value = { "/courses/create", "/courses/create/" })
+	public CourseDto createCourse(@RequestParam(name = "name") String name,
+			@RequestParam(name = "institution") String institution, @RequestParam(name = "subject") String subject) throws IllegalArgumentException {
+		Course c = courseService.createCourse(name, institutionService.getInstitution(institution), subject);
+		return DtoConverter.toDto(c);
 	}
 }
