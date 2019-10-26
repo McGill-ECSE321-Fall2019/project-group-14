@@ -1,6 +1,7 @@
 package ca.mcgill.ecse321.tutoringsystem.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ca.mcgill.ecse321.tutoringsystem.model.Manager;
@@ -8,6 +9,7 @@ import ca.mcgill.ecse321.tutoringsystem.model.Person;
 import ca.mcgill.ecse321.tutoringsystem.model.Student;
 import ca.mcgill.ecse321.tutoringsystem.model.Tutor;
 
+@Service
 public class PersonService {
 	@Autowired
 	StudentService studentService;
