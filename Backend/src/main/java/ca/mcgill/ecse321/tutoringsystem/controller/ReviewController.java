@@ -21,12 +21,18 @@ public class ReviewController {
   @Autowired
   ReviewService reviewService;
 
-  @PostMapping(value = {"/reviews/{name}", "/reviews/{name}/"})
-  public ReviewDto createReview(@PathVariable("id") int reviewId,
-      @RequestParam(name = "rating") int rating, @RequestParam(name = "comment") String comment,
+  @PostMapping(value = {"/reviews/create", "/reviews/create/"})
+  public ReviewDto createReview(@PathVariable("id") Integer reviewId,
+      @RequestParam(name = "rating") Integer rating, @RequestParam(name = "comment") String comment,
       @RequestParam(name = "from") Person from, @RequestParam(name = "to") Person to)
       throws IllegalArgumentException {
     Review review = reviewService.createReview(rating, comment, from, to);
+    return DtoConverter.toDto(review);
+  }
+  
+  @GetMapping(value = {"/reviews/{id}", "/reviews/{id}/"})
+  public ReviewDto getReview(@PathVariable("id") Integer reviewId) throws IllegalArgumentException {
+    Review review = reviewService.getReview(reviewId);
     return DtoConverter.toDto(review);
   }
 
