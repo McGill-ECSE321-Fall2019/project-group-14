@@ -120,13 +120,13 @@ public class RequestService {
   }
   
   @Transactional
-  public void deleteRequest(Integer id) {
+  public boolean deleteRequest(Integer id) {
       Request r = requestRepository.findRequestByRequestId(id);
       if (r == null) {
           throw new NullPointerException("No Request by this id.");
       }
       requestRepository.delete(r);
-      return;
+      return true;
   }
   
   private <T> List<T> toList(Iterable<T> iterable) {

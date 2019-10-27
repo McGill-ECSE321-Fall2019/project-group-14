@@ -65,17 +65,17 @@ public class ApplicationService {
   }
   
   @Transactional
-  public void deleteApplication(Integer id) {
+  public boolean deleteApplication(Integer id) {
       Application a = applicationRepository.findApplicationByApplicationId(id);
       if (a == null) {
           throw new NullPointerException("No Application by this id.");
       }
       applicationRepository.delete(a);
-      return;
+      return true;
   }
 
   @Transactional
-  public void deleteApplication(String email) {
+  public boolean deleteApplication(String email) {
       List<Application> a = applicationRepository.findApplicationByEmail(email);
       if (a.isEmpty()) {
           throw new NullPointerException("No Applications by this email.");
@@ -83,7 +83,7 @@ public class ApplicationService {
       for (Application application : a) {
     	  applicationRepository.delete(application);
       }
-      return;
+      return true;
   }
   
   private <T> List<T> toList(Iterable<T> iterable) {

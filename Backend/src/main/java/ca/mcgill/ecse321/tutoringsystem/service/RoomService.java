@@ -48,13 +48,13 @@ public class RoomService {
   }
   
   @Transactional
-  public void deleteRoom(Integer id) {
+  public boolean deleteRoom(Integer id) {
       Room r = roomRepository.findRoomByRoomNumber(id);
       if (r == null) {
           throw new NullPointerException("No Room by this id.");
       }
       roomRepository.delete(r);
-      return;
+      return true;
   }
 
   private <T> List<T> toList(Iterable<T> iterable) {

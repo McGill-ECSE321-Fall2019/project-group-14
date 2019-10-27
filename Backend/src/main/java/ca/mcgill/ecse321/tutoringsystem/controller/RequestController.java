@@ -10,6 +10,7 @@ import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +40,7 @@ public class RequestController {
 		return DtoConverter.toDto(request);
 	}
 	
-	@GetMapping(value = { "/requests/{id}" })
+	@GetMapping(value = { "/requests/{id}", "/requests/{id}/"})
 	public RequestDto getRequestById(@PathVariable("id") Integer id) throws IllegalArgumentException {
 		return DtoConverter.toDto(requestService.getRequest(id));
 	}
@@ -53,16 +54,21 @@ public class RequestController {
 		return requestDtos;	
 	}
 	
-	@GetMapping(value = { "/requests/tutor/{id}" })
+	@GetMapping(value = { "/requests/tutor/{id}", "/requests/tutor/{id}/" })
 	public Set<RequestDto> getRequestsByTutorId(@PathVariable("id") Integer id) throws IllegalArgumentException {
 		Set<Request> requestSet = new HashSet<Request>(requestService.getTutorRequests(tutorService.getTutor(id)));
 		return DtoConverter.requestSetToDto(requestSet);
 	}
 	
-	@GetMapping(value = { "/sessions/accepted/{id}" })
+	@GetMapping(value = { "/sessions/accepted/{id}", "/sessions/accepted/{id}/" })
 	public Set<RequestDto> getRequestsByAcceptedTutorId(@PathVariable("id") Integer id) throws IllegalArgumentException {
 		Set<Request> requestSet = new HashSet<Request>(requestService.getAcceptedTutorRequests(tutorService.getTutor(id)));
 		return DtoConverter.requestSetToDto(requestSet);
+	}
+	
+	@DeleteMapping(value = { "/requests/{id}", "/requests/{id}/" })
+	public boolean deleteRequestById(@PathVariable("id") Integer id) throws IllegalArgumentException {
+		return requestService.deleteRequest(id);
 	}
 
 }

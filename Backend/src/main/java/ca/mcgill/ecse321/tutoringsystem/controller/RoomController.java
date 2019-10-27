@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +32,11 @@ public class RoomController {
   public RoomDto getRoom(@PathVariable("id") Integer roomNumber) throws IllegalArgumentException {
     Room room = roomService.getRoom(roomNumber);
     return DtoConverter.toDto(room);
+  }
+  
+  @DeleteMapping(value = {"/rooms/{id}", "/rooms/{id}/"})
+  public boolean deleteRoom(@PathVariable("id") Integer roomNumber) throws IllegalArgumentException {
+    return roomService.deleteRoom(roomNumber);
   }
 
   @GetMapping(value = {"/rooms", "/rooms/"})

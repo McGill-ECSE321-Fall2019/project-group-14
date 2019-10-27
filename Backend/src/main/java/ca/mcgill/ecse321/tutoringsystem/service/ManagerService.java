@@ -44,22 +44,22 @@ public class ManagerService {
   }
   
   @Transactional
-  public void deleteManager(Integer id) {
+  public boolean deleteManager(Integer id) {
       Manager m = managerRepository.findManagerByUserId(id);
       if (m == null) {
           throw new NullPointerException("No Manager by this id.");
       }
       managerRepository.delete(m);
-      return;
+      return true;
   }
   
   @Transactional
-  public void deleteManager(String email) {
+  public boolean deleteManager(String email) {
       Manager m = managerRepository.findManagerByEmail(email);
       if (m == null) {
           throw new NullPointerException("No Manager by this email.");
       }
       managerRepository.delete(m);
-      return;
+      return true;
   }
 }

@@ -9,8 +9,6 @@ import java.sql.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.OneToOne;
 
-import org.hibernate.annotations.DynamicUpdate;
-
 @Entity
 public class Request {
 	private Tutor tutor;

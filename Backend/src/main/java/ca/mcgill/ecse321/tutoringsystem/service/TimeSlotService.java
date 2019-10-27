@@ -44,12 +44,12 @@ public class TimeSlotService {
   }
 
   @Transactional
-  public void deleteTimeSlot(Integer id) {
+  public boolean deleteTimeSlot(Integer id) {
       TimeSlot t = timeslotRepository.findTimeSlotByTimeSlotId(id);
       if (t == null) {
           throw new NullPointerException("No Timeslot by this id.");
       }
       timeslotRepository.delete(t);
-      return;
+      return true;
   }
 }
