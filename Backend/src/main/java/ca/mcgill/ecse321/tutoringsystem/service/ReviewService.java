@@ -54,6 +54,16 @@ public class ReviewService {
     return toList(reviewRepository.findAll());
   }
   
+  @Transactional
+  public void deleteReview(Integer id) {
+      Review r = reviewRepository.findReviewByReviewId(id);
+      if (r == null) {
+          throw new NullPointerException("No Review by this id.");
+      }
+      reviewRepository.delete(r);
+      return;
+  }
+  
   private <T> List<T> toList(Iterable<T> iterable) {
     List<T> resultList = new ArrayList<T>();
     for (T t : iterable) {

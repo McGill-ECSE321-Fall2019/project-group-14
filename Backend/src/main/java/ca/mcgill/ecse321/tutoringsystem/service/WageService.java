@@ -75,6 +75,16 @@ public class WageService {
     return courseWages;
   }
   
+  @Transactional
+  public void deleteWage(Integer id) {
+      Wage w = wageRepository.findWageByWageId(id);
+      if (w == null) {
+          throw new NullPointerException("No Wage by this id.");
+      }
+      wageRepository.delete(w);
+      return;
+  }
+  
   private <T> List<T> toList(Iterable<T> iterable) {
     List<T> resultList = new ArrayList<T>();
     for (T t : iterable) {

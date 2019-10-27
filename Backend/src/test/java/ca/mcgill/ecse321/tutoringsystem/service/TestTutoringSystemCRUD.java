@@ -212,6 +212,36 @@ public class TestTutoringSystemCRUD {
     assertEquals(1, tutorRequests.size());
     assertEquals(request1.getRequestId(), tutorRequests.get(0).getRequestId());
   }
+  
+  @Test
+  public void testDeleteTutor() {
+    assertEquals(0, tutorService.getAllTutors().size());
+    String name = "Martin";
+    String email = "martin@mail.mcgill.ca";
+    String password = "password";
+    Tutor tutor = tutorService.createTutor(name, email, password);
+    try {
+    	tutorService.deleteTutor(tutor.getUserId());
+    } catch (IllegalArgumentException e) {
+    	fail();
+    }
+
+    assertEquals(0, tutorService.getAllTutors().size());
+  }
+  
+  @Test
+  public void testDeleteNonExistingTutor() {
+    assertEquals(0, tutorService.getAllTutors().size());
+    String error = null;
+    try {
+    	tutorService.deleteTutor(1);
+    } catch (NullPointerException e) {
+    	error = e.getMessage();
+    }
+    
+    assertEquals("No Tutor by this id.", error);
+    assertEquals(0, tutorService.getAllTutors().size());
+  }
 
   // Student class tests
 

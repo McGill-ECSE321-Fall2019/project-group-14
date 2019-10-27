@@ -118,7 +118,17 @@ public class RequestService {
 	  requestRepository.deleteById(requestId);
 	  return;
   }
-
+  
+  @Transactional
+  public void deleteRequest(Integer id) {
+      Request r = requestRepository.findRequestByRequestId(id);
+      if (r == null) {
+          throw new NullPointerException("No Request by this id.");
+      }
+      requestRepository.delete(r);
+      return;
+  }
+  
   private <T> List<T> toList(Iterable<T> iterable) {
     List<T> resultList = new ArrayList<T>();
     for (T t : iterable) {

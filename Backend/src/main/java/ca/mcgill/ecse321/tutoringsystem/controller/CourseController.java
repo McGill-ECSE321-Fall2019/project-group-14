@@ -33,7 +33,7 @@ public class CourseController {
 		return courseDtos;
 	}
 	
-	@GetMapping(value = { "/courses", "/courses/" })
+	@GetMapping(value = { "/courses/subject/{subject}", "/courses/subject/{subject}/" })
 	public List<CourseDto> getCourseBySubject(@RequestParam(name = "subject") String subject) throws IllegalArgumentException {
 		List<CourseDto> courseDtos = new ArrayList<>();
 		for (Course course : courseService.getAllCoursesWithSubject(subject)) {

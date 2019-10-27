@@ -19,19 +19,19 @@ public class ManagerController {
 	@Autowired
 	ManagerService managerService;
 	
-	@PostMapping(value = { "/manager/create", "/manager/create/" })
+	@PostMapping(value = { "/managers/create", "/managers/create/" })
 	public ManagerDto createPerson(@RequestParam("name") String name, @PathVariable("email") String email,
 			@PathVariable("password") String password) throws IllegalArgumentException {
 		Manager manager = managerService.createManager(name, email, password);
 		return DtoConverter.toDto(manager);
 	}
 
-	@GetMapping(value = { "/manager/{id}" })
+	@GetMapping(value = { "/managers/{id}" })
 	public ManagerDto getManagerById(@PathVariable("id") Integer id) throws IllegalArgumentException {
 		return DtoConverter.toDto(managerService.getManager(id));
 	}
 
-	@GetMapping(value = { "/manager/{email}" })
+	@GetMapping(value = { "/managers/email/{email}" })
 	public ManagerDto getManagerById(@PathVariable("email") String email) throws IllegalArgumentException {
 		return DtoConverter.toDto(managerService.getManager(email));
 	}

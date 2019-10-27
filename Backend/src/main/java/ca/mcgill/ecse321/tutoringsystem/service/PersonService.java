@@ -37,4 +37,22 @@ public class PersonService {
 		}
 		return null;
 	}
+	
+	@Transactional
+	public Person getPersonById(Integer id) {
+		if (id == null) {
+			throw new IllegalArgumentException("Id cannot be empty!");
+		}
+		Manager manager = managerService.getManager(id);
+		Tutor tutor = tutorService.getTutor(id);
+		Student student = studentService.getStudent(id);
+		if (manager != null) {
+			return manager;
+		} else if (tutor != null) {
+			return tutor;
+		} else if (student != null) {
+			return student;
+		}
+		return null;
+	}
 }
