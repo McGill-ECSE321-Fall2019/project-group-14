@@ -1,12 +1,15 @@
-package ca.mcgill.ecse321.tutoringsystem.service;
+ package ca.mcgill.ecse321.tutoringsystem.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ca.mcgill.ecse321.tutoringsystem.dao.TutorRepository;
+import ca.mcgill.ecse321.tutoringsystem.model.TimeSlot;
 import ca.mcgill.ecse321.tutoringsystem.model.Tutor;
+import ca.mcgill.ecse321.tutoringsystem.model.Wage;
 
 @Service
 public class TutorService {
@@ -37,7 +40,7 @@ public class TutorService {
 
   @Transactional
   public Tutor getTutor(String email) {
-      if (email == null) {
+      if (email == null || email.trim().length() == 0) {
           throw new IllegalArgumentException("Tutor email cannot be empty!");
       }
       Tutor t = tutorRepository.findTutorByEmail(email);
@@ -75,6 +78,31 @@ public class TutorService {
       resultList.add(t);
     }
     return resultList;
+  }
+  
+  @Transactional
+  public void changeTutorSettings(Integer id, String name, String password, Set<TimeSlot> timeslots, Set<Wage> wages) {
+    if (id == null) {
+      throw new IllegalArgumentException("Tutor Id cannot be empty!");
+    }
+    if (name == null || name.trim().length() == 0) {
+      throw new IllegalArgumentException("Tutor name cannot be empty!");
+    }
+    if (password == null || password.trim().length() == 0) {
+      throw new IllegalArgumentException("Tutor password cannot be empty!");
+    }
+    if (timeslots == null) {
+      throw new IllegalArgumentException("Tutor password cannot be empty!");
+    }
+    if (wages == null) {
+      throw new IllegalArgumentException("Tutor wage cannot be empty!");
+    }
+    Tutor t = getTutor(id);
+    t.setName(name);
+    t.setPassword(password);
+    t.setTimeslot(timeslots);
+    t.setWage(wages);
+    tutorRepository.save(t);
   }
 
 }
