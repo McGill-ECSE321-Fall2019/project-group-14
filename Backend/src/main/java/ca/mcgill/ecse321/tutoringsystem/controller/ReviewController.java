@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,6 +37,11 @@ public class ReviewController {
   public ReviewDto getReview(@PathVariable("id") Integer reviewId) throws IllegalArgumentException {
     Review review = reviewService.getReview(reviewId);
     return DtoConverter.toDto(review);
+  }
+  
+  @DeleteMapping(value = {"/reviews/{id}", "/reviews/{id}/"})
+  public boolean deleteReview(@PathVariable("id") Integer reviewId) throws IllegalArgumentException {
+    return reviewService.deleteReview(reviewId);
   }
 
   @GetMapping(value = {"/reviews", "/reviews/"})

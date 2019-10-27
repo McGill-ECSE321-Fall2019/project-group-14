@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,4 +48,14 @@ public class StudentController {
     }
     return studentDtos;
   }
+  
+  @DeleteMapping(value = { "/students/{input}", "/students/{input}/" })
+	public boolean deleteStudentBy(@RequestParam(name = "input") String input) throws IllegalArgumentException {
+		if (input.chars().allMatch(Character::isDigit)) {
+			// input is a number, get application by id
+			return studentService.deleteStudent(Integer.parseInt(input));
+		} else {
+			return studentService.deleteStudent(input);
+		}
+	}
 }

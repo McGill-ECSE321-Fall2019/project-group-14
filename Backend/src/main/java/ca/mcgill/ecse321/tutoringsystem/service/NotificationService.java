@@ -44,12 +44,12 @@ public class NotificationService {
   }
   
   @Transactional
-  public void deleteNotification(Integer id) {
+  public boolean deleteNotification(Integer id) {
       Notification n = notificationRepository.findNotificationByNotificationId(id);
       if (n == null) {
           throw new NullPointerException("No Notification by this id.");
       }
       notificationRepository.delete(n);
-      return;
+      return true;
   }
 }

@@ -65,13 +65,13 @@ public class CourseService {
   }
   
   @Transactional
-  public void deleteCourse(String name) {
+  public boolean deleteCourse(String name) {
       Course c = courseRepository.findCourseByCourseName(name);
       if (c == null) {
           throw new NullPointerException("No Course by this name.");
       }
       courseRepository.delete(c);
-      return;
+      return true;
   }
 
   private <T> List<T> toList(Iterable<T> iterable) {

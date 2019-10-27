@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,5 +54,15 @@ public class ApplicationController {
 
 		Application a = applicationService.createApplication(isExistingUser, name, email, courses);
 		return DtoConverter.toDto(a);
+	}
+	
+	@DeleteMapping(value = { "/applications/{input}", "/applications/{input}/" })
+	public boolean deleteApplicationBy(@RequestParam(name = "input") String input) throws IllegalArgumentException {
+		if (input.chars().allMatch(Character::isDigit)) {
+			// input is a number, get application by id
+			return applicationService.deleteApplication(Integer.parseInt(input));
+		} else {
+			return applicationService.deleteApplication(input);
+		}
 	}
 }

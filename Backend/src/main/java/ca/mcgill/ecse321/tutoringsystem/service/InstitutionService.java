@@ -38,13 +38,13 @@ public class InstitutionService {
   }
   
   @Transactional
-  public void deleteInstitution(String name) {
+  public boolean deleteInstitution(String name) {
       Institution i = institutionRepository.findInstitutionByInstitutionName(name);
       if (i == null) {
           throw new NullPointerException("No Institution by this name.");
       }
       institutionRepository.delete(i);
-      return;
+      return true;
   }
 
   private <T> List<T> toList(Iterable<T> iterable) {

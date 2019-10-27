@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,6 +35,11 @@ public class InstitutionController {
 	@GetMapping(value = { "/institutions/{name}", "/institutions/{name}/" })
 	public InstitutionDto getInstitutionByName(@RequestParam(name = "name") String name) throws IllegalArgumentException {
 		return DtoConverter.toDto(institutionService.getInstitution(name));
+	}
+	
+	@DeleteMapping(value = { "/institutions/{name}", "/institutions/{name}/" })
+	public boolean deleteInstitutionByName(@RequestParam(name = "name") String name) throws IllegalArgumentException {
+		return institutionService.deleteInstitution(name);
 	}
 	
 	@PostMapping(value = { "/institutions/create", "/institutions/create/" })

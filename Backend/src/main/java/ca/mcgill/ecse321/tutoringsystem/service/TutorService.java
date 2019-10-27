@@ -50,23 +50,23 @@ public class TutorService {
   }
   
   @Transactional
-  public void deleteTutor(Integer id) {
+  public boolean deleteTutor(Integer id) {
       Tutor t = tutorRepository.findTutorByUserId(id);
       if (t == null) {
           throw new NullPointerException("No Tutor by this id.");
       }
       tutorRepository.delete(t);
-      return;
+      return true;
   }
   
   @Transactional
-  public void deleteTutor(String email) {
+  public boolean deleteTutor(String email) {
       Tutor t = tutorRepository.findTutorByEmail(email);
       if (t == null) {
           throw new NullPointerException("No Tutor by this email.");
       }
       tutorRepository.delete(t);
-      return;
+      return true;
   }
   
   private <T> List<T> toList(Iterable<T> iterable) {

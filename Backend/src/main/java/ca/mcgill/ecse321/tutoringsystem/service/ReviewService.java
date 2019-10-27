@@ -55,13 +55,13 @@ public class ReviewService {
   }
   
   @Transactional
-  public void deleteReview(Integer id) {
+  public boolean deleteReview(Integer id) {
       Review r = reviewRepository.findReviewByReviewId(id);
       if (r == null) {
           throw new NullPointerException("No Review by this id.");
       }
       reviewRepository.delete(r);
-      return;
+      return true;
   }
   
   private <T> List<T> toList(Iterable<T> iterable) {
