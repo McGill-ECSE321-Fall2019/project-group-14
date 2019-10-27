@@ -1,5 +1,6 @@
 package ca.mcgill.ecse321.tutoringsystem.service;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ public class RequestService {
   RequestRepository requestRepository;
   @Autowired
   RoomRepository roomRepository;
+  @Autowired
+  NotificationService notificationService;
 
   @Transactional
   public Request createRequest(Time time, Date date, Tutor tutor, Student student, Course course) {
@@ -80,7 +83,7 @@ public class RequestService {
   }
 
   @Transactional
-  public void acceptRequest(int requestId) {
+  public void acceptRequest(int requestId) throws IOException {
     Request request = getRequest(requestId);
     if (toList(roomRepository.findAll()).size() == 0) {
       throw new RuntimeException("There are no rooms created.");
@@ -95,7 +98,7 @@ public class RequestService {
         room.setRequest(requests);
         requestRepository.save(request);
         roomRepository.save(room);
-        return;
+        //return;
       } else {
         Set<Request> requests = room.getRequest();
         for (Request checkRequest : requests) {
@@ -105,12 +108,16 @@ public class RequestService {
             room.setRequest(requests);
             requestRepository.save(request);
             roomRepository.save(room);
-            return;
+            //return;
+          } else {
+            throw new RuntimeException("There are no rooms available for that time and date.");
           }
         }
       }
     }
-    throw new RuntimeException("There are no rooms available for that time and date.");
+    notificationService.createNotification(request);
+    notificationService.notify(request, 1);
+
   }
   
   @Transactional

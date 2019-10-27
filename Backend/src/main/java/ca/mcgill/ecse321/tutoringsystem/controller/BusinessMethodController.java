@@ -1,5 +1,6 @@
 package ca.mcgill.ecse321.tutoringsystem.controller;
 
+import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,7 +42,10 @@ public class BusinessMethodController {
 	
 	@PostMapping(value = { "/accept/{id}", "/accept/{id}/" })
 	public RequestDto acceptRequest(@PathVariable("id") Integer id) throws IllegalArgumentException {
-		requestService.acceptRequest(id);
+		try {
+      requestService.acceptRequest(id);
+    } catch (IOException e) {
+    }
 		Request request = requestService.getRequest(id);
 		if (request.getRoom() != null) {
 			return DtoConverter.toDto(request);
