@@ -2,6 +2,7 @@ package ca.mcgill.ecse321.tutoringsystem.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
@@ -201,7 +202,10 @@ public class TestTutoringSystemCRUD {
     Request request1 =
         requestService.createRequest(Time.valueOf("12:12:12"), Date.valueOf("2019-02-22"), tutor, student, course);
     requestService.createRequest(Time.valueOf("10:21:21"), Date.valueOf("2019-01-22"), tutor, student1, course);
-    requestService.acceptRequest(request1.getRequestId());
+    try {
+      requestService.acceptRequest(request1.getRequestId());
+    } catch (IOException e1) {
+    }
     List<Request> tutorRequests = null;
     try {
       tutorRequests = requestService.getAcceptedTutorRequests(tutor);
@@ -474,7 +478,7 @@ public class TestTutoringSystemCRUD {
     Room room = roomService.createRoom(1, 2);
     try {
       requestService.acceptRequest(request.getRequestId());
-    } catch (IllegalArgumentException e) {
+    } catch (IllegalArgumentException | IOException e) {
       fail();
     }
     List<Request> allRequests = requestService.getAllRequests();
