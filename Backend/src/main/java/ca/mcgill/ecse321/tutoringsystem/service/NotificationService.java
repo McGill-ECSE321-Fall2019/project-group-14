@@ -42,4 +42,14 @@ public class NotificationService {
     }
     return resultList;
   }
+  
+  @Transactional
+  public void deleteNotification(Integer id) {
+      Notification n = notificationRepository.findNotificationByNotificationId(id);
+      if (n == null) {
+          throw new NullPointerException("No Notification by this id.");
+      }
+      notificationRepository.delete(n);
+      return;
+  }
 }

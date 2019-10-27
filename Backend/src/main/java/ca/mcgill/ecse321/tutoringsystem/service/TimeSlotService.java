@@ -2,8 +2,6 @@ package ca.mcgill.ecse321.tutoringsystem.service;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,4 +43,13 @@ public class TimeSlotService {
     return timeslotRepository.findTimeSlotByDateAndTime(date, time);
   }
 
+  @Transactional
+  public void deleteTimeSlot(Integer id) {
+      TimeSlot t = timeslotRepository.findTimeSlotByTimeSlotId(id);
+      if (t == null) {
+          throw new NullPointerException("No Timeslot by this id.");
+      }
+      timeslotRepository.delete(t);
+      return;
+  }
 }

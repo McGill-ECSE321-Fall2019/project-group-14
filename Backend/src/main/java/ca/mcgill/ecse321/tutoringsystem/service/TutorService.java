@@ -48,6 +48,27 @@ public class TutorService {
   public List<Tutor> getAllTutors() {
       return toList(tutorRepository.findAll());
   }
+  
+  @Transactional
+  public void deleteTutor(Integer id) {
+      Tutor t = tutorRepository.findTutorByUserId(id);
+      if (t == null) {
+          throw new NullPointerException("No Tutor by this id.");
+      }
+      tutorRepository.delete(t);
+      return;
+  }
+  
+  @Transactional
+  public void deleteTutor(String email) {
+      Tutor t = tutorRepository.findTutorByEmail(email);
+      if (t == null) {
+          throw new NullPointerException("No Tutor by this email.");
+      }
+      tutorRepository.delete(t);
+      return;
+  }
+  
   private <T> List<T> toList(Iterable<T> iterable) {
     List<T> resultList = new ArrayList<T>();
     for (T t : iterable) {

@@ -36,6 +36,16 @@ public class InstitutionService {
   public List<Institution> getAllInstitutions() {
     return toList(institutionRepository.findAll());
   }
+  
+  @Transactional
+  public void deleteInstitution(String name) {
+      Institution i = institutionRepository.findInstitutionByInstitutionName(name);
+      if (i == null) {
+          throw new NullPointerException("No Institution by this name.");
+      }
+      institutionRepository.delete(i);
+      return;
+  }
 
   private <T> List<T> toList(Iterable<T> iterable) {
     List<T> resultList = new ArrayList<T>();

@@ -63,6 +63,16 @@ public class CourseService {
     }
     return coursesWithSubject;
   }
+  
+  @Transactional
+  public void deleteCourse(String name) {
+      Course c = courseRepository.findCourseByCourseName(name);
+      if (c == null) {
+          throw new NullPointerException("No Course by this name.");
+      }
+      courseRepository.delete(c);
+      return;
+  }
 
   private <T> List<T> toList(Iterable<T> iterable) {
     List<T> resultList = new ArrayList<T>();
@@ -71,4 +81,5 @@ public class CourseService {
     }
     return resultList;
   }
+  
 }

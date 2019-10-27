@@ -53,13 +53,13 @@ public class RequestController {
 		return requestDtos;	
 	}
 	
-	@GetMapping(value = { "/requests/tutors/{id}" })
+	@GetMapping(value = { "/requests/tutor/{id}" })
 	public Set<RequestDto> getRequestsByTutorId(@PathVariable("id") Integer id) throws IllegalArgumentException {
 		Set<Request> requestSet = new HashSet<Request>(requestService.getTutorRequests(tutorService.getTutor(id)));
 		return DtoConverter.requestSetToDto(requestSet);
 	}
 	
-	@GetMapping(value = { "/sessions/{id}" })
+	@GetMapping(value = { "/sessions/accepted/{id}" })
 	public Set<RequestDto> getRequestsByAcceptedTutorId(@PathVariable("id") Integer id) throws IllegalArgumentException {
 		Set<Request> requestSet = new HashSet<Request>(requestService.getAcceptedTutorRequests(tutorService.getTutor(id)));
 		return DtoConverter.requestSetToDto(requestSet);

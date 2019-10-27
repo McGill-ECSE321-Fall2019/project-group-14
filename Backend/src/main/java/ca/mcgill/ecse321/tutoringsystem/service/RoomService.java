@@ -46,6 +46,16 @@ public class RoomService {
   public List<Room> getAllRooms() {
     return toList(roomRepository.findAll());
   }
+  
+  @Transactional
+  public void deleteRoom(Integer id) {
+      Room r = roomRepository.findRoomByRoomNumber(id);
+      if (r == null) {
+          throw new NullPointerException("No Room by this id.");
+      }
+      roomRepository.delete(r);
+      return;
+  }
 
   private <T> List<T> toList(Iterable<T> iterable) {
     List<T> resultList = new ArrayList<T>();

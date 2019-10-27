@@ -49,6 +49,27 @@ public class StudentService {
   public List<Student> getAllStudents() {
     return toList(studentRepository.findAll());
   }
+  
+  @Transactional
+  public void deleteStudent(Integer id) {
+      Student s = studentRepository.findStudentByUserId(id);
+      if (s == null) {
+          throw new NullPointerException("No Student by this id.");
+      }
+      studentRepository.delete(s);
+      return;
+  }
+  
+  @Transactional
+  public void deleteStudent(String email) {
+      Student s = studentRepository.findStudentByEmail(email);
+      if (s == null) {
+          throw new NullPointerException("No Student by this email.");
+      }
+      studentRepository.delete(s);
+      return;
+  }
+  
   private <T> List<T> toList(Iterable<T> iterable) {
     List<T> resultList = new ArrayList<T>();
     for (T t : iterable) {

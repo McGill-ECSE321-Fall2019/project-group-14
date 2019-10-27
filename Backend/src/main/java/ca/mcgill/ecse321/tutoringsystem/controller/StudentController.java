@@ -33,7 +33,7 @@ public class StudentController {
     return DtoConverter.toDto(student);
   }
   
-  @GetMapping(value = {"/students/{email}", "/students/{email}/"})
+  @GetMapping(value = {"/students/email/{email}", "/students/email/{email}/"})
   public StudentDto getStudent(@PathVariable("email") String email) throws IllegalArgumentException {
     Student student = studentService.getStudent(email);
     return DtoConverter.toDto(student);

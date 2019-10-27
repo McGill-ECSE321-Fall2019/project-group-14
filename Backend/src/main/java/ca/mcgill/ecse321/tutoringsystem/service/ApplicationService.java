@@ -63,7 +63,29 @@ public class ApplicationService {
   public List<Application> getAllApplications() {
     return toList(applicationRepository.findAll());
   }
+  
+  @Transactional
+  public void deleteApplication(Integer id) {
+      Application a = applicationRepository.findApplicationByApplicationId(id);
+      if (a == null) {
+          throw new NullPointerException("No Application by this id.");
+      }
+      applicationRepository.delete(a);
+      return;
+  }
 
+  @Transactional
+  public void deleteApplication(String email) {
+      List<Application> a = applicationRepository.findApplicationByEmail(email);
+      if (a.isEmpty()) {
+          throw new NullPointerException("No Applications by this email.");
+      }
+      for (Application application : a) {
+    	  applicationRepository.delete(application);
+      }
+      return;
+  }
+  
   private <T> List<T> toList(Iterable<T> iterable) {
 	List<T> resultList = new ArrayList<T>();
 	for (T t : iterable) {

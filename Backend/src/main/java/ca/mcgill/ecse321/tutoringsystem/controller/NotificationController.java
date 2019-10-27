@@ -25,8 +25,6 @@ public class NotificationController {
 	@Autowired
 	RequestService requestService;
 	
-	RequestController controller;
-	
 	@PostMapping(value = { "/notifications/create", "/notifications/create/"})
 	public NotificationDto createNotification(@RequestParam("requestId") Integer requestId) throws IllegalArgumentException {
 		Notification notification = notificationService.createNotification(requestService.getRequest(requestId));

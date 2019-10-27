@@ -34,7 +34,7 @@ public class RoomController {
   }
 
   @GetMapping(value = {"/rooms", "/rooms/"})
-  public List<RoomDto> getAllReviews() {
+  public List<RoomDto> getAllRooms() {
     List<RoomDto> roomDtos = new ArrayList<>();
     for (Room room : roomService.getAllRooms()) {
       roomDtos.add(DtoConverter.toDto(room));
