@@ -10,8 +10,9 @@ import ca.mcgill.ecse321.tutoringsystem.model.Notification;
 import ca.mcgill.ecse321.tutoringsystem.model.Request;
 import com.sendgrid.*;
 import com.sendgrid.helpers.mail.Mail;
-import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
+import com.sendgrid.helpers.mail.objects.Personalization;
+
 import java.io.IOException;
 
 @Service
@@ -33,29 +34,40 @@ public class NotificationService {
   }
 
   public void notify(Request request, int type) {
-    Email from = new Email("tutoringSystem@mcgill.ca");
-    Email to = new Email("the.liutianci@gmail.com");
+	Mail mail = new Mail();
+    String contenttext = "";
     String subject = "";
-    Content content = new Content("text/html",
-        "Date: " + request.getDate().toString() + "<br> Time: " + request.getTime().toString()
-            + "<br> Course: " + request.getCourse().getCourseName() + "<br> Student: "
-            + request.getStudent().getName());
-    switch (type) {
-      case 0:
-        subject = "Student has requested a session";
-        break;
-      case 1:
-        subject = "Tutoring session confirmation";
-        content.setValue(content.getValue() + "<br> Room: " + request.getRoom().getRoomNumber());
-        break;
-      case 2:
-        subject = "Tutoring session cancelled";
-        break;
-      case 3:
-        break;
-    }
-    Mail mail = new Mail(from, subject, to, content);
-
+		switch (type) {
+		case 0:
+			subject = "New Request";
+			contenttext = request.getStudent().getName() + " has requested a session for "
+					+ request.getCourse().getCourseName() + " at " + request.getTime() + " on " + request.getDate()
+					+ ".";
+			break;
+		case 1:
+			subject = "Session Confirmation";
+			contenttext = "The session for " + request.getCourse().getCourseName() + " with "
+					+ request.getStudent().getName() + " at " + request.getTime() + " on " + request.getDate()
+					+ " has been confirmed. It will take place in Room " + request.getRoom().getRoomNumber() + ".";
+			break;
+		case 2:
+			subject = "Session Cancelled";
+			contenttext = "The session for " + request.getCourse().getCourseName() + " with "
+					+ request.getStudent().getName() + " at " + request.getTime() + " on " + request.getDate()
+					+ " has been cancelled or could not have been created.";
+			break;
+		case 3:
+			break;
+		}
+    mail.setFrom(new Email("tutoringSystem@mcgill.ca"));
+    mail.setTemplateId("d-60dacaed87e44dfbaf071956a6ece8ac");
+    Personalization personalization = new Personalization();
+    personalization.addDynamicTemplateData("name", request.getTutor().getName());
+    personalization.addDynamicTemplateData("contenttext", contenttext);
+    personalization.addDynamicTemplateData("subject", subject);
+    personalization.addTo(new Email(request.getTutor().getEmail()));
+    mail.addPersonalization(personalization);
+    
     SendGrid sg =
         new SendGrid("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");
     com.sendgrid.Request request2 = new com.sendgrid.Request();

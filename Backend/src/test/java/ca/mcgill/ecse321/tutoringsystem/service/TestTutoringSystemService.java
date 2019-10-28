@@ -258,7 +258,7 @@ public class TestTutoringSystemService {
   public void testCreateTutor() { // Test create and getters
     assertEquals(0, tutorService.getAllTutors().size());
     String name = "Martin";
-    String email = "martin@mail.mcgill.ca";
+    String email = "ecse321test+tutor@protonmail.com";
     String password = "password";
     try {
       tutor = tutorService.createTutor(name, email, password);
@@ -291,10 +291,10 @@ public class TestTutoringSystemService {
   public void testSetTutorNewName() { // Test setters
     assertEquals(0, tutorService.getAllTutors().size());
     String name = "Martin";
-    String email = "martin@mail.mcgill.ca";
+    String email = "ecse321test+tutor@protonmail.com"; 
     String password = "password";
     String newName = "George";
-    String newEmail = "george@mail.mcgill.ca";
+    String newEmail = "ecse321test+tutor1@protonmail.com";
     try {
       tutor = tutorService.createTutor(name, email, password);
       tutor.setName(newName);
@@ -323,7 +323,7 @@ public class TestTutoringSystemService {
   public void testCreateStudent() { // Test create and getters
     assertEquals(0, studentService.getAllStudents().size());
     String name = "Jason";
-    String email = "jason@mail.mcgill.ca";
+    String email = "ecse321test+student@protonmail.com";
     String password = "password";
     try {
       student = studentService.createStudent(name, email, password);
@@ -356,10 +356,10 @@ public class TestTutoringSystemService {
   public void testSetStudentNewName() { // Test setters
     assertEquals(0, studentService.getAllStudents().size());
     String name = "Jason";
-    String email = "jason@mail.mcgill.ca";
+    String email = "ecse321test+student@protonmail.com";
     String password = "password";
     String newName = "George";
-    String newEmail = "george@mail.mcgill.ca";
+    String newEmail = "ecse321test+student1@protonmail.com";
     try {
       student = studentService.createStudent(name, email, password);
       student.setName(newName);
@@ -387,7 +387,7 @@ public class TestTutoringSystemService {
   @Test
   public void testCreateManager() { // Test create and getters
     String name = "Marwan";
-    String email = "Marwan@mail.mcgill.ca";
+    String email = "ecse321test+manager@protonmail.com";
     String password = "password";
     try {
       manager = managerService.createManager(name, email, password);
@@ -416,11 +416,11 @@ public class TestTutoringSystemService {
 
   @Test
   public void testSetManagerNewName() { // Test setters
-    String name = "Marwan";
-    String email = "Marwan@mail.mcgill.ca";
-    String password = "password";
-    String newName = "Daniel";
-    String newEmail = "daniel@mail.mcgill.ca";
+	String name = "Marwan";
+	String email = "ecse321test+manager@protonmail.com";
+	String password = "password";
+	String newName = "Daniel";
+	String newEmail = "ecse321test+manager1@protonmail.com";
     try {
       manager = managerService.createManager(name, email, password);
       manager.setName(newName);
@@ -449,8 +449,8 @@ public class TestTutoringSystemService {
     assertEquals(0, requestService.getAllRequests().size());
     Time time = Time.valueOf("08:00:01");
     Date date = Date.valueOf("2019-09-22");
-    tutor = tutorService.createTutor("name", "email", "password");
-    student = studentService.createStudent("name", "email", "password");
+    Tutor tutor = tutorService.createTutor("name", "ecse321test+tutor@protonmail.com", "password");
+    Student student = studentService.createStudent("name", "ecse321test+student@protonmail.com", "password");
     course = courseService.createCourse("test",
         institutionService.createInstitution("institutionName", SchoolLevel.University), "subject");
     try {
@@ -472,8 +472,8 @@ public class TestTutoringSystemService {
     String error = null;
     Time time = null;
     Date date = new Date(0);
-    tutor = tutorService.createTutor("name", "email", "password");
-    student = studentService.createStudent("name", "email", "password");
+    Tutor tutor = tutorService.createTutor("name", "ecse321test+tutor@protonmail.com", "password");
+    Student student = studentService.createStudent("name", "ecse321test+student@protonmail.com", "password");
     course = courseService.createCourse("test",
         institutionService.createInstitution("institutionName", SchoolLevel.University), "subject");
     try {
@@ -625,8 +625,8 @@ public class TestTutoringSystemService {
     assertEquals(0, notificationService.getAllNotifications().size());
     Time time = Time.valueOf("08:00:01");
     Date date = Date.valueOf("2019-09-22");
-    tutor = tutorService.createTutor("name", "email", "password");
-    student = studentService.createStudent("name", "email", "password");
+    Tutor tutor = tutorService.createTutor("name", "ecse321test+tutor@protonmail.com", "password");
+    Student student = studentService.createStudent("name", "ecse321test+student@protonmail.com", "password");
     course = courseService.createCourse("test",
         institutionService.createInstitution("institutionName", SchoolLevel.University), "subject");
     request = requestService.createRequest(time, date, tutor, student, course);
@@ -670,8 +670,8 @@ public class TestTutoringSystemService {
     assertEquals(0, reviewService.getAllReviews().size());
     Integer rating = 5;
     String comment = "This is a comment.";
-    Person from = tutorService.createTutor("name", "email", "password");
-    Person to = studentService.createStudent("name", "email", "password");
+    Person from = tutorService.createTutor("name", "ecse321test+tutor@protonmail.com", "password");
+    Person to = studentService.createStudent("name", "ecse321test+student@protonmail.com", "password");
     try {
       review = reviewService.createReview(rating, comment, from, to);
     } catch (IllegalArgumentException e) {
@@ -706,8 +706,8 @@ public class TestTutoringSystemService {
     Integer rating = 5;
     String comment = "This is a comment.";
     String newComment = "This is a new comment";
-    Person from = tutorService.createTutor("name", "email", "password");
-    Person to = studentService.createStudent("name", "email", "password");
+    Person from = tutorService.createTutor("name", "ecse321test+tutor@protonmail.com", "password");
+    Person to = studentService.createStudent("name", "ecse321test+student@protonmail.com", "password");
     try {
       review = reviewService.createReview(rating, comment, from, to);
       review.setComment(newComment);
@@ -734,7 +734,7 @@ public class TestTutoringSystemService {
   public void testCreateApplication() { // Test create and getters
     Boolean isExistingUser = true;
     String name = "Martin";
-    String email = "martin@mail.mcgill.ca";
+    String email = "ecse321test+applicant@protonmail.com";
     String course = "ECSE 321";
     try {
       application = applicationService.createApplication(isExistingUser, name, email, course);
@@ -752,7 +752,7 @@ public class TestTutoringSystemService {
     String error = null;
     Boolean isExistingUser = true;
     String name = null;
-    String email = "martin@mail.mcgill.ca";
+    String email = "ecse321test+applicant@protonmail.com";
     String course = "ECSE 321";
     try {
       application = applicationService.createApplication(isExistingUser, name, email, course);
@@ -768,7 +768,7 @@ public class TestTutoringSystemService {
     Boolean isExistingUser = true;
     String name = "Martin";
     String newName = "George";
-    String email = "martin@mail.mcgill.ca";
+    String email = "ecse321test+applicant@protonmail.com";
     String course = "ECSE 321";
     try {
       application = applicationService.createApplication(isExistingUser, name, email, course);
@@ -851,7 +851,7 @@ public class TestTutoringSystemService {
   @Test
   public void testCreateWage() { // Test create and getters
     assertEquals(0, wageService.getAllWages().size());
-    tutor = tutorService.createTutor("name", "email", "password");
+    tutor = tutorService.createTutor("name", "ecse321test+tutor@protonmail.com", "password");
     course =
         courseService.createCourse("test", institutionService.createInstitution("institutionName", SchoolLevel.University), "subject");
     Integer wage_price = 20;
@@ -884,8 +884,8 @@ public class TestTutoringSystemService {
   @Test
   public void testSetWageNewTutor() { // Test setters
     assertEquals(0, wageService.getAllWages().size());
-    tutor = tutorService.createTutor("name1", "email1", "password1");
-    tutor1 = tutorService.createTutor("name2", "email2", "password2");
+    tutor = tutorService.createTutor("name1", "ecse321test+tutor@protonmail.com", "password1");
+    tutor1 = tutorService.createTutor("name2", "ecse321test+tutor1@protonmail.com", "password2");
     course =
         courseService.createCourse("test", institutionService.createInstitution("institutionName", SchoolLevel.University), "subject");
     Integer wage_price = 20;
@@ -914,7 +914,7 @@ public class TestTutoringSystemService {
   public void testCreateTimeSlot() { // Test create and getters
     Time time = Time.valueOf("08:00:01");
     Date date = Date.valueOf("2019-09-22");
-    tutor = tutorService.createTutor("name", "email", "password");
+    tutor = tutorService.createTutor("name", "ecse321test+tutor@protonmail.com", "password");
     try {
       timeslot = timeSlotService.createTimeSlot(tutor, date, time);
     } catch (IllegalArgumentException e) {
@@ -943,8 +943,8 @@ public class TestTutoringSystemService {
   public void testSetTimeSlotNewTutor() { // Test setters
     Time time = Time.valueOf("08:00:01");
     Date date = Date.valueOf("2019-09-22");
-    tutor = tutorService.createTutor("name1", "email1", "password1");
-    tutor1 = tutorService.createTutor("name2", "email2", "password2");
+    tutor = tutorService.createTutor("name1", "ecse321test+tutor@protonmail.com", "password1");
+    tutor1 = tutorService.createTutor("name2", "ecse321test+tutor1@protonmail.com", "password2");
     try {
       timeslot = timeSlotService.createTimeSlot(tutor, date, time);
       timeslot.setTutor(tutor1);
