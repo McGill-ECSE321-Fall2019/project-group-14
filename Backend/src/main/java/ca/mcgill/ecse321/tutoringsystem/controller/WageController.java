@@ -25,7 +25,7 @@ public class WageController {
 
   @PostMapping(value = {"/wage/create", "/wage/create/"})
   public WageDto createTimSlot(@RequestParam("Id") Tutor tutor, @RequestParam("Course") Course course,
-      @PathVariable("Time") Integer nb) throws IllegalArgumentException {
+      @RequestParam("Time") Integer nb) throws IllegalArgumentException {
     Wage wage = wageService.createWage(tutor, course, nb);
     return DtoConverter.toDto(wage);
   }
