@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +36,7 @@ public class CourseController {
 	}
 	
 	@GetMapping(value = { "/courses/subject/{subject}", "/courses/subject/{subject}/" })
-	public List<CourseDto> getCourseBySubject(@RequestParam(name = "subject") String subject) throws IllegalArgumentException {
+	public List<CourseDto> getCourseBySubject(@PathVariable(name = "subject") String subject) throws IllegalArgumentException {
 		List<CourseDto> courseDtos = new ArrayList<>();
 		for (Course course : courseService.getAllCoursesWithSubject(subject)) {
 			courseDtos.add(DtoConverter.toDto(course));
@@ -44,7 +45,7 @@ public class CourseController {
 	}
 	
 	@GetMapping(value = { "/courses/{course}", "/courses/{course}/" })
-	public CourseDto getCourseByName(@RequestParam(name = "course") String course) throws IllegalArgumentException {
+	public CourseDto getCourseByName(@PathVariable(name = "course") String course) throws IllegalArgumentException {
 		return DtoConverter.toDto(courseService.getCourse(course));
 	}
 	
@@ -56,7 +57,7 @@ public class CourseController {
 	}
 	
 	@DeleteMapping(value = { "/courses/{course}", "/courses/{course}/" })
-	public boolean deleteCourseByName(@RequestParam(name = "course") String course) throws IllegalArgumentException {
+	public boolean deleteCourseByName(@PathVariable(name = "course") String course) throws IllegalArgumentException {
 		return courseService.deleteCourse(course);
 	}
 }

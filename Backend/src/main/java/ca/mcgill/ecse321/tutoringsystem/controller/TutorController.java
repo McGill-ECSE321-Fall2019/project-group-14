@@ -23,8 +23,8 @@ public class TutorController {
   TutorService tutorService;
 
   @PostMapping(value = {"/tutors/create", "/tutors/create/"})
-  public TutorDto createTutor(@PathVariable("name") String name, @PathVariable("email") String email,
-      @PathVariable("password") String password) throws IllegalArgumentException {
+  public TutorDto createTutor(@RequestParam("name") String name, @RequestParam("email") String email,
+      @RequestParam("password") String password) throws IllegalArgumentException {
     Tutor tutor = tutorService.createTutor(name, email, password);
     return DtoConverter.toDto(tutor);
   }
@@ -42,7 +42,7 @@ public class TutorController {
   }
   
   @DeleteMapping(value = { "/tutors/{input}", "/tutors/{input}/" })
-	public boolean deleteTutorBy(@RequestParam(name = "input") String input) throws IllegalArgumentException {
+	public boolean deleteTutorBy(@PathVariable(name = "input") String input) throws IllegalArgumentException {
 		if (input.chars().allMatch(Character::isDigit)) {
 			// input is a number, get application by id
 			return tutorService.deleteTutor(Integer.parseInt(input));
