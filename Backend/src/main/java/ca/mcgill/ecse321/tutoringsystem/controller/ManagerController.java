@@ -21,8 +21,8 @@ public class ManagerController {
 	ManagerService managerService;
 	
 	@PostMapping(value = { "/managers/create", "/managers/create/" })
-	public ManagerDto createPerson(@RequestParam("name") String name, @PathVariable("email") String email,
-			@PathVariable("password") String password) throws IllegalArgumentException {
+	public ManagerDto createPerson(@RequestParam("name") String name, @RequestParam("email") String email,
+			@RequestParam("password") String password) throws IllegalArgumentException {
 		Manager manager = managerService.createManager(name, email, password);
 		return DtoConverter.toDto(manager);
 	}
@@ -38,7 +38,7 @@ public class ManagerController {
 	}
 	
 	@DeleteMapping(value = { "/managers/{input}", "/managers/{input}/" })
-	public boolean deleteManagerBy(@RequestParam(name = "input") String input) throws IllegalArgumentException {
+	public boolean deleteManagerBy(@PathVariable(name = "input") String input) throws IllegalArgumentException {
 		if (input.chars().allMatch(Character::isDigit)) {
 			// input is a number, get application by id
 			return managerService.deleteManager(Integer.parseInt(input));

@@ -50,7 +50,7 @@ public class StudentController {
   }
   
   @DeleteMapping(value = { "/students/{input}", "/students/{input}/" })
-	public boolean deleteStudentBy(@RequestParam(name = "input") String input) throws IllegalArgumentException {
+	public boolean deleteStudentBy(@PathVariable(name = "input") String input) throws IllegalArgumentException {
 		if (input.chars().allMatch(Character::isDigit)) {
 			// input is a number, get application by id
 			return studentService.deleteStudent(Integer.parseInt(input));

@@ -22,7 +22,7 @@ public class RoomController {
   RoomService roomService;
 
   @PostMapping(value = {"/rooms/create", "/rooms/create/"})
-  public RoomDto createRoom(@PathVariable("id") Integer roomNumber,
+  public RoomDto createRoom(@RequestParam("id") Integer roomNumber,
       @RequestParam(name = "capacity") Integer capacity) throws IllegalArgumentException {
     Room room = roomService.createRoom(roomNumber, capacity);
     return DtoConverter.toDto(room);
