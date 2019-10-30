@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ca.mcgill.ecse321.tutoringsystem.dto.TimeSlotDto;
 import ca.mcgill.ecse321.tutoringsystem.model.TimeSlot;
@@ -24,8 +25,8 @@ public class TimeSlotController {
   TutorService tutorService;
 
   @PostMapping(value = {"/timeslot/create", "/timeslot/create"})
-  public TimeSlotDto createTimeSlot(@PathVariable("id") Integer tutorId, @PathVariable("date") Date date,
-      @PathVariable("time") Time time) throws IllegalArgumentException {
+  public TimeSlotDto createTimeSlot(@RequestParam("id") Integer tutorId, @RequestParam("date") Date date,
+      @RequestParam("time") Time time) throws IllegalArgumentException {
     TimeSlot timeSlot = timeSlotService.createTimeSlot(tutorService.getTutor(tutorId), date, time);
     return DtoConverter.toDto(timeSlot);
   }
