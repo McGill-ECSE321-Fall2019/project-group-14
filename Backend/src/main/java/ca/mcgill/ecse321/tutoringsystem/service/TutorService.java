@@ -81,7 +81,7 @@ public class TutorService {
   }
   
   @Transactional
-  public void changeTutorSettings(Integer id, String name, String password, Set<TimeSlot> timeslots, Set<Wage> wages) {
+  public Tutor changeTutorSettings(Integer id, String name, String password, Set<TimeSlot> timeslots, Set<Wage> wages) {
     if (id == null) {
       throw new IllegalArgumentException("Tutor Id cannot be empty!");
     }
@@ -103,6 +103,7 @@ public class TutorService {
     t.setTimeslot(timeslots);
     t.setWage(wages);
     tutorRepository.save(t);
+    return t;
   }
 
 }
