@@ -49,22 +49,6 @@ public class WageService {
   public List<Wage> getWagebyTutor(Tutor tutor) {
       return toList(wageRepository.findWageByTutor(tutor));
   }
-
-
-  @Transactional
-  public List<Wage> getTutorWages(Tutor tutor) {
-    if (tutor == null) {
-      throw new IllegalArgumentException("A tutor needs to be specified!");
-    }
-    List<Wage> tutorWages = new ArrayList<Wage>();
-    List<Wage> allWages = getAllWages();
-    for (Wage wage : allWages) {
-      if (wage.getTutor().equals(tutor)) {
-        tutorWages.add(wage);
-      }
-    }
-    return tutorWages;
-  }
   
   @Transactional
   public List<Wage> getWagebyCourse(Course course) {
@@ -73,21 +57,7 @@ public class WageService {
 	      }
 	  return wageRepository.findWageByCourse(course);
   }
-  
-  @Transactional
-  public List<Wage> getCourseWages(Course course) {
-    if (course == null) {
-      throw new IllegalArgumentException("Course cannot be empty!");
-    }
-    List<Wage> courseWages = new ArrayList<Wage>();
-    List<Wage> allWages = getAllWages();
-    for (Wage wage : allWages) {
-      if (wage.getCourse().equals(course)) {
-        courseWages.add(wage);
-      }
-    }
-    return courseWages;
-  }
+ 
   
   @Transactional
   public boolean deleteWage(Integer id) {
