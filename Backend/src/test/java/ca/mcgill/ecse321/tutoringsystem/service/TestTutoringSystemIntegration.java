@@ -2,14 +2,17 @@ package ca.mcgill.ecse321.tutoringsystem.service;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.Time;
-
+import java.util.HashSet;
+import java.util.Set;
 import org.junit.After;
 import org.junit.Test;
+import java.util.List;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,6 +34,7 @@ import ca.mcgill.ecse321.tutoringsystem.model.*;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -194,7 +198,6 @@ public class TestTutoringSystemIntegration {
 		}
 
 		assertEquals(request.getRequestId(), requestService.getAcceptedTutorRequests(tutor).get(0).getRequestId());
-
 	}
 
 	@Test
@@ -209,14 +212,38 @@ public class TestTutoringSystemIntegration {
 		Course course = courseService.createCourse("test",
 				institutionService.createInstitution("institutionName", SchoolLevel.University), "subject");
 		Request request = requestService.createRequest(time, date, tutor, student, course);
-
+		
 		requestService.rejectRequest(request.getRequestId());
 
-		assertNull(requestService.getAcceptedTutorRequests(tutor));
+		assertTrue(requestService.getAcceptedTutorRequests(tutor).isEmpty());
 	}
 
 	@Test
 	public void testUpdateTutorInfo() {
+		assertEquals(0, tutorService.getAllTutors().size());
+		Tutor tutor = tutorService.createTutor("name", "ecse321test+tutor@protonmail.com", "password");
+		String newName = "newName";
+		String newPassword = "newPassword";
+		Set<TimeSlot> timeSlots = new HashSet<TimeSlot>();
+		TimeSlot t = timeSlotService.createTimeSlot(tutor, Date.valueOf("2019-09-22"), Time.valueOf("08:00:01"));
+		timeSlots.add(t);
+		Set<Wage> wages = new HashSet<Wage>();
+		tutor.setWage(wages);
+		Wage w = wageService.createWage(tutor,
+				courseService.createCourse("test",
+						institutionService.createInstitution("institutionName", SchoolLevel.University), "subject"),
+				40);
+		wages.add(w);
+		try {
+			tutorService.changeTutorSettings(tutor.getUserId(), newName, newPassword, timeSlots, wages);
+		} catch (IllegalArgumentException e) {
+			fail();
+		}
+		List<Wage> wagesList = wageService.getTutorWages(tutor);	  
+		
+		assertEquals(tutorService.getAllTutors().get(0).getName(), newName);
+	    assertEquals(tutorService.getAllTutors().get(0).getPassword(), newPassword);
+	    assertEquals(1, wagesList.size());
 
 	}
 }
