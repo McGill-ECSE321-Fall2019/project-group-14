@@ -153,7 +153,7 @@ public class TestTutoringSystemIntegration {
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
-		assertEquals(user, null);
+		assertNull(user);
 	}
 
 	@Test
@@ -228,22 +228,24 @@ public class TestTutoringSystemIntegration {
 		TimeSlot t = timeSlotService.createTimeSlot(tutor, Date.valueOf("2019-09-22"), Time.valueOf("08:00:01"));
 		timeSlots.add(t);
 		Set<Wage> wages = new HashSet<Wage>();
-		tutor.setWage(wages);
 		Wage w = wageService.createWage(tutor,
 				courseService.createCourse("test",
 						institutionService.createInstitution("institutionName", SchoolLevel.University), "subject"),
 				40);
 		wages.add(w);
 		try {
-			tutorService.changeTutorSettings(tutor.getUserId(), newName, newPassword, timeSlots, wages);
+			tutor = tutorService.changeTutorSettings(tutor.getUserId(), newName, newPassword, timeSlots, wages);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
-		List<Wage> wagesList = wageService.getTutorWages(tutor);	  
 		
 		assertEquals(tutorService.getAllTutors().get(0).getName(), newName);
 	    assertEquals(tutorService.getAllTutors().get(0).getPassword(), newPassword);
-	    assertEquals(1, wagesList.size());
+	    
+	    assertEquals(1, wageService.getWagebyTutor(tutor).size());
+	    assertEquals(tutor.getWage(), wages);
+	    assertEquals(1, timeSlotService.getTimeSlotbyTutor(tutor).size());
+	    assertEquals(tutor.getTimeslot(), timeSlots);
 
 	}
 }

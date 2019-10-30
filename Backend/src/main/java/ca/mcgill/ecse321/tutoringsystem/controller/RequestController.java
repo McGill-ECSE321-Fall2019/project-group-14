@@ -68,7 +68,7 @@ public class RequestController {
 	
 	@DeleteMapping(value = { "/requests/{id}", "/requests/{id}/" })
 	public boolean deleteRequestById(@PathVariable("id") Integer id) throws IllegalArgumentException {
-		return requestService.deleteRequest(id);
+		return requestService.rejectRequest(id);
 	}
 
 }

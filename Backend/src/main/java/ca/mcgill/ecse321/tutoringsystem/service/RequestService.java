@@ -91,43 +91,39 @@ public class RequestService {
 
     List<Room> rooms = toList(roomRepository.findAll());
     for (Room room : rooms) {
-      if (room.getRequest().size() == 0) {
-        request.setRoom(room);
-        Set<Request> requests = room.getRequest();
-        requests.add(request);
-        room.setRequest(requests);
-        requestRepository.save(request);
-        roomRepository.save(room);
-        //return;
-      } else {
-        Set<Request> requests = room.getRequest();
-        for (Request checkRequest : requests) {
-          if (checkRequest.getDate() != request.getDate() && checkRequest.getTime() != request.getTime()) {
-            request.setRoom(room);
-            requests.add(request);
-            room.setRequest(requests);
-            requestRepository.save(request);
-            roomRepository.save(room);
-            //return;
-          } else {
-            throw new RuntimeException("There are no rooms available for that time and date.");
-          }
-        }
-      }
+    	if (!(room.getCapacity() > 2)) {
+    	      if (room.getRequest().size() == 0) {
+    	          request.setRoom(room);
+    	          Set<Request> requests = room.getRequest();
+    	          requests.add(request);
+    	          room.setRequest(requests);
+    	          requestRepository.save(request);
+    	          roomRepository.save(room);
+    	          //return;
+    	        } else {
+    	          Set<Request> requests = room.getRequest();
+    	          for (Request checkRequest : requests) {
+    	            if (checkRequest.getDate() != request.getDate() && checkRequest.getTime() != request.getTime()) {
+    	              request.setRoom(room);
+    	              requests.add(request);
+    	              room.setRequest(requests);
+    	              requestRepository.save(request);
+    	              roomRepository.save(room);
+    	              //return;
+    	            } else {
+    	              throw new RuntimeException("There are no rooms available for that time and date.");
+    	            }
+    	          }
+    	        }	
+    	}
     }
     notificationService.createNotification(request);
     notificationService.notify(request, 1);
 
   }
-  
+
   @Transactional
-  public void rejectRequest(int requestId) {
-	  requestRepository.deleteById(requestId);
-	  return;
-  }
-  
-  @Transactional
-  public boolean deleteRequest(Integer id) {
+  public boolean rejectRequest(Integer id) {
       Request r = requestRepository.findRequestByRequestId(id);
       if (r == null) {
           throw new NullPointerException("No Request by this id.");
