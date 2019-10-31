@@ -80,6 +80,16 @@ public class TutorService {
     return resultList;
   }
   
+  /**
+   * This method simply changes all the settings of the Tutor in 1 method.
+   * It checks for invalid inputs before setting it
+   * @param id
+   * @param name
+   * @param password
+   * @param timeslots
+   * @param wages
+   * @return error or Tutor
+   */
   @Transactional
   public Tutor changeTutorSettings(Integer id, String name, String password, Set<TimeSlot> timeslots, Set<Wage> wages) {
 	String error = "";

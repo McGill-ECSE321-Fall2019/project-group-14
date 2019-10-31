@@ -58,6 +58,15 @@ public class TutorController {
       return DtoConverter.tutorSetToDto(tutorSet);
   }
 
+  /**
+   * PUT mapping used since we're updating info
+   * @param tutorId
+   * @param tutor name
+   * @param tutor password
+   * @param tutor timeslots
+   * @param tutor wages
+   * @throws IllegalArgumentException
+   */
   @PutMapping(value = {"/tutors/update/{id}", "/tutors/update/{id}/"})
   public void changeTutorSettings(@PathVariable("id") Integer id,
       @RequestParam(name = "name") String name, @RequestParam(name = "password") String password,

@@ -84,6 +84,13 @@ public class RequestService {
     return requestRepository.findRequestByTutorAndRoomIsNotNull(tutor);
   }
 
+  /**
+   * This method accepts the request made by the Student by first checking if there's an available room
+   * for the time and date requested by the Student. If there is one, it will assign the room to that request
+   * which effectively "books" the room for that time. If no rooms are available, the Request is automatically rejected
+   * @param requestId
+   * @throws IOException
+   */
   @Transactional
   public void acceptRequest(int requestId) throws IOException {
     Request request = getRequest(requestId);
@@ -120,10 +127,14 @@ public class RequestService {
 			}
 		}
     }
-    // Iterated through all the rooms and did not return, i.e. was not able to assign a room.
     rejectRequest(requestId);
   }
 
+  /**
+   * This method rejects the Request by simply deleting it and sending an email to notify its rejection
+   * @param id
+   * @return true if it's successfully rejected
+   */
   @Transactional
   public boolean rejectRequest(Integer id) {
       Request r = requestRepository.findRequestByRequestId(id);
