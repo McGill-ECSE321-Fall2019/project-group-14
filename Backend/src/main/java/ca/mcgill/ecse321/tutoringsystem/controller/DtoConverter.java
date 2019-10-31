@@ -58,6 +58,19 @@ public class DtoConverter {
 		}
 	}
 	
+	public static NotificationTypeDto toDto(NotificationType l) {
+		if (l == null) {
+			throw new IllegalArgumentException("There is no such NotificationType!");
+		}
+		if (l.equals(NotificationType.Accepted)) {
+			return NotificationTypeDto.Accepted;
+		} else if (l.equals(NotificationType.Rejected)) {
+			return NotificationTypeDto.Rejected;
+		} else {
+			return NotificationTypeDto.Requested;
+		}
+	}
+	
 	public static ManagerDto toDto(Manager m) {
 		if (m == null) {
 			throw new IllegalArgumentException("There is no such Manager!");
@@ -71,7 +84,7 @@ public class DtoConverter {
 			throw new IllegalArgumentException("There is no such Notification!");
 		}
 		NotificationDto notificationDto = new NotificationDto(
-				toDto(n.getRequest()), toDto(n.getTutor()), n.getNotificationId());
+				toDto(n.getRequest()), toDto(n.getTutor()), n.getNotificationId(), toDto(n.getNotificationType()));
 		return notificationDto;
 	}
 
@@ -91,7 +104,7 @@ public class DtoConverter {
 		if (r == null) {
 			throw new IllegalArgumentException("There is no such Request!");
 		}
-		RequestDto requestDto = new RequestDto(toDto(r.getTutor()), toDto(r.getStudent()), r.getTime(), r.getDate(), toDto(r.getNotification()), toDto(r.getCourse()), toDto(r.getRoom()), r.getRequestId());
+		RequestDto requestDto = new RequestDto(toDto(r.getTutor()), toDto(r.getStudent()), r.getTime(), r.getDate(), notificationSetToDto(r.getNotification()), toDto(r.getCourse()), toDto(r.getRoom()), r.getRequestId());
 		return requestDto;
 	}
 
@@ -205,7 +218,7 @@ public class DtoConverter {
 		}
 		return wages;
 	}
-
+	
 	public static WageDto toDto(Wage w) {
 		if (w == null) {
 			throw new IllegalArgumentException("There is no such Wage!");

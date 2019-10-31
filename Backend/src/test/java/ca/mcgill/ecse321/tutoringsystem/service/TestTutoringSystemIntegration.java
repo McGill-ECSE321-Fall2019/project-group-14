@@ -2,7 +2,6 @@ package ca.mcgill.ecse321.tutoringsystem.service;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
@@ -12,24 +11,12 @@ import java.util.HashSet;
 import java.util.Set;
 import org.junit.After;
 import org.junit.Test;
-import java.util.List;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import ca.mcgill.ecse321.tutoringsystem.dao.ApplicationRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.CourseRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.InstitutionRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.ManagerRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.NotificationRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.RequestRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.ReviewRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.RoomRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.StudentRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.TimeSlotRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.TutorRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.WageRepository;
+import ca.mcgill.ecse321.tutoringsystem.dao.*;
 import ca.mcgill.ecse321.tutoringsystem.model.*;
 
 import static org.junit.Assert.assertNull;
@@ -187,7 +174,7 @@ public class TestTutoringSystemIntegration {
 		Student student = studentService.createStudent("name", "ecse321test+student@protonmail.com", "password");
 		Time time = Time.valueOf("08:00:01");
 		Date date = Date.valueOf("2019-09-22");
-		Room room = roomService.createRoom(2, 20);
+		roomService.createRoom(12, 2);
 		Course course = courseService.createCourse("test",
 				institutionService.createInstitution("institutionName", SchoolLevel.University), "subject");
 		Request request = requestService.createRequest(time, date, tutor, student, course);
@@ -208,7 +195,7 @@ public class TestTutoringSystemIntegration {
 		Student student = studentService.createStudent("name", "ecse321test+student@protonmail.com", "password");
 		Time time = Time.valueOf("08:00:01");
 		Date date = Date.valueOf("2019-09-22");
-		Room room = roomService.createRoom(2, 20);
+		roomService.createRoom(12, 2);
 		Course course = courseService.createCourse("test",
 				institutionService.createInstitution("institutionName", SchoolLevel.University), "subject");
 		Request request = requestService.createRequest(time, date, tutor, student, course);
@@ -242,9 +229,9 @@ public class TestTutoringSystemIntegration {
 		assertEquals(tutorService.getAllTutors().get(0).getName(), newName);
 	    assertEquals(tutorService.getAllTutors().get(0).getPassword(), newPassword);
 	    
-	    assertEquals(1, wageService.getWagebyTutor(tutor).size());
+	    assertEquals(1, wageService.getWageByTutor(tutor).size());
 	    assertEquals(tutor.getWage(), wages);
-	    assertEquals(1, timeSlotService.getTimeSlotbyTutor(tutor).size());
+	    assertEquals(1, timeSlotService.getTimeSlotByTutor(tutor).size());
 	    assertEquals(tutor.getTimeslot(), timeSlots);
 
 	}

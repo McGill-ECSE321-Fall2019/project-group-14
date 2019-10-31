@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ca.mcgill.ecse321.tutoringsystem.dao.NotificationRepository;
 import ca.mcgill.ecse321.tutoringsystem.model.Notification;
+import ca.mcgill.ecse321.tutoringsystem.model.NotificationType;
 import ca.mcgill.ecse321.tutoringsystem.model.Request;
 import com.sendgrid.*;
 import com.sendgrid.helpers.mail.Mail;
@@ -21,51 +22,53 @@ public class NotificationService {
   NotificationRepository notificationRepository;
 
   @Transactional
-  public Notification createNotification(Request request) {
+  public Notification createNotification(Request request, NotificationType type) {
     if (request == null) {
-      throw new IllegalArgumentException("Notification ID cannot be null!");
+      throw new IllegalArgumentException("Request cannot be null!");
+    }
+    if (type == null) {
+        throw new IllegalArgumentException("NotificationType cannot be null!");
     }
     Notification n = new Notification();
     n.setRequest(request);
     n.setTutor(request.getTutor());
+    n.setNotificationType(type);
     notificationRepository.save(n);
-    notify(request, 0);
+    notify(getNotification(n.getNotificationId()));
     return n;
   }
 
-  public void notify(Request request, int type) {
+  public void notify(Notification n) {
 	Mail mail = new Mail();
     String contenttext = "";
     String subject = "";
-		switch (type) {
-		case 0:
+		switch (n.getNotificationType()) {
+		case Requested:
 			subject = "New Request";
-			contenttext = request.getStudent().getName() + " has requested a session for "
-					+ request.getCourse().getCourseName() + " at " + request.getTime() + " on " + request.getDate()
+			contenttext = n.getRequest().getStudent().getName() + " has requested a session for "
+					+ n.getRequest().getCourse().getCourseName() + " at " + n.getRequest().getTime() + " on " + n.getRequest().getDate()
 					+ ".";
 			break;
-		case 1:
+		case Accepted:
 			subject = "Session Confirmation";
-			contenttext = "The session for " + request.getCourse().getCourseName() + " with "
-					+ request.getStudent().getName() + " at " + request.getTime() + " on " + request.getDate()
-					+ " has been confirmed. It will take place in Room " + request.getRoom().getRoomNumber() + ".";
+			contenttext = "The session for " + n.getRequest().getCourse().getCourseName() + " with "
+					+ n.getRequest().getStudent().getName() + " at " + n.getRequest().getTime() + " on " + n.getRequest().getDate()
+					+ " has been confirmed. It will take place in Room " + n.getRequest().getRoom().getRoomNumber() + ".";
 			break;
-		case 2:
+		case Rejected:
 			subject = "Session Cancelled";
-			contenttext = "The session for " + request.getCourse().getCourseName() + " with "
-					+ request.getStudent().getName() + " at " + request.getTime() + " on " + request.getDate()
+			contenttext = "The session for " + n.getRequest().getCourse().getCourseName() + " with "
+					+ n.getRequest().getStudent().getName() + " at " + n.getRequest().getTime() + " on " + n.getRequest().getDate()
 					+ " has been cancelled or could not have been created.";
-			break;
-		case 3:
 			break;
 		}
     mail.setFrom(new Email("tutoringSystem@mcgill.ca"));
     mail.setTemplateId("d-60dacaed87e44dfbaf071956a6ece8ac");
     Personalization personalization = new Personalization();
-    personalization.addDynamicTemplateData("name", request.getTutor().getName());
+    personalization.addDynamicTemplateData("name", n.getTutor().getName());
     personalization.addDynamicTemplateData("contenttext", contenttext);
     personalization.addDynamicTemplateData("subject", subject);
-    personalization.addTo(new Email(request.getTutor().getEmail()));
+    personalization.addTo(new Email(n.getTutor().getEmail()));
     mail.addPersonalization(personalization);
     
     SendGrid sg =
@@ -75,10 +78,7 @@ public class NotificationService {
       request2.setMethod(Method.POST);
       request2.setEndpoint("mail/send");
       request2.setBody(mail.build());
-      Response response = sg.api(request2);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
+      sg.api(request2);
     } catch (IOException ex) {
 
     }

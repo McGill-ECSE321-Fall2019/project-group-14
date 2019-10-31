@@ -52,13 +52,13 @@ public class WageController {
 
   @GetMapping(value = {"/wages/tutor/{tutor}", "/wages/tutor/{tutor}/"})
   public Set<WageDto> getAllWagesByTutor(@PathVariable("tutor") Integer tutorId) throws IllegalArgumentException {
-    Set<Wage> wageSet = new HashSet<Wage>(wageService.getTutorWages(tutorService.getTutor(tutorId)));
+    Set<Wage> wageSet = new HashSet<Wage>(wageService.getWageByTutor(tutorService.getTutor(tutorId)));
     return DtoConverter.wageSetToDto(wageSet);
   }
 
   @GetMapping(value = {"/wages/course/{course}", "/wages/course/{course}/"})
   public Set<WageDto> getAllWagesByCourse(@PathVariable("course") String courseName) throws IllegalArgumentException {
-    Set<Wage> wageSet = new HashSet<Wage>(wageService.getCourseWages(courseService.getCourse(courseName)));
+    Set<Wage> wageSet = new HashSet<Wage>(wageService.getWageByCourse(courseService.getCourse(courseName)));
     return DtoConverter.wageSetToDto(wageSet);
   }
 

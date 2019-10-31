@@ -75,7 +75,6 @@ public class TestTutoringSystemService {
 
   @Mock
   private NotificationRepository notificationDao;
-  private Notification notification;
 
   @Mock
   private ReviewRepository reviewDao;
@@ -225,10 +224,8 @@ public class TestTutoringSystemService {
     when(tutorDao.save(any(Tutor.class))).thenAnswer(returnParameterAsAnswer);
     when(studentDao.save(any(Student.class))).thenAnswer(returnParameterAsAnswer);
     when(managerDao.save(any(Manager.class))).thenAnswer(returnParameterAsAnswer);
-    when(requestDao.save(any(Request.class))).thenAnswer(returnParameterAsAnswer);
     when(courseDao.save(any(Course.class))).thenAnswer(returnParameterAsAnswer);
     when(roomDao.save(any(Room.class))).thenAnswer(returnParameterAsAnswer);
-    when(notificationDao.save(any(Notification.class))).thenAnswer(returnParameterAsAnswer);
     when(reviewDao.save(any(Review.class))).thenAnswer(returnParameterAsAnswer);
     when(applicationDao.save(any(Application.class))).thenAnswer(returnParameterAsAnswer);
     when(institutionDao.save(any(Institution.class))).thenAnswer(returnParameterAsAnswer);
@@ -445,28 +442,6 @@ public class TestTutoringSystemService {
   // Request class tests
 
   @Test
-  public void testCreateRequest() { // Test create and getters
-    assertEquals(0, requestService.getAllRequests().size());
-    Time time = Time.valueOf("08:00:01");
-    Date date = Date.valueOf("2019-09-22");
-    Tutor tutor = tutorService.createTutor("name", "ecse321test+tutor@protonmail.com", "password");
-    Student student = studentService.createStudent("name", "ecse321test+student@protonmail.com", "password");
-    course = courseService.createCourse("test",
-        institutionService.createInstitution("institutionName", SchoolLevel.University), "subject");
-    try {
-      request = requestService.createRequest(time, date, tutor, student, course);
-    } catch (IllegalArgumentException e) {
-      fail();
-    }
-
-    assertEquals(time, request.getTime());
-    assertEquals(date, request.getDate());
-    assertEquals(tutor.getUserId(), request.getTutor().getUserId());
-    assertEquals(student.getUserId(), request.getStudent().getUserId());
-    assertEquals(course.getCourseName(), request.getCourse().getCourseName());
-  }
-
-  @Test
   public void testCreateRequestWithNullTime() { // Test condition checks
     assertEquals(0, requestService.getAllRequests().size());
     String error = null;
@@ -621,36 +596,17 @@ public class TestTutoringSystemService {
   // Notification class tests
 
   @Test
-  public void testCreateNotification() { // Test create and getters
-    assertEquals(0, notificationService.getAllNotifications().size());
-    Time time = Time.valueOf("08:00:01");
-    Date date = Date.valueOf("2019-09-22");
-    Tutor tutor = tutorService.createTutor("name", "ecse321test+tutor@protonmail.com", "password");
-    Student student = studentService.createStudent("name", "ecse321test+student@protonmail.com", "password");
-    course = courseService.createCourse("test",
-        institutionService.createInstitution("institutionName", SchoolLevel.University), "subject");
-    request = requestService.createRequest(time, date, tutor, student, course);
-    try {
-      notification = notificationService.createNotification(request);
-    } catch (IllegalArgumentException e) {
-      fail();
-    }
-
-    assertEquals(request.getRequestId(), notification.getRequest().getRequestId());
-  }
-
-  @Test
   public void testCreateNullNotification() { // Test condition checks
     assertEquals(0, notificationService.getAllNotifications().size());
     String error = null;
     request = null;
     try {
-      notification = notificationService.createNotification(request);
+      notificationService.createNotification(request, NotificationType.Requested);
     } catch (IllegalArgumentException e) {
       error = e.getMessage();
     }
 
-    assertEquals("Notification ID cannot be null!", error);
+    assertEquals("Request cannot be null!", error);
   }
 
   @Test

@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ca.mcgill.ecse321.tutoringsystem.dao.RequestRepository;
 import ca.mcgill.ecse321.tutoringsystem.dao.RoomRepository;
 import ca.mcgill.ecse321.tutoringsystem.model.Course;
+import ca.mcgill.ecse321.tutoringsystem.model.NotificationType;
 import ca.mcgill.ecse321.tutoringsystem.model.Request;
 import ca.mcgill.ecse321.tutoringsystem.model.Room;
 import ca.mcgill.ecse321.tutoringsystem.model.Student;
@@ -55,6 +56,7 @@ public class RequestService {
     r.setStudent(student);
     r.setCourse(course);
     requestRepository.save(r);
+    notificationService.createNotification(getRequest(r.getRequestId()), NotificationType.Requested);
     return r;
   }
 
@@ -91,35 +93,35 @@ public class RequestService {
 
     List<Room> rooms = toList(roomRepository.findAll());
     for (Room room : rooms) {
-    	if (!(room.getCapacity() > 2)) {
-    	      if (room.getRequest().size() == 0) {
-    	          request.setRoom(room);
-    	          Set<Request> requests = room.getRequest();
-    	          requests.add(request);
-    	          room.setRequest(requests);
-    	          requestRepository.save(request);
-    	          roomRepository.save(room);
-    	          //return;
-    	        } else {
-    	          Set<Request> requests = room.getRequest();
-    	          for (Request checkRequest : requests) {
-    	            if (checkRequest.getDate() != request.getDate() && checkRequest.getTime() != request.getTime()) {
-    	              request.setRoom(room);
-    	              requests.add(request);
-    	              room.setRequest(requests);
-    	              requestRepository.save(request);
-    	              roomRepository.save(room);
-    	              //return;
-    	            } else {
-    	              throw new RuntimeException("There are no rooms available for that time and date.");
-    	            }
-    	          }
-    	        }	
-    	}
+		if (room.getCapacity() == 2) {
+			if (room.getRequest().size() == 0) {
+				request.setRoom(room);
+				Set<Request> requests = room.getRequest();
+				requests.add(request);
+				room.setRequest(requests);
+				requestRepository.save(request);
+				roomRepository.save(room);
+				notificationService.createNotification(getRequest(request.getRequestId()), NotificationType.Accepted);
+				return;
+			} else {
+				Set<Request> requests = room.getRequest();
+				for (Request checkRequest : requests) {
+					if (checkRequest.getDate() != request.getDate()
+							&& checkRequest.getTime() != request.getTime()) {
+						request.setRoom(room);
+						requests.add(request);
+						room.setRequest(requests);
+						requestRepository.save(request);
+						roomRepository.save(room);
+						notificationService.createNotification(getRequest(request.getRequestId()), NotificationType.Accepted);
+						return;
+					}
+				}
+			}
+		}
     }
-    notificationService.createNotification(request);
-    notificationService.notify(request, 1);
-
+    // Iterated through all the rooms and did not return, i.e. was not able to assign a room.
+    rejectRequest(requestId);
   }
 
   @Transactional
@@ -128,6 +130,7 @@ public class RequestService {
       if (r == null) {
           throw new NullPointerException("No Request by this id.");
       }
+      notificationService.createNotification(r, NotificationType.Rejected);
       requestRepository.delete(r);
       return true;
   }
