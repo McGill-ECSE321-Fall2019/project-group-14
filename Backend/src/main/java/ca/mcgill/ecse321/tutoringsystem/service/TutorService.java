@@ -82,20 +82,25 @@ public class TutorService {
   
   @Transactional
   public Tutor changeTutorSettings(Integer id, String name, String password, Set<TimeSlot> timeslots, Set<Wage> wages) {
+	String error = "";
     if (id == null) {
-      throw new IllegalArgumentException("Tutor Id cannot be empty!");
+    	error += "Tutor Id cannot be empty! ";
     }
     if (name == null || name.trim().length() == 0) {
-      throw new IllegalArgumentException("Tutor name cannot be empty!");
+      error += "Tutor name cannot be empty! ";
     }
     if (password == null || password.trim().length() == 0) {
-      throw new IllegalArgumentException("Tutor password cannot be empty!");
+      error += "Tutor password cannot be empty! ";
     }
     if (timeslots == null) {
-      throw new IllegalArgumentException("Tutor password cannot be empty!");
+      error += "Tutor timeslots cannot be empty! ";
     }
     if (wages == null) {
-      throw new IllegalArgumentException("Tutor wage cannot be empty!");
+      error += "Tutor wages cannot be empty! ";
+    }
+    error = error.trim();
+    if (error.length() > 0) {
+      throw new IllegalArgumentException(error);
     }
     Tutor t = getTutor(id);
     t.setName(name);
