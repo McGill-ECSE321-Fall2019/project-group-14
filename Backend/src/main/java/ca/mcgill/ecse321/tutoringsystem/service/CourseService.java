@@ -21,10 +21,10 @@ public class CourseService {
       error = error + "Course name cannot be empty! ";
     }
     if (institution == null) {
-      error = error + "Course email cannot be empty! ";
+      error = error + "Course institution cannot be empty! ";
     }
     if (subjectName == null || subjectName.trim().length() == 0) {
-      error = error + "Course course time cannot be empty! ";
+      error = error + "Course subject name cannot be empty! ";
     }
     error = error.trim();
     if (error.length() > 0) {
