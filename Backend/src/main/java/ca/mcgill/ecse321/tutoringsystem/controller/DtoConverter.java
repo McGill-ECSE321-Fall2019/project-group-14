@@ -28,7 +28,7 @@ public class DtoConverter {
 
 	public static Set<CourseDto> courseSetToDto(Set<Course> c) {
 		if (c == null) {
-			throw new IllegalArgumentException("There is no such Course!");
+			return null;
 		}
 		Set<CourseDto> courses = new HashSet<>();
 		for (Course course : c) {
@@ -90,7 +90,7 @@ public class DtoConverter {
 
 	public static Set<NotificationDto> notificationSetToDto(Set<Notification> n) {
 		if (n == null) {
-			throw new IllegalArgumentException("There is no such Notification!");
+			return null;
 		}
 		Set<NotificationDto> notifications = new HashSet<>();
 		for (Notification notification : n) {
@@ -143,7 +143,7 @@ public class DtoConverter {
 
 	public static Set<RequestDto> requestSetToDto(Set<Request> r) {
 		if (r == null) {
-			throw new IllegalArgumentException("There is no such Request");
+			return null;
 		}
 		Set<RequestDto> requests = new HashSet<>();
 		for (Request request : r) {
@@ -162,7 +162,7 @@ public class DtoConverter {
 
 	public static Set<TimeSlotDto> timeSlotSetToDto(Set<TimeSlot> t) {
 		if (t == null) {
-			throw new IllegalArgumentException("There is no such TimeSlot");
+			return null;
 		}
 		Set<TimeSlotDto> timeSlots = new HashSet<>();
 		for (TimeSlot timeSlot : t) {
@@ -173,7 +173,7 @@ public class DtoConverter {
 
 	public static Set<ReviewDto> reviewSetToDto(Set<Review> r) {
 		if (r == null) {
-			throw new IllegalArgumentException("There is no such Review");
+			return null;
 		}
 		Set<ReviewDto> reviews = new HashSet<>();
 		for (Review review : r) {
@@ -199,7 +199,7 @@ public class DtoConverter {
 	
 	public static Set<TutorDto> tutorSetToDto(Set<Tutor> t) {
 	  if (t == null) {
-	    throw new IllegalArgumentException("There is no such Tutor");
+		return null;
 	  }
 	  Set<TutorDto> tutors = new HashSet<>();
 	  for (Tutor tutor: t) {
@@ -210,7 +210,7 @@ public class DtoConverter {
 
 	public static Set<WageDto> wageSetToDto(Set<Wage> w) {
 		if (w == null) {
-			throw new IllegalArgumentException("There is no such Wage");
+			return null;
 		}
 		Set<WageDto> wages = new HashSet<>();
 		for (Wage wage : w) {
