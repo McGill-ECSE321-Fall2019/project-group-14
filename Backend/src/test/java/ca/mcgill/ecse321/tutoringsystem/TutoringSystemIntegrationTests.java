@@ -1,16 +1,12 @@
 package ca.mcgill.ecse321.tutoringsystem;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.After;
-import org.junit.Before;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,16 +14,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-@RunWith(MockitoJUnitRunner.class)
 public class TutoringSystemIntegrationTests {
 
 	// Integration tests go here: Testing of REST
 
-	private final String APP_URL = "https://tutoringsystem-backend-14.herokuapp.com";
+	private final String APP_URL = "http://tutoringsystem-backend-14.herokuapp.com";
 	private JSONObject response;
-	private final String restName = "Martin";
-	private final String restEmail = "emailTest";
-	private final String restPassword = "passwordTest";
+	private final String restName = "TestUser";
+	private final String restEmail = "ecse321test@protonmail.com";
+	private final String restPassword = "userpassword";
 
 	@Test
 	public void contextLoads() {
