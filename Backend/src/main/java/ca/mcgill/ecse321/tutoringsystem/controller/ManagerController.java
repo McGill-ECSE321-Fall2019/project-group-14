@@ -33,7 +33,7 @@ public class ManagerController {
 	}
 
 	@GetMapping(value = { "/managers/email/{email}", "/managers/email/{email}/" })
-	public ManagerDto getManagerById(@PathVariable("email") String email) throws IllegalArgumentException {
+	public ManagerDto getManagerByEmail(@PathVariable("email") String email) throws IllegalArgumentException {
 		return DtoConverter.toDto(managerService.getManager(email));
 	}
 	
