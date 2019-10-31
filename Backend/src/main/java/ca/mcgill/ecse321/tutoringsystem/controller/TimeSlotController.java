@@ -2,9 +2,6 @@ package ca.mcgill.ecse321.tutoringsystem.controller;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.HashSet;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,7 +24,7 @@ public class TimeSlotController {
   @Autowired
   TutorService tutorService;
 
-  @PostMapping(value = {"/timeslot/create", "/timeslot/create"})
+  @PostMapping(value = {"/timeslots/create", "/timeslots/create"})
   public TimeSlotDto createTimeSlot(@RequestParam("id") Integer tutorId, @RequestParam("date") Date date,
       @RequestParam("time") Time time) throws IllegalArgumentException {
     TimeSlot timeSlot = timeSlotService.createTimeSlot(tutorService.getTutor(tutorId), date, time);
@@ -43,12 +40,6 @@ public class TimeSlotController {
   @DeleteMapping(value = {"/timeslots/{id}", "/timeslots/{id}/"})
   public boolean deleteTimeSlotById(@PathVariable("id") Integer id) throws IllegalArgumentException {
     return timeSlotService.deleteTimeSlot(id);
-  }
-  
-  @GetMapping(value = {"/timeslots/tutor/{tutor}", "/timeslots/tutor/{tutor}/"})
-  public Set<TimeSlotDto> getTimeSlotByTutor(@PathVariable("tutor") Integer tutorId) throws IllegalArgumentException {
-    Set<TimeSlot> timeSlotSet = new HashSet<TimeSlot>(timeSlotService.getTimeSlotByTutor(tutorService.getTutor(tutorId)));
-    return DtoConverter.timeSlotSetToDto(timeSlotSet);
   }
 
   @GetMapping(value = {"/timeslots/{date}/{time}", "/timeslots/{date}/{time}/"})
