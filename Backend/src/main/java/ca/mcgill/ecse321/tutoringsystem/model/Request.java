@@ -2,12 +2,13 @@ package ca.mcgill.ecse321.tutoringsystem.model;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import java.sql.Time;
+import java.util.Set;
 import java.sql.Date;
 import javax.persistence.CascadeType;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Request {
@@ -65,15 +66,15 @@ public class Request {
 		return this.date;
 	}
 
-	private Notification notification;
+	private Set<Notification> notification;
 
-	@OneToOne(mappedBy = "request", cascade = { CascadeType.ALL }, optional = false)
-	public Notification getNotification() {
+	@OneToMany(mappedBy = "request", cascade = { CascadeType.ALL })
+	public Set<Notification> getNotification() {
 		return this.notification;
 	}
 
-	public void setNotification(Notification notification) {
-		this.notification = notification;
+	public void setNotification(Set<Notification> notifications) {
+		this.notification = notifications;
 	}
 
 	private Course course;

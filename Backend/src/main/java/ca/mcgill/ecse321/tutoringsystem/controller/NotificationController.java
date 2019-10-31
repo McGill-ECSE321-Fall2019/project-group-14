@@ -27,8 +27,8 @@ public class NotificationController {
 	RequestService requestService;
 	
 	@PostMapping(value = { "/notifications/create", "/notifications/create/"})
-	public NotificationDto createNotification(@RequestParam("requestId") Integer requestId) throws IllegalArgumentException {
-		Notification notification = notificationService.createNotification(requestService.getRequest(requestId));
+	public NotificationDto createNotification(@RequestParam("requestId") Integer requestId, @RequestParam("notificationType") String type) throws IllegalArgumentException {
+		Notification notification = notificationService.createNotification(requestService.getRequest(requestId), Enum.valueOf(NotificationType.class, type));
 		return DtoConverter.toDto(notification);
 	}
 	
