@@ -29,6 +29,6 @@ task integrationTest(type: Test) {
     description = 'Runs integration tests.'
 
     outputs.upToDateWhen { false }
-
+	include('**/TutoringSystemIntegrationExternalTests.class')
     include('**/TutoringSystemIntegrationTests.class')
 }
