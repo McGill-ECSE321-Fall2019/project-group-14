@@ -46,18 +46,17 @@ public class WageService {
   }
   
   @Transactional
-  public List<Wage> getWagebyTutor(Tutor tutor) {
+  public List<Wage> getWageByTutor(Tutor tutor) {
       return toList(wageRepository.findWageByTutor(tutor));
   }
   
   @Transactional
-  public List<Wage> getWagebyCourse(Course course) {
+  public List<Wage> getWageByCourse(Course course) {
 	    if (course == null) {
 	        throw new IllegalArgumentException("Course cannot be empty!");
 	      }
 	  return wageRepository.findWageByCourse(course);
   }
- 
   
   @Transactional
   public boolean deleteWage(Integer id) {

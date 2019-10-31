@@ -1,7 +1,8 @@
 package ca.mcgill.ecse321.tutoringsystem.model;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
@@ -10,7 +11,7 @@ import javax.persistence.GeneratedValue;
 public class Notification {
 	private Request request;
 
-	@OneToOne(optional = false)
+	@ManyToOne(optional = false)
 	public Request getRequest() {
 		return this.request;
 	}
@@ -40,5 +41,16 @@ public class Notification {
 	@GeneratedValue()
 	public Integer getNotificationId() {
 		return this.notificationId;
+	}
+	
+	private NotificationType notificationType;
+
+	public void setNotificationType(NotificationType value) {
+		this.notificationType = value;
+	}
+
+	@Enumerated(EnumType.STRING)
+	public NotificationType getNotificationType() {
+		return this.notificationType;
 	}
 }
