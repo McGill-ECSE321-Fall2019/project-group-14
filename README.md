@@ -12,13 +12,28 @@ Tools that were used include: Eclipse, Spring Boot, Gradle, UML Lab, Heroku, Dra
 
 ## Teamwork Report:
 
-| Members    | ID       | Responsibility| Hours (Sprint 1) | Hours (Sprint 2) |
-|-------------|-----------|----------------|--------|--------|
-| Steven Luu  | 260866167 | Product Manager | 14    | XX    |
-| Nelson Zeng | 260866043 | Software Lead | 15    | XX    |
-| Mehdi Ammar | 260866618 | Testing Lead | 14    | XX    |
-| Mert Gurkan | 260716883 | Documentation Lead | 12    | XX    |
+### Sprint 1
+
+| Members    | ID       | Responsibility| Hours |
+|-------------|-----------|----------------|--------|
+| Steven Luu  | 260866167 | Product Manager | 14    | 
+| Nelson Zeng | 260866043 | Software Lead | 15    | 
+| Mehdi Ammar | 260866618 | Testing Lead | 14    |
+| Mert Gurkan | 260716883 | Documentation Lead | 12    |
 | Tian Ci Liu | 260866005 | Design Lead | 17    | XX    |
+
+### Sprint 2
+
+| Members    | ID         | Responsibility    | Hours | 
+|-------------|-----------|-------------------|-------|
+| Steven Luu  | 260866167 | XXXXXXXXXXXXXXXXX | XX    | 
+| Nelson Zeng | 260866043 | XXXXXXXXXXXXXXXXX | XX    |
+| Mehdi Ammar | 260866618 | XXXXXXXXXXXXXXXXX | XX    | 
+| Mert Gurkan | 260716883 | XXXXXXXXXXXXXXXXX | XX    |
+| Tian Ci Liu | 260866005 | XXXXXXXXXXXXXXXXX | XX    | 
 
 ## Sprint 1
 You can access sprint 1 [here](https://github.com/McGill-ECSE321-Fall2019/project-group-14/wiki/Sprint-1).
+
+## Sprint 2
+You can access sprint 2 [here](https://github.com/McGill-ECSE321-Fall2019/project-group-14/wiki/Sprint-2).
