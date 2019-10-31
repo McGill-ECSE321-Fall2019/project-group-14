@@ -45,7 +45,7 @@
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_-N9VAOeVEemToPnOLeEJLQ" sourceAnchor="146.0,87.0" targetAnchor="86.0,0.0" target="_4UHz0OeVEemToPnOLeEJLQ" source="_R4OAgOeTEemToPnOLeEJLQ">
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_-N8G4OeVEemToPnOLeEJLQ"/>
     <visualProperties xmi:id="_-N9VAeeVEemToPnOLeEJLQ" position="3417.0,731.0"/>
-    <bendpoints xmi:id="_Bc_0EO1NEemKd4zVFf9rqQ" sourceX="515" sourceY="3" targetX="-1" targetY="-166"/>
+    <bendpoints xmi:id="_y69xoPt8EemG3sAZNwImCg" sourceX="515" sourceY="3" targetX="-1" targetY="-166"/>
     <nameVisual xmi:id="_-N9VAueVEemToPnOLeEJLQ" text="">
       <visualProperties xmi:id="_-QbaMeeVEemToPnOLeEJLQ" position="-12.0,40.0"/>
     </nameVisual>
@@ -65,7 +65,7 @@
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_-cjxsOeVEemToPnOLeEJLQ" sourceAnchor="148.0,32.0" targetAnchor="121.0,0.0" target="_4UHz0OeVEemToPnOLeEJLQ" source="_Wg7RAOeTEemToPnOLeEJLQ">
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_-ch8gOeVEemToPnOLeEJLQ"/>
     <visualProperties xmi:id="_-cjxseeVEemToPnOLeEJLQ" position="3417.0,731.0"/>
-    <bendpoints xmi:id="_BdAbIu1NEemKd4zVFf9rqQ" sourceX="222" sourceY="1" targetX="-1" targetY="-228"/>
+    <bendpoints xmi:id="_y6_m0Pt8EemG3sAZNwImCg" sourceX="222" sourceY="1" targetX="-1" targetY="-228"/>
     <nameVisual xmi:id="_-cjxsueVEemToPnOLeEJLQ" text="">
       <visualProperties xmi:id="_-g9wkOeVEemToPnOLeEJLQ" position="2.0,82.0"/>
     </nameVisual>
@@ -123,7 +123,7 @@
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_bQc3AOeaEemToPnOLeEJLQ" sourceAnchor="35.0,60.0" targetAnchor="203.0,135.0" target="_ua-2YOeTEemToPnOLeEJLQ" source="_Wg7RAOeTEemToPnOLeEJLQ">
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_bQbo4OeaEemToPnOLeEJLQ"/>
     <visualProperties xmi:id="_bQc3AeeaEemToPnOLeEJLQ"/>
-    <bendpoints xmi:id="_BdBCMO1NEemKd4zVFf9rqQ" sourceX="1" sourceY="252" targetX="106" targetY="1"/>
+    <bendpoints xmi:id="_y6_m0ft8EemG3sAZNwImCg" sourceX="1" sourceY="252" targetX="106" targetY="1"/>
     <nameVisual xmi:id="_bQc3AueaEemToPnOLeEJLQ" text="">
       <visualProperties xmi:id="_bTwCoeeaEemToPnOLeEJLQ" position="-37.0,-11.0"/>
     </nameVisual>
@@ -143,7 +143,7 @@
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_OJ-ScOhqEem-kuBNwFGEnQ" sourceAnchor="101.0,113.0" targetAnchor="204.0,73.0" target="_wDWiYeeTEemToPnOLeEJLQ" source="_VE6mAOeTEemToPnOLeEJLQ">
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_OJ3kwOhqEem-kuBNwFGEnQ"/>
     <visualProperties xmi:id="_OJ-ScehqEem-kuBNwFGEnQ"/>
-    <bendpoints xmi:id="_BdBCMe1NEemKd4zVFf9rqQ" sourceY="644" targetX="844" targetY="-6"/>
+    <bendpoints xmi:id="_y6_m0vt8EemG3sAZNwImCg" sourceY="644" targetX="844" targetY="-6"/>
     <nameVisual xmi:id="_OJ-ScuhqEem-kuBNwFGEnQ" text="">
       <visualProperties xmi:id="_ONNzsOhqEem-kuBNwFGEnQ" position="-310.0,-11.0"/>
     </nameVisual>
@@ -176,14 +176,14 @@
       <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_fOKzQuhqEem-kuBNwFGEnQ"/>
       <visualProperties xmi:id="_fRJOwehqEem-kuBNwFGEnQ" position="-80.0,-23.0"/>
       <visibility xmi:id="_fOMod-hqEem-kuBNwFGEnQ" label="+"/>
-      <cardinality xmi:id="_fOMoeOhqEem-kuBNwFGEnQ" label="1" max="1" min="1"/>
+      <cardinality xmi:id="_fOMoeOhqEem-kuBNwFGEnQ" label="*" max="-1"/>
     </targetRole>
   </edges>
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_dMuOAOhsEem-kuBNwFGEnQ" sourceAnchor="98.0,92.0" targetAnchor="127.0,0.0" target="_Zg0O4OhqEem-kuBNwFGEnQ" source="_R4OAgOeTEemToPnOLeEJLQ">
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_dMrxwOhsEem-kuBNwFGEnQ"/>
     <visualProperties xmi:id="_dMuOAehsEem-kuBNwFGEnQ" position="3189.0,959.0"/>
-    <bendpoints xmi:id="_Bc_0Ee1NEemKd4zVFf9rqQ" sourceY="61" targetX="-385" targetY="-299"/>
-    <bendpoints xmi:id="_Bc_0Eu1NEemKd4zVFf9rqQ" sourceX="387" sourceY="63" targetX="2" targetY="-297"/>
+    <bendpoints xmi:id="_y6-YsPt8EemG3sAZNwImCg" sourceY="61" targetX="-385" targetY="-299"/>
+    <bendpoints xmi:id="_y6-Ysft8EemG3sAZNwImCg" sourceX="387" sourceY="63" targetX="2" targetY="-297"/>
     <nameVisual xmi:id="_dMuOAuhsEem-kuBNwFGEnQ" text="">
       <visualProperties xmi:id="_dOKYcehsEem-kuBNwFGEnQ" position="2.0,-1.0"/>
     </nameVisual>
@@ -222,7 +222,7 @@
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_Af_HUOhtEem-kuBNwFGEnQ" sourceAnchor="46.0,113.0" targetAnchor="203.0,30.0" target="_ua-2YOeTEemToPnOLeEJLQ" source="_VE6mAOeTEemToPnOLeEJLQ">
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_Af5nwOhtEem-kuBNwFGEnQ"/>
     <visualProperties xmi:id="_Af_uYOhtEem-kuBNwFGEnQ"/>
-    <bendpoints xmi:id="_BdBCMu1NEemKd4zVFf9rqQ" sourceY="99" targetX="552" targetY="1"/>
+    <bendpoints xmi:id="_y7AN4Pt8EemG3sAZNwImCg" sourceY="99" targetX="552" targetY="1"/>
     <nameVisual xmi:id="_Af_uYehtEem-kuBNwFGEnQ" text="">
       <visualProperties xmi:id="_Aij6MOhtEem-kuBNwFGEnQ" position="-280.0,-9.0"/>
     </nameVisual>
@@ -256,7 +256,10 @@
     <bendpoints xmi:id="_U9n6FOrnEemkXbLyCovKqA" sourceX="-30" targetX="60" targetY="82"/>
     <bendpoints xmi:id="_U9n6FernEemkXbLyCovKqA" sourceX="-30" sourceY="-82" targetX="60"/>
   </edges>
-  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_an81EOh1EemUkc9FMtfjqQ" sourceAnchor="81.0,0.0" targetAnchor="47.0,56.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_ypT4AOeTEemToPnOLeEJLQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_an81EOh1EemUkc9FMtfjqQ" sourceAnchor="51.0,0.0" targetAnchor="47.0,58.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_ypT4AOeTEemToPnOLeEJLQ">
+    <bendpoints xmi:id="_y7BcAPt8EemG3sAZNwImCg" sourceY="-31" targetX="-30" targetY="65"/>
+    <bendpoints xmi:id="_y7BcAft8EemG3sAZNwImCg" sourceX="30" sourceY="-31" targetY="65"/>
+  </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_an_4YOh1EemUkc9FMtfjqQ" sourceAnchor="5.0,0.0" targetAnchor="92.0,29.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="_1vn2wOeVEemToPnOLeEJLQ">
     <visualProperties xmi:id="_NJtBwOxbEemSOujT7s8EfQ" visible="false"/>
     <bendpoints xmi:id="_U9n6EernEemkXbLyCovKqA" sourceY="-38" targetX="1206" targetY="-557"/>
@@ -350,8 +353,8 @@
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_siLrMO1FEemKd4zVFf9rqQ" sourceAnchor="203.0,0.0" targetAnchor="69.0,168.0" target="_ua-2YOeTEemToPnOLeEJLQ" source="_wDWiYeeTEemToPnOLeEJLQ">
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_siJO8O1FEemKd4zVFf9rqQ"/>
     <visualProperties xmi:id="_siLrMe1FEemKd4zVFf9rqQ"/>
-    <bendpoints xmi:id="_BdAbIO1NEemKd4zVFf9rqQ" sourceX="-3" sourceY="-218" targetX="-107" targetY="123"/>
-    <bendpoints xmi:id="_BdAbIe1NEemKd4zVFf9rqQ" sourceX="104" sourceY="-220" targetY="121"/>
+    <bendpoints xmi:id="_y6-_wPt8EemG3sAZNwImCg" sourceX="-3" sourceY="-218" targetX="-107" targetY="123"/>
+    <bendpoints xmi:id="_y6-_wft8EemG3sAZNwImCg" sourceX="104" sourceY="-220" targetY="121"/>
     <nameVisual xmi:id="_siLrMu1FEemKd4zVFf9rqQ" text="">
       <visualProperties xmi:id="_smKzUO1FEemKd4zVFf9rqQ" position="8.0,-12.0"/>
     </nameVisual>
@@ -371,13 +374,13 @@
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_BZIAsO1NEemKd4zVFf9rqQ" sourceAnchor="0.0,46.0" targetAnchor="85.0,0.0" target="_HmqEgOhsEem-kuBNwFGEnQ" source="_R4OAgOeTEemToPnOLeEJLQ">
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_BZGLgO1NEemKd4zVFf9rqQ"/>
     <visualProperties xmi:id="_BZIAse1NEemKd4zVFf9rqQ"/>
-    <bendpoints xmi:id="_Bc_0E-1NEemKd4zVFf9rqQ" sourceX="-221" targetY="-86"/>
+    <bendpoints xmi:id="_y6-Ysvt8EemG3sAZNwImCg" sourceX="-221" targetY="-86"/>
     <nameVisual xmi:id="_BZIAsu1NEemKd4zVFf9rqQ" text="">
-      <visualProperties xmi:id="_BdCQUe1NEemKd4zVFf9rqQ" position="2.0,23.33333333333337"/>
+      <visualProperties xmi:id="_BdCQUe1NEemKd4zVFf9rqQ" position="2.0,23.0"/>
     </nameVisual>
     <sourceRole xmi:id="_BZIAs-1NEemKd4zVFf9rqQ" aggregationKind="NONE" name="tutor" navigable="true">
       <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_BZGykO1NEemKd4zVFf9rqQ"/>
-      <visualProperties xmi:id="_BdCQUO1NEemKd4zVFf9rqQ" position="-71.66666666666652,2.0"/>
+      <visualProperties xmi:id="_BdCQUO1NEemKd4zVFf9rqQ" position="-72.0,2.0"/>
       <visibility xmi:id="_BZIAtO1NEemKd4zVFf9rqQ" label="+"/>
       <cardinality xmi:id="_BZIAte1NEemKd4zVFf9rqQ" label="1" max="1" min="1"/>
     </sourceRole>
@@ -387,6 +390,10 @@
       <visibility xmi:id="_BZIAt-1NEemKd4zVFf9rqQ" label="+"/>
       <cardinality xmi:id="_BZIAuO1NEemKd4zVFf9rqQ" label="*" max="-1"/>
     </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_IRpGMPt7EemG3sAZNwImCg" sourceAnchor="58.0,0.0" targetAnchor="47.0,58.0" enclosingItem="_e9ylEeeSEemToPnOLeEJLQ" containedItem="__zM6QPt6EemG3sAZNwImCg">
+    <bendpoints xmi:id="_y7BcAvt8EemG3sAZNwImCg" sourceY="-30" targetX="-147" targetY="65"/>
+    <bendpoints xmi:id="_y7CDEPt8EemG3sAZNwImCg" sourceX="147" sourceY="-30" targetY="65"/>
   </edges>
   <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_HmqEgOhsEem-kuBNwFGEnQ" containment="_aoTaYOh1EemUkc9FMtfjqQ" name="Wage" package="_e9ylEeeSEemToPnOLeEJLQ" associationsIn="_kerYsOhsEem-kuBNwFGEnQ _BZIAsO1NEemKd4zVFf9rqQ">
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_Hmo2YOhsEem-kuBNwFGEnQ"/>
@@ -431,7 +438,7 @@
       </type>
     </attributes>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_e9ylEeeSEemToPnOLeEJLQ" containment="_iaFFwOeSEemToPnOLeEJLQ" containments="_ldLqYOeSEemToPnOLeEJLQ _anzEEOh1EemUkc9FMtfjqQ _an2ucOh1EemUkc9FMtfjqQ _an5KsOh1EemUkc9FMtfjqQ _an81EOh1EemUkc9FMtfjqQ _an_4YOh1EemUkc9FMtfjqQ _aoBtkOh1EemUkc9FMtfjqQ _aoEw4Oh1EemUkc9FMtfjqQ _aoHNIOh1EemUkc9FMtfjqQ _aoKQcOh1EemUkc9FMtfjqQ _aoQXEOh1EemUkc9FMtfjqQ _aoTaYOh1EemUkc9FMtfjqQ _aoV2oOh1EemUkc9FMtfjqQ _aoY58Oh1EemUkc9FMtfjqQ" classes="_js4xcOeSEemToPnOLeEJLQ _hp2tQOeTEemToPnOLeEJLQ _ua-2YOeTEemToPnOLeEJLQ _VE6mAOeTEemToPnOLeEJLQ _Wg7RAOeTEemToPnOLeEJLQ _ypT4AOeTEemToPnOLeEJLQ _1vn2wOeVEemToPnOLeEJLQ _jHiMMeeTEemToPnOLeEJLQ _wDWiYeeTEemToPnOLeEJLQ _R4OAgOeTEemToPnOLeEJLQ _4UHz0OeVEemToPnOLeEJLQ _HmqEgOhsEem-kuBNwFGEnQ _Zg0O4OhqEem-kuBNwFGEnQ _48BhUOeVEemToPnOLeEJLQ" name="model" nestingPackage="_dQFtIeeSEemToPnOLeEJLQ">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_e9ylEeeSEemToPnOLeEJLQ" containment="_iaFFwOeSEemToPnOLeEJLQ" containments="_ldLqYOeSEemToPnOLeEJLQ _anzEEOh1EemUkc9FMtfjqQ _an2ucOh1EemUkc9FMtfjqQ _an5KsOh1EemUkc9FMtfjqQ _an81EOh1EemUkc9FMtfjqQ _an_4YOh1EemUkc9FMtfjqQ _aoBtkOh1EemUkc9FMtfjqQ _aoEw4Oh1EemUkc9FMtfjqQ _aoHNIOh1EemUkc9FMtfjqQ _aoKQcOh1EemUkc9FMtfjqQ _aoQXEOh1EemUkc9FMtfjqQ _aoTaYOh1EemUkc9FMtfjqQ _aoV2oOh1EemUkc9FMtfjqQ _aoY58Oh1EemUkc9FMtfjqQ _IRpGMPt7EemG3sAZNwImCg" classes="_js4xcOeSEemToPnOLeEJLQ _hp2tQOeTEemToPnOLeEJLQ _ua-2YOeTEemToPnOLeEJLQ _VE6mAOeTEemToPnOLeEJLQ _Wg7RAOeTEemToPnOLeEJLQ _ypT4AOeTEemToPnOLeEJLQ _1vn2wOeVEemToPnOLeEJLQ _jHiMMeeTEemToPnOLeEJLQ _wDWiYeeTEemToPnOLeEJLQ _R4OAgOeTEemToPnOLeEJLQ _4UHz0OeVEemToPnOLeEJLQ _HmqEgOhsEem-kuBNwFGEnQ _Zg0O4OhqEem-kuBNwFGEnQ _48BhUOeVEemToPnOLeEJLQ __zM6QPt6EemG3sAZNwImCg" name="model" nestingPackage="_dQFtIeeSEemToPnOLeEJLQ">
     <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_e9ylEOeSEemToPnOLeEJLQ"/>
     <visualProperties xmi:id="_e9ylEueSEemToPnOLeEJLQ" position="2227.0,687.0" size="-1.0,-1.0"/>
   </nodes>
@@ -981,7 +988,7 @@
     <attributes xmi:id="_fOOdoOhqEem-kuBNwFGEnQ" name="notification">
       <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_fOKzQuhqEem-kuBNwFGEnQ"/>
       <visibility xmi:id="_fOOdoehqEem-kuBNwFGEnQ" label="+"/>
-      <cardinality xmi:id="_fOOdouhqEem-kuBNwFGEnQ" label="1" max="1" min="1"/>
+      <cardinality xmi:id="_fOOdouhqEem-kuBNwFGEnQ" label="*" max="-1"/>
       <type xmi:id="_fOOdo-hqEem-kuBNwFGEnQ" name="Notification">
         <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_ZgyZsOhqEem-kuBNwFGEnQ"/>
       </type>
@@ -1002,5 +1009,19 @@
         <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_wDWiYOeTEemToPnOLeEJLQ"/>
       </type>
     </attributes>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:EnumerationVisual" xmi:id="__zM6QPt6EemG3sAZNwImCg" containment="_IRpGMPt7EemG3sAZNwImCg" name="NotificationType" package="_e9ylEeeSEemToPnOLeEJLQ">
+    <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#__zHasPt6EemG3sAZNwImCg"/>
+    <visualProperties xmi:id="__zM6Qft6EemG3sAZNwImCg" position="2069.0,840.0" size="116.0,109.0"/>
+    <visibility xmi:id="__zM6Qvt6EemG3sAZNwImCg" label="+"/>
+    <literals xmi:id="_BRJe8Pt7EemG3sAZNwImCg" name="Accepted">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_BRI34Pt7EemG3sAZNwImCg"/>
+    </literals>
+    <literals xmi:id="_B-efAPt7EemG3sAZNwImCg" name="Rejected">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_B-d38Pt7EemG3sAZNwImCg"/>
+    </literals>
+    <literals xmi:id="_Cou88Pt7EemG3sAZNwImCg" name="Requested">
+      <modelElement href="ca.mcgill.ecse321.tutoringsystem.model.uml#_CouV4Pt7EemG3sAZNwImCg"/>
+    </literals>
   </nodes>
 </com.yattasolutions.uml.diagrams.classifier:ClassDiagram>
