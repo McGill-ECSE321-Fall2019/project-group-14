@@ -2,7 +2,6 @@ package ca.mcgill.ecse321.tutoringsystem.service;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ca.mcgill.ecse321.tutoringsystem.dao.TimeSlotRepository;
 import ca.mcgill.ecse321.tutoringsystem.model.TimeSlot;
 import ca.mcgill.ecse321.tutoringsystem.model.Tutor;
-import ca.mcgill.ecse321.tutoringsystem.model.Wage;
 
 @Service
 public class TimeSlotService {
@@ -40,7 +38,7 @@ public class TimeSlotService {
   }
   
   @Transactional
-  public List<TimeSlot> getTimeSlotbyTutor(Tutor tutor) {
+  public List<TimeSlot> getTimeSlotByTutor(Tutor tutor) {
 	  if (tutor == null) {
 	      throw new IllegalArgumentException("A tutor needs to be specified!");
 	    }

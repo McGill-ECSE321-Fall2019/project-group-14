@@ -554,7 +554,7 @@ public class TestTutoringSystemCRUD {
         courseService.createCourse("test", institutionService.createInstitution("institutionName", SchoolLevel.University), "subject");
     Request request = requestService.createRequest(time, date, tutor, student, course);
     try {
-      notificationService.createNotification(request);
+      notificationService.createNotification(request, NotificationType.Requested);
     } catch (IllegalArgumentException e) {
       fail();
     }
@@ -569,12 +569,12 @@ public class TestTutoringSystemCRUD {
     String error = null;
     Request request = null;
     try {
-      notificationService.createNotification(request);
+      notificationService.createNotification(request, NotificationType.Requested);
     } catch (IllegalArgumentException e) {
       error = e.getMessage();
     }
 
-    assertEquals("Notification ID cannot be null!", error);
+    assertEquals("Request cannot be null!", error);
     assertEquals(0, notificationService.getAllNotifications().size());
   }
 
