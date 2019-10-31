@@ -14,7 +14,7 @@ Tools that were used include: Eclipse, Spring Boot, Gradle, UML Lab, Heroku, Dra
 
 ### Sprint 1
 
-| Members    | ID       | Responsibility| Hours (Sprint 1) |
+| Members    | ID       | Responsibility| Hours |
 |-------------|-----------|----------------|--------|
 | Steven Luu  | 260866167 | Product Manager | 14    | 
 | Nelson Zeng | 260866043 | Software Lead | 15    | 
