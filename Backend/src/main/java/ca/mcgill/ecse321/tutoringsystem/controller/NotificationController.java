@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import ca.mcgill.ecse321.tutoringsystem.dto.*;
 import ca.mcgill.ecse321.tutoringsystem.model.*;
@@ -25,11 +23,16 @@ public class NotificationController {
 	NotificationService notificationService;
 	@Autowired
 	RequestService requestService;
+	@Autowired
+	TutorService tutorService;
 	
-	@PostMapping(value = { "/notifications/create", "/notifications/create/"})
-	public NotificationDto createNotification(@RequestParam("requestId") Integer requestId, @RequestParam("notificationType") String type) throws IllegalArgumentException {
-		Notification notification = notificationService.createNotification(requestService.getRequest(requestId), Enum.valueOf(NotificationType.class, type));
-		return DtoConverter.toDto(notification);
+	@GetMapping(value = {"/notifications/tutor/{id}", "/notifications/tutor/{id}"})
+	public List<NotificationDto> getAllTutorNotifications(@PathVariable("id") Integer id) {
+		List<NotificationDto> notificationDtos = new ArrayList<>();
+		for (Notification notification : notificationService.getNotificationByTutor(tutorService.getTutor(id))) {
+			notificationDtos.add(DtoConverter.toDto(notification));
+		}
+		return notificationDtos;
 	}
 	
 	@GetMapping(value = { "/notifications/{id}", "/notifications/{id}/"})

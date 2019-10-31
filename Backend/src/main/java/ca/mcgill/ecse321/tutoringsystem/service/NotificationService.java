@@ -9,6 +9,8 @@ import ca.mcgill.ecse321.tutoringsystem.dao.NotificationRepository;
 import ca.mcgill.ecse321.tutoringsystem.model.Notification;
 import ca.mcgill.ecse321.tutoringsystem.model.NotificationType;
 import ca.mcgill.ecse321.tutoringsystem.model.Request;
+import ca.mcgill.ecse321.tutoringsystem.model.Tutor;
+
 import com.sendgrid.*;
 import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Email;
@@ -93,6 +95,11 @@ public class NotificationService {
   @Transactional
   public List<Notification> getAllNotifications() {
     return toList(notificationRepository.findAll());
+  }
+  
+  @Transactional
+  public List<Notification> getNotificationByTutor(Tutor tutor) {
+	  return toList(notificationRepository.findNotificationByTutor(tutor));
   }
 
   private <T> List<T> toList(Iterable<T> iterable) {
