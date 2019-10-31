@@ -3,7 +3,7 @@
   <uml:Model xmi:id="_xxyFAOeREemToPnOLeEJLQ" name="ca_mcgill_ecse321_tutoringsystem_model">
     <eAnnotations xmi:id="_x2fl4OeREemToPnOLeEJLQ" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_x2fl4eeREemToPnOLeEJLQ" source="codegen">
-        <details xmi:id="_nAAo0OhzEemUkc9FMtfjqQ" key="AssociatedSourceCode" value="/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Manager.java;4238430489/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Student.java;3748908789/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Course.java;1615774281/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/SchoolLevel.java;1279337377/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Application.java;2376782421/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Institution.java;3730884624/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Room.java;882829460/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Tutor.java;959333684/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Review.java;1812371144/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Wage.java;3381403101/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Notification.java;2584591343/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/TimeSlot.java;2059299876/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Person.java;3789249194/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Request.java;1934699749/1;"/>
+        <details xmi:id="_nAAo0OhzEemUkc9FMtfjqQ" key="AssociatedSourceCode" value="/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Manager.java;4238430489/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Student.java;3748908789/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Course.java;1615774281/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/SchoolLevel.java;1279337377/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Application.java;2376782421/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Institution.java;3730884624/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Room.java;882829460/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Tutor.java;959333684/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Review.java;1812371144/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Wage.java;3381403101/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Notification.java;1442657736/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/TimeSlot.java;2059299876/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Person.java;3789249194/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/Request.java;3822396865/1;/ca.mcgill.ecse321.tutoringsystem.model/src-gen/ca/mcgill/ecse321/tutoringsystem/model/NotificationType.java;3958453454/1;"/>
         <details xmi:id="_BOxjIOriEemkXbLyCovKqA" key="codegenDirectory" value="/ca.mcgill.ecse321.tutoringsystem.model/src-gen"/>
       </contents>
       <contents xmi:type="ecore:EAnnotation" xmi:id="_jkykYOedEemToPnOLeEJLQ" source="dangling-refs">
@@ -268,8 +268,8 @@
                 <ownedAttribute xmi:id="_3WNgcOedEemToPnOLeEJLQ" name="time" visibility="public" type="_yNnP8OeSEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_3pu5YOedEemToPnOLeEJLQ" name="date" visibility="public" type="_ytaxYOeSEemToPnOLeEJLQ"/>
                 <ownedAttribute xmi:id="_fOKzQuhqEem-kuBNwFGEnQ" name="notification" type="_ZgyZsOhqEem-kuBNwFGEnQ" aggregation="composite" association="_fOKMMOhqEem-kuBNwFGEnQ">
-                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fOKzQ-hqEem-kuBNwFGEnQ" value="1"/>
-                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fOKzROhqEem-kuBNwFGEnQ" value="1"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fOKzQ-hqEem-kuBNwFGEnQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fOKzROhqEem-kuBNwFGEnQ" value="*"/>
                 </ownedAttribute>
                 <ownedAttribute xmi:id="_4aHzo-iREemz8reodOmmoQ" name="course" type="_hp2GMOeTEemToPnOLeEJLQ" association="_4aHMkOiREemz8reodOmmoQ">
                   <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4aIasOiREemz8reodOmmoQ" value="1"/>
@@ -300,6 +300,11 @@
               </packagedElement>
               <packagedElement xmi:type="uml:Association" xmi:id="_siJO8O1FEemKd4zVFf9rqQ" name="" memberEnd="_siJO8e1FEemKd4zVFf9rqQ _siJ2Au1FEemKd4zVFf9rqQ"/>
               <packagedElement xmi:type="uml:Association" xmi:id="_BZGLgO1NEemKd4zVFf9rqQ" name="" memberEnd="_BZGykO1NEemKd4zVFf9rqQ _BZGyk-1NEemKd4zVFf9rqQ"/>
+              <packagedElement xmi:type="uml:Enumeration" xmi:id="__zHasPt6EemG3sAZNwImCg" name="NotificationType">
+                <ownedLiteral xmi:id="_BRI34Pt7EemG3sAZNwImCg" name="Accepted"/>
+                <ownedLiteral xmi:id="_B-d38Pt7EemG3sAZNwImCg" name="Rejected"/>
+                <ownedLiteral xmi:id="_CouV4Pt7EemG3sAZNwImCg" name="Requested"/>
+              </packagedElement>
             </packagedElement>
           </packagedElement>
         </packagedElement>
