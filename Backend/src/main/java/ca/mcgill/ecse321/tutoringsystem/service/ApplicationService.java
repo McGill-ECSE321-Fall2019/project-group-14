@@ -18,15 +18,15 @@ public class ApplicationService {
   public Application createApplication(Boolean isExistingUser, String name, String email, String course) {
     String error = "";
     if (isExistingUser == null) {
-      error = error + "User cannot be empty! ";
+      error = error + "Existing user flag cannot be null! ";
     }
     if (name == null || name.trim().length() == 0) {
-      error = error + "Application name cannot be empty! ";
+      error = error + "Applicant name cannot be empty! ";
     }
     if (email == null || email.trim().length() == 0) {
-      error = error + "Application email cannot be empty! ";
+      error = error + "Applicant email cannot be empty! ";
     }
-    if (course == null) {
+    if (course == null || course.trim().length() == 0) {
       error = error + "Course cannot be empty! ";
     }
     error = error.trim();

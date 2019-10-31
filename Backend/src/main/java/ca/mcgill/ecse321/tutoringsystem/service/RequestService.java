@@ -106,8 +106,8 @@ public class RequestService {
 			} else {
 				Set<Request> requests = room.getRequest();
 				for (Request checkRequest : requests) {
-					if (checkRequest.getDate() != request.getDate()
-							&& checkRequest.getTime() != request.getTime()) {
+					if (!(checkRequest.getDate().equals(request.getDate())
+							&& checkRequest.getTime().equals(request.getTime()))) {
 						request.setRoom(room);
 						requests.add(request);
 						room.setRequest(requests);

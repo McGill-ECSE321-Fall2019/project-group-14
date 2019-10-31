@@ -20,9 +20,9 @@ public class PersonService {
 	
 	@Transactional
 	public Person login(String email, String password) {
-		if (email == null) {
+		if (email == null || email.length() == 0) {
 			throw new IllegalArgumentException("Email cannot be empty!");
-		} else if (password == null) {
+		} else if (password == null || password.length() == 0) {
 			throw new IllegalArgumentException("Password cannot be empty!");
 		}
 		Manager manager = managerService.getManager(email);
