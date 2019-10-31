@@ -18,6 +18,14 @@ public class PersonService {
 	@Autowired
 	ManagerService managerService;
 	
+	/**
+	 * This method logs in the user to its corresponding role
+	 * It gets the person's role (ie subclass of Person) by finding it's email
+	 * It then compares the inputted password with the good password to login
+	 * @param email
+	 * @param password
+	 * @return the user or null
+	 */
 	@Transactional
 	public Person login(String email, String password) {
 		if (email == null || email.length() == 0) {
