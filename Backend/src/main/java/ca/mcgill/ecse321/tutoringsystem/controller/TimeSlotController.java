@@ -42,6 +42,13 @@ public class TimeSlotController {
     return timeSlotService.deleteTimeSlot(id);
   }
 
+  /**
+   * 
+   * @param date
+   * @param time
+   * @return TimeSlot at that date and time or null
+   * @throws IllegalArgumentException
+   */
   @GetMapping(value = {"/timeslots/{date}/{time}", "/timeslots/{date}/{time}/"})
   public TimeSlotDto getTimeSlotByDateAndTime(@PathVariable("date") Date date, @PathVariable("time") Time time)
       throws IllegalArgumentException {
