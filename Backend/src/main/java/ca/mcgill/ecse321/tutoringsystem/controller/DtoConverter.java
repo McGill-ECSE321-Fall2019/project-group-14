@@ -186,7 +186,7 @@ public class DtoConverter {
 		if (t == null) {
 			throw new IllegalArgumentException("There is no such Tutor!");
 		}
-		Set<TimeSlotDto> timeSlotDto = timeSlotSetToDto(t.getTimeslot());
+		Set<TimeSlotDto> timeSlotDto = timeSlotSetToDto(t.getTimeslot()); 
 		Set<WageDto> wageDto = wageSetToDto(t.getWage());
 		Set<RequestDto> requestDto = requestSetToDto(t.getRequest());
 		Set<NotificationDto> notificationDto = notificationSetToDto(t.getNotification());
