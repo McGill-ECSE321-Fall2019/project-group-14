@@ -20,7 +20,7 @@ public class TimeSlotService {
     if (tutor == null) {
       throw new IllegalArgumentException("A tutor needs to be specified!");
     }
-    if (date == null | time == null) {
+    if (date == null || time == null) {
       throw new IllegalArgumentException("Date and time cannot be empty!");
     }
     TimeSlot t = new TimeSlot();

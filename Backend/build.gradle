@@ -23,3 +23,12 @@ dependencies {
 	
 	implementation 'com.sendgrid:sendgrid-java:4.4.1'
 }
+
+task integrationTest(type: Test) {
+    group = 'verification'
+    description = 'Runs integration tests.'
+
+    outputs.upToDateWhen { false }
+
+    include('**/TutoringSystemIntegrationTests.class')
+}
