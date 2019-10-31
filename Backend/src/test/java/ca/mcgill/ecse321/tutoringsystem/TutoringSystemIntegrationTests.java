@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.Time;
 import java.util.Set;
 
 public class TutoringSystemIntegrationTests {
@@ -124,6 +125,7 @@ public class TutoringSystemIntegrationTests {
 	/*
 	 * MANAGER
 	 */
+	
 	@Test
 	public void testCreateManager() {
 		try {
@@ -135,6 +137,27 @@ public class TutoringSystemIntegrationTests {
 			fail();
 		}
 	}
+	
+	/*
+	 * NOTIFICATION
+	 */
+	
+	@Test
+	public void testCreateNotifcation() {
+		try {
+//			JSONObject request = send("POST", APP_URL, "/requests/create", "time=" + Time.valueOf("08:00:01") +"&");
+			response = send("POST", APP_URL, "/notifications/create",
+					"requestId=null" + "&notificationType=Accepted");
+			System.out.println("Received: " + response.toString());
+			assertEquals(restName, response.getString("name"));
+		} catch (JSONException e) {
+			fail();
+		}
+	}
+	
+	/*
+	 * 
+	 */
 	
 	@Test
 	public void testCreateRoom() {
