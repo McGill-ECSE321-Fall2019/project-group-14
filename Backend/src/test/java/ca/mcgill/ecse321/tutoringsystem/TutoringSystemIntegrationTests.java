@@ -131,7 +131,7 @@ public class TutoringSystemIntegrationTests {
 			System.out.println(response.getString("userId"));
 			response = send("PUT", APP_URL, "/tutors/update/" + response.getString("userId"),
 					"name=" + restName + "&email=" + restEmail + "&password=" + newPassword + "&timeslots=&wage=");
-			assertEquals("true", response.toString());
+			assertEquals("true", response.getString("boolean"));
 		} catch (JSONException e) {
 			fail();
 		}
