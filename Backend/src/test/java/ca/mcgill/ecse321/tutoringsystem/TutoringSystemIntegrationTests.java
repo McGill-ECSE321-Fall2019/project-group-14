@@ -182,6 +182,11 @@ public class TutoringSystemIntegrationTests {
 			fail();
 		}
 	}
+	
+	@Test
+	public void testDeleteApplication() {
+		
+	}
 
 	/*
 	 * COURSE
@@ -206,6 +211,11 @@ public class TutoringSystemIntegrationTests {
 	public void testGetCourse() {
 
 	}
+	
+	@Test
+	public void testDeleteCourse() {
+		
+	}
 
 	/*
 	 * INSTITUTION
@@ -220,6 +230,11 @@ public class TutoringSystemIntegrationTests {
 		} catch (JSONException e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void testDeleteInstitution() {
+		
 	}
 
 	/*
@@ -236,6 +251,11 @@ public class TutoringSystemIntegrationTests {
 		} catch (JSONException e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void testDeleteManager() {
+		
 	}
 
 	/*
@@ -274,7 +294,21 @@ public class TutoringSystemIntegrationTests {
 			fail();
 		}
 	}
+	
+	@Test
+	public void testDeleteReview() {
+		
+	}
+	
+	/*
+	 * REQUEST
+	 */
 
+	@Test
+	public void testDeleteRequest() {
+		
+	}
+	
 	/*
 	 * ROOM
 	 */
@@ -288,6 +322,11 @@ public class TutoringSystemIntegrationTests {
 		} catch (JSONException e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void testDeleteRoom() {
+		
 	}
 
 	/*
@@ -304,6 +343,11 @@ public class TutoringSystemIntegrationTests {
 		} catch (JSONException e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void testDeleteStudent() {
+		
 	}
 
 	/*
@@ -323,6 +367,11 @@ public class TutoringSystemIntegrationTests {
 			e.printStackTrace();
 			fail();
 		}
+	}
+	
+	@Test
+	public void testDeleteTimeSlot() {
+		
 	}
 
 	/*
@@ -349,6 +398,11 @@ public class TutoringSystemIntegrationTests {
 			e.printStackTrace();
 			fail();
 		}
+	}
+	
+	@Test
+	public void testDeleteWage() {
+		
 	}
 
 	public JSONObject send(String type, String appURL, String path, String parameters) {
