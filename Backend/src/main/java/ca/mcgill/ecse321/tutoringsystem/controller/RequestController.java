@@ -54,12 +54,22 @@ public class RequestController {
 		return requestDtos;	
 	}
 	
+	/**
+	 * @param Tutor id
+	 * @return All request from that Tutor
+	 * @throws IllegalArgumentException
+	 */
 	@GetMapping(value = { "/requests/tutor/{id}", "/requests/tutor/{id}/" })
 	public Set<RequestDto> getRequestsByTutorId(@PathVariable("id") Integer id) throws IllegalArgumentException {
 		Set<Request> requestSet = new HashSet<Request>(requestService.getTutorRequests(tutorService.getTutor(id)));
 		return DtoConverter.requestSetToDto(requestSet);
 	}
 	
+	/**
+	 * @param Request id
+	 * @return All the accepted requests
+	 * @throws IllegalArgumentException
+	 */
 	@GetMapping(value = { "/sessions/accepted/{id}", "/sessions/accepted/{id}/" })
 	public Set<RequestDto> getRequestsByAcceptedTutorId(@PathVariable("id") Integer id) throws IllegalArgumentException {
 		Set<Request> requestSet = new HashSet<Request>(requestService.getAcceptedTutorRequests(tutorService.getTutor(id)));

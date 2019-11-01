@@ -49,6 +49,11 @@ public class StudentController {
     return studentDtos;
   }
   
+  /**
+   * @param id or email input
+   * @return true if student was deleted or error if student wasn't found
+   * @throws IllegalArgumentException
+   */
   @DeleteMapping(value = { "/students/{input}", "/students/{input}/" })
 	public boolean deleteStudentBy(@PathVariable(name = "input") String input) throws IllegalArgumentException {
 		if (input.chars().allMatch(Character::isDigit)) {
