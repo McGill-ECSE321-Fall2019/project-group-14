@@ -68,11 +68,12 @@ public class TutorController {
    * @throws IllegalArgumentException
    */
   @PutMapping(value = {"/tutors/update/{id}", "/tutors/update/{id}/"})
-  public void changeTutorSettings(@PathVariable("id") Integer id,
+  public boolean changeTutorSettings(@PathVariable("id") Integer id,
       @RequestParam(name = "name") String name, @RequestParam(name = "password") String password,
       @RequestParam(name = "timeslots") Set<TimeSlot> timeslots,
       @RequestParam(name = "wage") Set<Wage> wages) throws IllegalArgumentException {
     tutorService.changeTutorSettings(id, name, password, timeslots, wages);
+    return true;
   }
 
 }

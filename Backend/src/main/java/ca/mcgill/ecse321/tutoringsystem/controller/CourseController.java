@@ -1,7 +1,7 @@
 package ca.mcgill.ecse321.tutoringsystem.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,21 +27,15 @@ public class CourseController {
 	InstitutionService institutionService;
 	
 	@GetMapping(value = { "/courses", "/courses/" })
-	public List<CourseDto> getAllCourses() {
-		List<CourseDto> courseDtos = new ArrayList<>();
-		for (Course course : courseService.getAllCourses()) {
-			courseDtos.add(DtoConverter.toDto(course));
-		}
-		return courseDtos;
+	public Set<CourseDto> getAllCourses() {
+		Set<Course> courses = new HashSet<Course>(courseService.getAllCourses());
+		return DtoConverter.courseSetToDto(courses);
 	}
 	
 	@GetMapping(value = { "/courses/subject/{subject}", "/courses/subject/{subject}/" })
-	public List<CourseDto> getCourseBySubject(@PathVariable(name = "subject") String subject) throws IllegalArgumentException {
-		List<CourseDto> courseDtos = new ArrayList<>();
-		for (Course course : courseService.getAllCoursesWithSubject(subject)) {
-			courseDtos.add(DtoConverter.toDto(course));
-		}
-		return courseDtos;
+	public Set<CourseDto> getCourseBySubject(@PathVariable(name = "subject") String subject) throws IllegalArgumentException {
+		Set<Course> courses = new HashSet<Course>(courseService.getAllCoursesWithSubject(subject));
+		return DtoConverter.courseSetToDto(courses);
 	}
 	
 	@GetMapping(value = { "/courses/{course}", "/courses/{course}/" })
