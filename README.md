@@ -16,21 +16,21 @@ Tools that were used include: Eclipse, Spring Boot, Gradle, UML Lab, Heroku, Dra
 
 | Members    | ID       | Responsibility| Hours |
 |-------------|-----------|----------------|--------|
-| Steven Luu  | 260866167 | Product Manager | 14    | 
-| Nelson Zeng | 260866043 | Software Lead | 15    | 
-| Mehdi Ammar | 260866618 | Testing Lead | 14    |
-| Mert Gurkan | 260716883 | Documentation Lead | 12    |
-| Tian Ci Liu | 260866005 | Design Lead | 17    | XX    |
+| Steven Luu  | 260866167 | Documentation and Model | 14    | 
+| Nelson Zeng | 260866043 | Unit tests and Repository | 15    | 
+| Mehdi Ammar | 260866618 | UML Model and Tests | 14    |
+| Mert Gurkan | 260716883 | Documentation and Tests | 12    |
+| Tian Ci Liu | 260866005 | UML Model and Tests | 17    | XX    |
 
 ### Sprint 2
 
 | Members    | ID         | Responsibility    | Hours | 
 |-------------|-----------|-------------------|-------|
-| Steven Luu  | 260866167 | XXXXXXXXXXXXXXXXX | XX    | 
-| Nelson Zeng | 260866043 | XXXXXXXXXXXXXXXXX | XX    |
-| Mehdi Ammar | 260866618 | XXXXXXXXXXXXXXXXX | XX    | 
-| Mert Gurkan | 260716883 | XXXXXXXXXXXXXXXXX | XX    |
-| Tian Ci Liu | 260866005 | XXXXXXXXXXXXXXXXX | XX    | 
+| Steven Luu  | 260866167 | Service and Documentation | 20    | 
+| Nelson Zeng | 260866043 | Controller and Tests | 20    |
+| Mehdi Ammar | 260866618 | Tests and Controller | 20    | 
+| Mert Gurkan | 260716883 | Documentation and Controller | 20    |
+| Tian Ci Liu | 260866005 | Service and Tests | 20    | 
 
 ## Sprint 1
 You can access sprint 1 [here](https://github.com/McGill-ECSE321-Fall2019/project-group-14/wiki/Sprint-1).
