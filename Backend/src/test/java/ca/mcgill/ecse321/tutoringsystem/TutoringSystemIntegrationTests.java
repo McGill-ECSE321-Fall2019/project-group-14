@@ -108,15 +108,12 @@ public class TutoringSystemIntegrationTests {
 	@Test
 	public void testUpdateTutorPassword() {
 		try {
-			Set<TimeSlot> timeslots = null;
-			Set<Wage> wages = null;
 			String newPassword = "userpassword321";
 			response = send("POST", APP_URL, "/tutors/create",
 					"name=" + restName + "&email=" + restEmail + "&password=" + restPassword);
 			System.out.println(response.getString("userId"));
 			response = send("PUT", APP_URL, "/tutors/update/" + response.getString("userId"),
-					"name=" + restName + "&email=" + restEmail + "&password=" + newPassword + "&timeslots=" + timeslots
-							+ "&wage=" + wages);
+					"name=" + restName + "&email=" + restEmail + "&password=" + newPassword + "&timeslots=&wage=");
 			System.out.println("Received: " + response.toString());
 			assertEquals(newPassword, response.getString("password"));
 		} catch (JSONException e) {
