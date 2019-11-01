@@ -9,6 +9,8 @@ import ca.mcgill.ecse321.tutoringsystem.dao.NotificationRepository;
 import ca.mcgill.ecse321.tutoringsystem.model.Notification;
 import ca.mcgill.ecse321.tutoringsystem.model.NotificationType;
 import ca.mcgill.ecse321.tutoringsystem.model.Request;
+import ca.mcgill.ecse321.tutoringsystem.model.Tutor;
+
 import com.sendgrid.*;
 import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Email;
@@ -38,11 +40,18 @@ public class NotificationService {
     return n;
   }
 
+  /**
+   * This method notifies the Tutor with a specific Notification by sending a formatted email
+   * Depending on the type of notification, the email contains a different message
+   * The emails contain relevant information such as the Student name, Course name, Time, Date and Room number
+   * The emails are sent using SendGrid API
+   * @param Notification n
+   */
   public void notify(Notification n) {
 	Mail mail = new Mail();
     String contenttext = "";
     String subject = "";
-		switch (n.getNotificationType()) {
+	switch (n.getNotificationType()) {
 		case Requested:
 			subject = "New Request";
 			contenttext = n.getRequest().getStudent().getName() + " has requested a session for "
@@ -61,7 +70,7 @@ public class NotificationService {
 					+ n.getRequest().getStudent().getName() + " at " + n.getRequest().getTime() + " on " + n.getRequest().getDate()
 					+ " has been cancelled or could not have been created.";
 			break;
-		}
+	}
     mail.setFrom(new Email("tutoringSystem@mcgill.ca"));
     mail.setTemplateId("d-60dacaed87e44dfbaf071956a6ece8ac");
     Personalization personalization = new Personalization();
@@ -93,6 +102,11 @@ public class NotificationService {
   @Transactional
   public List<Notification> getAllNotifications() {
     return toList(notificationRepository.findAll());
+  }
+  
+  @Transactional
+  public List<Notification> getNotificationByTutor(Tutor tutor) {
+	  return toList(notificationRepository.findNotificationByTutor(tutor));
   }
 
   private <T> List<T> toList(Iterable<T> iterable) {

@@ -6,6 +6,9 @@ import java.util.Set;
 import ca.mcgill.ecse321.tutoringsystem.dto.*;
 import ca.mcgill.ecse321.tutoringsystem.model.*;
 
+/**
+ * This class converts all the model classes to its Dto counter parts
+ */
 public class DtoConverter {
 
 	public static ApplicationDto toDto(Application a) {
