@@ -182,6 +182,11 @@ public class TutoringSystemIntegrationTests {
 			fail();
 		}
 	}
+	
+	@Test
+	public void testDeleteApplication() {
+		
+	}
 
 	/*
 	 * COURSE
@@ -217,6 +222,11 @@ public class TutoringSystemIntegrationTests {
 			fail();
 		}
 	}
+	
+	@Test
+	public void testDeleteCourse() {
+		
+	}
 
 	/*
 	 * INSTITUTION
@@ -234,10 +244,14 @@ public class TutoringSystemIntegrationTests {
 	}
 	
 	@Test
-	public void testGetInstitution() {
+	public void testDeleteInstitution() {
 		
 	}
 
+	@Test
+	public void testGetInstitution() {
+		
+	}
 
 	/*
 	 * MANAGER
@@ -253,6 +267,11 @@ public class TutoringSystemIntegrationTests {
 		} catch (JSONException e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void testDeleteManager() {
+		
 	}
 	
 	@Test
@@ -312,7 +331,21 @@ public class TutoringSystemIntegrationTests {
 	}
 	
 	@Test
+	public void testDeleteReview() {
+		
+	}
+	
+	@Test
 	public void testGetReview() {
+		
+	}
+
+	/*
+	 * REQUEST
+	 */
+	
+	@Test
+	public void testDeleteRequest() {
 		
 	}
 
@@ -329,6 +362,11 @@ public class TutoringSystemIntegrationTests {
 		} catch (JSONException e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void testDeleteRoom() {
+		
 	}
 	
 	@Test
@@ -350,6 +388,11 @@ public class TutoringSystemIntegrationTests {
 		} catch (JSONException e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void testDeleteStudent() {
+		
 	}
 	
 	@Test
@@ -386,6 +429,12 @@ public class TutoringSystemIntegrationTests {
 	}
 	
 	@Test
+	public void testDeleteTimeSlot() {
+		
+		
+	}
+	
+	@Test
 	public void testGetTimeSlot() {
 		
 	}
@@ -417,12 +466,16 @@ public class TutoringSystemIntegrationTests {
 	}
 	
 	@Test
+	public void testDeleteWage() {
+		
+	}
+	
+	@Test
 	public void testGetWage() {
 		
 	}
 	
 	// METHODS FOR REST
-
 
 	public JSONObject send(String type, String appURL, String path, String parameters) {
 		try {

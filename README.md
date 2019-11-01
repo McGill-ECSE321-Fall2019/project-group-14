@@ -16,21 +16,21 @@ Tools that were used include: Eclipse, Spring Boot, Gradle, UML Lab, Heroku, Dra
 
 | Members    | ID       | Responsibility| Hours |
 |-------------|-----------|----------------|--------|
-| Steven Luu  |   | Product Manager | 14    | 
-| Nelson Zeng |   | Software Lead | 15    | 
-| Mehdi Ammar |   | Testing Lead | 14    |
-| Mert Gurkan |   | Documentation Lead | 12    |
-| Tian Ci Liu |   | Design Lead | 17    | XX    |
+| Steven Luu  |   | Documentation and Model | 14    | 
+| Nelson Zeng |   | Unit tests and Repository | 15    | 
+| Mehdi Ammar |   | UML Model and Tests | 14    |
+| Mert Gurkan |   | Documentation and Tests | 12    |
+| Tian Ci Liu |   | UML Model and Tests | 17    | XX    |
 
 ### Sprint 2
 
 | Members    | ID         | Responsibility    | Hours | 
 |-------------|-----------|-------------------|-------|
-| Steven Luu  |   | XXXXXXXXXXXXXXXXX | XX    | 
-| Nelson Zeng |   | XXXXXXXXXXXXXXXXX | XX    |
-| Mehdi Ammar |   | XXXXXXXXXXXXXXXXX | XX    | 
-| Mert Gurkan |   | XXXXXXXXXXXXXXXXX | XX    |
-| Tian Ci Liu |   | XXXXXXXXXXXXXXXXX | XX    | 
+| Steven Luu  |   | Service and Documentation | 20    | 
+| Nelson Zeng |   | Controller and Tests | 20    |
+| Mehdi Ammar |   | Tests and Controller | 20    | 
+| Mert Gurkan |   | Documentation and Controller | 20    |
+| Tian Ci Liu |   | Service and Tests | 20    | 
 
 ## Sprint 1
 You can access sprint 1 [here](https://github.com/McGill-ECSE321-Fall2019/project-group-14/wiki/Sprint-1).
