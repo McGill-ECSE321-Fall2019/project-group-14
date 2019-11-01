@@ -353,7 +353,7 @@ public class TutoringSystemIntegrationTests {
 			}
 			BufferedReader br = new BufferedReader(new InputStreamReader((c.getInputStream())));
 			String response = br.readLine();
-			if (response != null && !(type.equals("DELETE"))) {
+			if (response != null) {
 				JSONObject json = new JSONObject(response);
 				c.disconnect();
 				return json;
