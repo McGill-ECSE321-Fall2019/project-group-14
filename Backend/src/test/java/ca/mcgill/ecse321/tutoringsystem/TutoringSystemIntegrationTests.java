@@ -353,17 +353,15 @@ public class TutoringSystemIntegrationTests {
 			}
 			BufferedReader br = new BufferedReader(new InputStreamReader((c.getInputStream())));
 			String response = br.readLine();
-			if (response != null) {
-				if (response.equals("true") || response.equals("false")) {
-					JSONObject json = new JSONObject(response.toString());
-					c.disconnect();
-					return json;
-				}
-				JSONObject json = new JSONObject(response);
+			if (response.equals("true") || response.equals("false")) {
+				JSONObject json = new JSONObject();
+				json.put("boolean", response);
 				c.disconnect();
 				return json;
 			} else {
+				JSONObject json = new JSONObject(response);
 				c.disconnect();
+				return json;
 			}
 		} catch (JSONException | IOException e) {
 			e.printStackTrace();
