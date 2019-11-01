@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,10 +46,5 @@ public class NotificationController {
 			notificationDtos.add(DtoConverter.toDto(notification));
 		}
 		return notificationDtos;	
-	}
-	
-	@DeleteMapping(value = { "/notifications/{id}", "/notifications/{id}/" })
-	public boolean deleteNotificationById(@PathVariable("id") Integer id) throws IllegalArgumentException {
-		return notificationService.deleteNotification(id);
 	}
 }
