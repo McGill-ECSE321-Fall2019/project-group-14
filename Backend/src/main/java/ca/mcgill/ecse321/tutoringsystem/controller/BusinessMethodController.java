@@ -95,7 +95,7 @@ public class BusinessMethodController {
   }
 
 	@PostMapping(value = { "/flushdb" })
-	public void flushdb() {
+	public boolean flushdb() {
 		requestRepository.deleteAll();
 		tutorRepository.deleteAll();
 		managerRepository.deleteAll();
@@ -108,6 +108,6 @@ public class BusinessMethodController {
 		notificationRepository.deleteAll();
 		roomRepository.deleteAll();
 		courseRepository.deleteAll();
-		return;
+		return true;
 	}
 }
