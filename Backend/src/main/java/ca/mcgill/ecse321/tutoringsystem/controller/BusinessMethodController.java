@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import ca.mcgill.ecse321.tutoringsystem.dao.*;
 import ca.mcgill.ecse321.tutoringsystem.dto.PersonDto;
 import ca.mcgill.ecse321.tutoringsystem.dto.RequestDto;
 import ca.mcgill.ecse321.tutoringsystem.model.Manager;
@@ -25,6 +26,30 @@ public class BusinessMethodController {
   PersonService personService;
   @Autowired
   RequestService requestService;
+  @Autowired
+	private TutorRepository tutorRepository;
+	@Autowired
+	private StudentRepository studentRepository;
+	@Autowired
+	private ManagerRepository managerRepository;
+	@Autowired
+	private RequestRepository requestRepository;
+	@Autowired
+	private CourseRepository courseRepository;
+	@Autowired
+	private RoomRepository roomRepository;
+	@Autowired
+	private NotificationRepository notificationRepository;
+	@Autowired
+	private ReviewRepository reviewRepository;
+	@Autowired
+	private ApplicationRepository applicationRepository;
+	@Autowired
+	private InstitutionRepository institutionRepository;
+	@Autowired
+	private WageRepository wageRepository;
+	@Autowired
+	private TimeSlotRepository timeslotRepository;
 
   /**
    * Logs in the user with input email and password
@@ -69,4 +94,20 @@ public class BusinessMethodController {
     return;
   }
 
+	@PostMapping(value = { "/flushdb" })
+	public boolean flushdb() {
+		requestRepository.deleteAll();
+		tutorRepository.deleteAll();
+		managerRepository.deleteAll();
+		studentRepository.deleteAll();
+		timeslotRepository.deleteAll();
+		wageRepository.deleteAll();
+		institutionRepository.deleteAll();
+		applicationRepository.deleteAll();
+		reviewRepository.deleteAll();
+		notificationRepository.deleteAll();
+		roomRepository.deleteAll();
+		courseRepository.deleteAll();
+		return true;
+	}
 }
