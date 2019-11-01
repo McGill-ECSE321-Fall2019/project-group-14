@@ -250,7 +250,15 @@ public class TutoringSystemIntegrationTests {
 
 	@Test
 	public void testGetInstitution() {
-		
+		String institutionName;
+		try {
+			institutionName = (send("POST", APP_URL, "/institutions/create", "name=McGill" + "&level=University")).getString("institutionName");
+			response = send("GET",APP_URL, "/institutions/" + institutionName, "");
+			assertEquals("McGill", response.getString("institutionName"));
+		} catch (JSONException e) {
+			fail();
+		}
+
 	}
 
 	/*
@@ -279,11 +287,12 @@ public class TutoringSystemIntegrationTests {
 		try {
 			JSONObject manager = send("POST", APP_URL, "/managers/create",
 					"name=" + restName + "&email=" + restEmailManager + "&password=" + restPassword);
-			String managerId = manager.getString("userId");
-			response = send("GET", APP_URL, "/tutors/" + managerId, "");
+			String managerEmail = manager.getString("email");
+			response = send("GET", APP_URL, "/managers/email/" + managerEmail, "");
 			System.out.println("Received: " + response.toString());
 			assertEquals(restEmailManager, response.getString("email"));
 		} catch (JSONException e) {
+			e.printStackTrace();
 			fail();
 		}
 	}
@@ -337,7 +346,19 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void testGetReview() {
-		
+		try {
+			String tutorId = send("POST", APP_URL, "/tutors/create",
+					"name=" + restName + "&email=" + restEmail + "&password=" + restPassword).getString("userId");
+			String studentId = send("POST", APP_URL, "/students/create",
+					"name=" + restName + "&email=" + restEmailStudent + "&password=" + restPassword)
+							.getString("userId");
+			String reviewId = (send("POST", APP_URL, "/reviews/create",
+					"rating=4" + "&comment=This_is_a_comment." + "&from=" + tutorId + "&to=" + studentId)).getString("reviewId");
+			response = send("GET", APP_URL, "/reviews/" + reviewId, "");
+			assertEquals("This_is_a_comment.", response.getString("comment"));
+		} catch (JSONException e) {
+			fail();
+		}
 	}
 
 	/*
@@ -371,7 +392,13 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void testGetRoom() {
-		
+		try {
+			String roomNumber = (send("POST", APP_URL, "/rooms/create", "id=21" + "&capacity=23")).getString("roomNumber");
+			response = send("GET", APP_URL, "/rooms/" + roomNumber, "");
+			assertEquals(roomNumber, response.getString("roomNumber"));
+		} catch (JSONException e) {
+			fail();
+		}
 	}
 
 	/*
