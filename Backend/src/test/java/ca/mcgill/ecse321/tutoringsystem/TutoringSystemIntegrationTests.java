@@ -22,7 +22,10 @@ import static org.junit.Assert.*;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONArray;
 import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,29 +39,29 @@ import java.util.Set;
 public class TutoringSystemIntegrationTests {
 
 	@Autowired
-	private TutorRepository tutorRepository;
+	private static TutorRepository tutorRepository;
 	@Autowired
-	private StudentRepository studentRepository;
+	private static StudentRepository studentRepository;
 	@Autowired
-	private ManagerRepository managerRepository;
+	private static ManagerRepository managerRepository;
 	@Autowired
-	private RequestRepository requestRepository;
+	private static RequestRepository requestRepository;
 	@Autowired
-	private CourseRepository courseRepository;
+	private static CourseRepository courseRepository;
 	@Autowired
-	private RoomRepository roomRepository;
+	private static RoomRepository roomRepository;
 	@Autowired
-	private NotificationRepository notificationRepository;
+	private static NotificationRepository notificationRepository;
 	@Autowired
-	private ReviewRepository reviewRepository;
+	private static ReviewRepository reviewRepository;
 	@Autowired
-	private ApplicationRepository applicationRepository;
+	private static ApplicationRepository applicationRepository;
 	@Autowired
-	private InstitutionRepository institutionRepository;
+	private static InstitutionRepository institutionRepository;
 	@Autowired
-	private WageRepository wageRepository;
+	private static WageRepository wageRepository;
 	@Autowired
-	private TimeSlotRepository timeslotRepository;
+	private static TimeSlotRepository timeslotRepository;
 
 	private final String APP_URL = "http://tutoringsystem-backend-14.herokuapp.com";
 	private JSONObject response;
@@ -73,8 +76,8 @@ public class TutoringSystemIntegrationTests {
 		System.out.println("ran Integration file");
 	}
 
-	@After
-	public void clearDatabase() {
+	@BeforeClass
+	public static void clearDatabase() {
 //		requestRepository.deleteAll();
 //		tutorRepository.deleteAll();
 //		managerRepository.deleteAll();
@@ -162,6 +165,19 @@ public class TutoringSystemIntegrationTests {
 			fail();
 		}
 	}
+	
+	@Test
+	public void testGetApplication() {
+		try {
+			String applicationId = send("POST", APP_URL, "/applications/create",
+					"existing=false" + "&name=" + restName + "&email=" + restEmail + "&courses=ECSE321").getString("applicationId");
+			response = send("GET", APP_URL, "/applications/" + applicationId,"");
+			System.out.println("Received: " + response.toString());
+			assertEquals(restName, response.getString("name"));
+		} catch (JSONException e) {
+			fail();
+		}
+	}
 
 	/*
 	 * COURSE
@@ -174,8 +190,9 @@ public class TutoringSystemIntegrationTests {
 			response = send("POST", APP_URL, "/courses/create",
 					"name=MATH262" + "&institution=" + institution + "&subject=Mathematics");
 			System.out.println("Received: " + response.toString());
-			assertEquals("MATH262", response.getString("name"));
+			assertEquals("MATH262", response.getString("courseName"));
 		} catch (JSONException e) {
+			e.printStackTrace();
 			fail();
 		}
 	}
@@ -291,8 +308,9 @@ public class TutoringSystemIntegrationTests {
 			response = send("POST", APP_URL, "/timeslots/create",
 					"id=" + tutorId + "&date=" +  Date.valueOf("2019-09-22") + "&time=" + Time.valueOf("08:00:01"));
 			System.out.println("Received: " + response.toString());
-			assertEquals(tutorId, response.getString("id"));
+			assertEquals("2019-09-22", response.getString("date"));
 		} catch (JSONException e) {
+			e.printStackTrace();
 			fail();
 		}
 	}
@@ -315,8 +333,9 @@ public class TutoringSystemIntegrationTests {
 			response = send("POST", APP_URL, "/wages/create",
 					"tutorId=" + tutorId + "&course=" + courseName + "&wage=40");
 			System.out.println("Received: " + response.toString());
-			assertEquals(tutorId, response.getString("id"));
+			assertEquals("40", response.getString("wage"));
 		} catch (JSONException e) {
+			e.printStackTrace();
 			fail();
 		}
 	}
@@ -346,5 +365,29 @@ public class TutoringSystemIntegrationTests {
 		}
 		return null;
 	}
+	
+	public static JSONArray sendRequestArray(String type, String appURL, String path, String parameters) {
+        try {
+            URL url = new URL(appURL + path + ((parameters == null) ? "" : ("?" + parameters)));
+            System.out.println("Sending: " + url.toString());
+            HttpURLConnection c = (HttpURLConnection) url.openConnection();
+            c.setRequestMethod(type);
+            c.setRequestProperty("Accept", "application/json");
+            if (c.getResponseCode() != 200) {
+                throw new RuntimeException(
+                        url.toString() + " Returned error:: " + c.getResponseCode());
+            }
+            BufferedReader br = new BufferedReader(new InputStreamReader((c.getInputStream())));
+            String response = br.readLine();
+            if (response != null) {
+                JSONArray r = new JSONArray(response);
+                c.disconnect();
+                return r;
+            }
+        } catch (JSONException | IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }
