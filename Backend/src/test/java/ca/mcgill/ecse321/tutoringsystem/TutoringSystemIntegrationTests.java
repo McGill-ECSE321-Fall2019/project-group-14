@@ -1,6 +1,8 @@
 package ca.mcgill.ecse321.tutoringsystem;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import static org.junit.Assert.*;
 
@@ -16,6 +18,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.Time;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TutoringSystemIntegrationTests {
 	private final String APP_URL = "http://tutoringsystem-backend-14.herokuapp.com";
 	private JSONObject response;
@@ -501,6 +504,12 @@ public class TutoringSystemIntegrationTests {
 		} catch (JSONException e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void zClearDb() {
+		send("POST", APP_URL, "/flushdb", null);
+		assertTrue(true);
 	}
 
 	// METHODS FOR REST
