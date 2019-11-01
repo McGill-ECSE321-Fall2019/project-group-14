@@ -1,31 +1,17 @@
 package ca.mcgill.ecse321.tutoringsystem;
 
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import ca.mcgill.ecse321.tutoringsystem.dao.ApplicationRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.CourseRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.InstitutionRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.ManagerRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.NotificationRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.RequestRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.ReviewRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.RoomRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.StudentRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.TimeSlotRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.TutorRepository;
-import ca.mcgill.ecse321.tutoringsystem.dao.WageRepository;
-import ca.mcgill.ecse321.tutoringsystem.model.TimeSlot;
-import ca.mcgill.ecse321.tutoringsystem.model.Wage;
+import ca.mcgill.ecse321.tutoringsystem.dao.*;
 
 import static org.junit.Assert.*;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONArray;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,34 +20,34 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.Time;
-import java.util.Set;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TutoringSystemIntegrationTests {
 
 	@Autowired
-	private static TutorRepository tutorRepository;
+	private TutorRepository tutorRepository;
 	@Autowired
-	private static StudentRepository studentRepository;
+	private StudentRepository studentRepository;
 	@Autowired
-	private static ManagerRepository managerRepository;
+	private ManagerRepository managerRepository;
 	@Autowired
-	private static RequestRepository requestRepository;
+	private RequestRepository requestRepository;
 	@Autowired
-	private static CourseRepository courseRepository;
+	private CourseRepository courseRepository;
 	@Autowired
-	private static RoomRepository roomRepository;
+	private RoomRepository roomRepository;
 	@Autowired
-	private static NotificationRepository notificationRepository;
+	private NotificationRepository notificationRepository;
 	@Autowired
-	private static ReviewRepository reviewRepository;
+	private ReviewRepository reviewRepository;
 	@Autowired
-	private static ApplicationRepository applicationRepository;
+	private ApplicationRepository applicationRepository;
 	@Autowired
-	private static InstitutionRepository institutionRepository;
+	private InstitutionRepository institutionRepository;
 	@Autowired
-	private static WageRepository wageRepository;
+	private WageRepository wageRepository;
 	@Autowired
-	private static TimeSlotRepository timeslotRepository;
+	private TimeSlotRepository timeslotRepository;
 
 	private final String APP_URL = "http://tutoringsystem-backend-14.herokuapp.com";
 	private JSONObject response;
@@ -70,27 +56,6 @@ public class TutoringSystemIntegrationTests {
 	private final String restEmailManager = "ecse321testmanager@protonmail.com";
 	private final String restEmailStudent = "ecse321teststudent@protonmail.com";
 	private final String restPassword = "userpassword";
-
-	@Test
-	public void contextLoads() {
-		System.out.println("ran Integration file");
-	}
-
-	@BeforeClass
-	public static void clearDatabase() {
-//		requestRepository.deleteAll();
-//		tutorRepository.deleteAll();
-//		managerRepository.deleteAll();
-//		studentRepository.deleteAll();
-//		timeslotRepository.deleteAll();
-//		wageRepository.deleteAll();
-//		institutionRepository.deleteAll();
-//		applicationRepository.deleteAll();
-//		reviewRepository.deleteAll();
-//		notificationRepository.deleteAll();
-//		roomRepository.deleteAll();
-//		courseRepository.deleteAll();
-	}
 
 	/*
 	 * TESTING
@@ -444,6 +409,23 @@ public class TutoringSystemIntegrationTests {
 	@Test
 	public void testGetWage() {
 		
+	}
+	
+	@Test
+	public void zClearDb() {
+		requestRepository.deleteAll();
+		tutorRepository.deleteAll();
+		managerRepository.deleteAll();
+		studentRepository.deleteAll();
+		timeslotRepository.deleteAll();
+		wageRepository.deleteAll();
+		institutionRepository.deleteAll();
+		applicationRepository.deleteAll();
+		reviewRepository.deleteAll();
+		notificationRepository.deleteAll();
+		roomRepository.deleteAll();
+		courseRepository.deleteAll();
+		assertTrue(true);
 	}
 	
 	// METHODS FOR REST
