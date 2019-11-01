@@ -75,14 +75,14 @@ public class TutoringSystemIntegrationTests {
 
 	@Test
 	public void testDeleteTutor() {
-		String error = "";
 		try {
-			JSONObject tutor = send("POST", APP_URL, "/tutors/create",
-					"name=" + "MEHDITUTOR" + "&email=" + restEmail + "&password=" + restPassword);
-			String tutorId = tutor.getString("userId");
-			response = send("DELETE", APP_URL, "/tutors/" + tutorId, "");
-		} catch (JSONException | IllegalArgumentException e) {
-			error = e.getMessage();
+			send("POST", APP_URL, "/tutors/create",
+					"name=" + "MEHDITUTOR" + "&email=testdelete" + "&password=" + restPassword);
+			response = send("DELETE", APP_URL, "/tutors/testdelete", null);
+			assertEquals("true", response.getString("boolean"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+			fail();
 		}
 	}
 
@@ -121,7 +121,15 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void testDeleteApplication() {
-		
+		try {
+			JSONObject response1 = send("POST", APP_URL, "/applications/create",
+					"existing=false" + "&name=" + restName + "&email=" + restEmail + "&courses=ECSE321");
+			response = send("DELETE", APP_URL, "/applications/" + response1.getString("applicationId"), null);
+			assertEquals("true", response.getString("boolean"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 
 	/*
@@ -161,7 +169,17 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void testDeleteCourse() {
-		
+		try {
+			String institution = send("POST", APP_URL, "/institutions/create", "name=McGill" + "&level=University")
+					.getString("institutionName");
+			send("POST", APP_URL, "/courses/create",
+					"name=MATH262" + "&institution=" + institution + "&subject=Mathematics");
+			response = send("DELETE", APP_URL, "/courses/MATH262", null);
+			assertEquals("true", response.getString("boolean"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 
 	/*
@@ -181,7 +199,13 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void testDeleteInstitution() {
-		
+		try {
+			send("POST", APP_URL, "/institutions/create", "name=McGill" + "&level=University");
+			response = send("DELETE", APP_URL, "/institutions/McGill", null);
+			assertEquals("McGill", response.getString("institutionName"));
+		} catch (JSONException e) {
+			fail();
+		}
 	}
 
 	@Test
@@ -215,7 +239,15 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void testDeleteManager() {
-		
+		try {
+			send("POST", APP_URL, "/managers/create",
+					"name=" + "managerrr" + "&email=emaildelete" + "&password=" + restPassword);
+			response = send("DELETE", APP_URL, "/managers/emaildelete" , null);
+			assertEquals("true", response.getString("boolean"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+			fail();
+		}	
 	}
 	
 	@Test
@@ -277,7 +309,19 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void testDeleteReview() {
-		
+		try {
+			String tutorId = send("POST", APP_URL, "/tutors/create",
+					"name=" + restName + "&email=" + restEmail + "&password=" + restPassword).getString("userId");
+			String studentId = send("POST", APP_URL, "/students/create",
+					"name=" + restName + "&email=" + restEmailStudent + "&password=" + restPassword)
+							.getString("userId");
+			JSONObject created = send("POST", APP_URL, "/reviews/create",
+					"rating=4" + "&comment=This_is_a_comment." + "&from=" + tutorId + "&to=" + studentId);
+			response = send("DELETE", APP_URL, "/reviews/" + created.getString("reviewId"), null);
+			assertEquals("true", response.getString("boolean"));
+		} catch (JSONException e) {
+			fail();
+		}
 	}
 	
 	@Test
@@ -323,7 +367,13 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void testDeleteRoom() {
-		
+		try {
+			send("POST", APP_URL, "/rooms/create", "id=21" + "&capacity=23");
+			response = send("DELETE", APP_URL, "/rooms/21", null);
+			assertEquals("true", response.getString("boolean"));
+		} catch (JSONException e) {
+			fail();
+		}
 	}
 	
 	@Test
@@ -355,7 +405,15 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void testDeleteStudent() {
-		
+		try {
+			send("POST", APP_URL, "/students/create",
+					"name=" + "studenttt" + "&email=testemail" + "&password=" + restPassword);
+			response = send("DELETE", APP_URL, "/students/testemail", null);
+			assertEquals("true", response.getString("boolean"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 	
 	@Test
@@ -393,8 +451,17 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void testDeleteTimeSlot() {
-		
-		
+		try {
+			String tutorId = send("POST", APP_URL, "/tutors/create",
+					"name=" + restName + "&email=" + restEmail + "&password=" + restPassword).getString("userId");
+			JSONObject response1 = send("POST", APP_URL, "/timeslots/create",
+					"id=" + tutorId + "&date=" + Date.valueOf("2019-09-22") + "&time=" + Time.valueOf("08:00:01"));
+			response = send("DELETE", APP_URL, "/timeslots/" + response1.getString("timeSlotId"), null);
+			assertEquals("true", response.getString("boolean"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 	
 	@Test
