@@ -2,9 +2,6 @@ package ca.mcgill.ecse321.tutoringsystem;
 
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import ca.mcgill.ecse321.tutoringsystem.dao.*;
 
 import static org.junit.Assert.*;
 
@@ -23,32 +20,6 @@ import java.sql.Time;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TutoringSystemIntegrationTests {
-
-	@Autowired
-	private TutorRepository tutorRepository;
-	@Autowired
-	private StudentRepository studentRepository;
-	@Autowired
-	private ManagerRepository managerRepository;
-	@Autowired
-	private RequestRepository requestRepository;
-	@Autowired
-	private CourseRepository courseRepository;
-	@Autowired
-	private RoomRepository roomRepository;
-	@Autowired
-	private NotificationRepository notificationRepository;
-	@Autowired
-	private ReviewRepository reviewRepository;
-	@Autowired
-	private ApplicationRepository applicationRepository;
-	@Autowired
-	private InstitutionRepository institutionRepository;
-	@Autowired
-	private WageRepository wageRepository;
-	@Autowired
-	private TimeSlotRepository timeslotRepository;
-
 	private final String APP_URL = "http://tutoringsystem-backend-14.herokuapp.com";
 	private JSONObject response;
 	private final String restName = "TestUser";
@@ -413,18 +384,7 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void zClearDb() {
-		requestRepository.deleteAll();
-		tutorRepository.deleteAll();
-		managerRepository.deleteAll();
-		studentRepository.deleteAll();
-		timeslotRepository.deleteAll();
-		wageRepository.deleteAll();
-		institutionRepository.deleteAll();
-		applicationRepository.deleteAll();
-		reviewRepository.deleteAll();
-		notificationRepository.deleteAll();
-		roomRepository.deleteAll();
-		courseRepository.deleteAll();
+		send("POST", APP_URL, "/flushdb", null);
 		assertTrue(true);
 	}
 	
