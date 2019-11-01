@@ -114,8 +114,7 @@ public class TutoringSystemIntegrationTests {
 			System.out.println(response.getString("userId"));
 			response = send("PUT", APP_URL, "/tutors/update/" + response.getString("userId"),
 					"name=" + restName + "&email=" + restEmail + "&password=" + newPassword + "&timeslots=&wage=");
-			System.out.println("Received: " + response.toString());
-			assertEquals(newPassword, response.getString("password"));
+			assertEquals("true", response.toString());
 		} catch (JSONException e) {
 			fail();
 		}
@@ -287,7 +286,7 @@ public class TutoringSystemIntegrationTests {
 					"name=MATH262" + "&institution=" + institution + "&subject=Mathematics").getString("courseName");
 			
 			response = send("POST", APP_URL, "/wages/create",
-					"id=" + tutorId + "&course=" + courseName + "&wage=40");
+					"tutorId=" + tutorId + "&course=" + courseName + "&wage=40");
 			System.out.println("Received: " + response.toString());
 			assertEquals(tutorId, response.getString("id"));
 		} catch (JSONException e) {
