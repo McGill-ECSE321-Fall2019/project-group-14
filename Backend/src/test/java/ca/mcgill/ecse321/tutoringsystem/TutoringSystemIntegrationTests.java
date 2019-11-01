@@ -204,7 +204,18 @@ public class TutoringSystemIntegrationTests {
 
 	@Test
 	public void testGetCourse() {
-		
+		try {
+			String institution = send("POST", APP_URL, "/institutions/create", "name=McGill" + "&level=University")
+					.getString("institutionName");
+			String courseName = (send("POST", APP_URL, "/courses/create",
+					"name=MATH262" + "&institution=" + institution + "&subject=Mathematics")).getString("courseName");
+			response = send("GET", APP_URL, "/courses/" + courseName, "");
+			System.out.println("Received: " + response.toString());
+			assertEquals("MATH262", response.getString("courseName"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 
 	/*
@@ -246,7 +257,16 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void testGetManager() {
-		
+		try {
+			JSONObject manager = send("POST", APP_URL, "/managers/create",
+					"name=" + restName + "&email=" + restEmailManager + "&password=" + restPassword);
+			String managerId = manager.getString("userId");
+			response = send("GET", APP_URL, "/tutors/" + managerId, "");
+			System.out.println("Received: " + response.toString());
+			assertEquals(restEmailManager, response.getString("email"));
+		} catch (JSONException e) {
+			fail();
+		}
 	}
 
 	/*
@@ -334,7 +354,16 @@ public class TutoringSystemIntegrationTests {
 	
 	@Test
 	public void testGetStudent() {
-		
+		try {
+			JSONObject student = send("POST", APP_URL, "/students/create",
+					"name=" + restName + "&email=" + restEmailStudent + "&password=" + restPassword);
+			String studentId = student.getString("userId");
+			response = send("GET", APP_URL, "/students/" + studentId, "");
+			System.out.println("Received: " + response.toString());
+			assertEquals(restEmailStudent, response.getString("email"));
+		} catch (JSONException e) {
+			fail();
+		}
 	}
 
 	/*
