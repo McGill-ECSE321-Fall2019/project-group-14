@@ -204,7 +204,7 @@ public class TutoringSystemIntegrationTests {
 
 	@Test
 	public void testGetCourse() {
-
+		
 	}
 
 	/*
@@ -221,6 +221,12 @@ public class TutoringSystemIntegrationTests {
 			fail();
 		}
 	}
+	
+	@Test
+	public void testGetInstitution() {
+		
+	}
+
 
 	/*
 	 * MANAGER
@@ -237,6 +243,11 @@ public class TutoringSystemIntegrationTests {
 			fail();
 		}
 	}
+	
+	@Test
+	public void testGetManager() {
+		
+	}
 
 	/*
 	 * NOTIFICATION
@@ -252,6 +263,11 @@ public class TutoringSystemIntegrationTests {
 		} catch (JSONException e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void testGetNotification() {
+		
 	}
 
 	/*
@@ -274,6 +290,11 @@ public class TutoringSystemIntegrationTests {
 			fail();
 		}
 	}
+	
+	@Test
+	public void testGetReview() {
+		
+	}
 
 	/*
 	 * ROOM
@@ -288,6 +309,11 @@ public class TutoringSystemIntegrationTests {
 		} catch (JSONException e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void testGetRoom() {
+		
 	}
 
 	/*
@@ -304,6 +330,11 @@ public class TutoringSystemIntegrationTests {
 		} catch (JSONException e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void testGetStudent() {
+		
 	}
 
 	/*
@@ -323,6 +354,11 @@ public class TutoringSystemIntegrationTests {
 			e.printStackTrace();
 			fail();
 		}
+	}
+	
+	@Test
+	public void testGetTimeSlot() {
+		
 	}
 
 	/*
@@ -350,6 +386,14 @@ public class TutoringSystemIntegrationTests {
 			fail();
 		}
 	}
+	
+	@Test
+	public void testGetWage() {
+		
+	}
+	
+	// METHODS FOR REST
+
 
 	public JSONObject send(String type, String appURL, String path, String parameters) {
 		try {
