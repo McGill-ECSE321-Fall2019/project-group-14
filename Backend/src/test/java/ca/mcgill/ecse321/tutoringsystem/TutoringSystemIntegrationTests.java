@@ -122,17 +122,13 @@ public class TutoringSystemIntegrationTests {
 	@Test
 	public void testUpdateTutorPassword() {
 		try {
-			Set<TimeSlot> timeslots = null;
-			Set<Wage> wages = null;
 			String newPassword = "userpassword321";
 			response = send("POST", APP_URL, "/tutors/create",
 					"name=" + restName + "&email=" + restEmail + "&password=" + restPassword);
 			System.out.println(response.getString("userId"));
 			response = send("PUT", APP_URL, "/tutors/update/" + response.getString("userId"),
-					"name=" + restName + "&email=" + restEmail + "&password=" + newPassword + "&timeslots=" + timeslots
-							+ "&wage=" + wages);
-			System.out.println("Received: " + response.toString());
-			assertEquals(newPassword, response.getString("password"));
+					"name=" + restName + "&email=" + restEmail + "&password=" + newPassword + "&timeslots=&wage=");
+			assertEquals("true", response.toString());
 		} catch (JSONException e) {
 			fail();
 		}
@@ -317,7 +313,7 @@ public class TutoringSystemIntegrationTests {
 					"name=MATH262" + "&institution=" + institution + "&subject=Mathematics").getString("courseName");
 			
 			response = send("POST", APP_URL, "/wages/create",
-					"id=" + tutorId + "&course=" + courseName + "&wage=40");
+					"tutorId=" + tutorId + "&course=" + courseName + "&wage=40");
 			System.out.println("Received: " + response.toString());
 			assertEquals(tutorId, response.getString("id"));
 		} catch (JSONException e) {

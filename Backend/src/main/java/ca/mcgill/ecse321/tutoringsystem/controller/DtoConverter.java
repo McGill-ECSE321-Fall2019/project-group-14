@@ -44,7 +44,7 @@ public class DtoConverter {
 		if (i == null) {
 			throw new IllegalArgumentException("There is no such Institution!");
 		}
-		InstitutionDto institutionDto = new InstitutionDto(i.getInstitutionName(), courseSetToDto(i.getCourses()), toDto(i.getInstitutionLevel()));
+		InstitutionDto institutionDto = new InstitutionDto(i.getInstitutionName(), toDto(i.getInstitutionLevel()));
 		return institutionDto;
 	}
 
