@@ -104,6 +104,20 @@ public class TutoringSystemIntegrationTests {
 			fail();
 		}
 	}
+	
+	@Test
+	public void testGetTutor() {
+		try {
+			JSONObject tutor = send("POST", APP_URL, "/tutors/create",
+					"name=" + restName + "&email=" + restEmail + "&password=" + restPassword);
+			String tutorId = tutor.getString("userId");
+			response = send("GET", APP_URL, "/tutors/" + tutorId, "");
+			System.out.println("Received: " + response.toString());
+			assertEquals(restName, response.getString("name"));
+		} catch (JSONException e) {
+			fail();
+		}
+	}
 
 	@Test
 	public void testUpdateTutorPassword() {
@@ -121,6 +135,19 @@ public class TutoringSystemIntegrationTests {
 			assertEquals(newPassword, response.getString("password"));
 		} catch (JSONException e) {
 			fail();
+		}
+	}
+	
+	@Test
+	public void testDeleteTutor() {
+		String error = "";
+		try {
+			JSONObject tutor = send("POST", APP_URL, "/tutors/create",
+					"name=" + "MEHDITUTOR" + "&email=" + restEmail + "&password=" + restPassword);
+			String tutorId = tutor.getString("userId");
+			response = send("DELETE", APP_URL, "/tutors/" + tutorId, "");
+		} catch (JSONException | IllegalArgumentException e) {
+			error = e.getMessage();
 		}
 	}
 
@@ -311,10 +338,12 @@ public class TutoringSystemIntegrationTests {
 			}
 			BufferedReader br = new BufferedReader(new InputStreamReader((c.getInputStream())));
 			String response = br.readLine();
-			if (response != null) {
+			if (response != null && !(type.equals("DELETE"))) {
 				JSONObject json = new JSONObject(response);
 				c.disconnect();
 				return json;
+			} else {
+				c.disconnect();
 			}
 		} catch (JSONException | IOException e) {
 			e.printStackTrace();
