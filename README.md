@@ -29,7 +29,7 @@ Tools that were used include: Eclipse, Spring Boot, Gradle, UML Lab, Heroku, Dra
 | Steven Luu  |   | Service and Documentation | 20    | 
 | Nelson Zeng |   | Controller and Tests | 20    |
 | Mehdi Ammar |   | Tests and Controller | 20    | 
-| Mert Gurkan |   | Documentation and Controller | 20    |
+| Mert Gurkan |   | REST Documentation and Software Quality Assurance Plan and Report | 20    |
 | Tian Ci Liu |   | Service and Tests | 20    | 
 
 ## Sprint 1
