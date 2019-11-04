@@ -29,7 +29,7 @@ Tools that were used include: Eclipse, Spring Boot, Gradle, UML Lab, Heroku, Dra
 | Steven Luu  | 260866167 | Service and Documentation | 20    | 
 | Nelson Zeng | 260866043 | Controller and Tests | 20    |
 | Mehdi Ammar | 260866618 | Tests and Controller | 20    | 
-| Mert Gurkan | 260716883 | Documentation and Controller | 20    |
+| Mert Gurkan | 260716883 | REST Documentation and Software Quality Assurance Plan and Report | 20    |
 | Tian Ci Liu | 260866005 | Service and Tests | 20    | 
 
 ## Sprint 1
