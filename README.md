@@ -32,8 +32,21 @@ Tools that were used include: Eclipse, Spring Boot, Gradle, UML Lab, Heroku, Dra
 | Mert Gurkan |   | REST Documentation and Software Quality Assurance Plan and Report | 20    |
 | Tian Ci Liu |   | Service and Tests | 20    | 
 
+### Sprint 3
+
+| Members    | ID         | Responsibility    | Hours | 
+|-------------|-----------|-------------------|-------|
+| Steven Luu  |   |                   |       | 
+| Nelson Zeng |   |                   |       |
+| Mehdi Ammar |   |                   |       | 
+| Mert Gurkan |   |                   |       |
+| Tian Ci Liu |   |                   |       | 
+
 ## Sprint 1
 You can access sprint 1 [here](https://github.com/McGill-ECSE321-Fall2019/project-group-14/wiki/Sprint-1).
 
 ## Sprint 2
 You can access sprint 2 [here](https://github.com/McGill-ECSE321-Fall2019/project-group-14/wiki/Sprint-2).
+
+## Sprint 3
+You can access sprint 3 [here](https://github.com/McGill-ECSE321-Fall2019/project-group-14/wiki/Sprint-3).
