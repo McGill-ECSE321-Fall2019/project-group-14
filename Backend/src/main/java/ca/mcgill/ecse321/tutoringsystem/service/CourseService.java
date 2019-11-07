@@ -6,13 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ca.mcgill.ecse321.tutoringsystem.dao.CourseRepository;
+import ca.mcgill.ecse321.tutoringsystem.dao.WageRepository;
 import ca.mcgill.ecse321.tutoringsystem.model.Course;
 import ca.mcgill.ecse321.tutoringsystem.model.Institution;
+import ca.mcgill.ecse321.tutoringsystem.model.Wage;
 
 @Service
 public class CourseService {
   @Autowired
   CourseRepository courseRepository;
+  @Autowired
+  WageRepository wageRepository;
 
   @Transactional
   public Course createCourse(String name, Institution institution, String subjectName) {
@@ -69,6 +73,10 @@ public class CourseService {
       Course c = courseRepository.findCourseByCourseName(name);
       if (c == null) {
           throw new NullPointerException("No Course by this name.");
+      }
+      List<Wage> wages = wageRepository.findWageByCourse(c);
+      for (Wage wage : wages) {
+    	  wageRepository.delete(wage);
       }
       courseRepository.delete(c);
       return true;
