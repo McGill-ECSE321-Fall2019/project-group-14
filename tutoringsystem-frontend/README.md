@@ -1,4 +1,4 @@
-# frontend
+# tutoringsystem-frontend
 
 > A Vue.js frontend for Tutoring System App
 
