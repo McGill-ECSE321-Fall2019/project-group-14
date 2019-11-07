@@ -1,5 +1,6 @@
 package ca.mcgill.ecse321.tutoringsystem;
 
+import org.junit.After;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -20,6 +21,7 @@ import java.sql.Time;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TutoringSystemIntegrationTests {
+	//private final String APP_URL = "http://localhost:8080";
 	private final String APP_URL = "http://tutoringsystem-backend-14.herokuapp.com";
 	private JSONObject response;
 	private final String restName = "TestUser";
@@ -172,9 +174,10 @@ public class TutoringSystemIntegrationTests {
 		try {
 			String institution = send("POST", APP_URL, "/institutions/create", "name=McGill" + "&level=University")
 					.getString("institutionName");
-			send("POST", APP_URL, "/courses/create",
+			JSONObject response1 = send("POST", APP_URL, "/courses/create",
 					"name=MATH262" + "&institution=" + institution + "&subject=Mathematics");
-			assertTrue(true);
+			response = send("DELETE", APP_URL, "/courses/" + response1.getString("courseName"), null);
+			assertEquals("true", response.getString("boolean"));
 		} catch (JSONException e) {
 			e.printStackTrace();
 			fail();
@@ -198,8 +201,13 @@ public class TutoringSystemIntegrationTests {
 
 	@Test
 	public void testDeleteInstitution() {
-		send("POST", APP_URL, "/institutions/create", "name=McGill" + "&level=University");
-		assertTrue(true);
+		try {
+			send("POST", APP_URL, "/institutions/create", "name=McGill" + "&level=University");
+			response = send("DELETE", APP_URL, "/institutions/McGill", null);
+			assertEquals("true", response.getString("boolean"));
+		} catch (JSONException e) {
+			fail();
+		}
 	}
 
 	@Test
@@ -247,9 +255,14 @@ public class TutoringSystemIntegrationTests {
 
 	@Test
 	public void testGetManager() {
-		send("POST", APP_URL, "/managers/create",
-				"name=" + restName + "&email=" + restEmail + "&password=" + restPassword);
-		assertTrue(true);
+		try {
+			send("POST", APP_URL, "/managers/create",
+					"name=" + restName + "&email=" + restEmailManager + "&password=" + restPassword);
+			response = send("GET", APP_URL, "/managers/email/" + restEmailManager, null);
+			assertEquals(restName, response.getString("name"));
+		} catch (JSONException e) {
+			fail();
+		}
 	}
 
 	/*
@@ -339,7 +352,7 @@ public class TutoringSystemIntegrationTests {
 		try {
 			String roomNumber = (send("POST", APP_URL, "/rooms/create", "id=21" + "&capacity=23"))
 					.getString("roomNumber");
-			response = send("GET", APP_URL, "/rooms/" + roomNumber, "");
+			response = send("GET", APP_URL, "/rooms/" + roomNumber, null);
 			assertEquals(roomNumber, response.getString("roomNumber"));
 		} catch (JSONException e) {
 			fail();
@@ -506,7 +519,7 @@ public class TutoringSystemIntegrationTests {
 		}
 	}
 	
-	@Test
+	@After
 	public void zClearDb() {
 		send("POST", APP_URL, "/flushdb", null);
 		assertTrue(true);
