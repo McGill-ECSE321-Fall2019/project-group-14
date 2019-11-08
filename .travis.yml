@@ -9,8 +9,8 @@ matrix:
         api_key:
           secure: Se7ETiBYC/prhA+OweJvvIVSkk186Dvchy/tG+i1fBWP+nb9GmCeIG75Mfz4PYnNnqSd2qG2AhArsWLodeAo7xbwqfLV8IZSik0ahYVhLjVF3F7TlFAwoRE2aNgwPTIevORah2sZ/kLRdtCXFxzVVxf2+XUfSoNWbN+ce1rXAcRXeWdZHo3vB/S6dyXb+hwIoV6ICDhnhJdLAe2BDLdfqL0r6qFWOCeqpCQ70BqXNvunaNa6PmfQBKW828TWU/WKMsJMhCLrw6BVJDiHrISUwEOc7QGsStZ57U0EyiRXK0n/OW8DjnDzUnsTaMcOd2R0xfDlF2ApyX1BsiW+OJf0oEsjwvHb/mh/oFmxNfJ9bJPSqj0qqXZ49Hpsy04CwiksWiZReQqdlnGnAHfUm+yyNxDODKCkHuiZPccfymAU5SzxhX+SZUXTmbyHLG6in7mit4clv4xwe8CV6hTL9ZrzUcT3xW0TKZaR7/s6jKLBt4D0UOAYIYxJkpxJZbuYDJKbNWItKLV9+4tskMtttH86aFtGEWc1VElOPTSOe1YkTTBB5WkAS8pgGyVvviT0ZzeDt29NNWRFtX+AkhgC60qZROhGIlR6/aRbdphjLwuwQE0hti256Ws/R+UlAgzc89VrftbiG0OurwkXhScT7yoJDpsvdlKPX33ggfwHIXbzTTE=
     - language: node_js
-	  node_js:
-        - node
+      node_js:
+      - node
       before_install:
         - npm install -g npm@latest
       cache:
