@@ -1,7 +1,7 @@
 {
-  "name": "tutoringsystem-frontend",
+  "name": "frontend",
   "version": "1.0.0",
-  "description": "A Vue.js frontend for Tutoring System App",
+  "description": "A Vue.js frontend for TutoringSystem App",
   "author": "Tian Ci Liu < >",
   "private": true,
   "scripts": {

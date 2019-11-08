@@ -1,6 +1,6 @@
-# tutoringsystem-frontend
+# frontend
 
-> A Vue.js frontend for Tutoring System App
+> A Vue.js frontend for TutoringSystem App
 
 ## Build Setup
 
