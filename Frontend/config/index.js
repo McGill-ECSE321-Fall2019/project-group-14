@@ -9,6 +9,10 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: true,
+    host: 'https://tutoringsystem-frontend-14.herokuapp.com',
+    port: 443,
+    backendHost: 'https://tutoringsystem-backend-14.herokuapp.com',
+    backendPort: 443, 
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
@@ -28,6 +32,10 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {},
+    host: '127.0.0.1',
+    port: 8087,
+    backendHost: '127.0.0.1',
+    backendPort: 8080,
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
