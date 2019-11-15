@@ -34,7 +34,7 @@ public class RequestController {
 	CourseService courseService;
 
 	@PostMapping(value = { "/requests/create", "/requests/create/"})
-	public RequestDto createRequest(@RequestParam String time, @RequestParam String date, @RequestParam Integer tutorId, @RequestParam Integer studentId, @RequestParam String courseName) {
+	public RequestDto createRequest(@RequestParam("time") String time, @RequestParam("date") String date, @RequestParam("tutorId") Integer tutorId, @RequestParam("studentId") Integer studentId, @RequestParam("courseName") String courseName) {
 		Request request = requestService.createRequest(Time.valueOf(time), Date.valueOf(date), tutorService.getTutor(tutorId), studentService.getStudent(studentId), courseService.getCourse(courseName));
 		return DtoConverter.toDto(request);
 	}
