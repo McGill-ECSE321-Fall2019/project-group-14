@@ -25,6 +25,7 @@
 
   <body>
     <!--::header part start::-->
+    
     <header class="main_menu home_menu">
       <div class="container">
         <div class="row align-items-center">
@@ -80,8 +81,11 @@
                   <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                   </li>
-                  <li class="d-none d-lg-block">
+                  <li v-if="!loggedIn" class="d-none d-lg-block">
                     <router-link :to="{name: 'Login'}" class="btn_1">Sign In</router-link>
+                  </li>
+                  <li v-if="loggedIn" class="d-none d-lg-block">
+                    <router-link :to="{name: 'Logout'}" class="btn_1">Sign Out</router-link>
                   </li>
                 </ul>
               </div>
@@ -91,7 +95,7 @@
       </div>
     </header>
     <!-- Header part end-->
-
+             <router-view></router-view>
     <!-- footer part start-->
     <footer class="footer-area">
       <div class="container">
