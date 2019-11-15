@@ -1,5 +1,8 @@
 {
   "scripts": {
-	"postinstall": "cd Frontend && npm install"
+    "postinstall": "cd Frontend && npm install"
+  },
+  "dependencies": {
+    "mdbvue": "^6.0.1"
   }
 }
