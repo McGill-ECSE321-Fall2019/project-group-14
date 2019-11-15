@@ -1,5 +1,8 @@
 <template>
   <div id="login">
+      <!-- style CSS -->
+  <link rel="stylesheet" href="../static/css/style.css" />
+    <div class="action">
     <div class="left half">
       <div class="container" align="center">
         <div align="center" style="padding-left:15%">
@@ -14,14 +17,16 @@
           <input class="login-text" type="password" placeholder="Password" v-model="password" />
           <input
             @click="login(email,password)"
+  
             type="submit"
             value="Login"
-            class="btn btn-primary py-2 px-4 text-white"
+            class="btn_1"
           />
           <br>
           <span v-if="errorLogin" style="color:red">Error: {{errorLogin}} </span>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
