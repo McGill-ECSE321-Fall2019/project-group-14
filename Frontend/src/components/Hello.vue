@@ -12,6 +12,7 @@
     </ul>
     <h2>Ecosystem</h2>
     <ul>
+      <router-link :to="{ name: 'Login' }">login</router-link>
       <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
       <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
