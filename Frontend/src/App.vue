@@ -25,7 +25,7 @@
 
   <body>
     <!--::header part start::-->
-    
+
     <header class="main_menu home_menu">
       <div class="container">
         <div class="row align-items-center">
@@ -202,5 +202,3 @@ export default {
   name: "app"
 };
 </script>
-
-

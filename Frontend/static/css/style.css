@@ -2455,7 +2455,8 @@ ul {
 
 /**************** banner part css start ****************/
 /* line 2, E:/172 Etrain Education/172_Etrain_Education_html/sass/_banner.scss */
-.banner_part {
+
+/* .banner_part {
   height: 880px;
   position: relative;
   overflow: hidden;
@@ -2463,7 +2464,7 @@ ul {
   background-repeat: no-repeat;
   background-size: 68%;
   background-position: top right;
-}
+} */
 
 @media (max-width: 576px) {
   /* line 2, E:/172 Etrain Education/172_Etrain_Education_html/sass/_banner.scss */
