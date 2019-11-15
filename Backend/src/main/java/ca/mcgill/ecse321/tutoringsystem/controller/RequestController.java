@@ -69,7 +69,7 @@ public class RequestController {
 	 * @return All the accepted requests
 	 * @throws IllegalArgumentException
 	 */
-	@GetMapping(value = { "/sessions/accepted/{id}", "/sessions/accepted/{id}/" })
+	@GetMapping(value = { "/requests/accepted/{id}", "/requests/accepted/{id}/" })
 	public Set<RequestDto> getRequestsByAcceptedTutorId(@PathVariable("id") Integer id) throws IllegalArgumentException {
 		Set<Request> requestSet = new HashSet<Request>(requestService.getAcceptedTutorRequests(tutorService.getTutor(id)));
 		return DtoConverter.requestSetToDto(requestSet);
