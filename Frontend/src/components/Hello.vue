@@ -9,7 +9,7 @@
               <h1>Tutoring System 14</h1>
               <p>Our tutoring service will accomplish the needs of students at the high school, CÉGEP, and university levels. Any student looking for a tutor in any subject taught at those levels will find an appropriate tutor.</p>
               <a href="#" class="btn_1">Login</a>
-              <a href="#" class="btn_2">Apply as a tutor</a>
+              <a href="index.html#/apply" class="btn_2">Apply as a tutor</a>
             </div>
           </div>
         </div>
@@ -20,6 +20,12 @@
 </template>
 
 <script>
+export default {
+data() {
+  return {
+  }
+}
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
