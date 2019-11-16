@@ -132,7 +132,7 @@ public class DtoConverter {
 		if (s == null) {
 			throw new IllegalArgumentException("There is no such Student!");
 		}
-		StudentDto studentDto = new StudentDto(s.getName(), s.getEmail(), s.getUserId(), s.getPassword(), reviewSetToDto(s.getReview()), requestSetToDto(s.getRequest()));
+		StudentDto studentDto = new StudentDto(s.getName(), s.getEmail(), s.getUserId(), s.getPassword(), reviewSetToDto(s.getReview()));
 		return studentDto;
 	}
 
