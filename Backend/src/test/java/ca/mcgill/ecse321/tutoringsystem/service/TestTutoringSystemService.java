@@ -372,12 +372,12 @@ public class TestTutoringSystemService {
   public void testUpdateTutorInfoInvalid() {
 	  String error = "";
 	  try {
-		  tutorService.changeTutorSettings(null, null, null, null, null);
+		  tutorService.changeTutorSettings(null, null, null);
 	  } catch (IllegalArgumentException e) {
 		  error = e.getMessage();
 	  }
 	  
-	  assertEquals("Tutor Id cannot be empty! Tutor name cannot be empty! Tutor password cannot be empty! Tutor timeslots cannot be empty! Tutor wages cannot be empty!", error);
+	  assertEquals("Tutor Id cannot be empty! ", error);
   }
 
 	@Test

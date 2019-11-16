@@ -9,9 +9,7 @@ import static org.junit.Assert.fail;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.Time;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.junit.After;
 import org.junit.Test;
@@ -1078,28 +1076,14 @@ public class TestTutoringSystemCRUD {
 		Tutor tutor = tutorService.createTutor("name", "ecse321test+tutor@protonmail.com", "password");
 		String newName = "newName";
 		String newPassword = "newPassword";
-		Set<TimeSlot> timeSlots = new HashSet<TimeSlot>();
-		TimeSlot t = timeSlotService.createTimeSlot(tutor, Date.valueOf("2019-09-22"), Time.valueOf("08:00:01"));
-		timeSlots.add(t);
-		Set<Wage> wages = new HashSet<Wage>();
-		Wage w = wageService.createWage(tutor,
-				courseService.createCourse("test",
-						institutionService.createInstitution("institutionName", SchoolLevel.University), "subject"),
-				40);
-		wages.add(w);
 		try {
-			tutor = tutorService.changeTutorSettings(tutor.getUserId(), newName, newPassword, timeSlots, wages);
+			tutor = tutorService.changeTutorSettings(tutor.getUserId(), newName, newPassword);
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
 
 		assertEquals(tutorService.getAllTutors().get(0).getName(), newName);
 		assertEquals(tutorService.getAllTutors().get(0).getPassword(), newPassword);
-
-		assertEquals(1, wageService.getWageByTutor(tutor).size());
-		assertEquals(tutor.getWage(), wages);
-		assertEquals(1, timeSlotService.getTimeSlotByTutor(tutor).size());
-		assertEquals(tutor.getTimeslot(), timeSlots);
 
 	}
 }
