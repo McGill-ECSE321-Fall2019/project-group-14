@@ -8,7 +8,6 @@ import java.util.Set;
 import java.sql.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,8 +34,8 @@ public class RequestController {
 	CourseService courseService;
 
 	@PostMapping(value = { "/requests/create", "/requests/create/"})
-	public RequestDto createRequest(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME, pattern = "HH:mm") Time time, @RequestParam Date date, @RequestParam Integer tutorId, @RequestParam Integer studentId, @RequestParam String courseName) {
-		Request request = requestService.createRequest(time, date, tutorService.getTutor(tutorId), studentService.getStudent(studentId), courseService.getCourse(courseName));
+	public RequestDto createRequest(@RequestParam("time") String time, @RequestParam("date") String date, @RequestParam("tutorId") Integer tutorId, @RequestParam("studentId") Integer studentId, @RequestParam("courseName") String courseName) {
+		Request request = requestService.createRequest(Time.valueOf(time), Date.valueOf(date), tutorService.getTutor(tutorId), studentService.getStudent(studentId), courseService.getCourse(courseName));
 		return DtoConverter.toDto(request);
 	}
 	
