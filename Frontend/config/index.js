@@ -34,8 +34,8 @@ module.exports = {
     proxyTable: {},
     host: '127.0.0.1',
     port: 8087,
-    backendHost: '127.0.0.1',
-    backendPort: 8080,
+    backendHost: 'https://tutoringsystem-backend-14.herokuapp.com',
+    backendPort: 443,
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

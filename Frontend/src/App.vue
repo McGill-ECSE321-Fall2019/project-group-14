@@ -2,26 +2,26 @@
 <div id="app">
   <!-- <router-view></router-view> -->
   <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>TutoringSystem</title>
-  <link rel="icon" href="../static/img/favicon.png" />
+  <link rel="icon" href="../static/img/favicon.png">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
   <!-- animate CSS -->
-  <link rel="stylesheet" href="../static/css/animate.css" />
+  <link rel="stylesheet" href="../static/css/animate.css">
   <!-- owl carousel CSS -->
-  <link rel="stylesheet" href="../static/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
   <!-- themify CSS -->
-  <link rel="stylesheet" href="../static/css/themify-icons.css" />
+  <link rel="stylesheet" href="../static/css/themify-icons.css">
   <!-- flaticon CSS -->
-  <link rel="stylesheet" href="../static/css/flaticon.css" />
+  <link rel="stylesheet" href="../static/css/flaticon.css">
   <!-- font awesome CSS -->
-  <link rel="stylesheet" href="../static/css/magnific-popup.css" />
+  <link rel="stylesheet" href="../static/css/magnific-popup.css">
   <!-- swiper CSS -->
-  <link rel="stylesheet" href="../static/css/slick.css" />
+  <link rel="stylesheet" href="../static/css/slick.css">
   <!-- style CSS -->
-  <link rel="stylesheet" href="../static/css/style.css" />
+  <link rel="stylesheet" href="../static/css/style.css">
 
   <body>
     <!--::header part start::-->
@@ -32,7 +32,7 @@
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg navbar-light">
               <a class="navbar-brand" href="index.html">
-                <img src="../static/img/logo.png" alt="logo" />
+                <img src="../static/img/logo.png" alt="logo">
               </a>
               <button
                 class="navbar-toggler"
@@ -79,13 +79,13 @@
                     </div>
                   </li>
                   <li v-if="!loggedIn" class="nav-item">
-                    <router-link :to="{name: 'Notification'}" class = "nav-item">Notifications</router-link>
+                    <router-link :to="{name: 'Notification'}" class="nav-item">Notifications</router-link>
                   </li>
                   <li v-if="!loggedIn" class="d-none d-lg-block">
                     <router-link :to="{name: 'Login'}" class="btn_1">Sign In</router-link>
                   </li>
                   <li v-if="loggedIn" class="d-none d-lg-block">
-                    <router-link :to="{name: 'Logout'}" class="btn_1">Sign Out</router-link>
+                    <input @click="logout()" type="submit" value="Sign out" class="btn_1">
                   </li>
                 </ul>
               </div>
@@ -95,7 +95,7 @@
       </div>
     </header>
     <!-- Header part end-->
-             <router-view></router-view>
+    <router-view></router-view>
     <!-- footer part start-->
     <footer class="footer-area">
       <div class="container">
@@ -103,7 +103,7 @@
           <div class="col-sm-6 col-md-4 col-xl-3">
             <div class="single-footer-widget footer_1">
               <a href="index.html">
-                <img src="../static/img/logo.png" alt />
+                <img src="../static/img/logo.png" alt>
               </a>
               <p>
                 But when shot real her. Chamber her one visite removal six
@@ -125,7 +125,7 @@
                       placeholder="Enter email address"
                       onfocus="this.placeholder = ''"
                       onblur="this.placeholder = 'Enter email address'"
-                    />
+                    >
                     <div class="input-group-append">
                       <button class="btn btn_1" type="button">
                         <i class="ti-angle-right"></i>
