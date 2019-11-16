@@ -53,14 +53,13 @@ export default {
                 this.errorMsg = errorMessage
                 return
             }
-            AXIOS.put('/tutors/update/' + this.$cookie.get('userId'), $.param({name: tutorName, password: password, timeslots: null, wages: null}))
+            AXIOS.put('/tutors/update/' + this.$cookie.get('userId'), $.param({name: tutorName, password: password}))
             .then(response => {
                 this.response = response.data
                 this.errorMsg =''
-                if (this.response != '') {
-                    this.$cookie.set('name', this.response['name'], { expires: '1h'})
-                    this.$cookie.set('userId', this.response['userId'], { expires: '1h'})
-                    this.errorMsg = this.response
+                if (this.response != 'true') {
+                    this.$cookie.set('name', this.tutorName, { expires: '1h'})
+                    window.location.reload()
                 }
                 else {
                     this.errorMsg = 'Error updating info!'
