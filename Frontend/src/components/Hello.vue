@@ -1,40 +1,39 @@
 <template>
-  <div class="action" id='hello'>
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <router-link :to="{ name: 'Login' }">login</router-link>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
-  </div>
+  <section class="banner_part">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-xl-6">
+          <div class="banner_text">
+            <div class="banner_text_iner">
+              <h5>The #1 tutoring app on the market</h5>
+              <h1>Tutoring System 14</h1>
+              <p>Our tutoring service will accomplish the needs of students at the high school, CÉGEP, and university levels. Any student looking for a tutor in any subject taught at those levels will find an appropriate tutor.</p>
+              <router-link :to="{name: 'Login'}" class="btn_1">Sign in</router-link>
+              <router-link :to="{name: 'Apply'}" id="apply" class="btn_2">Apply as a tutor</router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- banner part start-->
 </template>
 
 <script>
 export default {
-  name: 'hello',
-  data () {
+  name: "hello",
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+      msg: "Welcome to Your Vue.js App"
+    };
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 
@@ -49,6 +48,10 @@ li {
 }
 
 a {
-  color: #42b983;
+  color: #ffffff;
+}
+
+#apply {
+  color: #0c2e60;
 }
 </style>
