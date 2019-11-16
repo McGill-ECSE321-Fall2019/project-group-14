@@ -5,6 +5,7 @@ import Apply from '@/components/Apply'
 import Review from '@/components/Review'
 import CreateReview from '@/components/CreateReview'
 import Login from '@/components/Login'
+import Notification from '@/components/Notification'
 
 
 Vue.use(Router)
@@ -32,9 +33,15 @@ export default new Router({
       component: Review
     },
     {
+      path: '/notifications',
+      name: 'Notification',
+      component: Notification
+    },
+    {
       path: '/reviews/create',
       name: 'create-review',
       component: CreateReview,
     }
+
   ]
 })

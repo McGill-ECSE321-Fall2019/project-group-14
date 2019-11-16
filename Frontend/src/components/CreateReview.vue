@@ -38,7 +38,7 @@
   </div>
 </template>
 
-<script src=./createreview.js>
+<script src='./createreview.js'>
 
 
 </script>
