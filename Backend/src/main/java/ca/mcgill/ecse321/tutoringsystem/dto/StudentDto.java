@@ -5,7 +5,6 @@ import java.util.Set;
 
 public class StudentDto extends PersonDto {
   private Set<ReviewDto> reviews;
-  private Set<RequestDto> requests;
 
   public StudentDto() {
     
@@ -13,13 +12,12 @@ public class StudentDto extends PersonDto {
   
   @SuppressWarnings("unchecked")
   public StudentDto(String email) {
-    this(null, email, null, null, Collections.EMPTY_SET, Collections.EMPTY_SET);
+    this(null, email, null, null, Collections.EMPTY_SET);
   }
   
-  public StudentDto(String name, String email, Integer Id, String password, Set<ReviewDto> reviews, Set<RequestDto> requests) {
+  public StudentDto(String name, String email, Integer Id, String password, Set<ReviewDto> reviews) {
     super(name, email, Id, password);
     this.reviews = reviews;
-    this.requests = requests;
   }
   
   public Set<ReviewDto> getReviews() {
@@ -30,11 +28,4 @@ public class StudentDto extends PersonDto {
     this.reviews = reviews;
   }
 
-  public Set<RequestDto> getRequests() {
-    return requests;
-  }
-
-  public void setRequests(Set<RequestDto> requests) {
-    this.requests = requests;
-  }
 }
