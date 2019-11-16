@@ -40,7 +40,7 @@ export default {
                 this.$cookie.set("email", email, { expires: '1h'})
                 this.$cookie.set("password", password, { expires: '1h'})
                 this.email = this.$cookie.get("email") || ''
-                this.password = this.$cooie.get("password") || ''
+                this.password = this.$cookie.get("password") || ''
                 if (this.response == 'Tutor') {
                     localStorage.setItem('loggedIn', 'Tutor')
                     window.location.href ="/";
