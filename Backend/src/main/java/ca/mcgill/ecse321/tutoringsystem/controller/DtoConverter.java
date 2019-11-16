@@ -191,11 +191,10 @@ public class DtoConverter {
 		}
 		Set<TimeSlotDto> timeSlotDto = timeSlotSetToDto(t.getTimeslot()); 
 		Set<WageDto> wageDto = wageSetToDto(t.getWage());
-		Set<NotificationDto> notificationDto = notificationSetToDto(t.getNotification());
 		Set<ReviewDto> reviewDto = reviewSetToDto(t.getReview());
 
 		TutorDto tutorDto = new TutorDto(t.getName(), t.getEmail(), t.getUserId(), t.getPassword(), timeSlotDto,
-				wageDto, notificationDto, reviewDto);
+				wageDto, reviewDto);
 		return tutorDto;
 	}
 	
