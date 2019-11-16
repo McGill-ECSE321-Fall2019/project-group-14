@@ -2,26 +2,23 @@ package ca.mcgill.ecse321.tutoringsystem.dto;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.Set;
 
 public class RequestDto {
 	private TutorDto tutor;
 	private StudentDto student;
 	private Time time;
 	private Date date;
-	private Set<NotificationDto> notification;
 	private CourseDto course;
 	private RoomDto room;
 	private Integer requestId;
 
-	public RequestDto(TutorDto tutor, StudentDto student, Time time, Date date, Set<NotificationDto> notification,
+	public RequestDto(TutorDto tutor, StudentDto student, Time time, Date date,
 			CourseDto course, RoomDto room, Integer requestId) {
 		super();
 		this.tutor = tutor;
 		this.student = student;
 		this.time = time;
 		this.date = date;
-		this.notification = notification;
 		this.course = course;
 		this.room = room;
 		this.requestId = requestId;
@@ -61,14 +58,6 @@ public class RequestDto {
 
 	public void setDate(Date date) {
 		this.date = date;
-	}
-
-	public Set<NotificationDto> getNotification() {
-		return notification;
-	}
-
-	public void setNotification(Set<NotificationDto> notification) {
-		this.notification = notification;
 	}
 
 	public CourseDto getCourse() {
