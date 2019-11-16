@@ -1,5 +1,5 @@
 <template>
-  <div class="action">
+  <div class="action" style="display: flex; flex-direction: column;">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>

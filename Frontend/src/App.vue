@@ -78,8 +78,8 @@
                       <a class="dropdown-item" href="elements.html">Elements</a>
                     </div>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                  <li v-if="!loggedIn" class="nav-item">
+                    <router-link :to="{name: 'Notification'}" class = "nav-item">Notifications</router-link>
                   </li>
                   <li v-if="!loggedIn" class="d-none d-lg-block">
                     <router-link :to="{name: 'Login'}" class="btn_1">Sign In</router-link>
@@ -197,8 +197,4 @@
 </div>
 </template>
 
-<script>
-export default {
-  name: "app"
-};
-</script>
+<script src ="./components/js/app.js"></script>
