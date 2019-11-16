@@ -1,4 +1,4 @@
-﻿# ECSE 321 Project Group 14 [![Build Status](https://travis-ci.com/McGill-ECSE321-Fall2019/project-group-14.svg?token=sDJUwxSysgdE6gnA8MXc&branch=master)](https://travis-ci.com/McGill-ECSE321-Fall2019/project-group-14)
+﻿# ECSE 321 - Project Group 14 [![Build Status](https://travis-ci.com/McGill-ECSE321-Fall2019/project-group-14.svg?token=sDJUwxSysgdE6gnA8MXc&branch=master)](https://travis-ci.com/McGill-ECSE321-Fall2019/project-group-14)
 
 ## Welcome to ECSE 321 Group 14's project!
 
