@@ -142,6 +142,10 @@ public class DtoConverter {
 		if (r == null) {
 			return null;
 		}
+		if (r.getRequest() == null) {
+			RoomDto roomDto = new RoomDto(r.getCapacity(), r.getRoomNumber(), null);
+			return roomDto;
+		}
 		List<Integer> requestIds = new ArrayList<Integer>();
 		for (Request req : r.getRequest()) {
 			requestIds.add(req.getRequestId());
