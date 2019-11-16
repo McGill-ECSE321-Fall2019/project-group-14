@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script src="./review.js">
+<script src="./js/review.js">
 </script>
 
 <style scoped>

@@ -1,49 +1,38 @@
 <template>
   <div class="col-lg-8 col-md-8" id="component">
-    <h4>Reviewing</h4>
+    <h3>Rate your experience</h3>
     <div class="mt-10">
-      <div class="rating">
-        <span>
-          <input type="radio" name="rating" id="str5" value="5" />
-          <label for="str5"></label>
-        </span>
-        <span>
-          <input type="radio" name="rating" id="str4" value="4" />
-          <label for="str4"></label>
-        </span>
-        <span>
-          <input type="radio" name="rating" id="str3" value="3" />
-          <label for="str3"></label>
-        </span>
-        <span>
-          <input type="radio" name="rating" id="str2" value="2" />
-          <label for="str2"></label>
-        </span>
-        <span>
-          <input type="radio" name="rating" id="str1" value="1" />
-          <label for="str1"></label>
-        </span>
+      <div class="stars" data-rating="3">
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
       </div>
       <textarea
         class="single-textarea"
         placeholder="Leave a comment (optional)"
         onfocus="this.placeholder = ''"
         onblur="this.placeholder = 'Leave a comment (optional)'"
-        required v-model="comment"
+        required
+        v-model="comment"
       ></textarea>
     </div>
     <div>
-      <a class="btn_1" href="#" @click="createReview(userRating, comment, from, to)">Leave review {{ name }} </a>
+      <a
+        class="btn_1"
+        href="#"
+        @click="createReview(rateme, comment, from, to)"
+      >Leave review {{ name }}</a>
     </div>
   </div>
 </template>
 
-<script src='./createreview.js'>
-
-
+<script src='./js/createreview.js' >
 </script>
 
 <style scoped>
+
 .btn_1 {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -56,46 +45,36 @@
   margin-right: auto;
 }
 
-.h4 {
-    margin-bottom: 50px;
-    text-align: left
+.h3 {
+  margin-bottom: 50px;
+  text-align: left;
 }
 
-.rating {
-  float: left;
-  position: relative;
-  margin-top: 30px;
-  margin-bottom: 30px;
+.star {
+  color: #f90;
+  font-size: 3rem;
+  padding: 0 1rem; /* space out the stars */
+  margin-bottom: 100px;
 }
-.rating span {
-  float: right;
-  position: relative;
-  margin-right: 20px;
+.star::before {
+  content: "\2606"; /* star outline */
+  cursor: pointer;
 }
-.rating span input {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  opacity: 0;
+.star.rated::before {
+  /* the style for a selected star */
+  content: "\2605"; /* filled star */
 }
-.rating span label {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  color: #fff;
-  background: #ccc;
-  font-size: 30px;
-  margin-right: 2px;
-  line-height: 30px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
+
+.stars {
+  counter-reset: rateme 0;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #0c2e60;
 }
-.rating span:hover ~ span label,
-.rating span:hover label,
-.rating span.checked label,
-.rating span.checked ~ span label {
-  background: #f90;
-  color: #fff;
+.star.rated {
+  counter-increment: rateme 1;
+}
+.stars::after {
+  content: counter(rateme) "/5";
 }
 </style>
