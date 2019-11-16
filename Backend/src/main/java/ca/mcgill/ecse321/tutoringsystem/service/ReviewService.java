@@ -55,6 +55,18 @@ public class ReviewService {
   }
   
   @Transactional
+  public List<Review> getReviewByTutor(Tutor tutor) {
+	  List<Review> allReviews = toList(reviewRepository.findAll());
+	  List<Review> tutorReviews = new ArrayList<Review>();
+	  for (Review review : allReviews) {
+		  if (review.getTo().getUserId() == tutor.getUserId()) {
+			  tutorReviews.add(review);
+		  }
+	  }
+	  return tutorReviews;
+  }
+  
+  @Transactional
   public boolean deleteReview(Integer id) {
       Review r = reviewRepository.findReviewByReviewId(id);
       if (r == null) {

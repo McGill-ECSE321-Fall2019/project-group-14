@@ -14,6 +14,7 @@ import ca.mcgill.ecse321.tutoringsystem.dto.ReviewDto;
 import ca.mcgill.ecse321.tutoringsystem.model.Review;
 import ca.mcgill.ecse321.tutoringsystem.service.PersonService;
 import ca.mcgill.ecse321.tutoringsystem.service.ReviewService;
+import ca.mcgill.ecse321.tutoringsystem.service.TutorService;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -23,6 +24,8 @@ public class ReviewController {
   ReviewService reviewService;
   @Autowired
   PersonService personService;
+  @Autowired
+  TutorService tutorService;
 
   @PostMapping(value = {"/reviews/create", "/reviews/create/"})
   public ReviewDto createReview(@RequestParam(name = "rating") Integer rating,
@@ -37,6 +40,16 @@ public class ReviewController {
   public ReviewDto getReview(@PathVariable("id") Integer reviewId) throws IllegalArgumentException {
     Review review = reviewService.getReview(reviewId);
     return DtoConverter.toDto(review);
+  }
+  
+  @GetMapping(value = {"/reviews/tutor/{id}", "/reviews/tutor/{id}/"})
+  public List<ReviewDto> getReviewByTutor(@PathVariable("id") Integer tutorId) throws IllegalArgumentException {
+    List<Review> tutorReviews = reviewService.getReviewByTutor(tutorService.getTutor(tutorId));
+    List<ReviewDto> reviewDtos = new ArrayList<>();
+    for (Review review : tutorReviews) {
+      reviewDtos.add(DtoConverter.toDto(review));
+    }
+    return reviewDtos;
   }
   
   @DeleteMapping(value = {"/reviews/{id}", "/reviews/{id}/"})

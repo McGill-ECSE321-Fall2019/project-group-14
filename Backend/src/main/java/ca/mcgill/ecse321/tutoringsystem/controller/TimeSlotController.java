@@ -25,9 +25,9 @@ public class TimeSlotController {
   TutorService tutorService;
 
   @PostMapping(value = {"/timeslots/create", "/timeslots/create"})
-  public TimeSlotDto createTimeSlot(@RequestParam("id") Integer tutorId, @RequestParam("date") Date date,
-      @RequestParam("time") Time time) throws IllegalArgumentException {
-    TimeSlot timeSlot = timeSlotService.createTimeSlot(tutorService.getTutor(tutorId), date, time);
+  public TimeSlotDto createTimeSlot(@RequestParam("id") Integer tutorId, @RequestParam("date") String date,
+      @RequestParam("time") String time) throws IllegalArgumentException {
+    TimeSlot timeSlot = timeSlotService.createTimeSlot(tutorService.getTutor(tutorId), Date.valueOf(date), Time.valueOf(time));
     return DtoConverter.toDto(timeSlot);
   }
 
@@ -50,9 +50,9 @@ public class TimeSlotController {
    * @throws IllegalArgumentException
    */
   @GetMapping(value = {"/timeslots/{date}/{time}", "/timeslots/{date}/{time}/"})
-  public TimeSlotDto getTimeSlotByDateAndTime(@PathVariable("date") Date date, @PathVariable("time") Time time)
+  public TimeSlotDto getTimeSlotByDateAndTime(@PathVariable("date") String date, @PathVariable("time") String time)
       throws IllegalArgumentException {
-    TimeSlot timeSlot = timeSlotService.getTimeSlot(date, time);
+    TimeSlot timeSlot = timeSlotService.getTimeSlot(Date.valueOf(date), Time.valueOf(time));
     return DtoConverter.toDto(timeSlot);
   }
 }
