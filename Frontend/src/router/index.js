@@ -4,6 +4,7 @@ import Hello from '@/components/Hello'
 import Apply from '@/components/Apply'
 import Review from '@/components/Review'
 import Login from '@/components/Login'
+import Schedule from '@/components/Schedule'
 
 
 Vue.use(Router)
@@ -29,6 +30,11 @@ export default new Router({
       path: '/reviews',
       name: 'Review',
       component: Review
+    },
+    {
+      path: '/schedule',
+      name: 'Schedule',
+      component: Schedule
     }
   ]
 })

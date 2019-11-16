@@ -17,7 +17,7 @@
           <input class="login-text" type="password" placeholder="Password" v-model="password" />
           <input
             @click="login(email,password)"
-  
+
             type="submit"
             value="Login"
             class="btn_1"
