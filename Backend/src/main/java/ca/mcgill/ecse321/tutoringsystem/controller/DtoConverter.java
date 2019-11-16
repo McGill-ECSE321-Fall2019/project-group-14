@@ -138,7 +138,7 @@ public class DtoConverter {
 
 	public static RoomDto toDto(Room r) {
 		if (r == null) {
-			throw new IllegalArgumentException("There is no such Room!");
+			return null;
 		}
 		RoomDto roomDto = new RoomDto(r.getCapacity(), r.getRoomNumber(), requestSetToDto(r.getRequest()));
 		return roomDto;
