@@ -107,7 +107,7 @@ public class DtoConverter {
 		if (r == null) {
 			throw new IllegalArgumentException("There is no such Request!");
 		}
-		RequestDto requestDto = new RequestDto(toDto(r.getTutor()), toDto(r.getStudent()), r.getTime(), r.getDate(), notificationSetToDto(r.getNotification()), toDto(r.getCourse()), toDto(r.getRoom()), r.getRequestId());
+		RequestDto requestDto = new RequestDto(toDto(r.getTutor()), toDto(r.getStudent()), r.getTime(), r.getDate(), toDto(r.getCourse()), toDto(r.getRoom()), r.getRequestId());
 		return requestDto;
 	}
 
