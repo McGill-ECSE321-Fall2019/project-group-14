@@ -6,7 +6,6 @@ import java.util.Set;
 public class TutorDto extends PersonDto {
   private Set<TimeSlotDto> timeSlots;
   private Set<WageDto> wages;
-  private Set<RequestDto> requests;
   private Set<NotificationDto> notifications;
   private Set<ReviewDto> reviews;
   
@@ -15,14 +14,13 @@ public class TutorDto extends PersonDto {
   
   @SuppressWarnings("unchecked")
   public TutorDto(String email) {
-      this(null, email, null, null, Collections.EMPTY_SET, Collections.EMPTY_SET, Collections.EMPTY_SET, Collections.EMPTY_SET, Collections.EMPTY_SET);
+      this(null, email, null, null, Collections.EMPTY_SET, Collections.EMPTY_SET, Collections.EMPTY_SET, Collections.EMPTY_SET);
   }
   
-  public TutorDto(String name, String email, Integer userId, String password, Set<TimeSlotDto> timeSlots, Set<WageDto> wages, Set<RequestDto> requests, Set<NotificationDto> notifications, Set<ReviewDto> reviews) {
+  public TutorDto(String name, String email, Integer userId, String password, Set<TimeSlotDto> timeSlots, Set<WageDto> wages, Set<NotificationDto> notifications, Set<ReviewDto> reviews) {
     super(name, email, userId, password);
     this.timeSlots = timeSlots;
     this.wages = wages;
-    this.requests = requests;
     this.notifications = notifications;
     this.reviews = reviews;
   }
@@ -41,14 +39,6 @@ public class TutorDto extends PersonDto {
 
   public void setWages(Set<WageDto> wages) {
     this.wages = wages;
-  }
-
-  public Set<RequestDto> getRequests() {
-    return requests;
-  }
-
-  public void setRequests(Set<RequestDto> requests) {
-    this.requests = requests;
   }
 
   public Set<NotificationDto> getNotifications() {
