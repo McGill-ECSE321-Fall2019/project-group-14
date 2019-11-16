@@ -1,7 +1,5 @@
 <template>
   <div id="login">
-      <!-- style CSS -->
-  <link rel="stylesheet" href="../static/css/style.css" />
     <div class="action">
     <div class="left half">
       <div class="container" align="center">

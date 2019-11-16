@@ -51,41 +51,29 @@
                 id="navbarSupportedContent"
               >
                 <ul class="navbar-nav align-items-center">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home</a>
-                  </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
+                    <router-link class="nav-link" to="/">Home</router-link>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="course.html">Courses</a>
+                  <li v-if="loggedIn" class="nav-item">
+                    <router-link class="nav-link" to="/schedule">Schedule</router-link>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="blog.html">Blog</a>
+                  <li v-if="loggedIn" class="nav-item">
+                    <router-link class="nav-link" to="/notifications">Notifcations</router-link>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="blog.html"
-                      id="navbarDropdown"
-                      role="button"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >Pages</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="single-blog.html">Single blog</a>
-                      <a class="dropdown-item" href="elements.html">Elements</a>
-                    </div>
+                  <li v-if="loggedIn" class="nav-item">
+                    <router-link class="nav-link" to="/reviews">Reviews</router-link>
                   </li>
-                  <li v-if="!loggedIn" class="nav-item">
-                    <router-link :to="{name: 'Notification'}" class="nav-item">Notifications</router-link>
+                  <li v-if="loggedIn" class="nav-item">
+                    <router-link class="nav-link" to="/">Browse Wages</router-link>
                   </li>
-                  <li v-if="!loggedIn" class="d-none d-lg-block">
-                    <router-link :to="{name: 'Login'}" class="btn_1">Sign In</router-link>
+                  <li v-if="loggedIn" class="nav-item">
+                    <router-link class="nav-link" to="/settings">Settings</router-link>
                   </li>
                   <li v-if="loggedIn" class="d-none d-lg-block">
-                    <input @click="logout()" type="submit" value="Sign out" class="btn_1">
+                    <input @click="logout()" type="submit" value="Sign out" class="btn_1" style="margin-left: 20px;">
+                  </li>
+                  <li v-if="!loggedIn" class="d-none d-lg-block">
+                    <router-link :to="{name: 'Login'}" class="btn_1" style="margin-left: 20px;">Sign In</router-link>
                   </li>
                 </ul>
               </div>
@@ -106,10 +94,8 @@
                 <img src="../static/img/logo.png" alt>
               </a>
               <p>
-                But when shot real her. Chamber her one visite removal six
-                sending himself boys scot exquisite existend an
+                This is some filler text to make it so that website does not seem so empty and boring. I don't actually know what should be written here.
               </p>
-              <p>But when shot real her hamber her</p>
             </div>
           </div>
           <div class="col-sm-6 col-md-4 col-xl-4">
@@ -155,13 +141,13 @@
               <h4>Contact us</h4>
               <div class="contact_info">
                 <p>
-                  <span>Address :</span> Hath of it fly signs bear be one blessed after
+                  <span>Address :</span> McGill University, 3415 McTavish Street, Montréal, QC H3A 0C8
                 </p>
                 <p>
-                  <span>Phone :</span> +2 36 265 (8060)
+                  <span>Phone :</span> 514-398-4455
                 </p>
                 <p>
-                  <span>Email :</span>info@colorlib.com
+                  <span>Email :</span> info.communications@mcgill.ca
                 </p>
               </div>
             </div>
@@ -194,6 +180,7 @@
     </footer>
     <!-- footer part end-->
   </body>
+  
 </div>
 </template>
 
