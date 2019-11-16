@@ -2,6 +2,9 @@ package ca.mcgill.ecse321.tutoringsystem.controller;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,6 +38,12 @@ public class TimeSlotController {
   public TimeSlotDto getTimeSlotById(@PathVariable("id") Integer id) throws IllegalArgumentException {
     TimeSlot timeSlot = timeSlotService.getTimeSlot(id);
     return DtoConverter.toDto(timeSlot);
+  }
+  
+  @GetMapping(value = {"/timeslots/tutor/{id}", "/timeslots/tutor/{id}/"})
+  public Set<TimeSlotDto> getTimeSlotByTutor(@PathVariable("id") Integer id) throws IllegalArgumentException {
+    Set<TimeSlot> timeslots = new HashSet<TimeSlot>(timeSlotService.getTimeSlotByTutor(tutorService.getTutor(id)));
+    return DtoConverter.timeSlotSetToDto(timeslots);
   }
   
   @DeleteMapping(value = {"/timeslots/{id}", "/timeslots/{id}/"})

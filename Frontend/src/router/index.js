@@ -6,6 +6,7 @@ import Review from '@/components/Review'
 import CreateReview from '@/components/CreateReview'
 import Login from '@/components/Login'
 import Notification from '@/components/Notification'
+import TutorSettings from '@/components/TutorSettings'
 
 
 Vue.use(Router)
@@ -41,6 +42,11 @@ export default new Router({
       path: '/reviews/create',
       name: 'create-review',
       component: CreateReview,
+    },
+    {
+      path: '/settings',
+      name: 'TutorSettings',
+      component: TutorSettings
     }
 
   ]

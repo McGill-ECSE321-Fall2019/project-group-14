@@ -12,48 +12,65 @@ var AXIOS = axios.create({
 })
 
 export default {
-    name: 'login',
+    name: 'tutorsettings',
     data() {
         return {
-            email: '',
+            tutorName: '',
             password: '',
-            errorLogin: '',
+            errorMsg: '',
             response: ''
         }
     },
+    mounted() {
+        AXIOS.get('/tutors/' + this.$cookie.get('userId'))
+        .then(response => {
+            this.response = response.data
+            this.errorMsg =''
+            if (this.response != '') {
+                this.tutorName = this.response['name']
+                this.password = this.response['password']
+            }
+            else {
+                console.log('Errored')
+            }
+        })
+        .catch(e => {
+            console.log(e)
+        })
+    },
     methods: {
-        login (email, password) {
-            if (email == '') {
-                var errorMessage = "Email cannot be empty"
+        updatetutor (tutorName, password) {
+            console.log('updating with ' + tutorName + password)
+            if (tutorName == '') {
+                var errorMessage = "Name cannot be empty"
                 console.log(errorMessage)
-                this.errorLogin = errorMessage
+                this.errorMsg = errorMessage
                 return
             }
             if (password == '') {
                 var errorMessage = "Password cannot be empty"
                 console.log(errorMessage)
-                this.errorLogin = errorMessage
+                this.errorMsg = errorMessage
                 return
             }
-            AXIOS.post('/login/', $.param({email: email, password: password}))
+            AXIOS.put('/tutors/update/' + this.$cookie.get('userId'), $.param({name: tutorName, password: password, timeslots: null, wages: null}))
             .then(response => {
                 this.response = response.data
-                this.errorLogin =''
+                this.errorMsg =''
                 if (this.response != '') {
-                    localStorage.setItem('loggedIn', 'Tutor')
                     this.$cookie.set('name', this.response['name'], { expires: '1h'})
                     this.$cookie.set('userId', this.response['userId'], { expires: '1h'})
-                    window.location.href = "/"
+                    this.errorMsg = this.response
                 }
                 else {
-                    this.errorLogin = 'Wrong email or password!'
-                    console.log(this.errorlogin)
+                    this.errorMsg = 'Error updating info!'
+                    console.log(this.errorMsg)
                 }
             })
             .catch(e => {
                 var errorMessage = e.response
                 console.log(e)
-                this.errorLogin = errorMessage
+                this.errorMsg = errorMessage
             })
         }
     }
