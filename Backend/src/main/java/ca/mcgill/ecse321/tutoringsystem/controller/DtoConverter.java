@@ -1,6 +1,8 @@
 package ca.mcgill.ecse321.tutoringsystem.controller;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import ca.mcgill.ecse321.tutoringsystem.dto.*;
@@ -140,7 +142,11 @@ public class DtoConverter {
 		if (r == null) {
 			return null;
 		}
-		RoomDto roomDto = new RoomDto(r.getCapacity(), r.getRoomNumber(), requestSetToDto(r.getRequest()));
+		List<Integer> requestIds = new ArrayList<Integer>();
+		for (Request req : r.getRequest()) {
+			requestIds.add(req.getRequestId());
+		}
+		RoomDto roomDto = new RoomDto(r.getCapacity(), r.getRoomNumber(), requestIds);
 		return roomDto;
 	}
 

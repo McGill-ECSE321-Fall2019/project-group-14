@@ -1,12 +1,12 @@
 package ca.mcgill.ecse321.tutoringsystem.dto;
 
 import java.util.Collections;
-import java.util.Set;
+import java.util.List;
 
 public class RoomDto {
   private Integer capacity;
   private Integer roomNumber;
-  private Set<RequestDto> requests;
+  private List<Integer> requestIds;
   
   public RoomDto() {
     
@@ -14,13 +14,13 @@ public class RoomDto {
   
   @SuppressWarnings("unchecked")
   public RoomDto(Integer roomNumber) {
-    this(null, roomNumber, Collections.EMPTY_SET);
+    this(null, roomNumber, Collections.EMPTY_LIST);
   }
   
-  public RoomDto(Integer capacity, Integer roomNumber, Set<RequestDto> requests) {
+  public RoomDto(Integer capacity, Integer roomNumber, List<Integer> requestIds) {
     this.capacity = capacity;
     this.roomNumber = roomNumber;
-    this.requests = requests;
+    this.requestIds = requestIds;
   }
 
   public Integer getCapacity() {
@@ -39,11 +39,11 @@ public class RoomDto {
     this.roomNumber = roomNumber;
   }
 
-  public Set<RequestDto> getRequests() {
-    return requests;
+  public List<Integer> getRequestIds() {
+    return requestIds;
   }
 
-  public void setRequests(Set<RequestDto> requests) {
-    this.requests = requests;
+  public void setRequestIds(List<Integer> requestIds) {
+    this.requestIds = requestIds;
   }
 }
