@@ -17,6 +17,7 @@ export default {
   mounted() {
     tutorId = this.getCookie('userId')
     this.getAcceptedRequestsFromTutor(tutorId)
+    //this.getRequestsFromTutor(tutorId)
     this.getPendingRequestsFromTutor(tutorId)
   },
   data() {
@@ -24,7 +25,8 @@ export default {
       requests: [],
       pendingRequests: [],
       acceptedRequests: [],
-      errorRequest: ''
+      errorRequest: '',
+      userId: this.$cookie.get('userId')
     }
   },
 
@@ -42,7 +44,7 @@ export default {
     },
 
     getRequestsFromTutor: function (id) {
-      AXIOS.get('/requests/accepted/' + id)
+      AXIOS.get('/requests/tutor/' + id)
         .then(response => {
           this.requests = response.data
         })
@@ -55,7 +57,16 @@ export default {
 
     getPendingRequestsFromTutor: function(id) {
       this.pendingRequests = [];
-      getRequestsFromTutor(id);
+      AXIOS.get('/requests/tutor/' + tutorId)
+        .then(response => {
+          this.requests = response.data
+        })
+        .catch(e => {
+          this.errorRequest = e;
+          console.log(e)
+        })
+        ;
+      console.log(this.requests);
       for (var request in this.requests) {
         if (request.room == null) {
           this.pendingRequests.push(request);
@@ -63,25 +74,25 @@ export default {
       }
     },
 
-    acceptRequest: function(id) {
-      AXIOS.post('/accept/' + id)
+    acceptRequest: function(requestId) {
+      AXIOS.post('/accept/' + requestId)
         .catch(e => {
           this.errorRequest = e;
           console.log(e)
         })
         ;
-      getPendingRequestsFromTutor(id);
-      getAcceptedRequestsFromTutor(id);
+      this.getPendingRequestsFromTutor(userId);
+      this.getAcceptedRequestsFromTutor(userId);
     },
 
-    rejectRequest: function(id) {
-      AXIOS.post('/reject/' + id)
+    rejectRequest: function(requestId) {
+      AXIOS.post('/reject/' + requestId)
         .catch(e => {
           this.errorRequest = e;
           console.log(e)
         })
         ;
-      getPendingRequestsFromTutor(id);
+      this.getPendingRequestsFromTutor(userId);
     },
 
     getCookie: function (cname) {
