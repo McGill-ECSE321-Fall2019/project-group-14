@@ -41,7 +41,7 @@ export default new Router({
       component: Review
     },
     {
-      path: '/notifications',
+      path: '/notifications/tutor/{id}/:id',
       name: 'Notification',
       component: Notification
     },
