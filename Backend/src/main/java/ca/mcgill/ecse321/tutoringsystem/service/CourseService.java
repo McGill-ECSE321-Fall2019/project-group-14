@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ca.mcgill.ecse321.tutoringsystem.dao.CourseRepository;
+import ca.mcgill.ecse321.tutoringsystem.dao.InstitutionRepository;
 import ca.mcgill.ecse321.tutoringsystem.dao.WageRepository;
 import ca.mcgill.ecse321.tutoringsystem.model.Course;
 import ca.mcgill.ecse321.tutoringsystem.model.Institution;
@@ -17,6 +18,8 @@ public class CourseService {
   CourseRepository courseRepository;
   @Autowired
   WageRepository wageRepository;
+  @Autowired
+  InstitutionRepository institutionRepository;
 
   @Transactional
   public Course createCourse(String name, Institution institution, String subjectName) {
@@ -66,6 +69,18 @@ public class CourseService {
       coursesWithSubject.add(c);
     }
     return coursesWithSubject;
+  }
+  
+  @Transactional
+  public List<Course> getCoursesByInstitution(String institution) {
+    if (institution == null) {
+      throw new IllegalArgumentException("Institution name cannot be null!");
+    }
+    List<Course> coursesWithInstitution = new ArrayList<>();
+    for (Course c : courseRepository.findCourseByInstitution(institutionRepository.findInstitutionByInstitutionName(institution))) {
+      coursesWithInstitution.add(c);
+    }
+    return coursesWithInstitution;
   }
   
   @Transactional

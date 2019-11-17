@@ -7,11 +7,13 @@ import CreateReview from '@/components/CreateReview'
 import Login from '@/components/Login'
 import Notification from '@/components/Notification'
 import TutorSettings from '@/components/TutorSettings'
+import Wages from '@/components/Wages'
 
 
 Vue.use(Router)
 
 export default new Router({
+  
   routes: [
     {
       path: '/',
@@ -47,6 +49,11 @@ export default new Router({
       path: '/settings',
       name: 'TutorSettings',
       component: TutorSettings
+    },
+    {
+      path: '/wages',
+      name: 'Wages',
+      component: Wages
     }
 
   ]
