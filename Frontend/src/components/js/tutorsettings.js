@@ -18,7 +18,9 @@ export default {
             tutorName: '',
             password: '',
             errorMsg: '',
-            response: ''
+            response: '',
+            wages: [],
+            wageUpdateAmounts: {}
         }
     },
     mounted() {
@@ -29,6 +31,21 @@ export default {
             if (this.response != '') {
                 this.tutorName = this.response['name']
                 this.password = this.response['password']
+            }
+            else {
+                console.log('Errored')
+            }
+        })
+        .catch(e => {
+            console.log(e)
+        })
+
+        AXIOS.get('/wages/tutor/' + this.$cookie.get('userId'))
+        .then(response => {
+            this.response = response.data
+            this.errorMsg =''
+            if (this.response != '') {
+                this.wages = this.response
             }
             else {
                 console.log('Errored')
@@ -59,6 +76,25 @@ export default {
                 this.errorMsg =''
                 if (this.response != 'true') {
                     this.$cookie.set('name', this.tutorName, { expires: '1h'})
+                    window.location.reload()
+                }
+                else {
+                    this.errorMsg = 'Error updating info!'
+                    console.log(this.errorMsg)
+                }
+            })
+            .catch(e => {
+                var errorMessage = e.response
+                console.log(e)
+                this.errorMsg = errorMessage
+            })
+        },
+        updateWage (updateWageId) {
+            AXIOS.put('/wages/update/' + updateWageId, $.param({wage: this.wageUpdateAmounts[updateWageId] * 100}))
+            .then(response => {
+                this.response = response.data
+                this.errorMsg =''
+                if (this.response != 'true') {
                     window.location.reload()
                 }
                 else {
