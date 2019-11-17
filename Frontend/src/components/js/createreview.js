@@ -64,7 +64,6 @@ export default {
         },
 
         createReview: function (comment, tutorId, studentId) {
-            console.log(comment + "," +  tutorId + "," +  this.getRating() + "," +  studentId)
             AXIOS.post('/reviews/create', $.param({ rating: rating, comment: comment, from: tutorId, to: studentId }))
                 .then(response => {
                     this.reviews.push(response.data)

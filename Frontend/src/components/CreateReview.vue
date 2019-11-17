@@ -2,7 +2,6 @@
   <div class="action">
     <div class="col-lg-8 col-md-8" id="component">
       <h3>Rate your experience with {{name}} </h3>
-            <h5 id="headerId">{{id}}</h5>
       <div class="mt-10">
         <div class="stars" data-rating="3">
           <span class="star">&nbsp;</span>
@@ -19,7 +18,7 @@
           onblur="this.placeholder = 'Leave a comment (optional)'"
           v-model="comment"
         />
-        <button ref={{id}} class="btn_1" @click="createReview(comment, getCookie('userId'), ref)">Leave review </button>
+        <button class="btn_1" @click="createReview(comment, getCookie('userId'), id)">Leave review</button>
       </div>
     </div>
   </div>
