@@ -28,7 +28,7 @@
         </div>
       </div>
       <h3 class="mb-30" id="reviews">Your reviews</h3>
-      <div class="progress-table-wrap">
+      <div id="reviewsTable" class="progress-table-wrap">
         <div class="progress-table">
           <div class="table-head">
             <div class="serial" id="rating">From</div>
@@ -101,4 +101,5 @@ ul {
   text-align: center;
   vertical-align: middle;
 }
+
 </style>
