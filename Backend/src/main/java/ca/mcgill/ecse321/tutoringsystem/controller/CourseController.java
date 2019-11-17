@@ -38,6 +38,12 @@ public class CourseController {
 		return DtoConverter.courseSetToDto(courses);
 	}
 	
+	@GetMapping(value = { "/courses/institution/{institution}", "/courses/institution/{institution}/" })
+	public Set<CourseDto> getCourseByInstitution(@PathVariable(name = "institution") String institution) throws IllegalArgumentException {
+		Set<Course> courses = new HashSet<Course>(courseService.getCoursesByInstitution(institution));
+		return DtoConverter.courseSetToDto(courses);
+	}
+	
 	@GetMapping(value = { "/courses/{course}", "/courses/{course}/" })
 	public CourseDto getCourseByName(@PathVariable(name = "course") String course) throws IllegalArgumentException {
 		return DtoConverter.toDto(courseService.getCourse(course));
