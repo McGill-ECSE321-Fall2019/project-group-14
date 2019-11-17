@@ -39,6 +39,17 @@ public class WageService {
       Wage w = wageRepository.findWageByWageId(wageId);
       return w;
   }
+  
+  @Transactional
+  public Wage updateWage(Integer wageId, Integer wage) {
+	  Wage w = wageRepository.findWageByWageId(wageId);
+	  if (w == null) {
+          throw new NullPointerException("No Wage by this id.");
+      }
+	  w.setWage(wage);
+	  wageRepository.save(w);
+	  return w;
+  }
 
   @Transactional
   public List<Wage> getAllWages() {
