@@ -1,8 +1,14 @@
 import axios from 'axios'
+import JQuery from 'jquery'
+
+let $ = JQuery
+
 var config = require('../../../config')
+var tutorId = ''
+var rating = ''
 
 var frontendUrl = 'http://' + config.dev.host + ':' + config.dev.port
-var backendUrl = 'http://' + config.dev.backendHost + ':' + config.dev.backendPort
+var backendUrl = config.dev.backendHost + ':' + config.dev.backendPort
 
 var AXIOS = axios.create({
     baseURL: backendUrl,
@@ -15,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         star.addEventListener('click', setRating);
     });
 
-    let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+    rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
     let target = stars[rating - 1];
     target.dispatchEvent(new MouseEvent('click'));
 });
@@ -41,6 +47,10 @@ function setRating(ev) {
 }
 
 export default {
+    mounted() {
+        tutorId = this.getCookie('userId')
+    },
+
     data() {
         return {
             name: '',
@@ -53,8 +63,8 @@ export default {
         // hello: function() {
         //     alert('Hello');
         // }
-        createReview: function (userRating, comment, from, to) {
-            AXIOS.post('/reviews/create' + userRating + '&' + comment + '&' + from + '&' + to, {}, {})
+        createReview: function (comment, tutorId) {
+            AXIOS.post('/reviews/create', $.param({ rating: rating, comment: comment, from: tutorId, to: studentId }))
                 .then(response => {
                     this.reviews.push(response.data)
                     this.errorReview = ''
@@ -66,5 +76,24 @@ export default {
                 });
         },
 
+        getRating() {
+            let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+            return rating;
+        },
+        getCookie: function (cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        },
     },
 }
