@@ -12,6 +12,11 @@ import Wages from '@/components/Wages'
 
 Vue.use(Router)
 
+const createReviewStudentId = {
+  props: ['id'],
+  template: '<div>CreateReview {{ id }}</div>'
+}
+
 export default new Router({
   
   routes: [
@@ -41,9 +46,10 @@ export default new Router({
       component: Notification
     },
     {
-      path: '/reviews/create',
+      path: '/reviews/create/:id',
       name: 'create-review',
       component: CreateReview,
+      props: true
     },
     {
       path: '/settings',
