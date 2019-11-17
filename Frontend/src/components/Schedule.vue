@@ -14,42 +14,16 @@
             <div class="serial">Student</div>
             <div class="serial">Course</div>
           </div>
-          <div class="table-row">
+          <div class="table-row" style="display: flex; flex-direction: column">
             <div
-                v-for="request in acceptedRequests"
-                v-bind:key="request.id"
-                id="when"
-                class="serial"
-              >{{request.date}} at {{request.time}}</div>
-              <div
-                v-for="request in acceptedRequests"
-                v-bind:key="request.id"
-                id="where"
-                class="serial"
-              >Room #{{request.room.roomNumber}}</div>
-              <div
-                v-for="request in acceptedRequests"
-                v-bind:key="request.id"
-                id="student"
-                class="serial"
-              >{{request.student.name}}</div>
-              <div
-                v-for="request in acceptedRequests"
-                v-bind:key="request.id"
-                id="course"
-                class="serial"
-              >{{request.course.courseName}}</div>
-
-            <!-- <div id="when" class="serial">November 22th at 12:00pm</div>
-            <div id="where" class="serial">Room #11</div>
-            <div id="student" class="serial">Lebron</div>
-            <div id="course" class="serial">BALL 321</div>
-            <div id="acceptButton" class="country" style="width: 0px">
-              <button v-on:click="acceptRequest()" class="btn_4">Accept</button>
+            v-for="request in acceptedRequests"
+            v-bind:key="request.requestId"
+            style="display: flex; margin-top: 18px">
+              <div class="serial">{{request.date}} at {{request.time}}</div>
+              <div class="serial">Room #{{request.room.roomNumber}}</div>
+              <div class="serial">{{request.student.name}}</div>
+              <div class="serial">{{request.course.courseName}}</div>
             </div>
-            <div id="RejectButton" class="country" style="width: 0px; margin-left: 110px">
-              <button v-on:click="rejectRequest()" class="btn_4">Reject</button>
-            </div> -->
           </div>
         </div>
       </div>
@@ -68,18 +42,18 @@
           </div>
           <div class="table-row" style="display: flex; flex-direction: column">
             <div
-            v-for="request in requests"
+            v-for="request in pendingRequests"
             v-bind:key="request.requestId"
             style="display: flex; margin-top: 18px">
               <div class="serial">{{request.date}} at {{request.time}}</div>
-              <div class="serial">{{request.tutor.name}}</div>
+              <div class="serial">TBA</div>
               <div class="serial">{{request.student.name}}</div>
               <div class="serial">{{request.course.courseName}}</div>
-              <div v-show="pendingRequests.length == 0" id="acceptButton" class="country" style="width: 0px">
-                <button v-on:click="acceptRequest(request.requestId)" class="btn_4">Accept</button>
+              <div v-show="pendingRequests.length != 0" id="acceptButton" class="country" style="width: 0px">
+                <button @click="acceptRequest(request.requestId)" class="btn_4">Accept</button>
               </div>
               <div v-show="pendingRequests.length != 0" id="RejectButton" class="country" style="width: 0px; margin-left: 110px">
-                <button v-on:click="rejectRequest(request.requestId)" class="btn_4">Reject</button>
+                <button @click="rejectRequest(request.requestId)" class="btn_4">Reject</button>
               </div>
             </div>
           </div>

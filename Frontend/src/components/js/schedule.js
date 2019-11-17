@@ -14,7 +14,7 @@ var AXIOS = axios.create({
 export default {
   name: 'schedule',
   props: ['id'],
-  mounted() {
+  created() {
     tutorId = this.getCookie('userId')
     this.getAcceptedRequestsFromTutor(tutorId)
     //this.getRequestsFromTutor(tutorId)
@@ -57,42 +57,45 @@ export default {
 
     getPendingRequestsFromTutor: function(id) {
       this.pendingRequests = [];
-      AXIOS.get('/requests/tutor/' + tutorId)
+      AXIOS.get('/requests/tutor/' + id)
         .then(response => {
-          this.requests = response.data
+          this.requests = response.data;
+          for (var i in this.requests) {
+            if (this.requests[i].room == null) {
+              this.pendingRequests.push(this.requests[i]);
+            }
+          }
+          console.log(this.pendingRequests);
         })
         .catch(e => {
           this.errorRequest = e;
           console.log(e)
         })
         ;
-      console.log(this.requests);
-      for (var request in this.requests) {
-        if (request.room == null) {
-          this.pendingRequests.push(request);
-        }
-      }
     },
 
     acceptRequest: function(requestId) {
       AXIOS.post('/accept/' + requestId)
+        .then(response => {
+          window.location.reload();
+        })
         .catch(e => {
           this.errorRequest = e;
           console.log(e)
         })
         ;
-      this.getPendingRequestsFromTutor(userId);
-      this.getAcceptedRequestsFromTutor(userId);
     },
 
     rejectRequest: function(requestId) {
       AXIOS.post('/reject/' + requestId)
+        .then(response => {
+          window.location.reload();
+        })
         .catch(e => {
           this.errorRequest = e;
           console.log(e)
         })
         ;
-      this.getPendingRequestsFromTutor(userId);
     },
 
     getCookie: function (cname) {
