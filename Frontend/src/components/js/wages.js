@@ -19,28 +19,61 @@ export default {
             response: '',
             institution: '',
             course: '',
-            institutions: []
+            institutions: [],
+            courses: [],
+            wages: []
         }
     },
     mounted() {
         AXIOS.get('/institutions')
-        .then(response => {
-            this.response = response.data
-            this.errorMsg =''
-            if (this.response != '') {
-                this.institutions = this.response
-            }
-            else {
-                console.log('Errored')
-            }
-        })
-        .catch(e => {
-            console.log(e)
-        })
+            .then(response => {
+                this.response = response.data
+                this.errorMsg = ''
+                if (this.response != '') {
+                    this.institutions = this.response
+                }
+                else {
+                    console.log('Errored')
+                }
+            })
+            .catch(e => {
+                console.log(e)
+            })
     },
     methods: {
-        doNothing () {
-
+        viewWage () {
+            AXIOS.get('/wages/course/' + this.course)
+                .then(response => {
+                    this.response = response.data
+                    this.errorMsg = ''
+                    if (this.response != '') {
+                        this.wages = this.response
+                        this.wages.sort((a, b) => (a.wage > b.wage) ? 1 : -1)
+                    }
+                    else {
+                        this.wages = []
+                    }
+                })
+                .catch(e => {
+                    console.log(e)
+                })
+        },
+        updateCourses () {
+            AXIOS.get('/courses/institution/' + this.institution)
+                .then(response => {
+                    this.response = response.data
+                    this.errorMsg = ''
+                    if (this.response != '') {
+                        this.courses = this.response
+                        this.courses.sort((a, b) => (a.courseName > b.courseName) ? 1 : -1)
+                    }
+                    else {
+                        console.log('Errored')
+                    }
+                })
+                .catch(e => {
+                    console.log(e)
+                })
         }
     }
 }
