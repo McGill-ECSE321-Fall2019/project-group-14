@@ -6,7 +6,7 @@ let $ = JQuery
 var config = require('../../../config')
 var tutorId = ''
 var rating = ''
-
+var studentId = ''
 var frontendUrl = 'http://' + config.dev.host + ':' + config.dev.port
 var backendUrl = config.dev.backendHost + ':' + config.dev.backendPort
 
@@ -14,7 +14,6 @@ var AXIOS = axios.create({
     baseURL: backendUrl,
     headers: { 'Access-Control-Allow-Origin': frontendUrl }
 })
-
 document.addEventListener('DOMContentLoaded', function () {
     let stars = document.querySelectorAll('.star');
     stars.forEach(function (star) {
@@ -47,15 +46,18 @@ function setRating(ev) {
 }
 
 export default {
+    props: ['id', 'name'],
     mounted() {
         tutorId = this.getCookie('userId')
+        this.studentId = ['id'];
     },
-
     data() {
         return {
             name: '',
             reviews: [],
-            errorReview: ''
+            errorReview: '',
+            comment: ''
+
         }
     },
 

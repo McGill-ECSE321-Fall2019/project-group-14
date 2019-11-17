@@ -13,7 +13,7 @@ var AXIOS = axios.create({
 
 export default {
   name: 'review',
-  props: ['id'],
+  props: ['id', 'name'],
   mounted() {
     tutorId = this.getCookie('userId')
     this.getReviewsFromTutor(tutorId)
@@ -30,7 +30,6 @@ export default {
       studentId: ''
     }
   },
-
   methods: {
     hello: function () {
       // alert(tutorId); -> this is a test function
