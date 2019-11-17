@@ -13,8 +13,8 @@ import Wages from '@/components/Wages'
 Vue.use(Router)
 
 const createReviewStudentId = {
-  props: ['id'],
-  template: '<div>CreateReview {{ id }}</div>'
+  props: ['id', 'name'],
+  template: '<div>CreateReview {{ id }} {{name}}</div>'
 }
 
 export default new Router({
