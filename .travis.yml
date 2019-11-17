@@ -14,7 +14,7 @@ matrix:
       before_install:
         - npm install -g npm@latest
       script:
-      - npm run build
+      - cd Frontend && npm run build
       cache:
         directories:
           - "node_modules"
