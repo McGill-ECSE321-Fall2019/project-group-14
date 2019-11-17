@@ -58,7 +58,7 @@
                     <router-link class="nav-link" to="/schedule">Schedule</router-link>
                   </li>
                   <li v-if="loggedIn" class="nav-item">
-                    <router-link class="nav-link" to="/notifications">Notifcations</router-link>
+                    <router-link class="nav-link" :to= "{name: 'Notification'}">Notifications</router-link>
                   </li>
                   <li v-if="loggedIn" class="nav-item">
                     <router-link class="nav-link" to="/reviews">Reviews</router-link>

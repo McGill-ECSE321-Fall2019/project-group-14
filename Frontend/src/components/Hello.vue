@@ -10,7 +10,7 @@
               <p>Our tutoring service will accomplish the needs of students at the high school, CÉGEP, and university levels. Any student looking for a tutor in any subject taught at those levels will find an appropriate tutor.</p>
               <router-link :to="{name: 'Login'}" class="btn_1" v-if="!loggedIn">Sign in</router-link>
               <router-link :to="{name: 'Apply'}" id="apply" class="btn_2" v-if="!loggedIn">Apply as a tutor</router-link>
-              <router-link :to="{name: 'Notification'}" id="notification" class="btn_1" v-if="loggedIn">View Notification</router-link>
+              <router-link :to="{name: 'Schedule'}" class="btn_1" v-if="loggedIn">View Schedule</router-link>
             </div>
           </div>
         </div>
