@@ -1,59 +1,48 @@
 <template>
   <div id="schedule">
-      <!-- style CSS -->
-  <link rel="stylesheet" href="../static/css/style.css" />
-    <div class="action">
-    <div class="days">
-      <div class="container" align="center">
-        <div align="left" style="margin-left:5%">
+        <!-- style CSS -->
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <div class="mb-30" style="padding-top: 130px;">
+      <div class="container box_1170" align="left">
+        <h1 align="center">Schedule</h1>
+        <div
+        id = "Example"
+        style="margin-top: 30px; margin-left: 20px">
+          <h3>Request by Studentname</h3>
           <ul>
-            <h1>Monday</h1>
-            <h1>Tuesday</h1>
-            <h1>Wednesday</h1>
-            <h1>Thursday</h1>
-            <h1>Friday</h1>
-            <h1>Saturday</h1>
-            <h1>Sunday</h1>
+            <li>Date: April 20th 2019 at 4:00 pm</li>
+            <li>Room: 11</li>
+            <li>Course: ECSE321</li>
+          </ul>
+          <h3>Request by Studentname</h3>
+          <ul>
+            <li>Date: April 20th 2019 at 4:00 pm</li>
+            <li>Room: 11</li>
+            <li>Course: ECSE321</li>
+          </ul>
+        </div>
+        <div
+        id = "tutorRequests"
+        style="margin-top: 40px; margin-left: 20px"
+        v-for="request in acceptedRequests"
+        v-bind:key="request.id">
+          <h3>Request by {{ request.student.name }}</h3>
+          <ul>
+            <li>Date: {{ request.date }} at {{ request.time }}</li>
+            <li>Room: {{ request.room.roomNumber }}</li>
+            <li>Course: {{ request.course.courseName }}</li>
           </ul>
         </div>
       </div>
-    </div>
-    <div class="right half">
-      <div class="container" align="left">
-        <div class="login" style="padding-right:0%">
-          <p>
-            9:00 am
-            10:00 am
-            11:00 am
-            12:00 pm
-            1:00 pm
-            2:00 pm
-            3:00 pm
-            4:00 pm
-            5:00 pm
-            6:00 pm
-            7:00 pm
-            8:00 pm
-            9:00 pm
-          </p>
-
-          <input class="login-text" type="text" placeholder="Email" v-model="email" />
-          <input class="login-text" type="password" placeholder="Password" v-model="password" />
-          <input
-            @click="login(email,password)"
-
-            type="submit"
-            value="Login"
-            class="btn_1"
-          />
-          <br>
-          <span v-if="errorLogin" style="color:red">Error: {{errorLogin}} </span>
-        </div>
-      </div>
-    </div>
     </div>
   </div>
 </template>
 
 <script src="./js/schedule.js">
 </script>
+
+<style scoped>
+h3{
+  margin-top: 40px;
+}
+</style>

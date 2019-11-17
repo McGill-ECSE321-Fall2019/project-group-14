@@ -8,12 +8,13 @@ import Login from '@/components/Login'
 import Notification from '@/components/Notification'
 import TutorSettings from '@/components/TutorSettings'
 import Wages from '@/components/Wages'
+import Schedule from '@/components/Schedule'
 
 
 Vue.use(Router)
 
 export default new Router({
-  
+
   routes: [
     {
       path: '/',
@@ -54,7 +55,11 @@ export default new Router({
       path: '/wages',
       name: 'Wages',
       component: Wages
+    },
+    {
+      path: '/schedule',
+      name: 'Schedule',
+      component: Schedule
     }
-
   ]
 })
