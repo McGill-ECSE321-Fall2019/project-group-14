@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ca.mcgill.ecse321.tutoringsystem.dto.WageDto;
@@ -60,6 +61,12 @@ public class WageController {
   public Set<WageDto> getAllWagesByCourse(@PathVariable("course") String courseName) throws IllegalArgumentException {
     Set<Wage> wageSet = new HashSet<Wage>(wageService.getWageByCourse(courseService.getCourse(courseName)));
     return DtoConverter.wageSetToDto(wageSet);
+  }
+  
+  @PutMapping(value = {"/wages/update/{id}", "/wages/update/{id}/"})
+  public boolean updateWage(@PathVariable("id") Integer id, @RequestParam(name = "wage") Integer wage) throws IllegalArgumentException {
+    wageService.updateWage(id, wage);
+    return true;
   }
 
 }
