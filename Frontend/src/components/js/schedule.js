@@ -14,12 +14,15 @@ var AXIOS = axios.create({
 export default {
   name: 'schedule',
   props: ['id'],
-  created() {
+  mounted() {
     tutorId = this.getCookie('userId')
     this.getAcceptedRequestsFromTutor(tutorId)
+    this.getPendingRequestsFromTutor(tutorId)
   },
   data() {
     return {
+      requests: [],
+      pendingRequests: [],
       acceptedRequests: [],
       errorRequest: ''
     }
@@ -36,6 +39,49 @@ export default {
           console.log(e)
         })
         ;
+    },
+
+    getRequestsFromTutor: function (id) {
+      AXIOS.get('/requests/accepted/' + id)
+        .then(response => {
+          this.requests = response.data
+        })
+        .catch(e => {
+          this.errorRequest = e;
+          console.log(e)
+        })
+        ;
+    },
+
+    getPendingRequestsFromTutor: function(id) {
+      this.pendingRequests = [];
+      getRequestsFromTutor(id);
+      for (var request in this.requests) {
+        if (request.room == null) {
+          this.pendingRequests.push(request);
+        }
+      }
+    },
+
+    acceptRequest: function(id) {
+      AXIOS.post('/accept/' + id)
+        .catch(e => {
+          this.errorRequest = e;
+          console.log(e)
+        })
+        ;
+      getPendingRequestsFromTutor(id);
+      getAcceptedRequestsFromTutor(id);
+    },
+
+    rejectRequest: function(id) {
+      AXIOS.post('/reject/' + id)
+        .catch(e => {
+          this.errorRequest = e;
+          console.log(e)
+        })
+        ;
+      getPendingRequestsFromTutor(id);
     },
 
     getCookie: function (cname) {

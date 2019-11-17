@@ -17,6 +17,9 @@ public class ManagerService {
               || password.trim().length() == 0) {
           throw new IllegalArgumentException("Manager name, email or password cannot be empty!");
       }
+      if (getManager(email) != null) {
+    	  throw new IllegalArgumentException("Email is already in use!");
+      }
       Manager m = new Manager();
       m.setName(name);
       m.setEmail(email);

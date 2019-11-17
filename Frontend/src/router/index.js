@@ -13,6 +13,11 @@ import Schedule from '@/components/Schedule'
 
 Vue.use(Router)
 
+const createReviewStudentId = {
+  props: ['id', 'name'],
+  template: '<div>CreateReview {{ id }} {{name}}</div>'
+}
+
 export default new Router({
 
   routes: [
@@ -37,14 +42,15 @@ export default new Router({
       component: Review
     },
     {
-      path: '/notifications/tutor/{id}/:id',
+      path: '/notifications/tutor/:id',
       name: 'Notification',
       component: Notification
     },
     {
-      path: '/reviews/create',
+      path: '/reviews/create/:id',
       name: 'create-review',
       component: CreateReview,
+      props: true
     },
     {
       path: '/settings',

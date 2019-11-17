@@ -1,28 +1,25 @@
 <template>
-  <div class="col-lg-8 col-md-8" id="component">
-    <h3>Rate your experience</h3>
-    <div class="mt-10">
-      <div class="stars" data-rating="3">
-        <span class="star">&nbsp;</span>
-        <span class="star">&nbsp;</span>
-        <span class="star">&nbsp;</span>
-        <span class="star">&nbsp;</span>
-        <span class="star">&nbsp;</span>
+  <div class="action">
+    <div class="col-lg-8 col-md-8" id="component">
+      <h3>Rate your experience with {{name}} </h3>
+      <div class="mt-10">
+        <div class="stars" data-rating="3">
+          <span class="star">&nbsp;</span>
+          <span class="star">&nbsp;</span>
+          <span class="star">&nbsp;</span>
+          <span class="star">&nbsp;</span>
+          <span class="star">&nbsp;</span>
+        </div>
+        <input
+          type="text"
+          class="single-textarea"
+          placeholder="Leave a comment (optional)"
+          onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Leave a comment (optional)'"
+          v-model="comment"
+        />
+        <button class="btn_1" @click="createReview(comment, getCookie('userId'), id)">Leave review</button>
       </div>
-      <input
-        type="text"
-        class="single-textarea"
-        placeholder="Leave a comment (optional)"
-        onfocus="this.placeholder = ''"
-        onblur="this.placeholder = 'Leave a comment (optional)'"
-        v-model="comment"
-      />
-    </div>
-    <div>
-      <button
-        class="btn_1"
-        @click="createReview(comment, getCookie('userId'))"
-      >Leave review {{ name }}</button>
     </div>
   </div>
 </template>
