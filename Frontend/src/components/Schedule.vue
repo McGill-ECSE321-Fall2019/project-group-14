@@ -1,59 +1,81 @@
 <template>
-  <div id="schedule">
-      <!-- style CSS -->
-  <link rel="stylesheet" href="../static/css/style.css" />
-    <div class="action">
-    <div class="days">
-      <div class="container" align="center">
-        <div align="left" style="margin-left:5%">
-          <ul>
-            <h1>Monday</h1>
-            <h1>Tuesday</h1>
-            <h1>Wednesday</h1>
-            <h1>Thursday</h1>
-            <h1>Friday</h1>
-            <h1>Saturday</h1>
-            <h1>Sunday</h1>
-          </ul>
+
+  <div class="col-lg-8 col-md-8" id="schedule">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <div class="mb-30" id="list">
+      <h3 class="mb-20">Schedule</h3>
+
+      <div class="progress-table-wrap" style="margin-top: 30px">
+        <div class="progress-table">
+          <div class="table-head">
+            <div class="serial">When</div>
+            <div class="serial">Where</div>
+            <div class="serial">Student</div>
+            <div class="serial">Course</div>
+          </div>
+          <div class="table-row" style="display: flex; flex-direction: column">
+            <div
+            v-for="request in acceptedRequests"
+            v-bind:key="request.requestId"
+            style="display: flex; margin-top: 18px">
+              <div class="serial">{{request.date}} at {{request.time}}</div>
+              <div class="serial">Room #{{request.room.roomNumber}}</div>
+              <div class="serial">{{request.student.name}}</div>
+              <div class="serial">{{request.course.courseName}}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="right half">
-      <div class="container" align="left">
-        <div class="login" style="padding-right:0%">
-          <p>
-            9:00 am
-            10:00 am
-            11:00 am
-            12:00 pm
-            1:00 pm
-            2:00 pm
-            3:00 pm
-            4:00 pm
-            5:00 pm
-            6:00 pm
-            7:00 pm
-            8:00 pm
-            9:00 pm
-          </p>
 
-          <input class="login-text" type="text" placeholder="Email" v-model="email" />
-          <input class="login-text" type="password" placeholder="Password" v-model="password" />
-          <input
-            @click="login(email,password)"
+    <div class="mb-30" id="list">
+      <h3 class="mb-20" style="margin-top: 50px">Pending Request</h3>
 
-            type="submit"
-            value="Login"
-            class="btn_1"
-          />
-          <br>
-          <span v-if="errorLogin" style="color:red">Error: {{errorLogin}} </span>
+      <div class="progress-table-wrap" style="margin-top: 30px; display: flex; flex-direction: column">
+        <div class="progress-table">
+          <div class="table-head">
+            <div class="serial">When</div>
+            <div class="serial">Where</div>
+            <div class="serial">Student</div>
+            <div class="serial">Course</div>
+          </div>
+          <div class="table-row" style="display: flex; flex-direction: column">
+            <div
+            v-for="request in pendingRequests"
+            v-bind:key="request.requestId"
+            style="display: flex; margin-top: 18px">
+              <div class="serial">{{request.date}} at {{request.time}}</div>
+              <div class="serial">TBA</div>
+              <div class="serial">{{request.student.name}}</div>
+              <div class="serial">{{request.course.courseName}}</div>
+              <div v-show="pendingRequests.length != 0" id="acceptButton" class="country" style="width: 0px">
+                <button @click="acceptRequest(request.requestId)" class="btn_4">Accept</button>
+              </div>
+              <div v-show="pendingRequests.length != 0" id="RejectButton" class="country" style="width: 0px; margin-left: 110px">
+                <button @click="rejectRequest(request.requestId)" class="btn_4">Reject</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
 
 <script src="./js/schedule.js">
 </script>
+
+<style scoped>
+
+  h3 {
+    margin-top: 130px;
+  }
+
+  #schedule {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
+
+</style>
