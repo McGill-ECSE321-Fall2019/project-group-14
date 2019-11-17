@@ -9,21 +9,20 @@
         <span class="star">&nbsp;</span>
         <span class="star">&nbsp;</span>
       </div>
-      <textarea
+      <input
+        type="text"
         class="single-textarea"
         placeholder="Leave a comment (optional)"
         onfocus="this.placeholder = ''"
         onblur="this.placeholder = 'Leave a comment (optional)'"
-        required
         v-model="comment"
-      ></textarea>
+      />
     </div>
     <div>
-      <a
+      <button
         class="btn_1"
-        href="#"
-        @click="createReview(rateme, comment, from, to)"
-      >Leave review {{ name }}</a>
+        @click="createReview(comment, getCookie('userId'))"
+      >Leave review {{ name }}</button>
     </div>
   </div>
 </template>
@@ -32,7 +31,6 @@
 </script>
 
 <style scoped>
-
 .btn_1 {
   margin-top: 50px;
   margin-bottom: 50px;

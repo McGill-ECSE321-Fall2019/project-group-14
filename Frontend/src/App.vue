@@ -64,7 +64,7 @@
                     <router-link class="nav-link" to="/reviews">Reviews</router-link>
                   </li>
                   <li v-if="loggedIn" class="nav-item">
-                    <router-link class="nav-link" to="/">Browse Wages</router-link>
+                    <router-link class="nav-link" to="/wages">Browse Wages</router-link>
                   </li>
                   <li v-if="loggedIn" class="nav-item">
                     <router-link class="nav-link" to="/settings">Settings</router-link>
