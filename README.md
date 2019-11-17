@@ -8,7 +8,7 @@ The tutoring  company will accomplish the needs of students at the high school, 
 
 Our software solution implements the tutor point of view. Features include applying for a position, login in to an account, setting hourly rates and availabilities, viewing other tutors, accepting a student's request for a tutoring session and reviewing a student after a session. 
 
-Tools that were used include: Eclipse, Spring Boot, Gradle, UML Lab, Heroku, Draw.io & LucidChart
+Tools that were used include: Eclipse, Spring Boot, Gradle, UML Lab, Heroku, Draw.io & LucidChart, Vue.js, Bootstrap
 
 ## Teamwork Report:
 
