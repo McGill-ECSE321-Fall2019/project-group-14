@@ -4,27 +4,14 @@ import JQuery from 'jquery'
 let $ = JQuery
 
 var config = require('../../../config')
-var tutorId = ''
 var rating = ''
-
 var frontendUrl = 'http://' + config.dev.host + ':' + config.dev.port
 var backendUrl = config.dev.backendHost + ':' + config.dev.backendPort
-
 var AXIOS = axios.create({
     baseURL: backendUrl,
     headers: { 'Access-Control-Allow-Origin': frontendUrl }
 })
-
-document.addEventListener('DOMContentLoaded', function () {
-    let stars = document.querySelectorAll('.star');
-    stars.forEach(function (star) {
-        star.addEventListener('click', setRating);
-    });
-
-    rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
-    let target = stars[rating - 1];
-    target.dispatchEvent(new MouseEvent('click'));
-});
+var studentId = '';
 
 function setRating(ev) {
     let span = ev.currentTarget;
@@ -47,15 +34,17 @@ function setRating(ev) {
 }
 
 export default {
+    props: ['id', 'name'],
     mounted() {
-        tutorId = this.getCookie('userId')
+        this.loadStars()
     },
-
     data() {
         return {
             name: '',
             reviews: [],
-            errorReview: ''
+            errorReview: '',
+            comment: '',
+            studentId: studentId
         }
     },
 
@@ -63,7 +52,18 @@ export default {
         // hello: function() {
         //     alert('Hello');
         // }
-        createReview: function (comment, tutorId) {
+        loadStars: function() {
+                let stars = document.querySelectorAll('.star');
+                stars.forEach(function (star) {
+                    star.addEventListener('click', setRating);
+                });
+            
+                rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+                let target = stars[rating - 1];
+                target.dispatchEvent(new MouseEvent('click'));
+        },
+
+        createReview: function (comment, tutorId, studentId) {
             AXIOS.post('/reviews/create', $.param({ rating: rating, comment: comment, from: tutorId, to: studentId }))
                 .then(response => {
                     this.reviews.push(response.data)
@@ -94,6 +94,8 @@ export default {
                 }
             }
             return "";
-        },
-    },
+        }, 
+        
+    }
+    
 }

@@ -19,6 +19,9 @@ public class StudentService {
         || password.trim().length() == 0) {
       throw new IllegalArgumentException("Student name, email or password cannot be empty!");
     }
+    if (getStudent(email) != null) {
+    	throw new IllegalArgumentException("Email is already in use!");
+    }
     Student s = new Student();
     s.setName(name);
     s.setEmail(email);

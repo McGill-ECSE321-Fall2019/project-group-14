@@ -1,37 +1,104 @@
 <template>
-  <div id="schedule">
-        <!-- style CSS -->
+
+  <div class="col-lg-8 col-md-8" id="schedule">
+    <!-- style CSS -->
     <link rel="stylesheet" href="../static/css/style.css" />
-    <div class="mb-30" style="padding-top: 130px;">
-      <div class="container box_1170" align="left">
-        <h1 align="center">Schedule</h1>
-        <div
-        id = "Example"
-        style="margin-top: 30px; margin-left: 20px">
-          <h3>Request by Studentname</h3>
-          <ul>
-            <li>Date: April 20th 2019 at 4:00 pm</li>
-            <li>Room: 11</li>
-            <li>Course: ECSE321</li>
-          </ul>
-          <h3>Request by Studentname</h3>
-          <ul>
-            <li>Date: April 20th 2019 at 4:00 pm</li>
-            <li>Room: 11</li>
-            <li>Course: ECSE321</li>
-          </ul>
+    <div class="mb-30" id="list">
+      <h3 class="mb-20">Schedule</h3>
+
+      <div class="progress-table-wrap" style="margin-top: 30px">
+        <div class="progress-table">
+          <div class="table-head">
+            <div class="serial">When</div>
+            <div class="serial">Where</div>
+            <div class="serial">Student</div>
+            <div class="serial">Course</div>
+          </div>
+          <div class="table-row">
+            <div
+                v-for="request in acceptedRequests"
+                v-bind:key="request.id"
+                id="when"
+                class="serial"
+              >{{request.date}} at {{request.time}}</div>
+              <div
+                v-for="request in acceptedRequests"
+                v-bind:key="request.id"
+                id="where"
+                class="serial"
+              >Room #{{request.room.roomNumber}}</div>
+              <div
+                v-for="request in acceptedRequests"
+                v-bind:key="request.id"
+                id="student"
+                class="serial"
+              >{{request.student.name}}</div>
+              <div
+                v-for="request in acceptedRequests"
+                v-bind:key="request.id"
+                id="course"
+                class="serial"
+              >{{request.course.courseName}}</div>
+
+            <!-- <div id="when" class="serial">November 22th at 12:00pm</div>
+            <div id="where" class="serial">Room #11</div>
+            <div id="student" class="serial">Lebron</div>
+            <div id="course" class="serial">BALL 321</div>
+            <div id="acceptButton" class="country" style="width: 0px">
+              <button v-on:click="acceptRequest()" class="btn_4">Accept</button>
+            </div>
+            <div id="RejectButton" class="country" style="width: 0px; margin-left: 110px">
+              <button v-on:click="rejectRequest()" class="btn_4">Reject</button>
+            </div> -->
+          </div>
         </div>
-        <div
-        id = "tutorRequests"
-        style="margin-top: 40px; margin-left: 20px"
-        v-for="request in acceptedRequests"
-        v-bind:key="request.id">
-          <h3>Request by {{ request.student.name }}</h3>
-          <ul>
-            <li>Date: {{ request.date }} at {{ request.time }}</li>
-            <li>Room: {{ request.room.roomNumber }}</li>
-            <li>Course: {{ request.course.courseName }}</li>
-          </ul>
+      </div>
+    </div>
+
+    <div class="mb-30" id="list">
+      <h3 class="mb-20" style="margin-top: 50px">Pending Request</h3>
+
+      <div class="progress-table-wrap" style="margin-top: 30px">
+        <div class="progress-table">
+          <div class="table-head">
+            <div class="serial">When</div>
+            <div class="serial">Where</div>
+            <div class="serial">Student</div>
+            <div class="serial">Course</div>
+          </div>
+          <div class="table-row">
+            <div
+                v-for="request in pendingRequests"
+                v-bind:key="request.id"
+                id="when"
+                class="serial"
+              >{{request.date}} at {{request.time}}</div>
+              <div
+                v-for="request in pendingRequests"
+                v-bind:key="request.id"
+                id="where"
+                class="serial"
+              >Room #{{request.room.roomNumber}}</div>
+              <div
+                v-for="request in pendingRequests"
+                v-bind:key="request.id"
+                id="student"
+                class="serial"
+              >{{request.student.name}}</div>
+              <div
+                v-for="request in pendingRequests"
+                v-bind:key="request.id"
+                id="course"
+                class="serial"
+              >{{request.course.courseName}}</div>
+
+              <div v-show="pendingRequests.length != 0" id="acceptButton" class="country" style="width: 0px">
+                <button v-on:click="acceptRequest()" class="btn_4">Accept</button>
+              </div>
+              <div v-show="pendingRequests.length != 0" id="RejectButton" class="country" style="width: 0px; margin-left: 110px">
+                <button v-on:click="rejectRequest()" class="btn_4">Reject</button>
+              </div>
+          </div>
         </div>
       </div>
     </div>
@@ -42,7 +109,15 @@
 </script>
 
 <style scoped>
-h3{
-  margin-top: 40px;
-}
+
+  h3 {
+    margin-top: 130px;
+  }
+
+  #schedule {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
+
 </style>

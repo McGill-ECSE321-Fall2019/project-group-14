@@ -11,18 +11,24 @@ var AXIOS = axios.create({
     headers: { 'Access-Control-Allow-Origin': frontendUrl, 'Content-Type': 'application/x-www-form-urlencoded' }
 })
 export default {
+    userId: 834,
     data() {
         return {
             notifications: [],
             requests: [],
             msg: '',
+            userId: this.$cookie.get('userId')
         };
+        
     },
-    mounted() {
+    created: function() {
+        this.userId = this.$route.params.id
+        
         AXIOS.get(`/notifications/tutor/` + this.$cookie.get('userId'))
             .then(response => {
                 this.notifications = response.data;
                 this.msg = 'You have ' +  this.notifications.length + ' notifications';
+              //  this.$router.push(`/notifications/tutor/${this.$cookie.get('userId')}/`)
             })
             .catch(e => {
                 var errorMessage = e.response

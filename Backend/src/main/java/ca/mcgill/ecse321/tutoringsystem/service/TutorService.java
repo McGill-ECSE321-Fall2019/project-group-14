@@ -18,6 +18,9 @@ public class TutorService {
               || password.trim().length() == 0) {
           throw new IllegalArgumentException("Tutor name, email or password cannot be empty!");
       }
+      if (getTutor(email) != null) {
+    	  throw new IllegalArgumentException("Email is already in use!");
+      }
       Tutor t = new Tutor();
       t.setName(name);
       t.setEmail(email);
