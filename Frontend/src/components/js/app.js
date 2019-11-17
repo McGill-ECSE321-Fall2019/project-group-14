@@ -1,4 +1,7 @@
 import axios from 'axios'
+import JQuery from 'jquery'
+
+let $ = JQuery
 var config = require('../../../config')
 
 var frontendUrl = 'http://' + config.dev.host + ':' + config.dev.port
