@@ -1,34 +1,33 @@
 import axios from 'axios'
+import JQuery from 'jquery'
+let $ = JQuery
 var config = require('../../../config')
 
 var frontendUrl = 'http://' + config.dev.host + ':' + config.dev.port
-var backendUrl = 'https://dashboard.heroku.com/apps/tutoringsystem-backend-14'
+var backendUrl = config.dev.backendHost + ':' + config.dev.backendPort
 
 var AXIOS = axios.create({
     baseURL: backendUrl,
-    headers: { 'Access-Control-Allow-Origin': frontendUrl }
+    headers: { 'Access-Control-Allow-Origin': frontendUrl, 'Content-Type': 'application/x-www-form-urlencoded' }
 })
 export default {
-    name: 'notification',
-    data () {
-      return {
-          requestId: null,
-          tutor: '',
-          tutorId: null,
-          notificationId: null,
-          notificationType: ''
-      };
+    data() {
+        return {
+            notifications: [],
+            requests: [],
+            msg: '',
+        };
     },
-    created: function() {
-        this.tutor = this.$route.params.tutor
-
-        AXIOS.get('/notifications/tutor/' + id)
-        .then(response => {
-            this.tutorId = repsonse.data;
-        })
-        .then(() => {
-            this.tutor = this.t
-        })
-
+    mounted() {
+        AXIOS.get(`/notifications/tutor/` + this.$cookie.get('userId'))
+            .then(response => {
+                this.notifications = response.data;
+                this.msg = 'You have ' +  this.notifications.length + ' notifications';
+            })
+            .catch(e => {
+                var errorMessage = e.response
+                console.log(e)
+                this.msg = errorMessage
+            })
     }
 }
