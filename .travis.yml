@@ -13,6 +13,8 @@ matrix:
       - node
       before_install:
         - npm install -g npm@latest
+      script:
+      - npm run build
       cache:
         directories:
           - "node_modules"
