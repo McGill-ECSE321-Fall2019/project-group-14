@@ -17,8 +17,8 @@ export default {
         return {
             errorMsg: '',
             response: '',
-            institution: '',
-            course: '',
+            institution: null,
+            course: null,
             institutions: [],
             courses: [],
             wages: []

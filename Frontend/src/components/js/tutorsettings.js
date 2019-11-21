@@ -22,7 +22,7 @@ export default {
             wages: [],
             wageUpdateAmounts: {},
             newDate: '',
-            newTime: '',
+            newTime: null,
             timeslots: []
         }
     },

@@ -17,7 +17,7 @@
               <div class="serial" id="rating">{{request.date}} at {{request.time}}</div>
               <div class="serial" id="rating">Room #{{request.room.roomNumber}}</div>
               <div class="country" id="rating">{{request.student.name}}</div>
-              <div class="serial" id="rating">
+              <div class="serial" id="rating" style="padding-left:0px;">
                 <router-link
                   :to="{name: 'create-review', params: { id: request.student.userId, name: request.student.name}}"
                   class="genric-btn primary circle"
@@ -44,19 +44,18 @@
                 src="https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Star_Gold-512.png"
                 height="40"
                 width="30"
-              />
+                style="margin-top: -4px; padding-left:2px;"
+              >
             </div>
-            <div id="rating" class="country">{{review.comment}}</div>
+            <div
+              id="rating"
+              class="country"
+              style="min-width: 250px; width: auto;"
+            >{{review.comment}}</div>
           </div>
         </div>
       </div>
-      <!--     <ul class="unordered-list" id="example-1">
-      <li
-        v-for="review in tutorReviews"
-        v-bind:key="review.id"
-        id="rating"
-      >From {{review.from.name}}: {{ review.rating }} stars: {{ review.comment }}</li>
-      </ul>-->
+      <p style="padding-bottom:100px;"></p>
     </div>
   </div>
 </template>
@@ -96,10 +95,7 @@ ul {
 
 #rating {
   margin-top: 20px;
-  display: inline-block;
   size: 200px;
-  text-align: center;
   vertical-align: middle;
 }
-
 </style>

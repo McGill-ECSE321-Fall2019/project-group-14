@@ -1,28 +1,6 @@
 <template>
 <div id="app">
   <!-- <router-view></router-view> -->
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>TutoringSystem</title>
-  <link rel="icon" href="../static/img/new_favicon.png">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-  <!-- animate CSS -->
-  <link rel="stylesheet" href="../static/css/animate.css">
-  <!-- owl carousel CSS -->
-  <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
-  <!-- themify CSS -->
-  <link rel="stylesheet" href="../static/css/themify-icons.css">
-  <!-- flaticon CSS -->
-  <link rel="stylesheet" href="../static/css/flaticon.css">
-  <!-- font awesome CSS -->
-  <link rel="stylesheet" href="../static/css/magnific-popup.css">
-  <!-- swiper CSS -->
-  <link rel="stylesheet" href="../static/css/slick.css">
-  <!-- style CSS -->
-  <link rel="stylesheet" href="../static/css/style.css">
-
   <body>
     <!--::header part start::-->
 
@@ -31,9 +9,9 @@
         <div class="row align-items-center">
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg navbar-light">
-              <a class="navbar-brand" href="index.html">
+              <router-link class="nav-link" to="/">
                 <img src="../static/img/logo.png" alt="logo">
-              </a>
+              </router-link>
               <button
                 class="navbar-toggler"
                 type="button"

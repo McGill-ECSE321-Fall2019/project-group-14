@@ -75,7 +75,7 @@ tutors = ["Aliza Shoaf", "Rueben Carnley", "Olinda Lail", "Vinita Helbert", "Ran
 for i in range(len(tutors)):
     name = tutors[i]
     email = "ecse321test+tutor" + str(i) + "@protonmail.com"
-    password = tutors[i].lower().replace(" ", "")
+    password = "pass"
 
     userData = {'name': name, 'email': email, 'password': password}
 
