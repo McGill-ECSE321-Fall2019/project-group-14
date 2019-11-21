@@ -40,7 +40,18 @@ Tools that were used include: Eclipse, Spring Boot, Gradle, UML Lab, Heroku, Dra
 | Nelson Zeng |   | Schedule and View Request Frontend Implementation               |   23    |
 | Mehdi Ammar |   | Welcome Screen, Application Form and Review Frontend Implementation       |   24    | 
 | Mert Gurkan |   | Architecture Modelling and Documentation                  |   19    |
-| Tian Ci Liu |   | Tutor Wages and Settings Frontend Implementation and Backend fixes                  |   27    | 
+| Tian Ci Liu |   | Tutor Wages and Settings Frontend Implementation and Backend fixes                  |   27    |
+
+### Sprint 4
+
+| Members    | ID         | Responsibility    | Hours | 
+|-------------|-----------|-------------------|-------|
+| Steven Luu  |   |                   |       | 
+| Nelson Zeng |   |                   |       |
+| Mehdi Ammar |   |                   |       | 
+| Mert Gurkan |   |                   |       |
+| Tian Ci Liu |   |                   |       | 
+
 
 ## Sprint 1
 You can access sprint 1 [here](https://github.com/McGill-ECSE321-Fall2019/project-group-14/wiki/Sprint-1).
@@ -50,3 +61,6 @@ You can access sprint 2 [here](https://github.com/McGill-ECSE321-Fall2019/projec
 
 ## Sprint 3
 You can access sprint 3 [here](https://github.com/McGill-ECSE321-Fall2019/project-group-14/wiki/Sprint-3).
+
+## Sprint 4
+You can access sprint 4 [here](https://github.com/McGill-ECSE321-Fall2019/project-group-14/wiki/Sprint-4).
