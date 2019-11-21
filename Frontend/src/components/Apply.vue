@@ -1,6 +1,7 @@
 <template>
-  <div class="action">
-    <div class="col-lg-8 col-md-8" id="component">
+  <div class="whole-wrap" style="padding-top: 100px;">
+    <div class="container box_1170">
+    <div class="section-top-border">
       <h3 class="mb-30">Apply as a tutor</h3>
       <form action="#">
         <div class="mt-10">
@@ -38,8 +39,10 @@
             required
             v-model="courses"
           />
-          <div class="switch-wrap d-flex justify-content-between">
-            <h5 id ="existingUser">Existing user?</h5>
+        </div>
+        <div class="mt-30">
+          <div class="switch-wrap" style="padding-bottom:25px;">
+            <h6 id ="existingUser">Check if you are already a registered tutor (for update applications).</h6>
             <div class="primary-switch">
               <input v-model="checked" type="checkbox" id="default-switch" />
               <label for="default-switch"></label>
@@ -47,35 +50,11 @@
           </div>
         </div>
       </form>
-      <button class="btn_1" @click="createApplication(checked, name, email, courses)">Apply!</button>
+      <button class="genric-btn primary circle" @click="createApplication(checked, name, email, courses)">Apply!</button>
     </div>
   </div>
-</template>>
+  </div>
+</template>
 
 <script src="./js/application.js">
 </script>
-
-<style>
-h3 {
-  margin-top: 200px;
-}
-
-#existingUser {
-  margin-top: 50px;
-}
-#component {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.btn_1 {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-.mb-30 {
-  margin-top: 100px;
-}
-.primary-switch {
-  margin-top: 50px;
-}
-</style>

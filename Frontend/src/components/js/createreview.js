@@ -49,9 +49,6 @@ export default {
     },
 
     methods: {
-        // hello: function() {
-        //     alert('Hello');
-        // }
         loadStars: function() {
                 let stars = document.querySelectorAll('.star');
                 stars.forEach(function (star) {
@@ -68,6 +65,7 @@ export default {
                 .then(response => {
                     this.reviews.push(response.data)
                     this.errorReview = ''
+                    this.$router.push({name:'Review'})
                 })
                 .catch(e => {
                     var errorMsg = e.message

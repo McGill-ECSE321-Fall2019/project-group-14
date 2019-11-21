@@ -20,7 +20,7 @@ export default {
             courses: '',
             applications: [],
             errorApplication: '',
-            checked: ''
+            checked: false
         }
     },
     methods: {
@@ -29,6 +29,7 @@ export default {
                 .then(response => {
                     this.applications.push(response.data)
                     this.errorApplication = ''
+                    this.$router.push({name:'Hello'})
                 })
                 .catch(e => {
                     var errorMsg = e.message

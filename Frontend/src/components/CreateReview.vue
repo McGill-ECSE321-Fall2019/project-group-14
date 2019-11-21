@@ -1,7 +1,7 @@
 <template>
   <div class="action">
     <div class="col-lg-8 col-md-8" id="component">
-      <h3>Rate your experience with {{name}} </h3>
+      <h3>Rate your experience with {{name}}</h3>
       <div class="mt-10">
         <div class="stars" data-rating="3">
           <span class="star">&nbsp;</span>
@@ -17,8 +17,13 @@
           onfocus="this.placeholder = ''"
           onblur="this.placeholder = 'Leave a comment (optional)'"
           v-model="comment"
-        />
-        <button class="btn_1" @click="createReview(comment, getCookie('userId'), id)">Leave review</button>
+        >
+        <button
+          style="margin-top: 50px;
+  margin-bottom: 50px;"
+          class="genric-btn primary circle"
+          @click="createReview(comment, getCookie('userId'), id)"
+        >Leave review</button>
       </div>
     </div>
   </div>
@@ -28,11 +33,6 @@
 </script>
 
 <style scoped>
-.btn_1 {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
 #component {
   margin-top: 200px;
 
@@ -43,7 +43,7 @@
 .h3 {
   margin-bottom: 50px;
   text-align: left;
-}
+}applications
 
 .star {
   color: #f90;

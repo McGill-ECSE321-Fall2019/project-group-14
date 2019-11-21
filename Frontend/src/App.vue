@@ -32,6 +32,9 @@
                   <li class="nav-item">
                     <router-link class="nav-link" to="/">Home</router-link>
                   </li>
+                  <li v-if="!loggedIn" class="nav-item">
+                    <router-link class="nav-link" to="/apply">Apply</router-link>
+                  </li>
                   <li v-if="loggedIn" class="nav-item">
                     <router-link class="nav-link" to="/schedule">Schedule</router-link>
                   </li>

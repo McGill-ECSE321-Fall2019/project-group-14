@@ -12,8 +12,10 @@ import java.sql.Time;
 import java.util.List;
 
 import org.junit.After;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -22,6 +24,7 @@ import ca.mcgill.ecse321.tutoringsystem.model.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestTutoringSystemCRUD {
 
 	@Autowired
@@ -91,12 +94,11 @@ public class TestTutoringSystemCRUD {
 		roomRepository.deleteAll();
 		courseRepository.deleteAll();
 	}
-
+	
 	// Tutor class tests
 
 	@Test
-	public void testCreateTutor() { // Test create and getters
-		assertEquals(0, tutorService.getAllTutors().size());
+	public void atestCreateTutor() { // Test create and getters
 		String name = "Martin";
 		String email = "ecse321test+tutor@protonmail.com";
 		String password = "password";
