@@ -1,5 +1,6 @@
 {
   "scripts": {
-    "postinstall": "cd Frontend && npm install"
+    "postinstall": "cd Frontend && npm install",
+    "start": "cd Frontend/ && node build/dev-server.js"
   }
 }
