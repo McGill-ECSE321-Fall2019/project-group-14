@@ -64,7 +64,7 @@
   counter-reset: rateme 0;
   font-size: 2rem;
   font-weight: 400;
-  color: #0c2e60;
+  color: #f90;
 }
 .star.rated {
   counter-increment: rateme 1;
