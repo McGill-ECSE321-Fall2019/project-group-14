@@ -96,9 +96,25 @@ public class TestTutoringSystemCRUD {
 	}
 	
 	// Tutor class tests
-
 	@Test
-	public void atestCreateTutor() { // Test create and getters
+	public void aclearDb() {
+		requestRepository.deleteAll();
+		tutorRepository.deleteAll();
+		managerRepository.deleteAll();
+		studentRepository.deleteAll();
+		timeslotRepository.deleteAll();
+		wageRepository.deleteAll();
+		institutionRepository.deleteAll();
+		applicationRepository.deleteAll();
+		reviewRepository.deleteAll();
+		notificationRepository.deleteAll();
+		roomRepository.deleteAll();
+		courseRepository.deleteAll();
+		assertTrue(true);
+	}
+	
+	@Test
+	public void testCreateTutor() { // Test create and getters
 		String name = "Martin";
 		String email = "ecse321test+tutor@protonmail.com";
 		String password = "password";
