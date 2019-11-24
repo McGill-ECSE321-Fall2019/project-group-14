@@ -49,9 +49,9 @@
               <div class="serial">{{request.date}} at {{request.time}}</div>
               <div class="serial">
 
-  <b-button variant="link" style="padding: 0px 0px;" v-b-modal.modal-center>{{request.student.name}}</b-button>
+  <b-button variant="link" style="padding: 0px 0px;" v-b-modal="'myModal' + request.requestId">{{request.student.name}}</b-button>
 
-                <b-modal id="modal-center" centered ok-only>
+                <b-modal :id="'myModal' + request.requestId" centered ok-only>
                   <template v-slot:modal-title>
                     {{ request.student.name }}
                   </template>

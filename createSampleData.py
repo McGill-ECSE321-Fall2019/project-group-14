@@ -84,7 +84,7 @@ for i in range(len(tutors)):
     print(r.json())
 
     # Create some Wages
-    for j in range(random.randint(2, 6)):
+    for j in range(random.randint(6, 12)):
         institutionIndex = random.randint(0, 1)
         if institutionIndex == 0:
             course = courses0[random.randint(0, len(courses0) - 1)]
@@ -115,19 +115,20 @@ for i in range(len(tutors)):
         r = requests.post(url=URL + "/timeslots/create", data=timeslotData)
         print(r.json())
 
-    # Create one Request for each Tutor
-    studentId = random.randint(studentIdMin, studentIdMax)
-    r = requests.get(url=URL + "/tutors/" + str(tutorId))
-    timeslotReturn = r.json().get('timeSlots')
-    date = timeslotReturn[0]['date']
-    time = timeslotReturn[0]['time']
-    wageReturn = r.json().get('wages')
-    courseName = wageReturn[0]['courseName']
-    requestData = {'time': time, 'date': date, 'tutorId': tutorId,
-                   'studentId': studentId, 'courseName': courseName}
+    # Create two Requests for each Tutor
+    for m in range(3):
+        studentId = random.randint(studentIdMin, studentIdMax)
+        r = requests.get(url=URL + "/tutors/" + str(tutorId))
+        timeslotReturn = r.json().get('timeSlots')
+        date = timeslotReturn[0]['date']
+        time = timeslotReturn[0]['time']
+        wageReturn = r.json().get('wages')
+        courseName = wageReturn[0]['courseName']
+        requestData = {'time': time, 'date': date, 'tutorId': tutorId,
+                    'studentId': studentId, 'courseName': courseName}
 
-    r = requests.post(url=URL + "/requests/create", data=requestData)
-    print(r.json())
+        r = requests.post(url=URL + "/requests/create", data=requestData)
+        print(r.json())
 
     # Create one Accepted Request for each Tutor
     studentId = random.randint(studentIdMin, studentIdMax)
