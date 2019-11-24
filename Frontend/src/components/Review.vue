@@ -11,7 +11,7 @@
               <div class="serial" id="rating">When</div>
               <div class="serial" id="rating">Where</div>
               <div class="country" id="rating">Student</div>
-              <div class="country" id="rating">Leave a review</div>
+              <div class="country" id="rating"></div>
             </div>
             <div class="table-row" v-for="request in acceptedRequests" v-bind:key="request.id">
               <div class="serial" id="rating">{{request.date}} at {{request.time}}</div>

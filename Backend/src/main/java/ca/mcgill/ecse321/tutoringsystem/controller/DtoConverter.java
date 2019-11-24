@@ -234,7 +234,7 @@ public class DtoConverter {
 		if (w == null) {
 			throw new IllegalArgumentException("There is no such Wage!");
 		}
-		WageDto wageDto = new WageDto(w.getWage(), w.getWageId(), w.getCourse().getCourseName());
+		WageDto wageDto = new WageDto(w.getWage(), w.getWageId(), w.getCourse().getCourseName(), w.getTutor().getName());
 		return wageDto;
 	}
 

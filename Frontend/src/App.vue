@@ -119,7 +119,7 @@
           </div>
           <div class="col-xl-3 col-sm-6 col-md-4">
             <div class="single-footer-widget footer_2">
-              <h4>Contact us</h4>
+              <h4>Questions?<br>Contact us</h4>
               <div class="contact_info">
                 <p>
                   <span>Address :</span> McGill University, 3415 McTavish Street, Montréal, QC H3A 0C8

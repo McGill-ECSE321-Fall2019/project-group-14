@@ -4,6 +4,7 @@ public class WageDto {
 	private Integer wage;
 	private Integer wageId;
 	private String courseName;
+	private String tutorName;
 
 	public WageDto() {
 
@@ -18,10 +19,11 @@ public class WageDto {
 		this.wageId = wageId;
 	}
 
-	public WageDto(Integer wage, Integer wageId, String courseName) {
+	public WageDto(Integer wage, Integer wageId, String courseName, String tutorName) {
 		this.wage = wage;
 		this.wageId = wageId;
 		this.courseName = courseName;
+		this.tutorName = tutorName;
 	}
 
 	public Integer getWage() {
@@ -46,6 +48,14 @@ public class WageDto {
 
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
+	}
+	
+	public String getTutorName() {
+		return tutorName;
+	}
+
+	public void setTutorName(String tutorName) {
+		this.tutorName = tutorName;
 	}
 
 }
