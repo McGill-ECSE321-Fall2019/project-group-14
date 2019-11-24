@@ -30,12 +30,12 @@
         >
           <div class="progress-table">
             <div class="table-head">
-              <div class="serial" style="width: 45%;">Course</div>
+              <div class="serial" style="width: 45%;">Tutor</div>
               <div class="country">Wage</div>
             </div>
             <form>
               <div class="table-row" v-for="wage in wages" v-bind:key="wage.wageId">
-                <div class="serial" style="width: 45%;">{{ wage.courseName }}</div>
+                <div class="serial" style="width: 45%;">{{ wage.tutorName }}</div>
                 <div class="country">{{ wage.wage / 100 }}</div>
               </div>
             </form>

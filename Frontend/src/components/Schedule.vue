@@ -47,7 +47,37 @@
               v-bind:key="request.requestId"
             >
               <div class="serial">{{request.date}} at {{request.time}}</div>
-              <div class="serial">{{request.student.name}}</div>
+              <div class="serial">
+
+  <b-button variant="link" style="padding: 0px 0px;" v-b-modal.modal-center>{{request.student.name}}</b-button>
+
+                <b-modal id="modal-center" centered ok-only>
+                  <template v-slot:modal-title>
+                    {{ request.student.name }}
+                  </template>
+
+                  <div class="author_info">
+                                <div class="author_img">
+                                    <img src="../../static/img/author_3.png" style="width:70px; float:left;">
+                                    <span style="padding-left:90px; vertical-align:top; display:block;"><h6>This student has taken:</h6>ECSE 200, ECSE 210, ECSE 211, ECSE 321</span>
+                                </div>
+                                <div class="author_rating">
+                                    <div class="rating">
+                                      <br>
+                                        <img src="../../static/img/icon/color_star.svg" alt="">
+                                        <img src="../../static/img/icon/color_star.svg" alt="">
+                                        <img src="../../static/img/icon/color_star.svg" alt="">
+                                        <img src="../../static/img/icon/color_star.svg" alt="">
+                                        <img src="../../static/img/icon/star.svg" alt="">
+                                    </div>
+                                    <p style="margin-bottom:0px;">4.2 Rating</p>
+                                </div>
+                            </div>
+                </b-modal>
+                                    
+
+
+              </div>
               <div class="serial">{{request.course.courseName}}</div>
               <div
                 v-show="pendingRequests.length != 0"
@@ -81,3 +111,8 @@
 
 <script src="./js/schedule.js">
 </script>
+
+<style>
+.modal-open{overflow:auto;padding-right:0 !important;}
+</style>
+
