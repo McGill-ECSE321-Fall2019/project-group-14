@@ -1,0 +1,25 @@
+matrix:
+  include:
+    - language: java
+      script:
+      - ./gradlew build
+      deploy:
+        provider: heroku
+        app: tutoringsystem-backend-14
+        api_key:
+          secure: E+OFY3JEa8qusWx3rIdznN4xSsZLm/UtpNdvK4aBTgHn6bE7+93fBue/CR4oTdNHlGIRXMDf+rYoMu+CXXw8uRigZbEyUdQmxEQsDMw4PkppTdXFC721WzYuzxvKnP3jvOG1u55Vh/iB1W7DfSU9BieFM7k3mj6ulCmt0qhaFjelAZk2SwlTw7P8nLu5sSm74Xu4saRz3febWdwFo0IERV1Z+MnjtinL83RnrDfEkc6YnBzKP+vwtuBRSPWvl6xkcUyC8oYxI7ukevx70S9pD7bzJjJvAnh6NXv4PFqSgzyaIt1ifVGJdFbjwbdjeI0i0hJOmzMw30wa3n9D5rC5Zou/DBO3xnJh/2tWDWCaYE2k9NlZ4GJVsuuAIQ840qk0Rb3HWD7Xx2Aahvfp+1QrVZMDU1QrUpEqXcScSd8oPBFVtgQK1sJ+741JaEbdeoSr6QS3MEDkrMciBsdtukUsLVvsezJnFXvVos5p9CNix+D+Hf900n5kyaxXv5EuGkEt+imlWbQNYmQKNFFt2BzDlIY/ws33h+N43lxz0i1xInGDf7ertUJQ7kGDMxZSx3kM8+S4ABA77VNpvSNRA6j4XYFqYblLcgiOTHxConj9JDzoMpBgU7AEMK0XYubrss2RP+G0eeX0tpgsDiAJ0LM9j+pMNAxzVYK0GKUAzy2QfEE=
+    - language: node_js
+      node_js:
+      - node
+      before_install:
+        - cd Frontend && npm install -g npm@latest
+      script:
+      - npm run build
+      cache:
+        directories:
+          - "node_modules"
+      deploy:
+        provider: heroku
+        app: tutoringsystem-frontend-14
+        api_key:
+          secure: E+OFY3JEa8qusWx3rIdznN4xSsZLm/UtpNdvK4aBTgHn6bE7+93fBue/CR4oTdNHlGIRXMDf+rYoMu+CXXw8uRigZbEyUdQmxEQsDMw4PkppTdXFC721WzYuzxvKnP3jvOG1u55Vh/iB1W7DfSU9BieFM7k3mj6ulCmt0qhaFjelAZk2SwlTw7P8nLu5sSm74Xu4saRz3febWdwFo0IERV1Z+MnjtinL83RnrDfEkc6YnBzKP+vwtuBRSPWvl6xkcUyC8oYxI7ukevx70S9pD7bzJjJvAnh6NXv4PFqSgzyaIt1ifVGJdFbjwbdjeI0i0hJOmzMw30wa3n9D5rC5Zou/DBO3xnJh/2tWDWCaYE2k9NlZ4GJVsuuAIQ840qk0Rb3HWD7Xx2Aahvfp+1QrVZMDU1QrUpEqXcScSd8oPBFVtgQK1sJ+741JaEbdeoSr6QS3MEDkrMciBsdtukUsLVvsezJnFXvVos5p9CNix+D+Hf900n5kyaxXv5EuGkEt+imlWbQNYmQKNFFt2BzDlIY/ws33h+N43lxz0i1xInGDf7ertUJQ7kGDMxZSx3kM8+S4ABA77VNpvSNRA6j4XYFqYblLcgiOTHxConj9JDzoMpBgU7AEMK0XYubrss2RP+G0eeX0tpgsDiAJ0LM9j+pMNAxzVYK0GKUAzy2QfEE=
