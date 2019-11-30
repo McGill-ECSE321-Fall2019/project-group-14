@@ -1,4 +1,4 @@
-package ca.mcgill.ecse321.tutoringsystem.ui.gallery;
+package ca.mcgill.ecse321.tutoringsystem.ui.schedule;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
