@@ -1,16 +1,16 @@
-package ca.mcgill.ecse321.tutoringsystem.ui.share;
+package ca.mcgill.ecse321.tutoringsystem.ui.reviews;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ShareViewModel extends ViewModel {
+public class ReviewsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ShareViewModel() {
+    public ReviewsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is share fragment");
+        mText.setValue("This is reviews fragment");
     }
 
     public LiveData<String> getText() {

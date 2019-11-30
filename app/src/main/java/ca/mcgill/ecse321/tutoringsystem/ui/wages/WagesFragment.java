@@ -1,4 +1,4 @@
-package ca.mcgill.ecse321.tutoringsystem.ui.home;
+package ca.mcgill.ecse321.tutoringsystem.ui.wages;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import ca.mcgill.ecse321.tutoringsystem.R;
 
-public class HomeFragment extends Fragment {
+public class WagesFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private WagesViewModel wagesViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(this, new Observer<String>() {
+        wagesViewModel =
+                ViewModelProviders.of(this).get(WagesViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_wages, container, false);
+        final TextView textView = root.findViewById(R.id.text_wages);
+        wagesViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

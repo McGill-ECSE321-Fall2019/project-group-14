@@ -1,16 +1,16 @@
-package ca.mcgill.ecse321.tutoringsystem.ui.home;
+package ca.mcgill.ecse321.tutoringsystem.ui.notification;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class NotificationViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public NotificationViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is notification fragment");
     }
 
     public LiveData<String> getText() {

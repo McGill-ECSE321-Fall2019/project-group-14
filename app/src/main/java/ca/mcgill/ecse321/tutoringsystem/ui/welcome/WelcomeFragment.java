@@ -1,4 +1,4 @@
-package ca.mcgill.ecse321.tutoringsystem.ui.send;
+package ca.mcgill.ecse321.tutoringsystem.ui.welcome;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import ca.mcgill.ecse321.tutoringsystem.R;
 
-public class SendFragment extends Fragment {
+public class WelcomeFragment extends Fragment {
 
-    private SendViewModel sendViewModel;
+    private WelcomeViewModel welcomeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        sendViewModel =
-                ViewModelProviders.of(this).get(SendViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_send, container, false);
-        final TextView textView = root.findViewById(R.id.text_send);
-        sendViewModel.getText().observe(this, new Observer<String>() {
+        welcomeViewModel =
+                ViewModelProviders.of(this).get(WelcomeViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_welcome, container, false);
+        final TextView textView = root.findViewById(R.id.text_welcome);
+        welcomeViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

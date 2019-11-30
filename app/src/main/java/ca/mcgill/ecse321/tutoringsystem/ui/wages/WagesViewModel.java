@@ -1,16 +1,16 @@
-package ca.mcgill.ecse321.tutoringsystem.ui.slideshow;
+package ca.mcgill.ecse321.tutoringsystem.ui.wages;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class WagesViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public WagesViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is wages fragment");
     }
 
     public LiveData<String> getText() {

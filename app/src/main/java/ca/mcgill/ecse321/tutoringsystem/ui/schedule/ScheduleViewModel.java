@@ -1,16 +1,16 @@
-package ca.mcgill.ecse321.tutoringsystem.ui.send;
+package ca.mcgill.ecse321.tutoringsystem.ui.schedule;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SendViewModel extends ViewModel {
+public class ScheduleViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SendViewModel() {
+    public ScheduleViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is send fragment");
+        mText.setValue("This is schedule fragment");
     }
 
     public LiveData<String> getText() {

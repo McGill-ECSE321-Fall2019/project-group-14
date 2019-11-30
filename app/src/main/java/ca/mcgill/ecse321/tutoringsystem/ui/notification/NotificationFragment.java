@@ -1,4 +1,4 @@
-package ca.mcgill.ecse321.tutoringsystem.ui.tools;
+package ca.mcgill.ecse321.tutoringsystem.ui.notification;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import ca.mcgill.ecse321.tutoringsystem.R;
 
-public class ToolsFragment extends Fragment {
+public class NotificationFragment extends Fragment {
 
-    private ToolsViewModel toolsViewModel;
+    private NotificationViewModel notificationViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        toolsViewModel =
-                ViewModelProviders.of(this).get(ToolsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tools, container, false);
-        final TextView textView = root.findViewById(R.id.text_tools);
-        toolsViewModel.getText().observe(this, new Observer<String>() {
+        notificationViewModel =
+                ViewModelProviders.of(this).get(NotificationViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_notification, container, false);
+        final TextView textView = root.findViewById(R.id.text_notification);
+        notificationViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

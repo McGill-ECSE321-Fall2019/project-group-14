@@ -3,41 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_welcome">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="ca.mcgill.ecse321.tutoringsystem.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_schedule"
+        android:name="ca.mcgill.ecse321.tutoringsystem.ui.schedule.ScheduleFragment"
+        android:label="@string/menu_schedule"
+        tools:layout="@layout/fragment_schedule" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="ca.mcgill.ecse321.tutoringsystem.ui.schedule.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_notification"
+        android:name="ca.mcgill.ecse321.tutoringsystem.ui.notification.NotificationFragment"
+        android:label="@string/menu_notification"
+        tools:layout="@layout/fragment_notification" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="ca.mcgill.ecse321.tutoringsystem.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_reviews"
+        android:name="ca.mcgill.ecse321.tutoringsystem.ui.reviews.ReviewsFragment"
+        android:label="@string/menu_reviews"
+        tools:layout="@layout/fragment_reviews" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="ca.mcgill.ecse321.tutoringsystem.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        android:id="@+id/nav_wages"
+        android:name="ca.mcgill.ecse321.tutoringsystem.ui.wages.WagesFragment"
+        android:label="@string/menu_wages"
+        tools:layout="@layout/fragment_wages" />
 
     <fragment
-        android:id="@+id/nav_share"
-        android:name="ca.mcgill.ecse321.tutoringsystem.ui.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
+        android:id="@+id/nav_settings"
+        android:name="ca.mcgill.ecse321.tutoringsystem.ui.settings.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
 
     <fragment
-        android:id="@+id/nav_send"
-        android:name="ca.mcgill.ecse321.tutoringsystem.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
+        android:id="@+id/nav_welcome"
+        android:name="ca.mcgill.ecse321.tutoringsystem.ui.welcome.WelcomeFragment"
+        android:label="@string/menu_welcome"
+        tools:layout="@layout/fragment_welcome" />
 </navigation>
