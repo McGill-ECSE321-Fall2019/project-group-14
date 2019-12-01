@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import ca.mcgill.ecse321.tutoringsystem.MainActivity;
 import ca.mcgill.ecse321.tutoringsystem.R;
 
 public class WagesFragment extends Fragment {
@@ -32,4 +33,5 @@ public class WagesFragment extends Fragment {
         });
         return root;
     }
+
 }

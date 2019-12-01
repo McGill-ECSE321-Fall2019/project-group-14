@@ -10,7 +10,7 @@ public class WagesViewModel extends ViewModel {
 
     public WagesViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is wages fragment");
+        mText.setValue("Browse Wages");
     }
 
     public LiveData<String> getText() {

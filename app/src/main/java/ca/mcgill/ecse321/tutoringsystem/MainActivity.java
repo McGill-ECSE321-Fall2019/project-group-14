@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -13,6 +14,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -20,7 +23,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -86,4 +97,101 @@ public class MainActivity extends AppCompatActivity {
             tvError.setVisibility(View.VISIBLE);
         }
     }*/
+
+    public void getInstitutions(View v) {
+        error = "";
+        final TextView tv = (TextView) findViewById(R.id.text_wages);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner_institution);
+        HttpUtils.get("institutions/", new RequestParams(), new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                ArrayList<String> institutions = new ArrayList<>();
+                for(int i=0; i < response.length(); i++){
+                    try {
+                        JSONObject institution = response.getJSONObject(i);
+                        institutions.add(institution.getString("institutionName"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                spinner.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, institutions));
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                try {
+                    error += errorResponse.get("message").toString();
+                } catch (JSONException e) {
+                    error += e.getMessage();
+                }
+                tv.setText(error);
+            }
+        });
+    }
+
+    public void getCourses(View v) {
+        error = "";
+        final TextView tv = (TextView) findViewById(R.id.text_wages);
+        final Spinner spinner_ins = (Spinner) findViewById(R.id.spinner_institution);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner_courses);
+
+        HttpUtils.get("courses/institution/" + spinner_ins.getSelectedItem().toString(), new RequestParams(), new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                ArrayList<String> courses = new ArrayList<>();
+                for(int i=0; i < response.length(); i++){
+                    try {
+                        JSONObject course = response.getJSONObject(i);
+                        courses.add(course.getString("courseName"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                spinner.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, courses));
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                try {
+                    error += errorResponse.get("message").toString();
+                } catch (JSONException e) {
+                    error += e.getMessage();
+                }
+                tv.setText(error);
+            }
+        });
+    }
+
+    public void getWages(View v) {
+        error = "";
+        final TextView tv = (TextView) findViewById(R.id.text_wages);
+        final Spinner spinner_crs = (Spinner) findViewById(R.id.spinner_courses);
+        final TextView wages_amounts = (TextView) findViewById(R.id.wages_amounts);
+
+        HttpUtils.get("wages/course/" + spinner_crs.getSelectedItem().toString(), new RequestParams(), new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                String amounts = "";
+                for(int i=0; i < response.length(); i++){
+                    try {
+                        JSONObject wage = response.getJSONObject(i);
+                        String wageCents = wage.getString("wage");
+                        String name = wage.getString("tutorName");
+                        double wageAmount = Double.parseDouble(wageCents) / 100;
+                        amounts += name + ": " + wageAmount + "\n";
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                wages_amounts.setText(amounts);
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                try {
+                    error += errorResponse.get("message").toString();
+                } catch (JSONException e) {
+                    error += e.getMessage();
+                }
+                tv.setText(error);
+            }
+        });
+    }
 }
