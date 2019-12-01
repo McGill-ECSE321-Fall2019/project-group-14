@@ -20,8 +20,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.TextView;
+
+import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
+    private String error = null;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -44,13 +48,16 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        /*
+        /* HIDES THE OPTIONS BEFORE LOGGING IN
         Menu nav_Menu = navigationView.getMenu();
         nav_Menu.findItem(R.id.nav_home).setVisible(false);
         nav_Menu.findItem(R.id.nav_gallery).setVisible(false);
         nav_Menu.findItem(R.id.nav_slideshow).setVisible(false);
         nav_Menu.findItem(R.id.nav_tools).setVisible(false);
         nav_Menu.findItem(R.id.nav_share).setVisible(false);*/
+
+        // initialize error message text view
+        //refreshErrorMessage();
 
     }
 
@@ -67,4 +74,16 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+    /*
+    private void refreshErrorMessage() {
+        // set the error message
+        TextView tvError = (TextView) findViewById(R.id.error);
+        tvError.setText(error);
+
+        if (error == null || error.length() == 0) {
+            tvError.setVisibility(View.GONE);
+        } else {
+            tvError.setVisibility(View.VISIBLE);
+        }
+    }*/
 }
