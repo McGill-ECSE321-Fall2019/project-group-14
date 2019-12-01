@@ -24,6 +24,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -98,6 +99,51 @@ public class MainActivity extends AppCompatActivity {
         }
     }*/
 
+
+    /*
+     * WELCOME PAGE METHODS
+     */
+
+    public void login(final View v) {
+        error = "";
+        final TextView tv = (TextView) findViewById(R.id.text_welcome);
+        final EditText email = (EditText) findViewById(R.id.login_email);
+        final EditText password = (EditText) findViewById(R.id.login_password);
+        final TextView tutorName = (TextView) findViewById(R.id.login_name);
+        final TextView tutorId = (TextView) findViewById(R.id.login_id);
+        RequestParams params = new RequestParams();
+        params.put("email", email.getText());
+        params.put("password", password.getText());
+        HttpUtils.post("login/", params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    String name = response.getString("name");
+                    int userId = response.getInt("userId");
+                    tutorName.setText(name);
+                    tutorId.setText(userId + "");
+
+                    // Hide Login and unhide the rest
+                    NavigationView navigationView = findViewById(R.id.nav_view);
+                    Menu nav_Menu = navigationView.getMenu();
+                    nav_Menu.findItem(R.id.nav_welcome).setVisible(false);
+                    Navigation.findNavController(v).navigate(R.id.nav_schedule);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                error += "Invalid Email or Password";
+                tv.setText(error);
+            }
+        });
+    }
+
+    /*
+     * BROWSE WAGE PAGE METHODS
+     */
+
     public void getInstitutions(View v) {
         error = "";
         final TextView tv = (TextView) findViewById(R.id.text_wages);
@@ -165,6 +211,81 @@ public class MainActivity extends AppCompatActivity {
         final TextView tv = (TextView) findViewById(R.id.text_wages);
         final Spinner spinner_crs = (Spinner) findViewById(R.id.spinner_courses);
         final TextView wages_amounts = (TextView) findViewById(R.id.wages_amounts);
+
+        HttpUtils.get("wages/course/" + spinner_crs.getSelectedItem().toString(), new RequestParams(), new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                String amounts = "";
+                for(int i=0; i < response.length(); i++){
+                    try {
+                        JSONObject wage = response.getJSONObject(i);
+                        String wageCents = wage.getString("wage");
+                        String name = wage.getString("tutorName");
+                        double wageAmount = Double.parseDouble(wageCents) / 100;
+                        amounts += name + ": " + wageAmount + "\n";
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                wages_amounts.setText(amounts);
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                try {
+                    error += errorResponse.get("message").toString();
+                } catch (JSONException e) {
+                    error += e.getMessage();
+                }
+                tv.setText(error);
+            }
+        });
+    }
+
+
+    /*
+     * SETTINGS PAGE METHODS
+     */
+
+    public void getTutorWages(View v) {
+        error = "";
+        final TextView tv = (TextView) findViewById(R.id.text_settings);
+        final TextView wages_amounts = (TextView) findViewById(R.id.tutors_wages);
+        final int tutorId = 1;
+
+        HttpUtils.get("wages/tutor/" + tutorId, new RequestParams(), new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                String amounts = "";
+                for(int i=0; i < response.length(); i++){
+                    try {
+                        JSONObject wage = response.getJSONObject(i);
+                        String wageCents = wage.getString("wage");
+                        String name = wage.getString("tutorName");
+                        double wageAmount = Double.parseDouble(wageCents) / 100;
+                        amounts += name + ": " + wageAmount + "\n";
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                wages_amounts.setText(amounts);
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                try {
+                    error += errorResponse.get("message").toString();
+                } catch (JSONException e) {
+                    error += e.getMessage();
+                }
+                tv.setText(error);
+            }
+        });
+    }
+
+    public void getTutorTimeslots(View v) {
+        error = "";
+        final TextView tv = (TextView) findViewById(R.id.text_settings);
+        final Spinner spinner_crs = (Spinner) findViewById(R.id.spinner_courses);
+        final TextView wages_amounts = (TextView) findViewById(R.id.tutors_timeslots);
 
         HttpUtils.get("wages/course/" + spinner_crs.getSelectedItem().toString(), new RequestParams(), new JsonHttpResponseHandler() {
             @Override

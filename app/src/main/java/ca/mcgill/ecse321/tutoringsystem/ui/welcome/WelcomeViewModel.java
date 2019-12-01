@@ -10,7 +10,7 @@ public class WelcomeViewModel extends ViewModel {
 
     public WelcomeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is welcome fragment");
+        mText.setValue("Log In");
     }
 
     public LiveData<String> getText() {
