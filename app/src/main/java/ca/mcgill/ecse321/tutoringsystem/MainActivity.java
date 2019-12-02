@@ -60,16 +60,13 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        /* HIDES THE OPTIONS BEFORE LOGGING IN
+        // HIDES THE OPTIONS BEFORE LOGGING IN
         Menu nav_Menu = navigationView.getMenu();
-        nav_Menu.findItem(R.id.nav_home).setVisible(false);
-        nav_Menu.findItem(R.id.nav_gallery).setVisible(false);
-        nav_Menu.findItem(R.id.nav_slideshow).setVisible(false);
-        nav_Menu.findItem(R.id.nav_tools).setVisible(false);
-        nav_Menu.findItem(R.id.nav_share).setVisible(false);*/
-
-        // initialize error message text view
-        //refreshErrorMessage();
+        nav_Menu.findItem(R.id.nav_schedule).setVisible(false);
+        nav_Menu.findItem(R.id.nav_notification).setVisible(false);
+        nav_Menu.findItem(R.id.nav_reviews).setVisible(false);
+        nav_Menu.findItem(R.id.nav_wages).setVisible(false);
+        nav_Menu.findItem(R.id.nav_settings).setVisible(false);
 
     }
 
@@ -86,47 +83,49 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-    /*
-    private void refreshErrorMessage() {
-        // set the error message
-        TextView tvError = (TextView) findViewById(R.id.error);
-        tvError.setText(error);
-
-        if (error == null || error.length() == 0) {
-            tvError.setVisibility(View.GONE);
-        } else {
-            tvError.setVisibility(View.VISIBLE);
-        }
-    }*/
-
 
     /*
      * WELCOME PAGE METHODS
      */
 
+    /**
+     * Allows the tutor to Log in to the app, sets the name and id on the side bar.
+     * @param v
+     */
     public void login(final View v) {
         error = "";
+        // Get text fields
         final TextView tv = (TextView) findViewById(R.id.text_welcome);
         final EditText email = (EditText) findViewById(R.id.login_email);
         final EditText password = (EditText) findViewById(R.id.login_password);
         final TextView tutorName = (TextView) findViewById(R.id.login_name);
         final TextView tutorId = (TextView) findViewById(R.id.login_id);
+
+        // Construct request parameter
         RequestParams params = new RequestParams();
         params.put("email", email.getText());
         params.put("password", password.getText());
+
+        // Send login post request
         HttpUtils.post("login/", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
+                    // Updates the side bar name and id
                     String name = response.getString("name");
                     int userId = response.getInt("userId");
                     tutorName.setText(name);
                     tutorId.setText(userId + "");
 
-                    // Hide Login and unhide the rest
+                    // Hide Login and unhide the rest of the nav options
                     NavigationView navigationView = findViewById(R.id.nav_view);
                     Menu nav_Menu = navigationView.getMenu();
                     nav_Menu.findItem(R.id.nav_welcome).setVisible(false);
+                    nav_Menu.findItem(R.id.nav_schedule).setVisible(true);
+                    nav_Menu.findItem(R.id.nav_notification).setVisible(true);
+                    nav_Menu.findItem(R.id.nav_reviews).setVisible(true);
+                    nav_Menu.findItem(R.id.nav_wages).setVisible(true);
+                    nav_Menu.findItem(R.id.nav_settings).setVisible(true);
                     Navigation.findNavController(v).navigate(R.id.nav_schedule);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -144,13 +143,22 @@ public class MainActivity extends AppCompatActivity {
      * BROWSE WAGE PAGE METHODS
      */
 
+    /**
+     * Gets the list of all institutions and updates the dropdown menu (spinner) options.
+     * @param v
+     */
     public void getInstitutions(View v) {
         error = "";
+
+        // Get elements
         final TextView tv = (TextView) findViewById(R.id.text_wages);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner_institution);
+
+        // Send get request
         HttpUtils.get("institutions/", new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                // Iterate through every institution, adding its name to an array
                 ArrayList<String> institutions = new ArrayList<>();
                 for(int i=0; i < response.length(); i++){
                     try {
@@ -160,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+                // Updates the institution dropdown menu
                 spinner.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, institutions));
             }
             @Override
@@ -174,15 +183,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Gets the list of courses from a chosen institution.
+     * @param v
+     */
     public void getCourses(View v) {
         error = "";
+
+        // Get elements
         final TextView tv = (TextView) findViewById(R.id.text_wages);
         final Spinner spinner_ins = (Spinner) findViewById(R.id.spinner_institution);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner_courses);
 
+        // Send get request
         HttpUtils.get("courses/institution/" + spinner_ins.getSelectedItem().toString(), new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                // Iterate through every course, adding its name to an array
                 ArrayList<String> courses = new ArrayList<>();
                 for(int i=0; i < response.length(); i++){
                     try {
@@ -192,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+                // Updates the course dropdown menu
                 spinner.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, courses));
             }
             @Override
@@ -206,15 +224,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Gets the list of wages from a chosen institution/course
+     * @param v
+     */
     public void getWages(View v) {
         error = "";
+
+        // Get elements
         final TextView tv = (TextView) findViewById(R.id.text_wages);
         final Spinner spinner_crs = (Spinner) findViewById(R.id.spinner_courses);
         final TextView wages_amounts = (TextView) findViewById(R.id.wages_amounts);
 
+        // Send get request
         HttpUtils.get("wages/course/" + spinner_crs.getSelectedItem().toString(), new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                // Iterate through all the wages, adding its wage & tutor name to the string
                 String amounts = "";
                 for(int i=0; i < response.length(); i++){
                     try {
@@ -227,6 +253,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+                // Display the constructed string
                 wages_amounts.setText(amounts);
             }
             @Override
@@ -246,27 +273,37 @@ public class MainActivity extends AppCompatActivity {
      * SETTINGS PAGE METHODS
      */
 
+    /**
+     * Gets the list of the logged in tutor's wages
+     * @param v
+     */
     public void getTutorWages(View v) {
         error = "";
+
+        // Get elements
         final TextView tv = (TextView) findViewById(R.id.text_settings);
         final TextView wages_amounts = (TextView) findViewById(R.id.tutors_wages);
-        final int tutorId = 1;
+        final TextView tutorIdField = (TextView) findViewById(R.id.login_id);
+        final int tutorId = Integer.parseInt(tutorIdField.getText().toString());
 
+        // Send get request
         HttpUtils.get("wages/tutor/" + tutorId, new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                // Iterate through all the wages, adding its wage & course name to the string
                 String amounts = "";
                 for(int i=0; i < response.length(); i++){
                     try {
                         JSONObject wage = response.getJSONObject(i);
                         String wageCents = wage.getString("wage");
-                        String name = wage.getString("tutorName");
+                        String courseName = wage.getString("courseName");
                         double wageAmount = Double.parseDouble(wageCents) / 100;
-                        amounts += name + ": " + wageAmount + "\n";
+                        amounts += courseName + ": " + wageAmount + "\n";
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
+                // Display the constructed string
                 wages_amounts.setText(amounts);
             }
             @Override
@@ -281,28 +318,37 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Gets the list of the logged in tutor's timeslots
+     * @param v
+     */
     public void getTutorTimeslots(View v) {
         error = "";
-        final TextView tv = (TextView) findViewById(R.id.text_settings);
-        final Spinner spinner_crs = (Spinner) findViewById(R.id.spinner_courses);
-        final TextView wages_amounts = (TextView) findViewById(R.id.tutors_timeslots);
 
-        HttpUtils.get("wages/course/" + spinner_crs.getSelectedItem().toString(), new RequestParams(), new JsonHttpResponseHandler() {
+        // Get elements
+        final TextView tv = (TextView) findViewById(R.id.text_settings);
+        final TextView tutors_timeslots = (TextView) findViewById(R.id.tutors_timeslots);
+        final TextView tutorIdField = (TextView) findViewById(R.id.login_id);
+        final int tutorId = Integer.parseInt(tutorIdField.getText().toString());
+
+        // Send get request
+        HttpUtils.get("timeslots/tutor/" + tutorId, new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                String amounts = "";
+                // Iterate through all the timeslots, adding its date & time to the string
+                String timeslots = "";
                 for(int i=0; i < response.length(); i++){
                     try {
-                        JSONObject wage = response.getJSONObject(i);
-                        String wageCents = wage.getString("wage");
-                        String name = wage.getString("tutorName");
-                        double wageAmount = Double.parseDouble(wageCents) / 100;
-                        amounts += name + ": " + wageAmount + "\n";
+                        JSONObject slot = response.getJSONObject(i);
+                        String date = slot.getString("date");
+                        String time = slot.getString("time");
+                        timeslots += date + " at " + time + "\n";
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
-                wages_amounts.setText(amounts);
+                // Display the constructed string
+                tutors_timeslots.setText(timeslots);
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
