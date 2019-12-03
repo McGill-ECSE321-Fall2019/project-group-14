@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "A Vue.js frontend for TutoringSystem App",
-  "author": "Tian Ci Liu < >",
+  "author": "Tian Ci Liu <***REMOVED***>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
