@@ -23,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="540dp"
         android:layout_marginEnd="8dp"
         android:autoLink="all"
         android:text="To accept or reject your pending requests, visit the web version at \nhttps://tutoringsystem-frontend-14.herokuapp.com/"
@@ -32,10 +31,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/requested" />
 
     <TextView
-        android:id="@+id/uhh"
+        android:id="@+id/sessions"
         android:layout_width="0dp"
         android:layout_height="169dp"
         android:layout_marginStart="24dp"
@@ -74,10 +73,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uhh" />
+        app:layout_constraintTop_toBottomOf="@+id/sessions" />
 
     <TextView
-        android:id="@+id/pp"
+        android:id="@+id/requested"
         android:layout_width="0dp"
         android:layout_height="167dp"
         android:layout_marginStart="24dp"

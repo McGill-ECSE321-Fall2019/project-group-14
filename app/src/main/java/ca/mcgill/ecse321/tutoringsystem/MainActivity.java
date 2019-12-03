@@ -138,13 +138,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*
+     * SCHEDULE METHODS
+     */
+
+    /**
+     * Retrieves the logged in tutor's schedule
+     * @param v
+     */
     public void getSchedule(View v) {
         error = "";
-        final TextView tv1 = (TextView) findViewById(R.id.uhh);
-        final TextView tv2 = (TextView) findViewById(R.id.pp);
+        // Get elements
+        final TextView tv1 = (TextView) findViewById(R.id.sessions);
+        final TextView tv2 = (TextView) findViewById(R.id.requested);
         final TextView tutorIdField = (TextView) findViewById(R.id.login_id);
         final int tutorId = Integer.parseInt(tutorIdField.getText().toString());
 
+        // Sends get request
         HttpUtils.get("requests/tutor/" + tutorId, new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -171,6 +181,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+                // Displays data
                 tv1.setText(requestDisplay);
                 tv2.setText(pendingDisplay);
             }
