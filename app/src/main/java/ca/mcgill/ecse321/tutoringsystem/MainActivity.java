@@ -2,10 +2,6 @@ package ca.mcgill.ecse321.tutoringsystem;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.util.Log;
 import android.view.View;
 import android.net.Uri;
 import androidx.navigation.NavController;
@@ -138,6 +134,54 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 error += "Invalid Email or Password";
                 tv.setText(error);
+            }
+        });
+    }
+
+    public void getSchedule(View v) {
+        error = "";
+        final TextView tv1 = (TextView) findViewById(R.id.uhh);
+        final TextView tv2 = (TextView) findViewById(R.id.pp);
+        final TextView tutorIdField = (TextView) findViewById(R.id.login_id);
+        final int tutorId = Integer.parseInt(tutorIdField.getText().toString());
+
+        HttpUtils.get("requests/tutor/" + tutorId, new RequestParams(), new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                String requestDisplay = "";
+                String pendingDisplay = "";
+                for(int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject request = response.getJSONObject(i);
+                        JSONObject student = request.getJSONObject("student");
+                        JSONObject course = request.getJSONObject("course");
+                        String studentName = student.getString("name");
+                        String date = request.getString("date");
+                        String time = request.getString("time");
+                        String courseName = course.getString("courseName");
+
+                        try {
+                            JSONObject room = request.getJSONObject("room");
+                            String roomNumber = room.getString("roomNumber");
+                            requestDisplay += "" + date + " at " + time + " at " + roomNumber + " with " + studentName + " for " + courseName + "\n";
+                        } catch (JSONException e) {
+                            pendingDisplay += "" + date + " at " + time + " with " + studentName + " for " + courseName + "\n";
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                tv1.setText(requestDisplay);
+                tv2.setText(pendingDisplay);
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                try {
+                    error += errorResponse.get("message").toString();
+                } catch (JSONException e) {
+                    error += e.getMessage();
+                }
+                tv1.setText(error);
             }
         });
     }
