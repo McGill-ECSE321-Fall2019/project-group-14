@@ -20,20 +20,23 @@
 
     <TextView
         android:id="@+id/reviewlist"
-        android:layout_width="370dp"
-        android:layout_height="534dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showreviewsButton" />
 
     <Button
         android:id="@+id/showreviewsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="285dp"
-        android:layout_marginTop="82dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="285dp"
         android:onClick="getTutorReviews"
         android:text="Show reviews"

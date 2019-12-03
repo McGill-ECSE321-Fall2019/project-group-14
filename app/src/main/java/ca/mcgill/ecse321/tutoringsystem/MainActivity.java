@@ -482,10 +482,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Get reviews
+     * Apply button
      * @param v
      */
-
     public void apply(View v) {
         Intent httpIntent = new Intent(Intent.ACTION_VIEW);
         httpIntent.setData(Uri.parse("https://tutoringsystem-frontend-14.herokuapp.com/#/apply"));
