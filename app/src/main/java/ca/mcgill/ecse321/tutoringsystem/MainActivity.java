@@ -7,7 +7,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import android.util.Log;
 import android.view.View;
-
+import android.net.Uri;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -17,6 +17,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import android.content.Intent;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -360,5 +361,64 @@ public class MainActivity extends AppCompatActivity {
                 tv.setText(error);
             }
         });
+    }
+
+    /**
+     * Get reviews from the tutor
+     * @param v
+     */
+    public void getTutorReviews(View v) {
+        error = "";
+
+        final TextView tv = (TextView) findViewById(R.id.text_reviews);
+        final TextView tutorReviews = (TextView) findViewById(R.id.reviewlist);
+        final TextView tutorIdField = (TextView) findViewById(R.id.login_id);
+        final int tutorId = Integer.parseInt(tutorIdField.getText().toString());
+
+        // Send get request
+        HttpUtils.get("reviews/tutor/" + tutorId, new RequestParams(), new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                // Iterate through all the wages, adding its wage & course name to the string
+                String reviews = "";
+                for(int i=0; i < response.length(); i++){
+                    try {
+                        JSONObject review = response.getJSONObject(i);
+                        JSONObject fromObject = review.getJSONObject("from");
+
+                        String rating = review.getString("rating");
+                        String comment = review.getString("comment");
+                        String fromName = fromObject.getString("name");
+
+                        reviews += "From " + fromName + ": " + rating + " stars" + " - " + comment + "\n";
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                // Display the constructed string
+                tutorReviews.setText(reviews);
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                try {
+                    error += errorResponse.get("message").toString();
+                } catch (JSONException e) {
+                    error += e.getMessage();
+                }
+                tutorReviews.setText(error);
+            }
+        });
+    }
+
+    /**
+     * Get reviews
+     * @param v
+     */
+
+    public void apply(View v) {
+        Intent httpIntent = new Intent(Intent.ACTION_VIEW);
+        httpIntent.setData(Uri.parse("https://tutoringsystem-frontend-14.herokuapp.com/#/apply"));
+
+        startActivity(httpIntent);
     }
 }
