@@ -385,7 +385,7 @@ public class MainActivity extends AppCompatActivity {
     public void getRequestsById(View v) {
         error = "";
 
-        final TextView tv = (TextView) findViewById(R.id.text_wages);
+        final TextView tv = (TextView) findViewById(R.id.text_notifications);
         final TextView students_requests = (TextView) findViewById(R.id.students_requests);
         final TextView tutorIdField = (TextView) findViewById(R.id.login_id);
         final int tutorId = Integer.parseInt(tutorIdField.getText().toString());
