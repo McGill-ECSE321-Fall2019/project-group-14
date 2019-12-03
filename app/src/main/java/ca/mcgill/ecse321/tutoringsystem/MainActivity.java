@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Allows the tutor to Log in to the app, sets the name and id on the side bar.
+     *
      * @param v
      */
     public void login(final View v) {
@@ -132,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 error += "Invalid Email or Password";
@@ -146,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Gets the list of all institutions and updates the dropdown menu (spinner) options.
+     *
      * @param v
      */
     public void getInstitutions(View v) {
@@ -161,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 // Iterate through every institution, adding its name to an array
                 ArrayList<String> institutions = new ArrayList<>();
-                for(int i=0; i < response.length(); i++){
+                for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject institution = response.getJSONObject(i);
                         institutions.add(institution.getString("institutionName"));
@@ -172,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 // Updates the institution dropdown menu
                 spinner.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, institutions));
             }
+
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 try {
@@ -186,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Gets the list of courses from a chosen institution.
+     *
      * @param v
      */
     public void getCourses(View v) {
@@ -202,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 // Iterate through every course, adding its name to an array
                 ArrayList<String> courses = new ArrayList<>();
-                for(int i=0; i < response.length(); i++){
+                for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject course = response.getJSONObject(i);
                         courses.add(course.getString("courseName"));
@@ -213,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
                 // Updates the course dropdown menu
                 spinner.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, courses));
             }
+
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 try {
@@ -227,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Gets the list of wages from a chosen institution/course
+     *
      * @param v
      */
     public void getWages(View v) {
@@ -243,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 // Iterate through all the wages, adding its wage & tutor name to the string
                 String amounts = "";
-                for(int i=0; i < response.length(); i++){
+                for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject wage = response.getJSONObject(i);
                         String wageCents = wage.getString("wage");
@@ -257,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
                 // Display the constructed string
                 wages_amounts.setText(amounts);
             }
+
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 try {
@@ -276,6 +284,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Gets the list of the logged in tutor's wages
+     *
      * @param v
      */
     public void getTutorWages(View v) {
@@ -293,7 +302,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 // Iterate through all the wages, adding its wage & course name to the string
                 String amounts = "";
-                for(int i=0; i < response.length(); i++){
+                for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject wage = response.getJSONObject(i);
                         String wageCents = wage.getString("wage");
@@ -307,6 +316,7 @@ public class MainActivity extends AppCompatActivity {
                 // Display the constructed string
                 wages_amounts.setText(amounts);
             }
+
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 try {
@@ -321,6 +331,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Gets the list of the logged in tutor's timeslots
+     *
      * @param v
      */
     public void getTutorTimeslots(View v) {
@@ -338,7 +349,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 // Iterate through all the timeslots, adding its date & time to the string
                 String timeslots = "";
-                for(int i=0; i < response.length(); i++){
+                for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject slot = response.getJSONObject(i);
                         String date = slot.getString("date");
@@ -351,6 +362,66 @@ public class MainActivity extends AppCompatActivity {
                 // Display the constructed string
                 tutors_timeslots.setText(timeslots);
             }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                try {
+                    error += errorResponse.get("message").toString();
+                } catch (JSONException e) {
+                    error += e.getMessage();
+                }
+                tv.setText(error);
+            }
+        });
+    }
+    /*
+     * NOTIFICATIONS PAGE METHODS
+     */
+
+    /**
+     * Gets the list of requests from a tutor
+     *
+     * @param v
+     */
+    public void getRequestsById(View v) {
+        error = "";
+
+        final TextView tv = (TextView) findViewById(R.id.text_notification);
+        final TextView students_requests = (TextView) findViewById(R.id.students_requests);
+        final TextView tutorIdField = (TextView) findViewById(R.id.login_id);
+        final int tutorId = Integer.parseInt(tutorIdField.getText().toString());
+        HttpUtils.get("/requests/tutor/" + tutorId, new RequestParams(), new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                // Iterate through all the requests, adding its date & time to the string
+                String notification = "";
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject slot = response.getJSONObject(i);
+                        JSONObject student = slot.getJSONObject("student");
+                        JSONObject courseDto = slot.getJSONObject("course");
+                        String requestedBy = student.getString("name");
+                        String date = slot.getString("date");
+                        String time = slot.getString("time");
+                        String course = courseDto.getString("courseName");
+                        //String type = slot.getString("type");
+                        try {
+                            JSONObject roomDto = slot.getJSONObject("room");
+                            String room = roomDto.getString("roomNumber");
+                            notification += "Requested by: " + requestedBy + " For: " + course + " on " + date + " at " + time + " in room " + room + " ACCEPTED \n";
+                        } catch (JSONException e) {
+                            notification += "Requested by: " + requestedBy + " For: " + course + " on " + date + " at " + time + " PENDING\n";
+
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                // Display the constructed string
+                students_requests.setText(notification);
+            }
+
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 try {
