@@ -385,7 +385,7 @@ public class MainActivity extends AppCompatActivity {
     public void getRequestsById(View v) {
         error = "";
 
-        final TextView tv = (TextView) findViewById(R.id.text_notifications);
+        final TextView tv = (TextView) findViewById(R.id.text_notification);
         final TextView students_requests = (TextView) findViewById(R.id.students_requests);
         final TextView tutorIdField = (TextView) findViewById(R.id.login_id);
         final int tutorId = Integer.parseInt(tutorIdField.getText().toString());
@@ -407,9 +407,9 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             JSONObject roomDto = slot.getJSONObject("room");
                             String room = roomDto.getString("roomNumber");
-                            notification += "Requested by: " + requestedBy + " For: " + course + " on " + date + " at " + time + " in room " + room + "\n";
+                            notification += "Requested by: " + requestedBy + " For: " + course + " on " + date + " at " + time + " in room " + room + " ACCEPTED \n";
                         } catch (JSONException e) {
-                            notification += "Requested by: " + requestedBy + " For: " + course + " on " + date + " at " + time + "\n";
+                            notification += "Requested by: " + requestedBy + " For: " + course + " on " + date + " at " + time + " PENDING\n";
 
                         }
 
